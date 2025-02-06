@@ -1,2 +1,8 @@
-# FoodTruck 🍔
-Este site foi feito a partir de um problema da empresa Sanctus Panis, onde o mesmo será o meu TCC (Trabalho de Conclusão de Curso). O problema a ser sanado é a falta de uma comanda virtual, que facilite o processo de atendimento e minimize os erros em comandas de papel.
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

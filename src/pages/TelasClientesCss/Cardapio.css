@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
+
+body {
+    background-color: #000000;
+    font-family: 'Alata', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.cardapio {
+    background-color: #000000;
+    margin-top: 0;
+    font-family: 'Alata', sans-serif;
+    padding: 5%;
+}
+
+.cardapio-container {
+    text-align: center;
+}
+
+.confira-lancamentos {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 47%;
+    gap: 20px;
+    color: #ffffff;
+    padding-right: 5%;
+
+}
+
+.confira-lancamentos .confira-img img {
+    width: 50%;
+    height: auto;
+}
+
+.confira-texto {
+    text-align: left;
+    flex: 1;
+}
+
+.confira-titulo {
+    font-size: 3.5vw;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.confira-highlight {
+    border-bottom: 0.3vw solid #FFBA21;
+}
+
+.confira-subtexto {
+    font-size: 1.6vw;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.incos {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 7%;
+    text-align: left;
+}
+
+.incos p {
+    color: #ffffff;
+    margin-top: 5px;
+    font-size: 1.5vw;
+}
+
+.lancamento-titulo {
+    font-size: 3.5vw;
+    color: #ffffff;
+    margin: 5%;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.lancamentos-highlight {
+    border-bottom: 0.3vw solid #B42625;
+}
+
+.lancamento-produtos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    /* padding-left: 5%;
+    padding-right: 5%; */
+}
+
+.lancamento-produtos p {
+    font-size: 1.5vw;
+    color: #FFBA21;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.produtos01, .produtos02, .produtos03 {
+    border-radius: 30px;
+    border: 0.3vw solid #FFBA21;
+    padding: 5% 0;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    position: relative;
+}
+
+.produtos01 img, .produtos02 img, .produtos03 img {
+    width: 50%;
+    height: auto;
+    transition: all 0.5s;
+}
+
+.produtos01:hover, .produtos02:hover, .produtos03:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1);
+    background-color: #FFBA21;
+    color: #B42625;
+}
+
+.produtos01 p, .produtos02 p, .produtos03 p {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; 
+    padding: 5px; 
+    text-align: center;
+    width: 100%;
+}
+
+.produtos01:hover p, .produtos02:hover p, .produtos03:hover p {
+    color: #B42625; 
+}
+
+.produtos01:hover img, .produtos02:hover img, .produtos03:hover img {
+    transform: scale(1.2); 
+}
+
+.cardapio-titulo {
+    font-size: 3.5vw;
+    color: #ffffff;
+    margin: 5%;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.cardapio-highlight {
+    border-bottom: 0.3vw solid #B42625;
+}
