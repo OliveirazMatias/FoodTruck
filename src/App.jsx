@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Cardapio from './pages/TelasClientes/Cardapio';
 import Carrinho from './pages/TelasClientes/Carrinho';
 import Pedidos from './pages/TelasClientes/Pedidos';
+import Comida from './components/comida';
 import './App.css';
 import imglogo from './assets/logo/logo.png';
 
@@ -18,7 +19,7 @@ function App() {
         </header>
 
         <Routes>
-          <Route path="/" element={<Cardapio />} />
+          <Route path="/" element={<Comida />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/carrinho" element={<Carrinho />} />
         </Routes>
