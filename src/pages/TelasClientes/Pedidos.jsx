@@ -1,5 +1,4 @@
 import '../TelasClientesCss/Pedidos.css'; // Importando o CSS específico
-import imagemPedido from '../../assets/lanche.jpg'; // Importe a imagem
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -32,15 +31,6 @@ function Pedidos() {
           <li>Pedido 2 - R$ 39,90 - Status: Em andamento</li>
           <li>Pedido 3 - R$ 99,90 - Status: Concluído</li>
         </ul>
-        <div className='teste-pedido' onClick={handleOpen}>
-          <img src={imagemPedido} alt="Imagem do Pedido" />
-          <div className='hamburguer'>
-            Hamburguer
-            <div className='descricao'>
-              Delicioso hambúrguer com queijo, alface, tomate e pão.
-            </div>
-          </div>
-        </div>
       </div>
       <Modal
         open={open}
