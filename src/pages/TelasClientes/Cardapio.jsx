@@ -1,10 +1,10 @@
 import '../TelasClientesCss/Cardapio.css';
 import '../../App.css'
-import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
-import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
-import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
-import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
-import imglancamentos from '../../assets/confiralancamentos/lancamentos.jpg';
+import imgconfira from '../../assets/cardapio/confiralancamentos/confiralancamentos.jpg';
+import imginconlanche from '../../assets/cardapio/confiralancamentos/iconlanche.jpg';
+import imginconbebidas from '../../assets/cardapio/confiralancamentos/iconbebidas.jpg';
+import imginconacompanhamento from '../../assets/cardapio/confiralancamentos/iconacompanhamentos.jpg';
+import imglancamentos from '../../assets/cardapio/confiralancamentos/lancamentos.jpg';
 import NavBarCardapio from '../../components/NavBarCardapio/NavBarCardapio';
 
 function Cardapio() {

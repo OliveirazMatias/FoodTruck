@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Cardapio from './pages/TelasClientes/Cardapio';
 import Carrinho from './pages/TelasClientes/Carrinho';
-import Pedidos from './pages/TelasClientes/Pedidos';
+import Pedidos from './pages/TelasClientes/QuemSomos';
 import './App.css';
 import imglogo from './assets/logo/logo.png';
 
@@ -12,14 +12,14 @@ function App() {
           <nav>
             <img className="logo" src={imglogo} alt="logo" />
             <Link to="/" className="nav-link">CARDÁPIO</Link>
-            <Link to="/pedidos" className="nav-link">QUEM SOMOS</Link>
+            <Link to="/quemsomos" className="nav-link">QUEM SOMOS</Link>
             <Link to="/carrinho" className="nav-link">CARRINHO</Link>
           </nav>
         </header>
 
         <Routes>
           <Route path="/" element={<Cardapio />} />
-          <Route path="/pedidos" element={<Pedidos />} />
+          <Route path="/quemsomos" element={<Pedidos />} />
           <Route path="/carrinho" element={<Carrinho />} />
         </Routes>
     </Router>
