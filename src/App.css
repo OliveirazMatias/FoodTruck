@@ -68,11 +68,11 @@ nav {
 .nav-link:hover {
   text-decoration: underline;
 }
-
+/* 
 div {
   flex: 1;
   text-align: center;
-}
+} */
 
 h1 {
   color: #333;

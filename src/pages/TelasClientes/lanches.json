@@ -1,0 +1,67 @@
+[
+    {
+      "ID": 1,
+      "Nome": "X-BURGUER",
+      "Descricao": "Hambúrguer, queijo, tomate, alface, picles e maionese.",
+      "Preco": 24.01,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-19T12:00:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+    },
+    {
+      "ID": 2,
+      "Nome": "Pizza",
+      "Descricao": "Massa crocante, queijo derretido e calabresa",
+      "Preco": 39.99,
+      "Quantidade": 5,
+      "data_entrada": "2024-02-18T15:30:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+    },
+    {
+      "ID": 3,
+      "Nome": "Milkshake de Chocolate",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 12.50,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 3,
+      "Nome": "Milkshake de Chocolate",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 12.50,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 3,
+      "Nome": "Milkshake de Chocolate",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 12.50,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 3,
+      "Nome": "Milkshake de Chocolate",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 12.50,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    }
+  ]
+  

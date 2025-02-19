@@ -4,9 +4,16 @@ import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
 import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
 import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
 import imglancamentos from '../../assets/confiralancamentos/lancamentos.jpg';
-import imgxsalada from '../../assets/cardapio/x-salada.jpg';
+import { useState, useEffect } from "react";
+import lanchesData from '../TelasClientes/lanches.json';
 
 function Cardapio() {
+    const [lanches, setLanches] = useState([]);
+
+    useEffect(() => {
+        setLanches(lanchesData);
+    }, []);
+
     return (
         <div className='cardapio'>
             <div className="confira-lancamentos">
@@ -36,52 +43,39 @@ function Cardapio() {
                     </div>
                 </div>
             </div>
+
             <div className='lancamentos'>
                 <h1 className='lancamento-titulo'>
-                <span className="lancamentos-highlight">Lançamentos</span>
+                    <span className="lancamentos-highlight">Lançamentos</span>
                 </h1>
                 <div className='lancamento-produtos'>
-                    <div className='produtos01'>
-                        <a href="">
+                    {[...Array(3)].map((_, index) => (
+                        <div key={index} className={`produtos0${index + 1}`}>
                             <p>Duplo Carne</p>
-                            <img src={imglancamentos} alt="produto01" />
-                        </a>
-                    </div>
-                    <div className='produtos02'>
-                        <a href="">
-                            <p>Duplo Carne</p>
-                            <img src={imglancamentos} alt="produto02" />
-                        </a>
-                    </div>
-                    <div className='produtos03'>
-                        <a href="">
-                            <p>Duplo Carne</p>
-                            <img src={imglancamentos} alt="produto03" />
-                        </a>
-                    </div>
+                            <img src={imglancamentos} alt={`produto0${index + 1}`} />
+                        </div>
+                    ))}
                 </div>
             </div>
+
             <div className='cardapio-pedidos'>
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>
                 </h1>
                 <div className='cardapio-opcoes'>
                     <div className='lanches'>
-                        <div className='opcao01'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
-                        <div className='opcao02'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
-                        <div className='opcao03'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
+                        {lanches.map((lanche, index) => (
+                            <div key={index} className='food_body'>
+                                <div className="image_div">
+                                    <img src={lanche.Imagem} alt={lanche.Nome} className="image" />
+                                </div>
+                                <div className="food_text">
+                                    <h2 className="nome_comida">{lanche.Nome}</h2>
+                                    <p className="descricao">{lanche.Descricao}</p>
+                                    <div className="preco">R$ {lanche.Preco}</div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

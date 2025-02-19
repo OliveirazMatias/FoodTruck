@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
+div {
+    flex: 1;
+    text-align: center;
+  }
+
+
 body {
     background-color: #000000;
     font-family: 'Alata', sans-serif;
@@ -156,4 +162,67 @@ body {
 
 .cardapio-highlight {
     border-bottom: 0.3vw solid #B42625;
+}
+
+
+
+
+.lanches{
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(auto-fill, minmax(5rem, 20rem));
+    margin-top: 5%;
+    margin-left: 15rem;
+    margin-right: 15rem;
+
+}
+
+
+.food_body{
+    align-items: center;
+    width: calc(33.33%);
+    max-width: 15rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nome_comida{
+    color: white;
+    font-family: "Belanosima", serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: start;
+}
+
+.food_text{
+    color: white;
+}
+
+.descricao{
+    color: white;
+    text-align: start;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.preco{
+    text-align: start;
+    color: #FFBA21;
+    font-size: 17px;
+}
+.image{
+    padding: 5%;
+    border-radius: 10px;
+    width: 12rem;
+}
+
+.image_div{
+    background-color: #FFBA21;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
 }
