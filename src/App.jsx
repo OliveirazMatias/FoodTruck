@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Cardapio from './pages/TelasClientes/Cardapio';
 import Carrinho from './pages/TelasClientes/Carrinho';
-import Pedidos from './pages/TelasClientes/QuemSomos';
+import Quemsomos from './pages/TelasClientes/QuemSomos';
+import Login from './pages/TelasColaboradores/Login';
 import './App.css';
 import imglogo from './assets/logo/logo.png';
 
@@ -19,8 +20,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Cardapio />} />
-          <Route path="/quemsomos" element={<Pedidos />} />
+          <Route path="/quemsomos" element={<Quemsomos />} />
           <Route path="/carrinho" element={<Carrinho />} />
+
+          <Route path="/login" element={<Login />} />
         </Routes>
     </Router>
   );

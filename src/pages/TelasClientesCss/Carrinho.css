@@ -43,23 +43,56 @@ body {
     background: #141C1E;
 }
 
-
-.pedidos-carrinho{
+.pedidos-carrinho {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 }
 
-.img-lanche{
+.img-lanche {
     width: 10%;
     height: auto;
+    margin-right: 1vw;
 }
 
-.opcoes-consumo{
+.textos-lanche {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.nome-lanche {
+    font-size: 1.5vw;
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.descricao-lanche {
+    font-size: 1.2vw;
+    color: #ffffff;
+    margin: 0;
+    margin-top: 0.5vw;
+    font-family: 'Alata', sans-serif;
+}
+
+.preco-unitario {
+    font-size: 1.5vw;
+    color: #B42625;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.opcoes-consumo {
     display: flex;
     padding-left: 10%;
 }
 
-.titulo-opcoes{
+.titulo-opcoes {
     font-size: 2.5vw;
     color: #ffffff;
     margin: 0;
@@ -67,4 +100,35 @@ body {
     font-family: 'Belanosima', serif;
     font-weight: 600;
     border-bottom: 0.3vw solid #B42625;
+}
+
+.total-compra {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5vw;
+    color: #ffffff;
+    margin-top: 2rem;
+}
+
+.lista-pedidos {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.finalizar-pedido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+.pedido-finalizado {
+    border-radius: 20px;
+    background: #B42625;
+    color: #ffffff;
+    font-size: 1.5vw;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
 }
