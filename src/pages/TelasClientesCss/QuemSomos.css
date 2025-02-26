@@ -1,0 +1,179 @@
+
+body, html{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.quem_somos {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: var(--vermelho);
+    z-index: 1;
+}
+
+.quem_somos_img {
+    width: 55%;
+    height: 100%;
+    background-image: url('../../assets/quemsomos/foodtruck.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.quem_somos_img .img_overlay {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, transparent, var(--vermelho));
+}
+
+.quem_somos_text {
+    width: 40%;
+    text-align: center;
+    color: white;
+    font-family: 'Belanosima';
+}
+
+.quem_somos_text h1 {
+    font-size: 80px;
+    text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.219);
+}
+
+.quem_somos_text p {
+    font-size: 20px;
+}
+
+.quem_somos_detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 110px 10%; 
+    min-height: 400px; 
+    width: 100%; 
+}
+
+.quem_somos_texto {
+    flex: 1;
+    color: white;
+    font-family: 'Belanosima';
+    text-align: left;
+    padding-right: 40px;
+}
+
+.quem_somos_texto h2 {
+    font-size: 40px;
+    color: #FFBA21;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.quem_somos_texto p {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.quem_somos_imagem {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-equipe {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.fita {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background-color: #d8b08c;
+    opacity: 0.7;
+}
+
+.fita-topo {
+    top: -20px;
+    left: 20px;
+    transform: rotate(-10deg);
+}
+
+.fita-base {
+    bottom: -20px;
+    right: 20px;
+    transform: rotate(10deg);
+}
+
+.contato_localizacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--vermelho);
+    color: white;
+    padding: 40px 10%;
+    font-family: 'Belanosima', sans-serif;
+}
+
+.contato {
+    flex: 1;
+    text-align: center;
+}
+
+.contato h2,
+.localizacao h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.contato_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.contato_item img {
+    width: 30px;
+    height: 30px;
+}
+
+.linha_divisoria {
+    width: 3px;
+    height: 150px;
+    background-color: #ffc107;
+    margin: 0 40px;
+}
+
+.localizacao {
+    flex: 1;
+    text-align: center;
+}
+
+.mapa_container img {
+    width: 40%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .contato_localizacao {
+        flex-direction: column;
+    }
+
+    .linha_divisoria {
+        display: none;
+    }
+}

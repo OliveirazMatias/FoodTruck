@@ -21,6 +21,10 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --vermelho: #B42625;
 }
 
 html, body {
@@ -29,11 +33,11 @@ html, body {
   font-family: 'Alata', sans-serif; 
 }
 
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+} */
 
 .header {
   background-color: white;
@@ -47,7 +51,7 @@ html, body {
   top: 0;
   left: 0;
   right: 0  ;
-  width: 100%;
+  width: 100vw;
   z-index: 1000; 
 }
 
@@ -62,26 +66,25 @@ nav {
   text-decoration: none;
   margin: 0 15px;
   font-size: 3vh;
-  font-weight: bold;
 }
 
 .nav-link:hover {
   text-decoration: underline;
 }
 
-div {
+/* div {
   flex: 1;
   text-align: center;
-}
+} */
 
-h1 {
+/* h1 {
   color: #333;
   font-family: 'Alata', sans-serif;
 }
 
 p {
   color: #666;
-}
+} */
 
 .content {
   padding-top: 60px; 
