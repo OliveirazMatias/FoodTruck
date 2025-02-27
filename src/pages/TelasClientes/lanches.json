@@ -2,8 +2,8 @@
     {
       "ID": 1,
       "Nome": "X-BURGUER",
-      "Descricao": "Hambúrguer, queijo, tomate, alface, picles e maionese.",
-      "Preco": 24.01,
+      "Descricao": "Hambúrguer, queijo chedar, tomate, alface, cebola e maionese.",
+      "Preco": 24.00,
       "Quantidade": 10,
       "data_entrada": "2024-02-19T12:00:00Z",
       "Disponibilidade": "disponível",
@@ -11,19 +11,19 @@
     },
     {
       "ID": 2,
-      "Nome": "Pizza",
-      "Descricao": "Massa crocante, queijo derretido e calabresa",
-      "Preco": 39.99,
+      "Nome": "X-SALADA",
+      "Descricao": "Hambúrguer, queijo , tomate, alface, picles e maionese.",
+      "Preco": 40.00,
       "Quantidade": 5,
       "data_entrada": "2024-02-18T15:30:00Z",
       "Disponibilidade": "disponível",
-      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+      "Imagem": "https://i.pinimg.com/originals/16/e4/09/16e409146a92ed32ee096285f1867825.png"
     },
     {
-      "ID": 3,
-      "Nome": "Milkshake de Chocolate",
-      "Descricao": "Leite, sorvete de chocolate e cobertura",
-      "Preco": 12.50,
+      "ID": 4,
+      "Nome": "X-FRANGO",
+      "Descricao": "Hambúrguer de frango, queijo , tomate, alface e cebola.",
+      "Preco": 25.00,
       "Quantidade": 8,
       "data_entrada": "2024-02-17T10:45:00Z",
       "Disponibilidade": "temporariamente fora de estoque",
@@ -31,10 +31,10 @@
 
     },
     {
-      "ID": 3,
+      "ID": 5,
       "Nome": "Milkshake de Chocolate",
       "Descricao": "Leite, sorvete de chocolate e cobertura",
-      "Preco": 12.50,
+      "Preco": 20.00,
       "Quantidade": 8,
       "data_entrada": "2024-02-17T10:45:00Z",
       "Disponibilidade": "temporariamente fora de estoque",
@@ -42,10 +42,10 @@
 
     },
     {
-      "ID": 3,
+      "ID": 6,
       "Nome": "Milkshake de Chocolate",
       "Descricao": "Leite, sorvete de chocolate e cobertura",
-      "Preco": 12.50,
+      "Preco": 20.00,
       "Quantidade": 8,
       "data_entrada": "2024-02-17T10:45:00Z",
       "Disponibilidade": "temporariamente fora de estoque",
@@ -53,14 +53,58 @@
 
     },
     {
-      "ID": 3,
-      "Nome": "Milkshake de Chocolate",
+      "ID": 7,
+      "Nome": "Milkshake de a",
       "Descricao": "Leite, sorvete de chocolate e cobertura",
-      "Preco": 12.50,
+      "Preco": 20.00,
       "Quantidade": 8,
       "data_entrada": "2024-02-17T10:45:00Z",
       "Disponibilidade": "temporariamente fora de estoque",
       "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 8,
+      "Nome": "Milkshake de a",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 20.00,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 9,
+      "Nome": "Milkshake de morango",
+      "Descricao": "Leite, sorvete de chocolate e cobertura",
+      "Preco": 20.00,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231005/original/pngtree-burger-gourmet-grilled-delicious-fastfood-transparent-background-png-image_13279171.png"
+
+    },
+    {
+      "ID": 10,
+      "Nome": "DUPLO X-BURGUER",
+      "Descricao": "2 Hamburgueres, queijo chedar, tomate, alface, cebola e maionese.",
+      "Preco": 30.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231109/original/pngtree-double-patty-burger-png-image_13520781.png"
+
+    },
+    {
+      "ID": 11,
+      "Nome": "X-BURGUER",
+      "Descricao": "2 Hamburgueres, queijo chedar, tomate, alface, cebola e maionese.",
+      "Preco": 30.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://png.pngtree.com/png-clipart/20231109/original/pngtree-double-patty-burger-png-image_13520781.png"
 
     }
   ]
