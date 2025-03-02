@@ -1,0 +1,42 @@
+
+
+.food_body{
+    align-items: center;
+    width: 15%;
+}
+
+.nome_comida{
+    color: white;
+    font-family: "Belanosima", serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: start;
+}
+
+.food_text{
+    color: white;
+}
+
+.descricao{
+    color: white;
+    text-align: start;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.preco{
+    text-align: start;
+    color: #FFBA21;
+    font-size: 17px;
+}
+.image{
+    background-color: #FFBA21;
+    padding: 5%;
+    border-radius: 10px;
+}
+
+.image_div{
+    display: flex;
+    justify-content: start;
+}
