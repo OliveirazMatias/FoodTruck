@@ -35,7 +35,6 @@ body {
     margin-bottom: 100px;
 }
 
-
 .confira-lancamentos .confira-img img {
     width: 50%;
     height: auto;
@@ -66,16 +65,27 @@ body {
 
 .incos {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
     margin-top: 7%;
-    text-align: left;
+}
+
+.incons-lanche{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .incos p {
     color: #ffffff;
-    margin-top: 5px;
     font-size: 1.5vw;
+}
+
+.incos img {
+    width: 3vw;
+    height: 3vw;
 }
 
 .lancamento-titulo {
@@ -94,11 +104,12 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 16px;
+    gap: 3rem;
 }
 
 .lancamento-produtos p {
     font-size: 1.5vw;
+    margin-top: 1rem;
     color: #FFBA21;
     font-family: 'Belanosima', serif;
     font-weight: 600;
@@ -108,6 +119,7 @@ body {
     border-radius: 30px;
     border: 0.3vw solid #FFBA21;
     padding: 5% 0;
+    width: 30rem;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
@@ -119,8 +131,6 @@ body {
 }
 
 .produtos01 img, .produtos02 img, .produtos03 img {
-    width: 50%;
-    height: auto;
     transition: all 0.5s;
 }
 
@@ -138,7 +148,6 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0; 
     padding: 5px; 
     text-align: center;
     width: 100%;
@@ -180,7 +189,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 
 .food_button:hover {
     outline: none;
@@ -252,10 +260,12 @@ body {
     font-weight: 600;
     font-family: "Belanosima", serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000000;
 }
 
 .description_modal{
     margin-bottom: 1rem;
+    color: #000000;
 }
 
 .increase_button{
@@ -264,6 +274,7 @@ body {
     align-items: center;
     background-color: #FFE4AA;
     border-radius: 0.8rem;
+    color: #000000;
     border: 1px solid #000000;
     height: 2.5rem;
 }
@@ -279,11 +290,13 @@ body {
 .button_add, .button_sub{
     background-color: #ffffff;
     background-color: #FFE4AA;
+    color: #000000;
     margin: 10px;
     height: 2.5rem;
     text-align: center;
     justify-content: center;
     display: flex;
+    align-items: center; 
 }
 
 .quantity_number{
@@ -294,10 +307,12 @@ body {
 .preco_modal{
     font-size: 1.5rem;
     font-weight: 600;
+    color: #000000;
 }
 
 .total_modal{
     font-size: 0.8rem;
+    color: #000000;
 }
 
 .bottom_modal{
@@ -315,7 +330,7 @@ body {
     border-radius: 0.5rem;
     display: flex;    
     padding-left: 1rem;
-    
+    color: #000000;
 }
 
 .obs::placeholder {
@@ -328,6 +343,7 @@ body {
 
 .carrinho{
     width: 20rem;
+    color: #000000;
     margin-bottom: 2rem;
     height: 3.5rem;
     background-color: #FFE4AA;
@@ -359,6 +375,7 @@ body {
 }
 
 .lancamentoImg{
-    width: 1rem;
-    height: auto;
+    width: 20rem;
+    min-height: 20rem;
 }
+

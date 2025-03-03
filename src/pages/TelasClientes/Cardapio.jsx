@@ -63,7 +63,7 @@ function Cardapio() {
         navigate('/Carrinho');
     }
 
-    const lancamentosId = [4, 10, 5]
+    const lancamentosId = [1, 5, 4]
 
     return (
         <div className='cardapio'>
@@ -105,7 +105,7 @@ function Cardapio() {
                         .map((lanche, index) => (
                             <button onClick={() => handleOpen(lanche)} className={`produtos0${index + 1}`}>
                                 <div key={lanche.ID}>
-                                        <p>{lanche.Nome}</p>
+                                        <p className='lancamentoNome'>{lanche.Nome}</p>
                                         <img src={lanche.Imagem} className="lancamentoImg" alt={`produto0${index + 1}`} />
                                 </div>
                             </button>
