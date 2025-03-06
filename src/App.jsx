@@ -4,6 +4,7 @@ import Carrinho from './pages/TelasClientes/Carrinho';
 import Quemsomos from './pages/TelasClientes/QuemSomos';
 import Login from './pages/TelasColaboradores/Login';
 import Comandas from './pages/TelasColaboradores/Comandas';
+import Mesas from './pages/TelasColaboradores/Mesas';
 import './App.css';
 import imglogo from './assets/logo/logo.png';
 
@@ -26,6 +27,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/comandas" element={<Comandas />}/>
+          <Route path="/mesas" element={<Mesas />}/>
         </Routes>
     </Router>
   );
