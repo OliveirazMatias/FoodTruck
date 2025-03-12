@@ -97,3 +97,17 @@ p {
   margin-right: 50%;
   margin-top: -1.2%;
 }
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+}
+
+.perfil-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+

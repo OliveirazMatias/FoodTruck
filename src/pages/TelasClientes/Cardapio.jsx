@@ -1,10 +1,11 @@
 import '../TelasClientesCss/Cardapio.css';
+import '../../App.css'
+import NavBarCardapio from '../componentes/NavBarCardapio';
 import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
 import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
 import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
 import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
 import imglancamentos from '../../assets/confiralancamentos/lancamentos.jpg';
-import imgxsalada from '../../assets/cardapio/x-salada.jpg';
 
 function Cardapio() {
     return (
@@ -42,10 +43,10 @@ function Cardapio() {
                 </h1>
                 <div className='lancamento-produtos'>
                     <div className='produtos01'>
-                        <a href="">
+                        <a href="https://github.com/OliveirazMatias/FoodTruck/tree/Mateus">
                             <p>Duplo Carne</p>
                             <img src={imglancamentos} alt="produto01" />
-                        </a>
+                        </a>    
                     </div>
                     <div className='produtos02'>
                         <a href="">
@@ -67,21 +68,7 @@ function Cardapio() {
                 </h1>
                 <div className='cardapio-opcoes'>
                     <div className='lanches'>
-                        <div className='opcao01'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
-                        <div className='opcao02'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
-                        <div className='opcao03'>
-                            <a href="">
-                                <p>Duplo Carne</p>
-                            </a>
-                        </div>
+                        <NavBarCardapio/>
                     </div>
                 </div>
             </div>
