@@ -104,7 +104,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 3rem;
+    gap: 16px;
 }
 
 .lancamento-produtos p {
@@ -126,8 +126,6 @@ body {
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
     transition: all 0.5s;
-    position: relative;
-    background-color: #000000;
 }
 
 .produtos01 img, .produtos02 img, .produtos03 img {

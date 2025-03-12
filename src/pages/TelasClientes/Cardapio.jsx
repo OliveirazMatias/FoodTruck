@@ -1,8 +1,8 @@
 import '../TelasClientesCss/Cardapio.css';
-import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
-import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
-import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
-import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
+import imginconlanche from '../../assets/cardapio/confiralancamentos/iconlanche.jpg';
+import imginconbebidas from '../../assets/cardapio/confiralancamentos/iconbebidas.jpg';
+import imginconacompanhamento from '../../assets/cardapio/confiralancamentos/iconacompanhamentos.jpg';
+import imgconfira from '../../assets/cardapio/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
 import lanchesData from '../TelasClientes/lanches.json';
@@ -62,7 +62,7 @@ function Cardapio() {
         navigate('/Carrinho');
     }
 
-    const lancamentosId = [1, 5, 4]
+    const lancamentosId = [2, 3, 10]
 
     return (
         <div className='cardapio'>
