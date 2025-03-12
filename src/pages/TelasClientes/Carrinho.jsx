@@ -25,10 +25,15 @@ function Carrinho() {
     }
 
     const [checked, setChecked] = useState(false);
+    const [checked1, setChecked1] = useState(false);
 
     const handleChange = () => {
       setChecked((prev) => !prev);
     };
+
+    const handleChange1 = () => {
+        setChecked1((prev) => !prev)
+    }
   
     
     return (
@@ -69,9 +74,9 @@ function Carrinho() {
                             <input type="text" className='input_switch' placeholder='Numero da Mesa'/>
                         </Grow>
                         <Grow
-                            in={checked}
+                            in={checked1}
                             style={{ transformOrigin: '0 0 0' }}
-                            {...(checked ? { timeout: 1000 } : {})}
+                            {...(checked1 ? { timeout: 1000 } : {})}
                         >
                             <div>Outro Conteúdo Condicional</div>
                         </Grow>
