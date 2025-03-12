@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
+
 .belanosima-regular {
   font-family: "Belanosima", serif;
   font-weight: 400;
@@ -52,6 +53,9 @@ nav {
   color: black;
   
 }
+
+
+
 
 div {
   flex: 1;
