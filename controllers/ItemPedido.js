@@ -2,9 +2,7 @@ import ItemPedido from "../models/ItemPedido.js";
 import Pedidos from "../models/Pedidos.js";
 import ItemCardapio from "../models/ItemCardapio.js";
 
-/**
- * Lista todos os itens do pedido (carrinho).
- */
+
 export const getListarItens= async (req, res) => {
     try {
         const itens = await ItemPedido.findAll({

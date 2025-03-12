@@ -4,3 +4,11 @@ GET http://localhost:3001/lanches
 
 GET http://localhost:3001/lanches?id=12
 ###
+
+GET http://localhost:3001/login
+Content-Type: application/json
+
+{
+  "email": "username",
+  "senha": "username"
+}

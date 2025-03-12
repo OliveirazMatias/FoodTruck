@@ -1,27 +1,22 @@
 import ListaFuncionarios from  "../models/ListaFuncionarios.js";
 import { Op } from "sequelize";
-const bcrypt = require('bcrypt')
 
 
 
 export const getLogin = async (req, res) => {
     try {
         const { email, senha } = req.body;
-        const funcionario = await ListaFuncionarios.findOne({
-            where: {
-                email: email,
-                senha: senha
-            }
-        });
-        const verificarSenha = bcrypt.compare(senha, funcionario.senha)
-        if (funcionario && verificarSenha) {
-            res.status(200).send(funcionario);
+
+        const funcionario = await ListaFuncionarios.findOne({where: { email: email, senha: senha }});
+
+        if (funcionario) {
+            res.status(200).json({ message: "Login bem-sucedido", funcionario });
         } else {
-            res.status(404).send("Usuario não encontrado.");
+            res.status(401).json({ error: "email incorreto." });
         }
     } catch (error) {
-        return res.status(500).send(error)
+        console.error("Erro no login:", error);
+        return res.status(500).json({ error: "Erro no servidor." });
     }
-} //Fazer Login
 
-export { getLogin };
+} //Fazer Login

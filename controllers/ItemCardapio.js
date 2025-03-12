@@ -1,7 +1,7 @@
 import ItemCardapio from "../models/ItemCardapio.js";
 import { Op } from "sequelize";
 
-const getLanches = async (req, res) => {
+export const getLanches = async (req, res) => {
     try {
         const { id } = req.query;	
         let whereCondition = {}; 
@@ -17,7 +17,3 @@ const getLanches = async (req, res) => {
             res.status(500).json({ error: 'Erro ao buscar lanches' });    
     }
 }; // Buscar os Lanches
-
-
-
-export { getLanches }
