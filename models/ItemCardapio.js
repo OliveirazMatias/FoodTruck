@@ -1,28 +1,28 @@
-import database from "../database.js";
+import database from "../config/database.js";
 import sequelize from "sequelize";
 
 const ItemCardapio = database.define(
   "ItemCardapio",
   {
-    ID: {
+    id: {
       type: sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    Nome: {
+    nome: {
       type: sequelize.STRING(50),
       allowNull: false,
     },
-    Descricao: {
+    descricao: {
       type: sequelize.STRING(100),
       allowNull: false,
     },
-    Preco: {
+    preco: {
       type: sequelize.DECIMAL(10, 2),
       allowNull: false,
     },
-    Quantidade: {
+    quantidade: {
       type: sequelize.INTEGER,
       allowNull: false,
     },
@@ -30,12 +30,16 @@ const ItemCardapio = database.define(
       type: sequelize.DATE,
       allowNull: false,
     },
-    Disponibilidade: {
+    disponibilidade: {
       type: sequelize.ENUM(
         "disponível",
         "indisponível",
         "temporariamente fora de estoque"
       ),
+      allowNull: false,
+    },
+    imagem: {
+      type: sequelize.STRING(255),
       allowNull: false,
     },
   },

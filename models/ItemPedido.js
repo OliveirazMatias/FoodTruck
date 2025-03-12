@@ -1,12 +1,12 @@
-import database from "../database.js";
+import database from "../config/database.js";
 import sequelize from "sequelize";
 import Pedidos from "./Pedidos.js";
-import ItemCardapio from "./index.js";
+import ItemCardapio from "./ItemCardapio.js";
 
 const ItemPedido = database.define(
   "ItemPedido",
   {
-    ID: {
+    id: {
       type: sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,

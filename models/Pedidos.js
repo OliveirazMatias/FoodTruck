@@ -1,4 +1,4 @@
-import database from "../database.js";
+import database from "../config/database.js";
 import sequelize from "sequelize";
 import ListaFuncionarios from "./ListaFuncionarios.js";
 
