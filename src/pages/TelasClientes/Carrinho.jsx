@@ -1,4 +1,6 @@
 import '../TelasClientesCss/Carrinho.css'; 
+import { useState, useEffect } from 'react';
+import lanchesData from '../TelasClientes/lanches.json';
 import iconcarrinho from '../../assets/carrinho/icon-carrinho.jpg'
 import imglancamentos from '../../assets/cardapio/confiralancamentos/lancamentos.jpg';
 
