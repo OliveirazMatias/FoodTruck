@@ -24,6 +24,7 @@ const ItemPedido = database.define(
     quantidade: { type: sequelize.INTEGER, allowNull: false },
     preco_unitario: { type: sequelize.DECIMAL(10, 2), allowNull: false },
     subtotal: { type: sequelize.DECIMAL(10, 2), allowNull: false },
+    observacao: { type: sequelize.STRING, allowNull: true },
   },
   {
     tableName: "item_pedido",

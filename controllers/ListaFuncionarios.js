@@ -20,3 +20,8 @@ export const getLogin = async (req, res) => {
     }
 
 } //Fazer Login
+
+
+// Atualizar Topbar
+
+// Post Cadastro

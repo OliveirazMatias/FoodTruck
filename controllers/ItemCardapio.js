@@ -17,3 +17,6 @@ export const getLanches = async (req, res) => {
             res.status(500).json({ error: 'Erro ao buscar lanches' });    
     }
 }; // Buscar os Lanches
+
+
+// Post Lanches

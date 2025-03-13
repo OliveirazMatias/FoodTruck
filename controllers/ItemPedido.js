@@ -22,7 +22,7 @@ export const getListarItens= async (req, res) => {
  * Adiciona um item ao carrinho (ItemPedido).
  */
 export const adicionarItemPedido = async (req, res) => {
-    try {
+    try { // quantidade, observação, preço unitário, subtotal
         const { id_pedido, id_item_do_cardapio, quantidade } = req.body;
 
         // Buscar o item do cardápio para pegar o preço
