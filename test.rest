@@ -2,7 +2,7 @@
 GET http://localhost:3001/lanches
 ###
 
-GET http://localhost:3001/lanches?id=12
+GET http://localhost:3001/lanches?id=2
 ###
 
 GET http://localhost:3001/login
@@ -12,3 +12,20 @@ Content-Type: application/json
   "email": "username",
   "senha": "username"
 }
+
+// ItemPedido
+###
+POST http://localhost:3001/itempedido/
+Content-Type: application/json
+
+{
+  "id_item_do_cardapio": 12,
+  "quantidade": 30,
+  "observacao": "sem hamburgers"
+}
+
+###
+DELETE http://localhost:3001/itempedido/4
+
+###
+GET http://localhost:3001/itempedido/
