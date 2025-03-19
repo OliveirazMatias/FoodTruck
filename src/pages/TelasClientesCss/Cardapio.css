@@ -117,6 +117,7 @@ body {
 
 .produtos01, .produtos02, .produtos03 {
     border-radius: 30px;
+    background-color: #000000;
     border: 0.3vw solid #FFBA21;
     padding: 5% 0;
     width: 30rem;
@@ -376,4 +377,3 @@ body {
     width: 20rem;
     min-height: 20rem;
 }
-

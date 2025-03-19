@@ -19,9 +19,31 @@
   font-style: normal;
 }
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --vermelho: #B42625;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Alata', sans-serif; 
+}
+
+/* .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} */
+
 .header {
   background-color: white;
-  padding: 20px 30px;
+  padding: 1.5% 1%;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   align-items: flex-start;
@@ -30,9 +52,9 @@
   position: fixed; 
   top: 0;
   left: 0;
-  right: 0;
+  right: 0  ;
   width: 100%;
-  z-index: 100;
+  z-index: 1000; 
 }
 
 nav {
@@ -41,26 +63,29 @@ nav {
   justify-content: center;
 }
 
-.nav-link {
+.nav-link-header {
   color: black;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 3vh;
-  font-weight: bold;
-  position: relative;
+  font-size: 1.5vw;
 }
-.nav-link:hover {
+.nav-link-header:hover {
   color: black;
-  
 }
 
-
-
-
-div {
+/* div {
   flex: 1;
   text-align: center;
+} */
+
+/* h1 {
+  color: #333;
+  font-family: 'Alata', sans-serif;
 }
+
+p {
+  color: #666;
+} */
 
 .content {
   padding-top: 60px; 
@@ -71,4 +96,6 @@ div {
   position: absolute;
   margin-right: 50%;
   margin-top: -1.2%;
+  width: 6%;
+  height: auto;
 }
