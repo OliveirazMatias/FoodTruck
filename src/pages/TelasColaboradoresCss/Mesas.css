@@ -1,0 +1,152 @@
+.mesas-cabecalho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 4vw 0;
+}
+
+.titulo-mesas {
+    margin: 2vw 0;
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 0.3vw solid #FFBA21;
+}
+
+.pedidos-cabecalho {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    margin-left: 4%;
+}
+
+.numero-mesa {
+    color: #AA2322;
+    background-color: #FFBA21;
+    border: 0.3vw solid #961A1A;
+    border-radius: 1vw;
+    font-family: Alata;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 1vw;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.status-texto {
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 0.3vw solid #B42625;
+
+}
+
+.resultado {
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 1rem;
+}
+
+.entregadorimg {
+    width: 3.9vw;
+    height: 3.2vw;
+    margin-left: 1rem;
+}
+
+.titulo-comanda {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 4%;
+    margin-top: 3%;
+    font-size: 1.5vw;
+    font-family: Belanosima;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.comanda-container-pedidos {
+    border-radius: 1vw;
+    border: 0.3vw solid #B42625;
+    background: #141C1E;
+    margin: 0% 4% 0%;
+}
+
+.nome-pedido-feito{
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 1.5vw;
+    font-weight: 600;
+    display: flex;
+    justify-content: start;
+}
+
+.descricao-pedido-feito{
+    color: #FFF;
+    font-family: Alata;
+    font-weight: 400;
+    font-size: 1.5vw;
+}
+
+.valor-pedido-feito{
+    color: #FFBA21;
+    font-family: Alata;
+    font-weight: 400;
+    font-size: 2vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3%;
+}
+
+.pedidos-feitos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.total-pedido-feito{
+    display: flex;
+    justify-content: flex-end;
+    margin: 1%;
+    color: #FFF;
+    font-family: Alata;
+    font-weight: 400;
+    font-size: 2vw;
+}
+
+.descricao-container-pedido-feito{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.forma-pagamento-texto{
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 1.5vw;
+    font-weight: 400;
+    margin-left: 4%;
+    border-bottom: 0.3vw solid #AA2322;
+}
+
+.forma-pagamento-pedidos{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 2%;
+}

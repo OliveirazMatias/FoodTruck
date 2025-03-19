@@ -74,14 +74,13 @@ body {
 .incons-lanche{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
 }
 
 .incos p {
     color: #ffffff;
     font-size: 1.5vw;
-    margin-left: 0%;
 }
 
 .incos img {
@@ -130,7 +129,6 @@ body {
     -ms-transition: all 0.5s;
     background-color: #000000;
     transition: all 0.5s;
-
 }
 
 .produtos01 img, .produtos02 img, .produtos03 img {
@@ -174,31 +172,7 @@ body {
 
 .cardapio-highlight {
     border-bottom: 0.3vw solid #B42625;
-    font-size: 2.5vw;
-
 }
-
-.botoes-cardapio {
-    display: flex;
-}
-
-#butao {
-    width: 100px;
-    height: 45px;
-    border-color: #FFBA21;
-    background: none;
-    color: #B42625;
-    border-radius: 20px;
-    margin-right: 40px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-    font-weight: bold;
-}
-
-#butao:hover {
-    background-color: #FFBA21;
-}
-
 
 .lanches {
     display: grid;
@@ -221,8 +195,7 @@ body {
     outline: none;
     margin: none;
     color: #000000;
-    transform: translate(0, -10.5px);
-    cursor: pointer;
+    border: 2px solid #FFBA21;
 }
 
 .lanc_button{
@@ -275,12 +248,8 @@ body {
     justify-content: center;
 }
 
-
-
 .food_button{
     background-color: #000000;
-    border: none;
-    transition-duration: 0.5s;
 }
 
 .modal_box {
@@ -410,3 +379,4 @@ body {
     width: 20rem;
     min-height: 20rem;
 }
+

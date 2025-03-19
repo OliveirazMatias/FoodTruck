@@ -5,8 +5,8 @@ function Login() {
     return (
         <div className="forms-container">
             <div className='forms-conteudo'>
-                <h1 className='titulo'>LOGIN ADM</h1>
-                <div className='preencher'>
+                <h1 className='titulo-login'>LOGIN ADM</h1>
+                <div className='preencher-forms'>
                     <input type="text" placeholder="Login" className='input-login' />
                     <input type="password" placeholder="Senha" className='input-senha' />
                     <button className='botao-login'>Entrar</button>

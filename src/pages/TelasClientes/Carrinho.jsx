@@ -1,42 +1,53 @@
-import '../TelasClientesCss/Carrinho.css'; 
-import iconcarrinho from '../../assets/confiralancamentos/iconcarrinho.jpg' 
-import imglancamentos from '../../assets/confiralancamentos/confiralancamentos.jpg';
+import '../TelasClientesCss/Carrinho.css';
+import { useState, useEffect } from "react";
+import carrinho from '../../assets/cardapio/shopping-cart.svg';
+import lanchesData from '../TelasClientes/lanches.json';
+import { FormControlLabel, Switch, Box, Grow } from '@mui/material';
+
 
 function Carrinho() {
+    const [lanches, setLanches] = useState([]);
+
+    useEffect(() => {
+        setLanches(lanchesData);
+    }, []);
+
+    const listaid =  [2, 3, 9]
+
+    const preco = precoTotal();
+
+    function precoTotal() {
+        let total = 0;
+        lanches
+            .filter(lanche => listaid.includes(lanche.ID))
+            .map(lanche => total += lanche.Preco);
+        return total.toFixed(2);
+    }
+
+    const [checked, setChecked] = useState(false);
+    const [checked1, setChecked1] = useState(false);
+
+    const handleChange = () => {
+      setChecked((prev) => !prev);
+    };
+
+    const handleChange1 = () => {
+        setChecked1((prev) => !prev)
+    }
+  
+    
     return (
         <div className="carrinho-container">
-            <div className='carrinho-titulo'>
-                <img className='icon-carrinho' src={iconcarrinho} alt="icon-carrinho" />
-                <span className='titulo-carrinho'>Carrinho</span>
-            </div>
-            <div className='pedidos-container'>
-                <div className='pedidos-carrinho'>
-                    <div className='lista-pedidos'>
-                        <img className='img-lanche' src={imglancamentos} alt="img-lanche" />
-                        <div className='textos-lanche'>
-                            <h1 className='nome-lanche'>X-Frango</h1>
-                            <h1 className='descricao-lanche'>Hambúrguer de frango, queijo , tomate, alface e cebola.</h1>
-                        </div>
-                        <div className='preco-unitario'>R$25,00</div>
-                    </div>
-                    <div className='lista-pedidos'>
-                        <img className='img-lanche' src={imglancamentos} alt="img-lanche" />
-                        <div className='textos-lanche'>
-                            <h1 className='nome-lanche'>X-Frango</h1>
-                            <h1 className='descricao-lanche'>Hambúrguer de frango, queijo , tomate, alface e cebola.</h1>
-                        </div>
-                        <div className='preco-unitario'>R$25,00</div>
-                    </div>
+            <h1>Tela de Carrinho</h1>
+            <div className="carrinho-conteudo">
+                <ul>
+                    <li>Produto 1 - R$ 29,90</li>
+                    <li>Produto 2 - R$ 19,90</li>
+                </ul>
+                <div className="carrinho-total">
+                    <p>Total: R$ 49,80</p>
+                    <button>Finalizar Compra</button>
                 </div>
-                <div className='total-compra'>
-                    TOTAL: R$50,00
-                </div>
-            </div>
-            <div className='opcoes-consumo'>
-                <span className='titulo-opcoes'>Opções de Consumo</span>
-            </div>
-            <div className='finalizar-pedido'>
-                <button className='pedido-finalizado'>Finalizar Pedido</button>
             </div>
         </div>
     );
