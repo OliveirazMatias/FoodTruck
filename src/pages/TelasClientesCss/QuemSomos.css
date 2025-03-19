@@ -87,8 +87,6 @@ body, html{
     justify-content: center;
 }
 
-
-
 .imagem-equipe {
     width: 100%;
     max-width: 450px;
@@ -96,10 +94,29 @@ body, html{
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+.fita {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    background-color: #d8b08c;
+    opacity: 0.7;
+}
+
+.fita-topo {
+    top: -20px;
+    left: 20px;
+    transform: rotate(-10deg);
+}
+
+.fita-base {
+    bottom: -20px;
+    right: 20px;
+    transform: rotate(10deg);
+}
 
 .contato_localizacao {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     background-color: var(--vermelho);
     color: white;
@@ -134,11 +151,9 @@ body, html{
 }
 
 .linha_divisoria {
-    height: 150px;
+    height: 10vw;
     background-color: #ffc107;
     margin: 0 40px;
-    padding: -50%;
-    
 }
 
 .localizacao {

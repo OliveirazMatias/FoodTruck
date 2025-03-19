@@ -41,7 +41,7 @@ html, body {
 
 .header {
   background-color: white;
-  padding: 20px 30px;
+  padding: 1.5% 1%;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   align-items: flex-start;
@@ -51,7 +51,7 @@ html, body {
   top: 0;
   left: 0;
   right: 0  ;
-  width: 100vw;
+  width: 100%;
   z-index: 1000; 
 }
 
@@ -61,20 +61,14 @@ nav {
   justify-content: center;
 }
 
-.nav-link {
+.nav-link-header {
   color: black;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 2vh;
-  font-family: "Alata";
+  font-size: 1.5vw;
 }
-
-.nav-container{
-margin-top: 1%;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
+.nav-link-header:hover {
+  color: black;
 }
 
 /* div {
@@ -101,17 +95,6 @@ p {
   position: absolute;
   margin-right: 80%;
   margin-top: -1.2%;
+  width: 6%;
+  height: auto;
 }
-
-.profile-icon {
-  display: flex;
-  align-items: center;
-}
-
-.perfil-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
