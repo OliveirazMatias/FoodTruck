@@ -1,0 +1,112 @@
+[
+    {
+      "ID": 1,
+      "Nome": "X-BACON",
+      "Descricao": "Hambúrguer, queijo chedar, bacon, cebola e molho barbecue.",
+      "Preco": 24.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-19T12:00:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://marketplace.loji.com.br/storage/uploads/J0Vm7oVRSXywZssfwwdRXG0e6UQqorPMhB6B15JE.png" 
+    },
+    {
+      "ID": 2,
+      "Nome": "X-SALADA EGG",
+      "Descricao": "Hambúrguer, ovo, queijo , tomate, alface, picles e maionese.",
+      "Preco": 25.00,
+      "Quantidade": 5,
+      "data_entrada": "2024-02-18T15:30:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://2caa1a1ec9.cbaul-cdnwnd.com/92ec793b25ab0765d476f2b59a8b3cf9/200000230-8496484966/x%20tudo.png?ph=2caa1a1ec9"
+    },
+    {
+      "ID": 3,
+      "Nome": "X-FRANGO",
+      "Descricao": "Hambúrguer de frango, queijo, ovo, milho, presunto, tomate, alface e cebola.",
+      "Preco": 25.00,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "temporariamente fora de estoque",
+      "Imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kfXzVxbm/200/200/original?country=br"
+    },
+    {
+      "ID": 4,
+      "Nome": "PASTEL DE QUEIJO",
+      "Descricao": "Massa de pastel, queijo.",
+      "Preco": 10.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    },
+    {
+      "ID": 5,
+      "Nome": "HOT-DOG TRADICIONAL",
+      "Descricao": "Pão, salsicha, ketchup, mostarda e batata palha.",
+      "Preco": 15.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F2016%2F04%2FHot-Dog-PNG-File.png&f=1&nofb=1&ipt=b755285625c0807f1da5e5bb94bed54aa3a7edf91a9445ffe997ee1c722c25e0&ipo=images"
+    },
+      {
+      "ID": 6,
+      "Nome": "PASTEL DE CARNE",
+      "Descricao": "Pastel recheado com carne moída e temperos.",
+      "Preco": 10.00,
+      "Quantidade": 15,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    },
+    {
+      "ID": 7,
+      "Nome": "REFRIGERANTE DE COLA",
+      "Descricao": "Lata de refrigerante sabor cola.",
+      "Preco": 5.00,
+      "Quantidade": 50,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngplay.com%2Fwp-content%2Fuploads%2F9%2FCoca-Cola-PNG-HD-Quality.png&f=1&nofb=1&ipt=19f5eb5cbfef830b6d945443630d0198fcb049abcfa7fd5f7507b1d48c083602&ipo=images"
+    },
+    {
+      "ID": 8,
+      "Nome": "SUCO DE LARANJA",
+      "Descricao": "Suco natural de laranja.",
+      "Preco": 7.00,
+      "Quantidade": 20,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hotdogdomarcio.com.br%2Fwp-content%2Fuploads%2F2016%2F10%2Fsuco-laranja-02.png&f=1&nofb=1&ipt=056133f926c1ea34ac0b717013f87d794898a1dc0424a01ed9e9013f51c21fba&ipo=images"
+    },
+    {
+      "ID": 9,
+      "Nome": "HOT-DOG DA CASA",
+      "Descricao": "Pão, salsicha, milho, ketchup, mostarda e batata palha.",
+      "Preco": 18.00,
+      "Quantidade": 8,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://hotdog.catalogo.app.br/_core/_uploads/129/2023/12/2239311223dhec1h77dj.png"
+    },
+    {
+      "ID": 10,
+      "Nome": "DUPLO X-BURGUER",
+      "Descricao": "2 Hamburgueres, queijo cheddar, bacon, cebola e maionese.",
+      "Preco": 30.00,
+      "Quantidade": 10,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://files.nextgocard.com.br/products/U31KWIaJphdNnXNG-hamburguer%20duplo.png"
+    },
+    {
+      "ID": 11,
+      "Nome": "PASTEL DE FRANGO",
+      "Descricao": "Pastel recheado com frango desfiado e temperos.",
+      "Preco": 12.00,
+      "Quantidade": 12,
+      "data_entrada": "2024-02-17T10:45:00Z",
+      "Disponibilidade": "disponível",
+      "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    }
+  ]

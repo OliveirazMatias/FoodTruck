@@ -65,7 +65,12 @@ nav {
   color: black;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 3vh;
+  font-size: 2vh;
+  font-family: "Alata";
+}
+
+.nav-container{
+margin-top: 1%;
 }
 
 .nav-link:hover {
@@ -94,7 +99,7 @@ p {
 .logo{
   display: flex;
   position: absolute;
-  margin-right: 50%;
+  margin-right: 80%;
   margin-top: -1.2%;
 }
 
@@ -104,8 +109,8 @@ p {
 }
 
 .perfil-img {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   cursor: pointer;
 }

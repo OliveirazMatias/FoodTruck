@@ -6,8 +6,10 @@ import Login from './pages/TelasColaboradores/Login';
 import Comandas from './pages/TelasColaboradores/Comandas';
 import './App.css';
 import imglogo from './assets/logo/logo.png';
-import imgPerfil from './assets/icons/iconperfil.png' // Importa o ícone de perfil
+import imgPerfil from './assets/icons/iconperfil.png' 
 import Estoque from './pages/TelasColaboradores/Estoque';
+import HistoricoPedidos from './pages/TelasColaboradores/HistoricoPedidos';
+
 
 
 function App() {
@@ -23,7 +25,6 @@ function App() {
             <Link to="/carrinho" className="nav-link">CARRINHO</Link>
           </div>
 
-          {/* Ícone de perfil no canto direito */}
           <Link to="/login" className="profile-icon">
             <img src={imgPerfil} alt="Perfil" className="perfil-img" />
           </Link>
@@ -37,6 +38,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/comandas" element={<Comandas />} />
         <Route path="/estoque" element={<Estoque />} />
+        <Route path="/historicopedidos" element={<HistoricoPedidos />} />
+
 
 
       </Routes>
