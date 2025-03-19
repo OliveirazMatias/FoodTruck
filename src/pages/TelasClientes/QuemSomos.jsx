@@ -6,6 +6,8 @@ import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
 
+
+
 function QuemSomos() {
     return (
         <main>
@@ -33,6 +35,7 @@ function QuemSomos() {
                 </div>
             </section>
 
+            {/* Seção Contato e Localização */}
             <section className="contato_localizacao">
                 <div className="contato">
                     <h2>CONTATO</h2>

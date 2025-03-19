@@ -5,8 +5,6 @@ body, html{
 }
 
 
-
-
 .quem_somos {
     position: relative;
     height: 100vh;
@@ -87,8 +85,6 @@ body, html{
     justify-content: center;
 }
 
-
-
 .imagem-equipe {
     width: 100%;
     max-width: 450px;
@@ -99,7 +95,7 @@ body, html{
 
 .contato_localizacao {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     background-color: var(--vermelho);
     color: white;
@@ -134,11 +130,9 @@ body, html{
 }
 
 .linha_divisoria {
-    height: 150px;
+    height: 10vw;
     background-color: #ffc107;
     margin: 0 40px;
-    padding: -50%;
-    
 }
 
 .localizacao {
