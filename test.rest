@@ -4,6 +4,10 @@ GET http://localhost:3001/lanches
 GET http://localhost:3001/lanches?id=2
 ###
 
+### Get Lanches by Description
+GET http://localhost:3001/lanches/descricao?descricao=Hambúrguer
+###
+
 GET http://localhost:3001/login
 Content-Type: application/json
 
@@ -18,10 +22,9 @@ POST http://localhost:3001/itempedido/
 Content-Type: application/json
 
 {
-  "id_pedido": 7,
-  "id_item_do_cardapio": 5,
+  "id_item_do_cardapio": 12,
   "quantidade": 30,
-  "observacao": "facts"
+  "observacao": "sem hamburgers"
 }
 
 ###
@@ -33,20 +36,11 @@ GET http://localhost:3001/itempedido/
 
 
 ###
-GET http://localhost:3001/pedidos/
-
-###
-POST http://localhost:3001/pedidos
+POST http://localhost:3001/pedido/
 Content-Type: application/json
-
 {
   "id_funcionario": 1,
-  "tipo_pedido": "delivery",
-  "nome_cliente": "João Silva",
-  "Mesa": null,
-  "CEP": "123",
-  "Status": "entregue",
-  "data_criacao": "2024-02-20T10:00:00Z",
-  "data_entrega": "2024-02-20T12:00:00Z",
-  "tipo_pagamento": "Cartão"
 }
+
+###
+GET http://localhost:3001/pedido/

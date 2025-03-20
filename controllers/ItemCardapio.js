@@ -18,9 +18,23 @@ export const getLanches = async (req, res) => {
     }
 }; // Buscar os Lanches
 
+export const getLanchesByDesc = async (req, res) => {
+    try {
+        const { descricao } = req.query;
+        let whereCondition = {};
+        if (descricao) {
+            whereCondition.descricao = { [Op.like]: `%${descricao}%` };
+        }
+        const itemcardapio = await ItemCardapio.findAll({ where: whereCondition });
+        res.json(itemcardapio);
+    } catch (error) {
+        console.error('Erro ao buscar lanches pela descrição:', error);
+        res.status(500).json({ error: 'Erro ao buscar lanches pela descrição' });
+    }
+}
 
 
-// Get lanche pelo nome pro estoque
+// Get lanche pela descricao pro estoque
 // Post Lanches pra nova tela
 // Delete Lanches pra nova tela
 // Update Lanches pra nova tela

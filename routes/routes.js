@@ -1,5 +1,5 @@
 import express from 'express'
-import { getLanches } from '../controllers/ItemCardapio.js';
+import { getLanches, getLanchesByDesc } from '../controllers/ItemCardapio.js';
 import { getLogin } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido } from '../controllers/ItemPedido.js';
 import { postPedidos, getPedidosByCEP, getPedidosByMesa } from '../controllers/Pedidos.js';
@@ -7,7 +7,7 @@ import { postPedidos, getPedidosByCEP, getPedidosByMesa } from '../controllers/P
 const routes = express.Router();
 
 routes.get('/lanches', getLanches);
-
+routes.get('/lanches/descricao', getLanchesByDesc); // Handles ?descricao= query
 
 routes.get('/login', getLogin);
 
