@@ -1,5 +1,6 @@
 import ItemPedido from "../models/ItemPedido.js";
 import ItemCardapio from "../models/ItemCardapio.js";
+import Pedidos from "../models/Pedidos.js";
 
 export const postItemPedido = async (req, res) => {
     try {
@@ -22,6 +23,17 @@ export const postItemPedido = async (req, res) => {
             observacao
         });
 
+        const itensPedido = await ItemPedido.findAll({ where: { id_pedido } });
+        const total = itensPedido.reduce((sum, item) => sum + parseFloat(item.subtotal), 0);
+
+        const pedido = await Pedidos.findByPk(id_pedido);
+        if (!pedido) {
+            return res.status(404).json({ error: "Pedido não encontrado." });
+        }
+
+        pedido.Total = total;
+        await pedido.save();
+
         return res.status(201).json(novoItemPedido);
     } catch (error) {
         console.error("Erro ao adicionar item ao pedido:", error);
@@ -42,6 +54,7 @@ export const deleteItemPedido = async (req, res) => {
 
         await item.destroy(); 
 
+        // atualizar quando excluir
         return res.status(200).json({ message: "Item do Pedido deletado com sucesso!" });
     } catch (error) {
         console.error("Erro ao deletar item do Pedido:", error);
@@ -49,4 +62,6 @@ export const deleteItemPedido = async (req, res) => {
     }
 }; // Deletar Item do Pedido
 
-// IMPLEMENTAÇÂO DE CACHE 
+// GET itempedido por id_pedido pra comanda
+
+// IMPLEMENTAÇÂO DE CACHE

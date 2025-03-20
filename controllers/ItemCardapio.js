@@ -19,4 +19,8 @@ export const getLanches = async (req, res) => {
 }; // Buscar os Lanches
 
 
-// Post Lanches
+
+// Get lanche pelo nome pro estoque
+// Post Lanches pra nova tela
+// Delete Lanches pra nova tela
+// Update Lanches pra nova tela

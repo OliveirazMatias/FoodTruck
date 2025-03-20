@@ -1,4 +1,3 @@
-
 GET http://localhost:3001/lanches
 ###
 
@@ -19,9 +18,10 @@ POST http://localhost:3001/itempedido/
 Content-Type: application/json
 
 {
-  "id_item_do_cardapio": 12,
+  "id_pedido": 7,
+  "id_item_do_cardapio": 5,
   "quantidade": 30,
-  "observacao": "sem hamburgers"
+  "observacao": "facts"
 }
 
 ###
@@ -29,3 +29,24 @@ DELETE http://localhost:3001/itempedido/4
 
 ###
 GET http://localhost:3001/itempedido/
+
+
+
+###
+GET http://localhost:3001/pedidos/
+
+###
+POST http://localhost:3001/pedidos
+Content-Type: application/json
+
+{
+  "id_funcionario": 1,
+  "tipo_pedido": "delivery",
+  "nome_cliente": "João Silva",
+  "Mesa": null,
+  "CEP": "123",
+  "Status": "entregue",
+  "data_criacao": "2024-02-20T10:00:00Z",
+  "data_entrega": "2024-02-20T12:00:00Z",
+  "tipo_pagamento": "Cartão"
+}
