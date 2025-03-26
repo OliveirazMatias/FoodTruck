@@ -34,7 +34,6 @@ export const getLanchesByDesc = async (req, res) => {
 }
 
 
-// Get lanche pela descricao pro estoque
 // Post Lanches pra nova tela
 // Delete Lanches pra nova tela
 // Update Lanches pra nova tela

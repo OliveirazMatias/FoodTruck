@@ -1,6 +1,6 @@
 import express from 'express'
 import { getLanches, getLanchesByDesc } from '../controllers/ItemCardapio.js';
-import { getLogin } from '../controllers/ListaFuncionarios.js';
+import { getLogin, postCadastro, deleteLogin } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido } from '../controllers/ItemPedido.js';
 import { postPedidos, getPedidosByCEP, getPedidosByMesa } from '../controllers/Pedidos.js';
 
@@ -10,6 +10,8 @@ routes.get('/lanches', getLanches);
 routes.get('/lanches/descricao', getLanchesByDesc); // Handles ?descricao= query
 
 routes.get('/login', getLogin);
+routes.post('/cadastro', postCadastro)
+routes.delete('/delete/usuario', deleteLogin)
 
 routes.post('/itempedido', postItemPedido);
 routes.delete('/itempedido/:id', deleteItemPedido);

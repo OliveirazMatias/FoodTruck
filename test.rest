@@ -1,13 +1,16 @@
+###
 GET http://localhost:3001/lanches
-###
 
+###
 GET http://localhost:3001/lanches?id=2
-###
 
-### Get Lanches by Description
-GET http://localhost:3001/lanches/descricao?descricao=Hambúrguer
 ###
+GET http://localhost:3001/lanches?nome=Hamburguer
 
+### Get Lanche by ID
+GET http://localhost:3001/lanches/1
+
+###
 GET http://localhost:3001/login
 Content-Type: application/json
 
@@ -22,9 +25,10 @@ POST http://localhost:3001/itempedido/
 Content-Type: application/json
 
 {
-  "id_item_do_cardapio": 12,
-  "quantidade": 30,
-  "observacao": "sem hamburgers"
+  "id_pedido": 9,
+  "id_item_do_cardapio": 6,
+  "quantidade": 1,
+  "observacao": "Sem haburguer"
 }
 
 ###
@@ -36,11 +40,54 @@ GET http://localhost:3001/itempedido/
 
 
 ###
-POST http://localhost:3001/pedido/
+GET http://localhost:3001/pedidos/
+
+### Get Pedidos by Mesa
+GET http://localhost:3001/pedidos/mesa?Mesa=5
+
+###
+POST http://localhost:3001/pedidos
 Content-Type: application/json
+
 {
   "id_funcionario": 1,
+  "tipo_pedido": "delivery",
+  "nome_cliente": "Saveiro",
+  "Mesa": 5,
+  "CEP": "123",
+  "Status": "em preparação",
+  "data_criacao": "2024-02-20T10:00:00Z",
+  "data_entrega": "2024-02-20T12:00:00Z",
+  "tipo_pagamento": "Cartão"
+}
+
+
+#### LOGIN E CADASTRO FUNCIONANDO
+
+###
+POST http://localhost:3001/cadastro
+Content-Type: application/json
+
+{
+  "nome": "henrique",
+  "email": "henrique@mel",
+  "senha": "mel"
 }
 
 ###
-GET http://localhost:3001/pedido/
+GET http://localhost:3001/login
+Content-Type: application/json
+
+{
+  "email": "henrique@mel",
+  "senha": "mel"
+}
+
+
+###
+DELETE http://localhost:3001/delete/usuario
+Content-Type: application/json
+
+{
+  "nome": "henrique"
+}

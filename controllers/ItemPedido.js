@@ -62,6 +62,20 @@ export const deleteItemPedido = async (req, res) => {
     }
 }; // Deletar Item do Pedido
 
-// GET itempedido por id_pedido pra comanda
+export const getItemPedidoByPedido = async (req, res) => {
+    try {
+        const { id_pedido } = req.query;
+        let whereCondition = {};
+        if (id_pedido) {
+            whereCondition.id_pedido = id_pedido;
+        }
+
+        const itemPedido = await ItemPedido.findAll({ where: whereCondition });
+        res.json(itemPedido);
+    } catch (error) {
+        console.error("Erro ao buscar item do pedido:", error);
+        res.status(500).json({ error: "Erro ao buscar item do pedido" });
+    }
+}; // GET itempedido por id_pedido pra comanda
 
 // IMPLEMENTAÇÂO DE CACHE
