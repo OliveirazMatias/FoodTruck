@@ -380,6 +380,6 @@ body {
 }
 
 .lancamentoImg {
-    width: 20rem;
-    min-height: 20rem;
+    width: 20vw;
+    min-height: auto;
 }
