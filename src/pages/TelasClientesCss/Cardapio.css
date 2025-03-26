@@ -71,7 +71,7 @@ body {
     margin-top: 7%;
 }
 
-.incons-lanche{
+.incons-lanche {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,17 +147,17 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px; 
+    padding: 5px;
     text-align: center;
     width: 100%;
 }
 
 .produtos01:hover p, .produtos02:hover p, .produtos03:hover p {
-    color: #B42625; 
+    color: #B42625;
 }
 
 .produtos01:hover img, .produtos02:hover img, .produtos03:hover img {
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
 
 .cardapio-titulo {
@@ -174,7 +174,7 @@ body {
 
 .lanches {
     display: grid;
-    gap: 3rem 13rem; 
+    gap: 3rem 13rem;
     grid-template-columns: repeat(3, 12rem);
     margin-top: 5%;
     margin-left: auto;
@@ -183,13 +183,13 @@ body {
     justify-items: center;
 }
 
-.cardapio-pedidos{
+.cardapio-pedidos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.lanc_button{
+.lanc_button {
     background-color: black;
     outline: none;
     border: none;
@@ -247,17 +247,19 @@ body {
     justify-content: center;
 }
 
-.food_button{
+.food_button {
     background-color: #000000;
     border: none;
     cursor: pointer;
+    padding: 0.25rem 0.5rem; /* Ajuste do tamanho do botão */
+    font-size: 0.6rem; /* Ajuste do tamanho da fonte */
 }
 
 .modal_box {
     width: 20px;
 }
 
-.title_modal{
+.title_modal {
     font-size: 2rem;
     font-weight: 600;
     font-family: "Belanosima", serif;
@@ -265,12 +267,12 @@ body {
     color: #000000;
 }
 
-.description_modal{
+.description_modal {
     margin-bottom: 1rem;
     color: #000000;
 }
 
-.increase_button{
+.increase_button {
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -281,7 +283,7 @@ body {
     height: 2.5rem;
 }
 
-.quantity_modal{
+.quantity_modal {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -289,7 +291,7 @@ body {
     margin-bottom: 2rem;
 }
 
-.button_add, .button_sub{
+.button_add, .button_sub {
     background-color: #ffffff;
     background-color: #FFE4AA;
     color: #000000;
@@ -298,54 +300,53 @@ body {
     text-align: center;
     justify-content: center;
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     border: none;
 }
 
-.quantity_number{
+.quantity_number {
     font-size: 1rem;
     font-weight: 600;
 }
 
-.preco_modal{
+.preco_modal {
     font-size: 1.5rem;
     font-weight: 600;
     color: #000000;
 }
 
-.total_modal{
+.total_modal {
     font-size: 0.8rem;
     color: #000000;
 }
 
-.bottom_modal{
+.bottom_modal {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.obs{
+.obs {
     width: 19rem;
     margin-bottom: 2rem;
     height: 3.5rem;
     background-color: #FFE4AA;
     border: 1px solid #000000;
     border-radius: 0.5rem;
-    display: flex;    
+    display: flex;
     padding-left: 1rem;
     color: #000000;
 }
 
 .obs::placeholder {
-    font-size: 0.9rem; 
-    color: #000000; 
+    font-size: 0.9rem;
+    color: #000000;
     font-weight: 600;
     font-family: 'Alata', sans-serif;
-
 }
 
-.carrinho{
+.carrinho {
     width: 20rem;
     color: #000000;
     margin-bottom: 2rem;
@@ -356,12 +357,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
     font-style: normal;
     font-weight: 400;
 }
 
-.carrinho:hover{
+.carrinho:hover {
     background-color: #AA2322;
     color: #ffffff;
     border: 2px solid #FFBA21;
@@ -372,13 +373,13 @@ body {
     filter: invert(100%);
 }
 
-.modal_body{
+.modal_body {
     background-color: #FFD984;
     border-radius: 3rem;
     padding: 1rem;
 }
 
-.lancamentoImg{
+.lancamentoImg {
     width: 20rem;
     min-height: 20rem;
 }

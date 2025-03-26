@@ -46,9 +46,9 @@ function Carrinho() {
 
     function precoTotal() {
         let total = 0;
-        lanches
-            .filter(lanche => listaid.includes(lanche.ID))
-            .map(lanche => total += lanche.Preco);
+        items.filter(lanche => listaid.includes(lanche.ID)).forEach(lanche => {
+            total += lanche.Preco;
+        });
         return total.toFixed(2);
     }
 
@@ -95,7 +95,7 @@ function Carrinho() {
                             </div>
                         ))}
                     <div className='total-compra'>
-                        TOTAL: R${preco}
+                        TOTAL: R${precoTotal()}
                     </div>
                 </div>
                 <div className='opcoes-consumo'>
