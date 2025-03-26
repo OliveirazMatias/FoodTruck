@@ -40,6 +40,7 @@ html, body {
 } */
 
 .header {
+  display: flex;
   background-color: white;
   padding: 1.5% 1%;
   text-align: center;
@@ -59,13 +60,15 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  font-family: "Alata";
+  font-size: 100px;
 }
 
 .nav-link-header {
   color: black;
   text-decoration: none;
   margin: 0 15px;
-  font-size: 1.5vw;
+  font-size: 1.1vw;
 }
 .nav-link-header:hover {
   color: black;
@@ -97,4 +100,5 @@ p {
   margin-top: -1.2%;
   width: 6%;
   height: auto;
+  left: 6%;
 }

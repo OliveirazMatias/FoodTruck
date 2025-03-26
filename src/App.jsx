@@ -18,12 +18,14 @@ function App() {
   return (
     <Router>
         <header className="header">
+          <p></p>
           <nav>
             <img className="logo" src={imglogo} alt="logo" />
             <Link to="/" className="nav-link-header">CARDÁPIO</Link>
             <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
             <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
           </nav>
+          <img src={imgPerfil} alt="" className='perfil' />
         </header>
 
         <Routes>

@@ -39,6 +39,7 @@ body {
 .confira-lancamentos .confira-img img {
     width: 50%;
     height: auto;
+    margin-top: 10%;
 }
 
 .confira-texto {
@@ -56,6 +57,7 @@ body {
 
 .confira-highlight {
     border-bottom: 0.3vw solid #FFBA21;
+
 }
 
 .confira-subtexto {
@@ -103,6 +105,11 @@ body {
 
 }
 
+.cardapio-highlight {
+    border-bottom: 0.3vw solid #B42625;
+    font-size: 2.5vw;
+
+}
 .lancamento-produtos {
     display: flex;
     flex-direction: row;
@@ -197,7 +204,8 @@ body {
     outline: none;
     margin: none;
     color: #000000;
-    border: 2px solid #FFBA21;
+    cursor: pointer;
+    transform: translate(0, -10px);
 }
 
 .lanc_button{
@@ -252,6 +260,8 @@ body {
 
 .food_button{
     background-color: #000000;
+    border: none;
+    transition-duration: 0.5s;
 }
 
 .modal_box {
