@@ -1,7 +1,8 @@
 import '../TelasClientesCss/QuemSomos.css';
+import '../TelasClientesCss/QuemSomos.css';
 import * as React from 'react';
 import equipeImg from '../../assets/quemsomos/equipe.png';
-import mapaImg from '../../assets/quemsomos/mapa.png'; 
+import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
 import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
@@ -11,6 +12,7 @@ import clockIcon from '../../assets/quemsomos/hora.png';
 function QuemSomos() {
     return (
         <main>
+            {/* Seção Principal */}
             <div className="quem_somos">
                 <div className="quem_somos_img">
                     <div className="img_overlay"></div>
@@ -21,6 +23,7 @@ function QuemSomos() {
                 </div>
             </div>
 
+            {/* Seção Quem Somos */}
             <section className="quem_somos_detalhes">
                 <div className="quem_somos_texto">
                     <h2>QUEM SOMOS?</h2>
@@ -32,6 +35,8 @@ function QuemSomos() {
                 </div>
                 <div className="quem_somos_imagem">
                     <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" />
+                    <div className="fita fita-topo"></div>
+                    <div className="fita fita-base"></div>
                 </div>
             </section>
 
