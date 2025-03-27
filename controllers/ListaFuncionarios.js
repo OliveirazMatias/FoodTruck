@@ -58,18 +58,6 @@ export const deleteLogin = async (req, res) => {
             return res.status(404).json({ error: "Nome do funcionário não encontrado." });
         }
 
-        // Verificar se o placeholder existe
-        let placeholderFuncionario = await ListaFuncionarios.findByPk(999);
-        if (!placeholderFuncionario) {
-            placeholderFuncionario = await ListaFuncionarios.create({
-                id: 999,
-                nome: "deletedUser",
-                email: "usuariodeletado@usuariodeletado",
-                senha: "ba013c0f90e7499e7c377b46d2d6db92c5c1e06f"
-            });
-        }
-
-        // Atualizar os pedidos para usar o placeholder 999
         await Pedidos.update(
             { id_funcionario: 999 }, // Placeholder
             { where: { id_funcionario: funcionario.id } } // Use funcionario.id
@@ -85,6 +73,3 @@ export const deleteLogin = async (req, res) => {
     }
 };
 // Deletar Cadastro pra nova tela
-
-
-// Atualizar Topbar

@@ -44,7 +44,7 @@ export const postItemPedido = async (req, res) => {
 
 export const deleteItemPedido = async (req, res) => {
     try {
-        const { id } = req.params; 
+        const { id } = req.body; 
 
         const item = await ItemPedido.findByPk(id);
 
@@ -64,7 +64,7 @@ export const deleteItemPedido = async (req, res) => {
 
 export const getItemPedidoByPedido = async (req, res) => {
     try {
-        const { id_pedido } = req.query;
+        const { id_pedido } = req.body;
         let whereCondition = {};
         if (id_pedido) {
             whereCondition.id_pedido = id_pedido;

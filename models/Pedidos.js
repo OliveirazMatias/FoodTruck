@@ -1,6 +1,9 @@
 import database from "../config/database.js";
 import sequelize from "sequelize";
 import ListaFuncionarios from "./ListaFuncionarios.js";
+import moment from "moment-timezone"; // Importa moment-timezone
+
+const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo
 
 const Pedidos = database.define(
   "Pedidos",
@@ -27,7 +30,11 @@ const Pedidos = database.define(
       ),
       allowNull: false,
     },
-    data_criacao: { type: sequelize.DATE, allowNull: false },
+    data_criacao: {
+      type: sequelize.DATE,
+      allowNull: false,
+      defaultValue: () => new Date(), // Sequelize já trata como timestamp
+    },
     data_entrega: { type: sequelize.DATE, allowNull: true },
     tipo_pagamento: {
       type: sequelize.ENUM("PIX", "Cartão", "Dinheiro"),
@@ -37,10 +44,25 @@ const Pedidos = database.define(
   },
   {
     tableName: "pedidos",
-    timestamps: false,
+    timestamps: true,
+    createdAt: "data_criacao",
+    updatedAt: false, // Desabilita o campo updatedAt
+    hooks: {
+      beforeCreate: (pedido) => {
+        pedido.data_criacao = new Date(); // Usa Date diretamente
+      },
+      beforeUpdate: (pedido) => {
+        if (pedido.changed("Status") && pedido.Status === "entregue") {
+          pedido.data_entrega = new Date(); // Usa Date diretamente
+        }
+      },
+    },
   }
 );
 
-Pedidos.belongsTo(ListaFuncionarios, { foreignKey: "id_funcionario" });
+Pedidos.belongsTo(ListaFuncionarios, {
+  foreignKey: "id_funcionario",
+  onDelete: "SET NULL",
+});
 
 export default Pedidos;
