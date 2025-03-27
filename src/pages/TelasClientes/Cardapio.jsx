@@ -123,7 +123,7 @@ function Cardapio() {
                             <div key={index} className='food_body'>
                                 <button onClick={() => handleOpen(lanche)} className='food_button'>
                                     <div className="image_div">
-                                        <img src={lanche.Imagem} alt={lanche.Nome} className="image" />
+                                        <img src={lanche.Imagem} alt={lanche.Nome} className="image-lanches-cardapio" />
                                     </div>
                                     <div className="food_text">
                                         <h2 className="nome_comida">{lanche.Nome}</h2>
@@ -148,7 +148,7 @@ function Cardapio() {
                     }}
                 >
                     <Box sx={style}>
-                        <img src={selectedLanche.Imagem} className="image" alt="" />
+                        <img src={selectedLanche.Imagem} className="image-lanche-modal" alt="" />
                         <div className='modal_body'>
                         <div className='title_modal'>
                             {selectedLanche.Nome}

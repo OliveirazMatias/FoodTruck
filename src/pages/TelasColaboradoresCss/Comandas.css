@@ -1,9 +1,11 @@
-.comandas-container {
+.comandas{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    margin-top: 5%;
 }
+
 
 .titulo-comandas {
     display: flex;
