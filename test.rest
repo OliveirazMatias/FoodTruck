@@ -1,4 +1,25 @@
 
+### FUNCIONARIO
+POST http://localhost:3001/cadastro
+Content-Type: application/json
+
+{
+  "nome": "Melissa",
+  "email": "mel",
+  "senha": "amor"
+}
+
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+  "email": "mel",
+  "senha": "amor"
+}
+
+
 ### VER CARDAPIO
 GET http://localhost:3001/lanches
 
@@ -37,6 +58,12 @@ Content-Type: application/json
 
 ### CONFIRMAR O PEDIDO
 GET http://localhost:3001/pedidos
+
+
+
+
+
+
 
 ###
 GET http://localhost:3001/pedidos/CEP

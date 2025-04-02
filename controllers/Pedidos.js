@@ -19,7 +19,6 @@ export const postPedidos = async (req, res) => {
             Total: 0, // Initialize Total as 0
         });
 
-        // Ajusta a data_criacao para o fuso horário de São Paulo
         const formattedPedido = {
             ...pedido.toJSON(),
             data_criacao: moment(pedido.data_criacao).tz(timeZone).format("YYYY-MM-DD HH:mm:ss"),
