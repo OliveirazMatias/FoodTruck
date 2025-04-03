@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.historico-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 2vw;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    margin-top: 150px; 
+    border-bottom: 4px solid #B42625; 
+    display: inline-block;
+}
+
+.filtro-container {
+    margin: 50px 0;
+}
+
+.filtro-container button,
+.filtro-container input {
+    background-color: #B42625;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 150px; 
+    font-family: 'Alata';
+    font-size: 15px;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.filtro-container .ativo {
+    background-color: rgb(104, 12, 12); 
+    border: 2px solid white;
+}
+
+.filtro-container input {
+    min-width: 150px;
+}
+
+.pedido-card {
+    background-color: #222;
+    border: 3px solid #B42625;
+    padding: 15px;
+    margin: 50px auto;
+    width: 400px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+h2{
+    font-family: 'Belanosima';
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+p{
+    font-family: 'Alata';
+    font-size: 15px;
+    margin-top: 10px;
+
+
+}
+
+
+.consumo {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.itens {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 10px;
+    font-family: 'Alata';
+    text-align: left;
+    color: #f2b705;
+
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+

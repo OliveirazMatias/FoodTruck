@@ -9,6 +9,7 @@ import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
+import NavBarCardapio from '../componentes/NavBarCardapio';
 
 
 
@@ -114,7 +115,6 @@ function Cardapio() {
                         ))}
                 </div>
             </div>
-
             <div className='cardapio-pedidos'>
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>

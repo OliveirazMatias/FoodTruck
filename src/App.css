@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
-
-
 .belanosima-regular {
   font-family: "Belanosima", serif;
   font-weight: 400;
@@ -96,10 +94,11 @@ p {
   padding-top: 60px; 
 }
 
-.logo {
+
+.logo{
   display: flex;
   position: absolute;
-  margin-right: 70%;
+  margin-right: 80%;
   margin-top: -1.2%;
   width: 6%;
   height: auto;

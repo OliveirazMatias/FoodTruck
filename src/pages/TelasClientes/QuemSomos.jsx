@@ -1,4 +1,5 @@
 import '../TelasClientesCss/QuemSomos.css';
+import '../TelasClientesCss/QuemSomos.css';
 import * as React from 'react';
 import equipeImg from '../../assets/quemsomos/equipe.png';
 import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
