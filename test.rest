@@ -1,4 +1,3 @@
-
 ### FUNCIONARIO
 POST http://localhost:3001/cadastro
 Content-Type: application/json
@@ -62,7 +61,42 @@ GET http://localhost:3001/pedidos
 
 
 
+###
+POST http://localhost:3001/lanches
+Content-Type: application/json
 
+{
+  "nome": "Triplo xburguer",
+  "descricao": "Hamburguer triplo",
+  "preco": 40.00,
+  "disponibilidade": "disponível",
+  "imagem": "url_da_imagem",
+  "tipo": "hamburguer"
+  
+}
+
+###
+PUT http://localhost:3001/lanches/update
+Content-Type: application/json
+
+{
+  "nome_original": "xskibidi",
+  "nome": "xskibidi",
+  "descricao": "Skiiiii",
+  "preco": 69.00,
+  "disponibilidade": "disponível",
+  "imagem": "url_da_imagem",
+  "tipo": "pastel"
+}
+
+
+###
+DELETE http://localhost:3001/lanches/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
 
 
 ###

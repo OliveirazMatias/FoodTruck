@@ -1,17 +1,20 @@
-import express from 'express'
-import { getLanches, getLanchesByDesc } from '../controllers/ItemCardapio.js';
+import express from 'express';
+import { postLanches, getLanches, getLanchesByDesc, updateLanches, deleteLanches } from '../controllers/ItemCardapio.js';
 import { postLogin, postCadastro, deleteLogin } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido, getItemPedidoByPedido } from '../controllers/ItemPedido.js';
 import { postPedidos, getPedidosByCEP, getPedidosByMesa, getPedidos } from '../controllers/Pedidos.js';
 
 const routes = express.Router();
 
+routes.post('/lanches', postLanches);
 routes.get('/lanches', getLanches);
-routes.get('/lanches/descricao', getLanchesByDesc); // Handles ?descricao= query
+routes.get('/lanches/descricao', getLanchesByDesc);
+routes.put('/lanches/update', updateLanches); 
+routes.delete('/lanches/delete', deleteLanches); 
 
 routes.post('/login', postLogin);
-routes.post('/cadastro', postCadastro)
-routes.delete('/delete/usuario', deleteLogin)
+routes.post('/cadastro', postCadastro);
+routes.delete('/delete/usuario', deleteLogin);
 
 // ITENS PEDIDOS
 routes.get('/itempedido', getItemPedidoByPedido);

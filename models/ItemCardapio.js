@@ -22,10 +22,6 @@ const ItemCardapio = database.define(
       type: sequelize.DECIMAL(10, 2),
       allowNull: false,
     },
-    quantidade: {
-      type: sequelize.INTEGER,
-      allowNull: false,
-    },
     data_entrada: {
       type: sequelize.DATE,
       allowNull: false,
@@ -42,10 +38,15 @@ const ItemCardapio = database.define(
       type: sequelize.STRING(255),
       allowNull: false,
     },
+    tipo: {
+      type: sequelize.ENUM("hamburguer", "pastel", "hotdog", "porcao", "bebida", "outros"),
+      allowNull: false}
   },
   {
     tableName: "item_cardapio",
-    timestamps: false,
+    timestamps: true,
+    updatedAt: "data_entrada",
+    createdAt: false,
   }
 );
 

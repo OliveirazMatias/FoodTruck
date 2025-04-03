@@ -1,5 +1,4 @@
 import Pedidos from "../models/Pedidos.js";
-import ItemPedido from "../models/ItemPedido.js";
 import moment from "moment-timezone"; // Importa moment-timezone
 
 const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo

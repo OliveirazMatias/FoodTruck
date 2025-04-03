@@ -54,7 +54,6 @@ export const deleteItemPedido = async (req, res) => {
 
         await item.destroy(); 
 
-        // atualizar quando excluir
         return res.status(200).json({ message: "Item do Pedido deletado com sucesso!" });
     } catch (error) {
         console.error("Erro ao deletar item do Pedido:", error);
@@ -77,5 +76,3 @@ export const getItemPedidoByPedido = async (req, res) => {
         res.status(500).json({ error: "Erro ao buscar item do pedido" });
     }
 }; // GET itempedido por id_pedido pra comanda
-
-// IMPLEMENTAÇÂO DE CACHE
