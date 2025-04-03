@@ -35,6 +35,7 @@
     font-weight: 400;
     line-height: normal;
     padding: 1vw;
+    text-align: center;
 }
 
 .status {
@@ -42,6 +43,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1vw;
 }
 
 .status-texto {
@@ -52,7 +55,7 @@
     font-weight: 400;
     line-height: normal;
     border-bottom: 0.3vw solid #B42625;
-
+    text-align: center;
 }
 
 .resultado {
@@ -150,4 +153,33 @@
     justify-content: start;
     align-items: center;
     margin-top: 2%;
+}
+
+@media (max-width: 768px) {
+    .numero-mesa {
+        font-size: 2vw;
+        padding: 1.5vw;
+        border-radius: 1.5vw;
+    }
+
+    .status-texto {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .numero-mesa {
+        font-size: 3vw;
+        padding: 2vw;
+        border-radius: 2vw;
+    }
+
+    .status {
+        flex-direction: column;
+        gap: 2vw;
+    }
+
+    .status-texto {
+        font-size: 2.5vw;
+    }
 }

@@ -32,8 +32,6 @@ function QuemSomos() {
                 </div>
                 <div className="quem_somos_imagem">
                     <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" />
-                    <div className="fita fita-topo"></div>
-                    <div className="fita fita-base"></div>
                 </div>
             </section>
 

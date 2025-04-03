@@ -16,14 +16,16 @@ const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
+    transform: 'translate(-50%, -50%)', 
+    maxWidth: '30vw', 
+    height: 'auto', 
     bgcolor: '#FFBA21',
     border: '2px solid #000',
-    boxShadow: 0,
-    p: 4,
-    backdropFilter: 'blur(10px)', 
-    borderRadius: '2rem',
+    boxShadow: 24,
+    p: '1.5vw', 
+    backdropFilter: 'blur(10px)',
+    borderRadius: '1.5vw', 
+    overflowY: 'auto',
 };
 
 const backdropStyle = {
@@ -177,7 +179,7 @@ function Cardapio() {
                             <input type="text" className='obs' placeholder='Alguma Observação:'/>
                             
                             <button className='carrinho' onClick={ToCarrinho}>Adicionar ao carrinho
-                                <img src={carrinho} alt="" />
+                                <img className='carrinho-modal' src={carrinho} alt="" />
                             </button>
                         </div>
                         </div>
