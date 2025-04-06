@@ -1,8 +1,31 @@
-# React + Vite
+# Sanctus Panis - Sistema de Gestão para Food Truck
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um sistema completo para a gestão de um food truck, desenvolvido com uma arquitetura de frontend e backend. Ele permite gerenciar cardápio, pedidos, funcionários e estoque, além de oferecer uma interface para clientes visualizarem o cardápio e realizarem pedidos.
 
-Currently, two official plugins are available:
+## Estrutura do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto está dividido em duas partes principais:
+
+### Backend
+- **Tecnologias**: Node.js, Express, Sequelize, MySQL.
+- **Funcionalidades**:
+  - Gerenciamento de cardápio (CRUD de itens).
+  - Gerenciamento de pedidos e itens do pedido.
+  - Autenticação e cadastro de funcionários com JWT.
+  - Integração com banco de dados MySQL.
+- **Localização**: Diretório `Backend/`.
+
+### Frontend
+- **Tecnologias**: React, Vite.
+- **Funcionalidades**:
+  - Exibição do cardápio para clientes.
+  - Modal para adicionar itens ao carrinho.
+  - Navegação entre páginas.
+- **Localização**: Diretório `Frontend/`.
+
+## Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas:
+- Node.js
+- MySQL
+- Gerenciador de pacotes (npm ou yarn)

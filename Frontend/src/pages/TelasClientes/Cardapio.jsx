@@ -9,8 +9,8 @@ import { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Importar axios para realizar a requisição
-import { get } from "http";
+import { getLanches } from "../../Services/api";
+
 
 const style = {
   position: "absolute",
@@ -38,8 +38,13 @@ function Cardapio() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLanches(getLanches());
+    const fetchLanches = async () => {
+      const data = await getLanches();
+      setLanches(Array.isArray(data) ? data : []);
+    };
+    fetchLanches();
   }, []);
+  
 
   const handleOpen = (lanche) => {
     setSelectedLanche(lanche);
