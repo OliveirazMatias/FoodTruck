@@ -66,12 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Triplo xburguer",
-  "descricao": "Hamburguer triplo",
-  "preco": 40.00,
+  "nome": "Pastel",
+  "descricao": "QUEIJO",
+  "preco": 10.00,
   "disponibilidade": "disponível",
-  "imagem": "url_da_imagem",
-  "tipo": "hamburguer"
+  "imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_frango_ce7b1464-67fc-435d-a2a3-83dc05e1ab95.png",
+  "tipo": "pastel"
   
 }
 

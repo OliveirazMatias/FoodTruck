@@ -18,4 +18,9 @@ Pedidos.sync();
 ListaFuncionarios.sync();
 
 
+app.get('/', (req, res) => {
+    res.json({ message: 'Backend: FUNCIONANDO' });
+  });
+  
+
 app.listen(3001, () => console.log('servidor rodando na porta 3001'));

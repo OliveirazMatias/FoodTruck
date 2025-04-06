@@ -7,7 +7,7 @@ const ListaFuncionarios = database.define(
     id: { type: sequelize.INTEGER, autoIncrement: true, primaryKey: true },
     nome: { type: sequelize.STRING(50), allowNull: false },
     email: { type: sequelize.STRING(100), allowNull: false, unique: true },
-    senha: { type: sequelize.STRING(50), allowNull: false },
+    senha: { type: sequelize.STRING(65), allowNull: false },
   },
   {
     tableName: "lista_funcionarios",
