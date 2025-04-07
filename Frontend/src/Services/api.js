@@ -24,10 +24,11 @@ export const postPedidos = async (pedido) => {
 
 export const postItemPedido = async (itemPedido) => {
   try {
+    console.log("Enviando itemPedido:", itemPedido); // Log para depuração
     const response = await http.post("/itempedido", itemPedido);
     return response.data;
   } catch (error) {
-    console.error("Error posting itemPedido:", error);
+    console.error("Error posting itemPedido:", error.response?.data || error.message); // Log detalhado
     throw error;
   }
 }

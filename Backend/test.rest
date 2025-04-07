@@ -27,9 +27,9 @@ POST http://localhost:3001/pedidos
 Content-Type: application/json
 
 {
-  "id_funcionario": 7,
+  "id_funcionario": 1,
   "tipo_pedido": "delivery",
-  "nome_cliente": "Juan",
+  "nome_cliente": "henrique",
   "Mesa": null,
   "CEP": "12366940",
   "Status": "em preparação",
@@ -41,8 +41,8 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 24,
-  "id_item_do_cardapio": 7,
+  "id_pedido": 2,
+  "id_item_do_cardapio": 1,
   "quantidade": 2,
   "observacao": "gelada"
 }
@@ -52,7 +52,7 @@ GET http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 24
+  "id_pedido": 1
 }
 
 ### CONFIRMAR O PEDIDO

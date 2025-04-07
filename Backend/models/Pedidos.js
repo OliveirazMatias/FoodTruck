@@ -12,11 +12,12 @@ const Pedidos = database.define(
     id_funcionario: {
       type: sequelize.INTEGER,
       allowNull: true,
+      defaultValue: 0,
       references: { model: ListaFuncionarios, key: "ID" },
     },
     tipo_pedido: {
       type: sequelize.ENUM("delivery", "comer no local"),
-      allowNull: false,
+      allowNull: true,
     },
     nome_cliente: { type: sequelize.STRING(50), allowNull: false },
     Mesa: { type: sequelize.INTEGER, allowNull: true },

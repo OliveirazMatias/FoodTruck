@@ -9,7 +9,8 @@ import { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
-import { getLanches } from "../../Services/api";
+import { getLanches, postPedidos, postItemPedido } from "../../Services/api";
+import { use } from "react";
 
 
 const style = {
@@ -36,6 +37,22 @@ function Cardapio() {
   const [open, setOpen] = useState(false);
   const [selectedLanche, setSelectedLanche] = useState(null);
   const navigate = useNavigate();
+  const [obs, setObs] = useState("");
+  const [quantity, setquantity] = useState(1); // Estado inicial ajustado
+
+  const handleObs = (event) => {
+    setObs(event.target.value);
+  };
+
+  const handleOpen = (lanche) => {
+    setSelectedLanche(lanche);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setquantity(1); // Resetar quantidade ao fechar o modal
+  };
 
   useEffect(() => {
     const fetchLanches = async () => {
@@ -44,30 +61,30 @@ function Cardapio() {
     };
     fetchLanches();
   }, []);
-  
-
-  const handleOpen = (lanche) => {
-    setSelectedLanche(lanche);
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-    setquantity(1);
-  };
-
-  const [quantity, setquantity] = useState(1);
-
-  if (quantity < 1) {
-    setquantity(1);
-  }
-
-  let subtotal = selectedLanche?.preco * quantity;
-
-  function ToCarrinho() {
-    navigate("/Carrinho");
-  }
 
   const lancamentosId = [1, 5, 4];
+
+  const IrproCarrinho = async () => {
+    if (!selectedLanche) return;
+
+    const itemPedido = {
+      id_pedido: 1,
+      id_item_do_cardapio: selectedLanche.id,
+      quantidade: quantity,
+      preco_unitario: selectedLanche.preco,
+      subtotal: selectedLanche.preco * quantity,
+      observacao: obs,
+    };
+
+    console.log("Preparando para enviar itemPedido:", itemPedido); // Log para depuração
+
+    try {
+      await postItemPedido(itemPedido); // Corrigir para usar postItemPedido
+      navigate("/Carrinho");
+    } catch (error) {
+      console.error("Erro ao adicionar ao carrinho:", error.response?.data || error.message); // Log detalhado
+    }
+  };
 
   return (
     <div className="cardapio">
@@ -133,6 +150,7 @@ function Cardapio() {
             {lanches.map((lanche, index) => (
               <div key={index} className="food_body">
                 <button
+                  key={lanche.id}
                   onClick={() => handleOpen(lanche)}
                   className="food_button"
                 >
@@ -196,7 +214,7 @@ function Cardapio() {
                   </div>
 
                   <div className="total_modal">
-                    Subtotal: R$ {Number(subtotal).toFixed(2)}
+                    Subtotal: R$ {Number(selectedLanche.preco * quantity).toFixed(2)}
                   </div>
                 </div>
               </div>
@@ -206,9 +224,11 @@ function Cardapio() {
                   type="text"
                   className="obs"
                   placeholder="Alguma Observação:"
+                  value={obs}
+                  onChange={handleObs}
                 />
 
-                <button className="carrinho" onClick={ToCarrinho}>
+                <button className="carrinho" onClick={IrproCarrinho}>
                   Adicionar ao carrinho
                   <img src={carrinho} alt="" />
                 </button>
