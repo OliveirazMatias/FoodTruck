@@ -65,7 +65,7 @@ function Cardapio() {
         navigate('/Carrinho');
     }
 
-    const lancamentosId = [2, 3, 10]
+    const lancamentosId = [1, 2, 3]
 
     return (
         <div className='cardapio'>

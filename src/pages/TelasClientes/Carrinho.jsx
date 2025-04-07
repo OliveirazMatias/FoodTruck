@@ -40,7 +40,7 @@ function Carrinho() {
         setLanches(lanchesData);
     }, []);
 
-    const listaid = [2, 3, 9];
+    const listaid = [1,2,3];
 
     const preco = precoTotal();
 
@@ -69,6 +69,16 @@ function Carrinho() {
         setItems(items.filter(lanche => lanche.ID !== id));
     };
 
+    const adicionarItem = (id) => {
+        const updatedItems = items.map((item) => {
+            if (item.ID === id) {
+                return { ...item, quantidade: (item.quantidade || 1) + 1 }; // Incrementa a quantidade
+            }
+            return item;
+        });
+        setItems(updatedItems);
+    };
+
     return (
         <div className="carrinho-container">
             <div className='carrinho-titulo'>
@@ -90,7 +100,10 @@ function Carrinho() {
                                 </div>
                                 <div className='preco-remover'>
                                     <div className='preco_total'>R$: {lanche.Preco.toFixed(2)}</div>
-                                    <button className='button-remover-pedido' onClick={() => removerItem(lanche.ID)}>X</button>
+                                    <div className='botoes-acoes'>
+                                        <button className='button-add-pedido' onClick={() => adicionarItem(lanche.ID)}>+</button>
+                                        <button className='button-remover-pedido' onClick={() => removerItem(lanche.ID)}>x</button>
+                                    </div>
                                 </div>
                             </div>
                         ))}

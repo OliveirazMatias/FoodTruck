@@ -101,29 +101,79 @@ body {
 .opcoes-consumo {
     display: flex;
     flex-direction: column;
-    text-align: start;
+    align-items: flex-start; 
     margin-top: 2rem;
+    gap: 1rem; 
 }
 
 .switch {
     color: #ffffff;
+    font-size: 1vw;
 }
 
 .titulo-opcoes {
     color: #ffffff;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    font-size: 1.8vw;
-    border-bottom: #B42625 4px solid;
-    width: 19vw;
+    font-size: 1.5vw; 
+    border-bottom: #B42625 0.3vw solid;
 }
 
+.finalizar-pedido {
+    background-color: #B42625;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 0.5vw;
+    padding: 1vw 2vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.finalizar-pedido:hover {
+    background-color: #A31E1A;
+}
+
+@media (max-width: 768px) {
+    .titulo-opcoes {
+        font-size: 2vw;
+        width: 25%;
+    }
+
+    .switch {
+        font-size: 1.5vw;
+    }
+
+    .finalizar-pedido {
+        font-size: 2vw;
+        padding: 1.5vw 3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-opcoes {
+        font-size: 3vw;
+        width: 30%;
+    }
+
+    .switch {
+        font-size: 2vw;
+    }
+
+    .finalizar-pedido {
+        font-size: 2.5vw;
+        padding: 2vw 4vw;
+    }
+}
 
 .finalizar-pedido {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5%;
+    background: none;
 }
 
 .pedido-finalizado {
@@ -294,7 +344,30 @@ body {
 
 .preco-remover{
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: flex-end; 
+    align-items: center; 
+    margin-top: 1rem;
+    gap: 1rem; 
+}
+
+.botoes-acoes {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.button-add-pedido, .button-remover-pedido {
+    background-color: #B42625;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 1vw;
+    border: none;
+    border-radius: 0.5vw;
+    padding: 0.5vw 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-add-pedido:hover, .button-remover-pedido:hover {
+    background-color: #A31E1A;
 }
