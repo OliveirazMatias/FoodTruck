@@ -1,0 +1,146 @@
+### FUNCIONARIO
+POST http://localhost:3001/cadastro
+Content-Type: application/json
+
+{
+  "nome": "Melissa",
+  "email": "mel",
+  "senha": "amor"
+}
+
+
+###
+POST http://localhost:3001/login
+Content-Type: application/json
+
+{
+  "email": "mel",
+  "senha": "amor"
+}
+
+
+### VER CARDAPIO
+GET http://localhost:3001/lanches
+
+### CRIAR PEDIDO
+POST http://localhost:3001/pedidos
+Content-Type: application/json
+
+{
+  "id_funcionario": 7,
+  "tipo_pedido": "delivery",
+  "nome_cliente": "Juan",
+  "Mesa": null,
+  "CEP": "12366940",
+  "Status": "em preparação",
+  "tipo_pagamento": "PIX"
+}
+
+### ADICIONAR ITEM AO PEDIDO
+POST http://localhost:3001/itempedido
+Content-Type: application/json
+
+{
+  "id_pedido": 24,
+  "id_item_do_cardapio": 7,
+  "quantidade": 2,
+  "observacao": "gelada"
+}
+
+### CONFIRMAR ITENS DO PEDIDO
+GET http://localhost:3001/itempedido
+Content-Type: application/json
+
+{
+  "id_pedido": 24
+}
+
+### CONFIRMAR O PEDIDO
+GET http://localhost:3001/pedidos
+
+
+
+
+###
+POST http://localhost:3001/lanches
+Content-Type: application/json
+
+{
+  "nome": "X-BURGUERZADA",
+  "descricao": "SEXO",
+  "preco": 69.00,
+  "disponibilidade": "disponível",
+  "imagem": "https://deliverybrasil.com.br/wp-content/uploads/2022/03/kisspng-hamburger-chicken-sandwich-chicken-fingers-chicken-burger-and-sandwich-5ab4bc1daa03a1.8779593115217940776964.png",
+  "tipo": "hamburguer"
+  
+}
+
+###
+PUT http://localhost:3001/lanches/update
+Content-Type: application/json
+
+{
+  "nome_original": "xskibidi",
+  "nome": "xskibidi",
+  "descricao": "Skiiiii",
+  "preco": 69.00,
+  "disponibilidade": "disponível",
+  "imagem": "url_da_imagem",
+  "tipo": "pastel"
+}
+
+
+###
+DELETE http://localhost:3001/lanches/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+
+###
+GET http://localhost:3001/pedidos/CEP
+Content-Type: application/json
+
+{
+  "CEP": "12366940"
+}
+
+
+###
+POST http://localhost:3001/itempedido
+Content-Type: application/json
+
+{
+  "id_pedido": 6,
+  "id_item_do_cardapio": 5,
+  "quantidade": 1,
+  "observacao": "Sem haburguer"
+}
+
+###
+GET http://localhost:3001/itempedido
+Content-Type: application/json
+
+{
+  "id_pedido": 6
+}
+
+###
+DELETE http://localhost:3001/delete/itempedido
+Content-Type: application/json
+
+{
+  "id": 6
+}
+
+#####
+
+
+GET http://localhost:3001/lanches/descricao
+Content-Type: application/json
+
+{
+  "descricao": "Hamburguer"
+}
