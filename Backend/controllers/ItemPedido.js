@@ -76,3 +76,19 @@ export const getItemPedidoByPedido = async (req, res) => {
         res.status(500).json({ error: "Erro ao buscar item do pedido" });
     }
 }; // GET itempedido por id_pedido pra comanda
+
+export const getPedidos = async (req, res) => {
+    try {
+        const { id_pedido } = req.body;
+        let whereCondition = {};
+        if (id_pedido) {
+            whereCondition.id_pedido = id_pedido;
+        }
+
+        const pedidos = await Pedidos.findAll({ where: whereCondition });
+        res.json(pedidos);
+    } catch (error) {
+        console.error("Erro ao buscar pedidos:", error);
+        res.status(500).json({ error: "Erro ao buscar pedidos" });
+    }
+}

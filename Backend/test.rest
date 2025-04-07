@@ -66,12 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Pastel",
-  "descricao": "QUEIJO",
-  "preco": 10.00,
+  "nome": "X-BURGUERZADA",
+  "descricao": "SEXO",
+  "preco": 69.00,
   "disponibilidade": "disponível",
-  "imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_frango_ce7b1464-67fc-435d-a2a3-83dc05e1ab95.png",
-  "tipo": "pastel"
+  "imagem": "https://deliverybrasil.com.br/wp-content/uploads/2022/03/kisspng-hamburger-chicken-sandwich-chicken-fingers-chicken-burger-and-sandwich-5ab4bc1daa03a1.8779593115217940776964.png",
+  "tipo": "hamburguer"
   
 }
 
