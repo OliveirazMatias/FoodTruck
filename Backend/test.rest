@@ -3,9 +3,9 @@ POST http://localhost:3001/cadastro
 Content-Type: application/json
 
 {
-  "nome": "Melissa",
-  "email": "mel",
-  "senha": "amor"
+  "nome": "",
+  "email": "",
+  "senha": ""
 }
 
 
@@ -14,8 +14,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "email": "mel",
-  "senha": "amor"
+  "email": "",
+  "senha": ""
 }
 
 
@@ -66,12 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "X-BURGUERZADA",
-  "descricao": "SEXO",
-  "preco": 69.00,
+  "nome": "pastel foda",
+  "descricao": "FODA",
+  "preco": 30.00,
   "disponibilidade": "disponível",
-  "imagem": "https://deliverybrasil.com.br/wp-content/uploads/2022/03/kisspng-hamburger-chicken-sandwich-chicken-fingers-chicken-burger-and-sandwich-5ab4bc1daa03a1.8779593115217940776964.png",
-  "tipo": "hamburguer"
+  "imagem": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hot_dog_with_mustard.png",
+  "tipo": "pastel"
   
 }
 
