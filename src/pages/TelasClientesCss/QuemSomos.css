@@ -93,6 +93,7 @@ body, html {
     width: 30vw;
     border-radius: 8px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease;
 }
 
 .contato_localizacao {
@@ -103,7 +104,8 @@ body, html {
     color: white;
     padding: 40px 10%;
     font-family: 'Belanosima', sans-serif;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .contato {
@@ -152,9 +154,16 @@ body, html {
 @media (max-width: 768px) {
     .contato_localizacao {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 5%;
     }
 
     .linha_divisoria {
         display: none;
+    }
+
+    .imagem-equipe {
+        width: 50vw;
     }
 }

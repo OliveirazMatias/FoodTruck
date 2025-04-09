@@ -80,11 +80,11 @@ body {
     font-family: 'Alata', sans-serif;
 }
 
-.preco_total {
+.preco-total-carrinho {
     color: #B42625;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
     font-size: 1.8vw;
-    display: flex;
-    justify-content: end;
     margin-right: 3%;
 }
 
@@ -101,22 +101,21 @@ body {
 .opcoes-consumo {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1.5rem;
     margin-top: 2rem;
-    gap: 1rem; 
-}
-
-.switch {
-    color: #ffffff;
-    font-size: 1vw;
 }
 
 .titulo-opcoes {
     color: #ffffff;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    font-size: 1.5vw; 
-    border-bottom: #B42625 0.3vw solid;
+    font-size: 1.8vw;
+    border-bottom: 0.2vw solid #B42625;
+    text-align: left;
+    margin-bottom: 1rem;
 }
 
 .finalizar-pedido {
@@ -134,38 +133,6 @@ body {
 
 .finalizar-pedido:hover {
     background-color: #A31E1A;
-}
-
-@media (max-width: 768px) {
-    .titulo-opcoes {
-        font-size: 2vw;
-        width: 25%;
-    }
-
-    .switch {
-        font-size: 1.5vw;
-    }
-
-    .finalizar-pedido {
-        font-size: 2vw;
-        padding: 1.5vw 3vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo-opcoes {
-        font-size: 3vw;
-        width: 30%;
-    }
-
-    .switch {
-        font-size: 2vw;
-    }
-
-    .finalizar-pedido {
-        font-size: 2.5vw;
-        padding: 2vw 4vw;
-    }
 }
 
 .finalizar-pedido {
@@ -342,12 +309,18 @@ body {
     cursor: pointer;
 }
 
-.preco-remover{
+.jogar-pro-ladinho{
     display: flex;
-    justify-content: flex-end; 
-    align-items: center; 
-    margin-top: 1rem;
-    gap: 1rem; 
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: flex-end; 
+    height: 100%; 
+    width: 100%;
+}
+
+.preco-remover-carrinho{
+    display: flex;
+    width: 50%;
 }
 
 .botoes-acoes {
@@ -366,8 +339,4 @@ body {
     padding: 0.5vw 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.button-add-pedido:hover, .button-remover-pedido:hover {
-    background-color: #A31E1A;
 }

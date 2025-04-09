@@ -1,19 +1,19 @@
-.comandas {
+.comandas-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 5vh;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
 }
 
 .titulo-comandas {
     display: flex;
     justify-content: center;
-    padding: 5vh;
+    padding: 5%; 
 }
 
 .titulo {
-    margin: 2vh 0;
+    margin: 20px 0;
     color: #FFF;
     font-family: Belanosima;
     font-size: 4vw;
@@ -26,19 +26,14 @@
 .mesas-button, .mesas-button-amarelo {
     border-radius: 1vw;
     border: 0.2vw solid #AA2322;
-    padding: 1.5vh 3vw;
+    padding: 1vw 2vw; 
     font-family: 'Alata', sans-serif;
-    font-size: 1.5vw;
+    font-size: 1.5vw; 
     font-weight: 400;
-    line-height: 1;
+    line-height: 1; 
     cursor: pointer;
-    text-align: center;
-    min-width: 12vw;
-    transition: transform 0.3s ease;
-}
-
-.mesas-button:hover, .mesas-button-amarelo:hover {
-    transform: scale(1.05);
+    text-align: center; 
+    min-width: 10vw;
 }
 
 .mesas-button {
@@ -55,74 +50,38 @@
 .mesas-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 2vw;
 }
 
 .mesas {
     display: flex;
     flex-direction: row;
-    margin: 2vw;
-    gap: 2vw;
-    flex-wrap: wrap;
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 1vw;
 }
 
 .div-buttao {
-    margin: 1vw;
+    margin: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
-    .titulo {
-        font-size: 5vw;
+    .comandas-container{
+        margin-top: 5%
     }
 
-    .mesas-button, .mesas-button-amarelo {
-        font-size: 2.5vw;
-        padding: 1.5vh 2.5vw;
-        min-width: 20vw;
-    }
-
-    .mesas {
-        flex-direction: column;
-        align-items: center;
-        gap: 2vh;
-    }
-
-    .buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2vw;
+    .div-buttao {
+        margin: 1vw;
     }
 }
 
 @media (max-width: 480px) {
-    .titulo {
-        font-size: 6vw;
-    }
-
-    .mesas-button, .mesas-button-amarelo {
-        font-size: 3vw;
-        padding: 1.5vh 2vw;
-        min-width: 30vw;
-    }
-
-    .mesas {
-        flex-direction: column;
-        align-items: center;
-        gap: 2vh;
-    }
-
-    .buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 2vh;
+    .div-buttao {
+        margin: 2vw;
     }
 }

@@ -38,12 +38,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* .App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-} */
-
 .header {
   background-color: white;
   padding: 1.5% 1%;
@@ -75,20 +69,6 @@ nav {
 .nav-link-header:hover {
   color: black;
 }
-
-/* div {
-  flex: 1;
-  text-align: center;
-} */
-
-/* h1 {
-  color: #333;
-  font-family: 'Alata', sans-serif;
-}
-
-p {
-  color: #666;
-} */
 
 .content {
   padding-top: 60px; 
