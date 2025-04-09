@@ -1,14 +1,16 @@
 import '../TelasClientesCss/Cardapio.css';
-import imginconlanche from '../../assets/cardapio/confiralancamentos/iconlanche.jpg';
-import imginconbebidas from '../../assets/cardapio/confiralancamentos/iconbebidas.jpg';
-import imginconacompanhamento from '../../assets/cardapio/confiralancamentos/iconacompanhamentos.jpg';
-import imgconfira from '../../assets/cardapio/confiralancamentos/confiralancamentos.jpg';
+import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
+import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
+import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
+import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
 import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
+import { getLanches, postItemPedido } from "../../Services/api"; // Importar API correta
+
 
 
 const style = {
@@ -33,37 +35,67 @@ const backdropStyle = {
 };
 
 function Cardapio() {
+    const [activeFilter, setActiveFilter] = useState("all"); // New state for filtering
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setLanches(lanchesData);
-    }, []);
-
+    const [obs, setObs] = useState("");
+    const [quantity, setQuantity] = useState(1); // Estado inicial ajustado
+  
+    const handleObs = (event) => {
+      setObs(event.target.value);
+    };
+  
     const handleOpen = (lanche) => {
-        setSelectedLanche(lanche);
-        setOpen(true);
+      setSelectedLanche(lanche);
+      setOpen(true);
     };
+  
     const handleClose = () => {
-        setOpen(false);
-        setquantity(1);
+      setOpen(false);
+      setQuantity(1); // Resetar quantidade ao fechar o modal
     };
+  
+    useEffect(() => {
+      const fetchLanches = async () => {
+        try {
+          const data = await getLanches(); // Buscar lanches do backend
+          setLanches(Array.isArray(data) ? data : []);
+        } catch (error) {
+          console.error("Erro ao buscar lanches:", error);
+        }
+      };
+      fetchLanches();
+    }, []);
+  
+    const handleAddToCart = async () => {
+      if (!selectedLanche) return;
+  
+      const itemPedido = {
+        id_pedido: 1, // Substituir pelo ID do pedido correto
+        id_item_do_cardapio: selectedLanche.id,
+        quantidade: quantity,
+        observacao: obs,
+      };
+  
+      try {
+        await postItemPedido(itemPedido); // Enviar item ao backend
+        navigate("/Carrinho");
+      } catch (error) {
+        console.error("Erro ao adicionar ao carrinho:", error);
+      }
+    };
+  
+    const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
+  
+    // Filter handler function
+    const handleFilterClick = (filterType) => {
+        setActiveFilter(filterType);
+    };
+    
+    const lancamentosId = [2, 3, 10]
 
-    const [quantity, setquantity] = useState(1);
-
-    if  (quantity < 1) {
-        setquantity(1);
-    }
-
-    let subtotal = selectedLanche?.Preco * quantity;
-
-    function ToCarrinho() {
-        navigate('/Carrinho');
-    }
-
-    const lancamentosId = [1, 2, 3]
 
     return (
         <div className='cardapio'>
@@ -101,15 +133,14 @@ function Cardapio() {
                 </h1>
                 <div className='lancamento-produtos'>
                     {lanches
-                        .filter(lanche => lancamentosId.includes(lanche.ID))
+                        .filter(lanche => lancamentosId.includes(lanche.id))
                         .map((lanche, index) => (
-                            <button onClick={() => handleOpen(lanche)} className={`produtos0${index + 1}`}>
-                                <div key={lanche.ID}>
-                                        <p className='lancamentoNome'>{lanche.Nome}</p>
-                                        <img src={lanche.Imagem} className="lancamentoImg" alt={`produto0${index + 1}`} />
+                            <button key={lanche.id} onClick={() => handleOpen(lanche)} className={`produtos0${index + 1}`}>
+                                <div>
+                                    <p className='lancamentoNome'>{lanche.nome}</p>
+                                    <img src={lanche.imagem} className="lancamentoImg" alt={`produto0${index + 1}`} />
                                 </div>
                             </button>
-
                         ))}
                 </div>
             </div>
@@ -117,18 +148,60 @@ function Cardapio() {
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>
                 </h1>
+
+                <div className="opcoes">
+                    <button 
+                        className={`botaohamburguer ${activeFilter === "hamburguer" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("hamburguer")}
+                    >
+                        Hambúrguer
+                    </button>
+                    <button 
+                        className={`botaohotdog ${activeFilter === "hotdog" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("hotdog")}
+                    >
+                        Hot-Dog
+                    </button>
+                    <button 
+                        className={`botaopastel ${activeFilter === "pastel" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("pastel")}
+                    >
+                        Pastel
+                    </button>
+                    <button 
+                        className={`botaoporcoes ${activeFilter === "porcao" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("porcao")}
+                    >
+                        Porções
+                    </button>
+                    <button 
+                        className={`botaobebidas ${activeFilter === "bebida" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("bebida")}
+                    >
+                        Bebidas
+                    </button>
+                    <button 
+                        className={`botaotodos ${activeFilter === "all" ? "active" : ""}`} 
+                        onClick={() => handleFilterClick("all")}
+                    >
+                        Todos
+                    </button>
+                </div>
+
                 <div className='cardapio-opcoes'>
                     <div className='lanches'>
-                        {lanches.map((lanche, index) => (
-                            <div key={index} className='food_body'>
+                        {lanches
+                            .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
+                            .map((lanche) => (
+                            <div key={lanche.id} className='food_body'>
                                 <button onClick={() => handleOpen(lanche)} className='food_button'>
                                     <div className="image_div">
-                                        <img src={lanche.Imagem} alt={lanche.Nome} className="image-lanches-cardapio" />
+                                        <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
                                     </div>
                                     <div className="food_text">
-                                        <h2 className="nome_comida">{lanche.Nome}</h2>
-                                        <p className="descricao">{lanche.Descricao}</p>
-                                        <div className="preco">R$ {lanche.Preco.toFixed(2)}</div>
+                                        <h2 className="nome_comida">{lanche.nome}</h2>
+                                        <p className="descricao">{lanche.descricao}</p>
+                                        <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
                                     </div>
                                 </button>
                             </div>
@@ -148,35 +221,35 @@ function Cardapio() {
                     }}
                 >
                     <Box sx={style}>
-                        <img src={selectedLanche.Imagem} className="image-lanche-modal" alt="" />
+                        <img src={selectedLanche.imagem} className="image-lanche-modal" alt="" />
                         <div className='modal_body'>
                         <div className='title_modal'>
-                            {selectedLanche.Nome}
+                            {selectedLanche.nome}
                         </div>
                         <div className='description_modal'>
-                            {selectedLanche.Descricao}
+                            {selectedLanche.descricao}
                         </div>
                         <div className='quantity_modal'>
                             <div className="increase_button">
-                                <button className='button_add' onClick={() => setquantity(quantity -1)}>-</button>
+                                <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                                 <div className='quantity_number'>{quantity}</div>
                                 <button className='button_sub' onClick={() => setquantity(quantity +1)}>+</button>
                             </div>
                             <div className='price_modal'>
                                 <div className='preco_modal'>
-                                    R$ {selectedLanche.Preco.toFixed(2)}
+                                    R$ {Number(selectedLanche.preco).toFixed(2)}
                                 </div>
 
                                 <div className='total_modal'>
-                                    Subtotal: R$ {subtotal.toFixed(2)}
+                                    Subtotal: R$ {Number(subtotal).toFixed(2)}
                                 </div>
                             </div>
                         </div>
 
                         <div className='bottom_modal'>
-                            <input type="text" className='obs' placeholder='Alguma Observação:'/>
+                            <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
                             
-                            <button className='carrinho' onClick={ToCarrinho}>Adicionar ao carrinho
+                            <button className='carrinho' onClick={handleAddToCart}>Adicionar ao carrinho
                                 <img className='carrinho-modal' src={carrinho} alt="" />
                             </button>
                         </div>

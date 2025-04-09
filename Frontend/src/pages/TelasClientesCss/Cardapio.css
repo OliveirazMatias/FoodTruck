@@ -263,7 +263,7 @@ button, input, textarea, select {
 
 .image-lanches-cardapio {
     border-radius: 10px;
-    width: 100%;
+    width: 15vw;
     height: 10vw;
 }
 
@@ -389,6 +389,28 @@ button, input, textarea, select {
     font-family: 'Alata', sans-serif;
 }
 
+.opcoes button {
+    background-color: #FFBA21;
+    color: #141c1e;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-right: 10px;
+    font-family: 'Alata';
+    border: 2px solid #FFBA21;
+    transition-duration: 0.3s;
+}
+
+.opcoes button:hover {
+    transform: translate(0, -2.5px);
+    background-color: transparent;
+    color: #FFBA21;
+}
+
+
 .carrinho {
     width: 90%;
     color: #000000;
@@ -463,3 +485,4 @@ button, input, textarea, select {
         width: 12%;
     }
 }
+
