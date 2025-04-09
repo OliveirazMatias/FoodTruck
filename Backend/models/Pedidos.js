@@ -19,7 +19,7 @@ const Pedidos = database.define(
       type: sequelize.ENUM("delivery", "comer no local"),
       allowNull: true,
     },
-    nome_cliente: { type: sequelize.STRING(50), allowNull: false },
+    nome_cliente: { type: sequelize.STRING(50), allowNull: true },
     Mesa: { type: sequelize.INTEGER, allowNull: true },
     CEP: { type: sequelize.STRING(8), allowNull: true },
     Status: {
@@ -39,7 +39,7 @@ const Pedidos = database.define(
     data_entrega: { type: sequelize.DATE, allowNull: true },
     tipo_pagamento: {
       type: sequelize.ENUM("PIX", "Cartão", "Dinheiro"),
-      allowNull: false,
+      allowNull: true,
     },
     Total: { type: sequelize.DECIMAL(10, 2), allowNull: false },
   },
@@ -47,7 +47,7 @@ const Pedidos = database.define(
     tableName: "pedidos",
     timestamps: true,
     createdAt: "data_criacao",
-    updatedAt: false, // Desabilita o campo updatedAt
+    updatedAt: false,
     hooks: {
       beforeCreate: (pedido) => {
         pedido.data_criacao = new Date(); // Usa Date diretamente

@@ -67,8 +67,13 @@ function Cardapio() {
   const IrproCarrinho = async () => {
     if (!selectedLanche) return;
 
+    const pedido = {
+      ID: auto,
+      Status: "em preparação"
+    }
+
     const itemPedido = {
-      id_pedido: 1,
+      id_pedido: pedido.id,
       id_item_do_cardapio: selectedLanche.id,
       quantidade: quantity,
       preco_unitario: selectedLanche.preco,
@@ -79,6 +84,7 @@ function Cardapio() {
     console.log("Preparando para enviar itemPedido:", itemPedido); // Log para depuração
 
     try {
+      await postPedidos(pedido)
       await postItemPedido(itemPedido); // Corrigir para usar postItemPedido
       navigate("/Carrinho");
     } catch (error) {
