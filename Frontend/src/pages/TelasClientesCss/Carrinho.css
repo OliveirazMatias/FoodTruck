@@ -1,41 +1,258 @@
-/* Carrinho.css */
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
-/* Estilo específico para a tela de carrinho */
-.carrinho-container {
-    padding: 20px;
-    text-align: center;
-}
-
-.carrinho-container h1 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.carrinho-conteudo ul {
-    list-style-type: none;
+body {
+    background-color: #000000;
+    font-family: 'Alata', sans-serif;
+    margin: 0;
     padding: 0;
 }
 
-.carrinho-conteudo li {
-    margin: 10px 0;
+.carrinho-container {
+    padding: 5%;
+    padding-top: 10%;
 }
 
-.carrinho-total {
-    margin-top: 20px;
+.carrinho-titulo {
+    display: flex;
+    padding-left: 10%;
 }
 
-.carrinho-total button {
-    background-color: #ff6347;
-    color: white;
+.titulo-carrinho {
+    font-size: 3vw;
+    color: #ffffff;
+    margin: 0;
+    margin-left: 1%;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    border-bottom: 0.3vw solid #B42625;
+}
+
+.icon-carrinho {
+    width: 5%;
+    height: auto;
+}
+
+.carrinho_body {
+    display: flex;
+    padding-top: 1vw;
+    flex-direction: column;
+}
+
+.pedidos_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 70vw;
+    height: auto;
+    border-radius: 3vw;
+    border: 0.4vw solid #B42625;
+    background: #141C1E;
+    padding: 2%;
+}
+
+.pedidos_lista {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vw;
+}
+
+.img_lanche {
+    width: 50%;
+    height: auto;
+    margin-right: 1vw;
+}
+
+.food_text_carrinho {
+    text-align: start;
+}
+
+.nome_lanche_carrinho {
+    font-size: 1.7vw;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.descricao_lanche_carrinho {
+    color: #ffffff;
+    font-size: 1.1vw;
+    font-family: 'Alata', sans-serif;
+}
+
+.preco_total {
+    color: #B42625;
+    font-size: 1.8vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3vw;
+}
+
+.total-compra {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2vw;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-right: 3vw;
+    margin-bottom: 1vw;
+}
+
+.opcoes-consumo {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-top: 2rem;
+}
+
+.switch {
+    color: #ffffff;
+}
+
+.titulo-opcoes {
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 1.8vw;
+    border-bottom: #B42625 4px solid;
+    width: 19vw;
+}
+
+
+.finalizar-pedido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+.pedido-finalizado {
+    border-radius: 20px;
+    background: #B42625;
+    color: #ffffff;
+    font-size: 1.5vw;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    padding: 1% 5%;
+}
+
+.corpo_pedido {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.forma-pix-modal {
+    margin-bottom: 2%;
+    padding: 3% 38%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forma-master-modal {
+    padding: 1.5% 40%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pix-img, .master-img {
+    width: 100%;
+    height: auto;
+}
+
+.formas-pagamento-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.container-forma-master {
+    background: none;
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-.carrinho-total button:hover {
-    background-color: #e04e34;
+
+.titulo-texto-modal {
+    font-size: 2.1vw;
+    font-family: 'Belanosima', serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.descricao-texto-amarelo-modal {
+    font-size: 1.6vw;
+    font-family: 'Alata', serif;
+    color: #FFBA21;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+}
+
+.descricao-modal-finalizar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.descricao-texto-branco-modal {
+    font-size: 1.6vw;
+    font-family: 'Alata', serif;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    margin-left: 1.5%;
+}
+
+.pedido1-modal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pedido1-descricao-modal {
+    font-size: 1.5vw;
+    font-family: 'Alata', serif;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+}
+
+.container-tudo-modal {
+    margin: 4%;
+}
+
+.finalizar-compra-modal {
+    margin-top: 10%;
+}
+
+.button-finalizar-compra {
+    background: #39CA54;
+    border-radius: 1vw;
+    font-family: 'Alata', serif;
+    color: #FFF;
+    font-family: Belanosima;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 2.5% 5% ;
 }
