@@ -1,8 +1,9 @@
 .comandas-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    margin-top: 5%;
 }
 
 .titulo-comandas {
@@ -54,8 +55,6 @@
 .mesas {
     display: flex;
     flex-direction: row;
-    margin: 2vw; 
-    gap: 1vw;
 }
 
 .buttons {
@@ -66,4 +65,23 @@
 
 .div-buttao {
     margin: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .comandas-container{
+        margin-top: 5%
+    }
+
+    .div-buttao {
+        margin: 1vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .div-buttao {
+        margin: 2vw;
+    }
 }

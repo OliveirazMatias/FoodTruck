@@ -33,20 +33,21 @@ function Carrinho() {
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     const [checked1, setChecked1] = useState(false);
+    const [items, setItems] = useState(lanchesData);
 
     useEffect(() => {
         setLanches(lanchesData);
     }, []);
 
-    const listaid = [2, 3, 9];
+    const listaid = [1, 2, 3];
 
     const preco = precoTotal();
 
     function precoTotal() {
         let total = 0;
-        lanches
-            .filter(lanche => listaid.includes(lanche.ID))
-            .map(lanche => total += lanche.Preco);
+        items.filter(lanche => listaid.includes(lanche.ID)).forEach(lanche => {
+            total += lanche.Preco;
+        });
         return total.toFixed(2);
     }
 
@@ -63,6 +64,20 @@ function Carrinho() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    const removerItem = (id) => {
+        setItems(items.filter(lanche => lanche.ID !== id));
+    };
+
+    const adicionarItem = (id) => {
+        const updatedItems = items.map((item) => {
+            if (item.ID === id) {
+                return { ...item, quantidade: (item.quantidade || 1) + 1 }; // Incrementa a quantidade
+            }
+            return item;
+        });
+        setItems(updatedItems);
+    };
+
     return (
         <div className="carrinho-container">
             <div className='carrinho-titulo'>
@@ -71,7 +86,7 @@ function Carrinho() {
             </div>
             <div className='carrinho_body'>
                 <div className='pedidos_container'>
-                    {lanches
+                    {items
                         .filter(lanche => listaid.includes(lanche.ID))
                         .map((lanche, index) => (
                             <div key={lanche.ID} className='pedidos_lista'>
@@ -82,11 +97,19 @@ function Carrinho() {
                                         <p className='descricao_lanche_carrinho'>{lanche.Descricao}</p>
                                     </div>
                                 </div>
-                                <div className='preco_total'>R$: {lanche.Preco.toFixed(2)}</div>
+                                <div className='jogar-pro-ladinho'>
+                                    <div className='preco-remover-carrinho'>
+                                        <div className='preco-total-carrinho'>R$: {lanche.Preco.toFixed(2)}</div>
+                                        <div className='botoes-acoes'>
+                                            <button className='button-add-pedido' onClick={() => adicionarItem(lanche.ID)}>+</button>
+                                            <button className='button-remover-pedido' onClick={() => removerItem(lanche.ID)}>x</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     <div className='total-compra'>
-                        TOTAL: R${preco}
+                        TOTAL: R${precoTotal()}
                     </div>
                 </div>
                 <div className='opcoes-consumo'>
@@ -136,20 +159,18 @@ function Carrinho() {
                                         </h1>
                                     </div>
                                     <div className='container-descricao-modal'>
-
-
                                         <div className='descricao-modal-finalizar'>
                                             <p className='descricao-texto-amarelo-modal'>
                                                 PEDIDO:
                                             </p>
                                             <p className='descricao-texto-branco-modal'>
-                                                R$ 50.00
+                                                R${preco}
                                             </p>
                                         </div>
                                         <div className='todos-pedidos-modal'>
                                             <div className='pedido1-modal'>
                                                 <h1 className='pedido1-descricao-modal'>
-                                                    1 X-FRANGO
+
                                                 </h1>
                                             </div>
                                         </div>
@@ -177,6 +198,24 @@ function Carrinho() {
                             </div>
                         </Box>
                     </Modal>
+                    {/* <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                        BackdropProps={{
+                            style: backdropStyle,
+                        }}
+                    >
+                        <Box sx={style}>
+                            <div className='modal-pedido-finalizado'>
+                                <h1 className='texto-pedido-finalizado'>
+                                    Seu pedido já vai ser preparado!
+                                </h1>
+                                <img src={imgcozinheiro} className='img-cozinheiro' alt="imgcozinheiro" />
+                            </div>
+                        </Box>
+                    </Modal> */}
                 </div>
             </div>
         </div>

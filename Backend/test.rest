@@ -66,7 +66,7 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "pastel foda",
+  "nome": "Pastel-Fraqenco",
   "descricao": "FODA",
   "preco": 30.00,
   "disponibilidade": "disponível",

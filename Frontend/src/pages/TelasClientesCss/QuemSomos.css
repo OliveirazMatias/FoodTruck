@@ -2,15 +2,20 @@ body,
 html {
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
 }
 .quem_somos {
     position: relative;
-    height: 100vh;
+    height: 50vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--vermelho);
     z-index: 1;
+    padding: 0; 
+    margin: 0; 
 }
 
 .quem_somos_img {
@@ -35,15 +40,16 @@ html {
     text-align: center;
     color: white;
     font-family: 'Belanosima';
+    overflow-wrap: break-word; 
 }
 
 .quem_somos_text h1 {
-    font-size: 80px;
+    font-size: 4vw;
     text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.219);
 }
 
 .quem_somos_text p {
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 .quem_somos_detalhes {
@@ -64,14 +70,14 @@ html {
 }
 
 .quem_somos_texto h2 {
-    font-size: 40px;
+    font-size: 4vw;
     color: #FFBA21;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
 .quem_somos_texto p {
-    font-size: 22px;
+    font-size: 1.5vw;
     line-height: 1.6;
 }
 
@@ -83,8 +89,7 @@ html {
 }
 
 .imagem-equipe {
-    width: 100%;
-    max-width: 450px;
+    width: 30vw;
     border-radius: 8px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -98,6 +103,8 @@ html {
     color: white;
     padding: 40px 10%;
     font-family: 'Belanosima', sans-serif;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .contato {
@@ -107,7 +114,7 @@ html {
 
 .contato h2,
 .localizacao h2 {
-    font-size: 24px;
+    font-size: 2vw;
     font-weight: bold;
     color: #ffc107;
 }
@@ -118,16 +125,16 @@ html {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 1vw;
 }
 
 .contato_item img {
-    width: 30px;
-    height: 30px;
+    width: 10%;
+    height: auto;
 }
 
 .linha_divisoria {
-    height: 10vw;
+    height: 1vh;
     background-color: #ffc107;
     margin: 0 40px;
 }
@@ -138,17 +145,24 @@ html {
 }
 
 .mapa_container img {
-    width: 40%;
-    max-width: 300px;
+    width: 15vw; 
+    max-width: 30vw;
     border-radius: 20px;
 }
 
 @media (max-width: 768px) {
     .contato_localizacao {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px 5%;
     }
 
     .linha_divisoria {
         display: none;
+    }
+
+    .imagem-equipe {
+        width: 50vw;
     }
 }

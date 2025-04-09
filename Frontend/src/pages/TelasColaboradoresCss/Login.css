@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
 .forms-container {
-    border-radius: 50px; 
-    border: 2px solid #B42625; 
+    border-radius: 2vw; 
+    border: 0.2vw solid #B42625; 
     background: #141C1E; 
     margin: 15% auto; 
-    padding: 2rem; 
-    max-width: 400px; 
+    padding: 2vw; 
+    max-width: 20vw; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,24 +20,24 @@
 
 .titulo-login {
     color: #FFF; 
-    font-size: 2rem; 
+    font-size: 2vw; 
     font-family: 'Belanosima', serif; 
     font-weight: 600; 
-    margin-bottom: 1.5rem; 
+    margin-bottom: 10%; 
 }
 
 .preencher-forms {
     display: flex;
     flex-direction: column;
-    gap: 1rem; 
+    gap: 1vw; 
     width: 100%;
 }
 
 .input-login, .input-senha {
-    padding: 0.75rem; 
-    font-size: 1rem; 
+    padding: 0.75vw; 
+    font-size: 1vw; 
     border: none; 
-    border-radius: 25px; 
+    border-radius: 2.5vw; 
     background-color: #1E282A;
     color: #FFF; 
     outline: none;
@@ -48,12 +48,12 @@
 }
 
 .botao-login {
-    padding: 0.75rem; 
-    font-size: 1rem; 
+    padding: 0.75vw; 
+    font-size: 1vw; 
     color: #FFF; 
     background-color: #B42625; 
     border: none; 
-    border-radius: 25px; 
+    border-radius: 2.5vw; 
     cursor: pointer; 
     transition: background-color 0.3s ease; 
     width: 100%; 

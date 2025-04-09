@@ -1,97 +1,69 @@
 import '../TelasClientesCss/Cardapio.css';
-import imginconlanche from '../../assets/icons/iconperfil.png';
-import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
-import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
-import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
+import imginconlanche from '../../assets/cardapio/confiralancamentos/iconlanche.jpg';
+import imginconbebidas from '../../assets/cardapio/confiralancamentos/iconbebidas.jpg';
+import imginconacompanhamento from '../../assets/cardapio/confiralancamentos/iconacompanhamentos.jpg';
+import imgconfira from '../../assets/cardapio/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
 import lanchesData from '../TelasClientes/lanches.json';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal'; 
+import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import NavBarCardapio from '../../components/NavBarCardapio/NavBarCardapio';
-import { getLanches, postItemPedido } from "../../Services/api"; // Importar API correta
+
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
+    transform: 'translate(-50%, -50%)', 
+    maxWidth: '30vw', 
+    height: 'auto', 
     bgcolor: '#FFBA21',
     border: '2px solid #000',
-    boxShadow: 0,
-    p: 4,
+    boxShadow: 24,
+    p: '1.5vw', 
     backdropFilter: 'blur(10px)',
-    borderRadius: '2rem',
+    borderRadius: '1.5vw', 
+    overflowY: 'auto',
 };
 
 const backdropStyle = {
     backdropFilter: 'blur(10px)',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
 };
 
 function Cardapio() {
-    const [activeFilter, setActiveFilter] = useState("all"); // New state for filtering
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
     const navigate = useNavigate();
-    const [obs, setObs] = useState("");
-    const [quantity, setQuantity] = useState(1); // Estado inicial ajustado
-  
-    const handleObs = (event) => {
-      setObs(event.target.value);
-    };
-  
-    const handleOpen = (lanche) => {
-      setSelectedLanche(lanche);
-      setOpen(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-      setQuantity(1); // Resetar quantidade ao fechar o modal
-    };
-  
+
     useEffect(() => {
-      const fetchLanches = async () => {
-        try {
-          const data = await getLanches(); // Buscar lanches do backend
-          setLanches(Array.isArray(data) ? data : []);
-        } catch (error) {
-          console.error("Erro ao buscar lanches:", error);
-        }
-      };
-      fetchLanches();
+        setLanches(lanchesData);
     }, []);
-  
-    const handleAddToCart = async () => {
-      if (!selectedLanche) return;
-  
-      const itemPedido = {
-        id_pedido: 1, // Substituir pelo ID do pedido correto
-        id_item_do_cardapio: selectedLanche.id,
-        quantidade: quantity,
-        observacao: obs,
-      };
-  
-      try {
-        await postItemPedido(itemPedido); // Enviar item ao backend
-        navigate("/Carrinho");
-      } catch (error) {
-        console.error("Erro ao adicionar ao carrinho:", error);
-      }
+
+    const handleOpen = (lanche) => {
+        setSelectedLanche(lanche);
+        setOpen(true);
     };
-  
-    const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
-  
-    // Filter handler function
-    const handleFilterClick = (filterType) => {
-        setActiveFilter(filterType);
+    const handleClose = () => {
+        setOpen(false);
+        setquantity(1);
     };
-    
-    const lancamentosId = [2, 3, 10]
+
+    const [quantity, setquantity] = useState(1);
+
+    if  (quantity < 1) {
+        setquantity(1);
+    }
+
+    let subtotal = selectedLanche?.Preco * quantity;
+
+    function ToCarrinho() {
+        navigate('/Carrinho');
+    }
+
+    const lancamentosId = [1, 2, 3]
 
     return (
         <div className='cardapio'>
@@ -129,14 +101,15 @@ function Cardapio() {
                 </h1>
                 <div className='lancamento-produtos'>
                     {lanches
-                        .filter(lanche => lancamentosId.includes(lanche.id))
+                        .filter(lanche => lancamentosId.includes(lanche.ID))
                         .map((lanche, index) => (
-                            <button key={lanche.id} onClick={() => handleOpen(lanche)} className={`produtos0${index + 1}`}>
-                                <div>
-                                    <p className='lancamentoNome'>{lanche.nome}</p>
-                                    <img src={lanche.imagem} className="lancamentoImg" alt={`produto0${index + 1}`} />
+                            <button onClick={() => handleOpen(lanche)} className={`produtos0${index + 1}`}>
+                                <div key={lanche.ID}>
+                                        <p className='lancamentoNome'>{lanche.Nome}</p>
+                                        <img src={lanche.Imagem} className="lancamentoImg" alt={`produto0${index + 1}`} />
                                 </div>
                             </button>
+
                         ))}
                 </div>
             </div>
@@ -144,65 +117,22 @@ function Cardapio() {
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>
                 </h1>
-                <div className="opcoes">
-                    <button 
-                        className={`botaohamburguer ${activeFilter === "hamburguer" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("hamburguer")}
-                    >
-                        Hambúrguer
-                    </button>
-                    <button 
-                        className={`botaohotdog ${activeFilter === "hotdog" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("hotdog")}
-                    >
-                        Hot-Dog
-                    </button>
-                    <button 
-                        className={`botaopastel ${activeFilter === "pastel" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("pastel")}
-                    >
-                        Pastel
-                    </button>
-                    <button 
-                        className={`botaoporcoes ${activeFilter === "porcao" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("porcao")}
-                    >
-                        Porções
-                    </button>
-                    <button 
-                        className={`botaobebidas ${activeFilter === "bebida" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("bebida")}
-                    >
-                        Bebidas
-                    </button>
-                    <button 
-                        className={`botaotodos ${activeFilter === "all" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("all")}
-                    >
-                        Todos
-                    </button>
-                </div>
-
                 <div className='cardapio-opcoes'>
                     <div className='lanches'>
-                        {lanches
-                            .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
-                            .map((lanche, index) => (
-                                <div key={index} className='food_body'>
-                                    <button onClick={() => handleOpen(lanche)} className='food_button'>
-                                        <div className="image_div">
-                                            <img src={lanche.imagem} alt={lanche.nome} className="image" />
-                                        </div>
-                                        <div className="food_text">
-                                            <h2 className="nome_comida">{lanche.nome}</h2>
-                                            <p className="descricao">{lanche.descricao}</p>
-                                            <div className="preco">
-                                                R$ {Number(lanche.preco).toFixed(2)} {/* Garantir que lanche.preco seja um número */}
-                                            </div>
-                                        </div>
-                                    </button>
-                                </div>
-                            ))}
+                        {lanches.map((lanche, index) => (
+                            <div key={index} className='food_body'>
+                                <button onClick={() => handleOpen(lanche)} className='food_button'>
+                                    <div className="image_div">
+                                        <img src={lanche.Imagem} alt={lanche.Nome} className="image-lanches-cardapio" />
+                                    </div>
+                                    <div className="food_text">
+                                        <h2 className="nome_comida">{lanche.Nome}</h2>
+                                        <p className="descricao">{lanche.Descricao}</p>
+                                        <div className="preco">R$ {lanche.Preco.toFixed(2)}</div>
+                                    </div>
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -218,38 +148,38 @@ function Cardapio() {
                     }}
                 >
                     <Box sx={style}>
-                        <img src={selectedLanche.imagem} className="image" alt="" />
+                        <img src={selectedLanche.Imagem} className="image-lanche-modal" alt="" />
                         <div className='modal_body'>
-                            <div className='title_modal'>
-                                {selectedLanche.nome}
+                        <div className='title_modal'>
+                            {selectedLanche.Nome}
+                        </div>
+                        <div className='description_modal'>
+                            {selectedLanche.Descricao}
+                        </div>
+                        <div className='quantity_modal'>
+                            <div className="increase_button">
+                                <button className='button_add' onClick={() => setquantity(quantity -1)}>-</button>
+                                <div className='quantity_number'>{quantity}</div>
+                                <button className='button_sub' onClick={() => setquantity(quantity +1)}>+</button>
                             </div>
-                            <div className='description_modal'>
-                                {selectedLanche.descricao}
-                            </div>
-                            <div className='quantity_modal'>
-                                <div className="increase_button">
-                                    <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                                    <div className='quantity_number'>{quantity}</div>
-                                    <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
+                            <div className='price_modal'>
+                                <div className='preco_modal'>
+                                    R$ {selectedLanche.Preco.toFixed(2)}
                                 </div>
-                                <div className='price_modal'>
-                                    <div className='preco_modal'>
-                                        R$ {Number(selectedLanche.preco).toFixed(2)} {/* Garantir que selectedLanche.preco seja um número */}
-                                    </div>
 
-                                    <div className='total_modal'>
-                                        Subtotal: R$ {Number(subtotal).toFixed(2)} {/* Garantir que subtotal seja um número */}
-                                    </div>
+                                <div className='total_modal'>
+                                    Subtotal: R$ {subtotal.toFixed(2)}
                                 </div>
                             </div>
+                        </div>
 
-                            <div className='bottom_modal'>
-                                <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
-
-                                <button className='carrinho' onClick={handleAddToCart}>Adicionar ao carrinho
-                                    <img src={carrinho} alt="" />
-                                </button>
-                            </div>
+                        <div className='bottom_modal'>
+                            <input type="text" className='obs' placeholder='Alguma Observação:'/>
+                            
+                            <button className='carrinho' onClick={ToCarrinho}>Adicionar ao carrinho
+                                <img className='carrinho-modal' src={carrinho} alt="" />
+                            </button>
+                        </div>
                         </div>
                     </Box>
                 </Modal>
