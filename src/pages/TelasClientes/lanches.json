@@ -7,7 +7,8 @@
     "Quantidade": 10,
     "data_entrada": "2024-02-19T12:00:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://d2umxhib5z7frz.cloudfront.net/Brasil/DLV_71739_7.png"
+    "Imagem": "https://d2umxhib5z7frz.cloudfront.net/Brasil/DLV_71739_7.png",
+    "tipo": "Hambúrguer"
   },
   {
     "ID": 2,
@@ -17,7 +18,8 @@
     "Quantidade": 5,
     "data_entrada": "2024-02-18T15:30:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://bobs.com.br/media/filer_public_thumbnails/filer_public/1f/61/1f61237f-ecaa-4cca-a3ce-c770d5974560/new_v4-bobs-burger-celeb.png__800x400_subsampling-2.png"
+    "Imagem": "https://bobs.com.br/media/filer_public_thumbnails/filer_public/1f/61/1f61237f-ecaa-4cca-a3ce-c770d5974560/new_v4-bobs-burger-celeb.png__800x400_subsampling-2.png",
+    "tipo": "Hambúrguer"
   },
   {
     "ID": 3,
@@ -27,7 +29,8 @@
     "Quantidade": 8,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "temporariamente fora de estoque",
-    "Imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kfXCQCLy/200/200/original?country=br"
+    "Imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kfXCQCLy/200/200/original?country=br",
+    "tipo": "Hambúrguer"
   },
   {
     "ID": 4,
@@ -37,7 +40,8 @@
     "Quantidade": 10,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png",
+    "tipo": "Pastel"
   },
   {
     "ID": 5,
@@ -47,7 +51,8 @@
     "Quantidade": 10,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F2016%2F04%2FHot-Dog-PNG-File.png&f=1&nofb=1&ipt=b755285625c0807f1da5e5bb94bed54aa3a7edf91a9445ffe997ee1c722c25e0&ipo=images"
+    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F2016%2F04%2FHot-Dog-PNG-File.png&f=1&nofb=1&ipt=b755285625c0807f1da5e5bb94bed54aa3a7edf91a9445ffe997ee1c722c25e0&ipo=images",
+    "tipo": "Hot-Dog"
   },
     {
     "ID": 6,
@@ -57,7 +62,8 @@
     "Quantidade": 15,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png",
+    "tipo": "Pastel"
   },
   {
     "ID": 7,
@@ -67,7 +73,8 @@
     "Quantidade": 50,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngplay.com%2Fwp-content%2Fuploads%2F9%2FCoca-Cola-PNG-HD-Quality.png&f=1&nofb=1&ipt=19f5eb5cbfef830b6d945443630d0198fcb049abcfa7fd5f7507b1d48c083602&ipo=images"
+    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngplay.com%2Fwp-content%2Fuploads%2F9%2FCoca-Cola-PNG-HD-Quality.png&f=1&nofb=1&ipt=19f5eb5cbfef830b6d945443630d0198fcb049abcfa7fd5f7507b1d48c083602&ipo=images",
+    "tipo": "Bebida"
   },
   {
     "ID": 8,
@@ -77,7 +84,8 @@
     "Quantidade": 20,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hotdogdomarcio.com.br%2Fwp-content%2Fuploads%2F2016%2F10%2Fsuco-laranja-02.png&f=1&nofb=1&ipt=056133f926c1ea34ac0b717013f87d794898a1dc0424a01ed9e9013f51c21fba&ipo=images"
+    "Imagem": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hotdogdomarcio.com.br%2Fwp-content%2Fuploads%2F2016%2F10%2Fsuco-laranja-02.png&f=1&nofb=1&ipt=056133f926c1ea34ac0b717013f87d794898a1dc0424a01ed9e9013f51c21fba&ipo=images",
+    "tipo": "Bebida"
   },
   {
     "ID": 9,
@@ -87,7 +95,8 @@
     "Quantidade": 8,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://hotdog.catalogo.app.br/_core/_uploads/129/2023/12/2239311223dhec1h77dj.png"
+    "Imagem": "https://hotdog.catalogo.app.br/_core/_uploads/129/2023/12/2239311223dhec1h77dj.png",
+    "tipo": "Hot-Dog"
   },
   {
     "ID": 10,
@@ -97,7 +106,8 @@
     "Quantidade": 10,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://funburgers.com.br/painel/imagensLanches/dest_0b2eb213-71b1-40f7-8021-a9226906218a.png"
+    "Imagem": "https://funburgers.com.br/painel/imagensLanches/dest_0b2eb213-71b1-40f7-8021-a9226906218a.png",
+    "tipo": "Hambúrguer"
   },
   {
     "ID": 11,
@@ -107,6 +117,7 @@
     "Quantidade": 12,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png"
+    "Imagem": "https://phygital-files.mercafacil.com/figurasupermercado/uploads/produto/lanche_pastel_carne_84744b73-55fa-400a-a9c4-ef8299ba6f15.png",
+    "tipo": "Pastel"
   }
 ]

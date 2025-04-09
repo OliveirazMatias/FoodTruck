@@ -32,7 +32,8 @@ function App() {
           <Route path="/" element={<Cardapio />} />
           <Route path="/quemsomos" element={<Quemsomos />} />
           <Route path="/carrinho" element={<Carrinho />} />
-
+          <Route path="/estoque" element={<Estoque />} />
+          <Route path="/historicopedidos" element={<HistoricoPedidos/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/comandas" element={<Comandas />}/>
           <Route path="/mesas" element={<Mesas />}/>
