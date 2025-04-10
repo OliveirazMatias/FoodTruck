@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
-import lanchesData from '../TelasClientes/lanches.json';
 import { FormControlLabel, Switch, Grow } from '@mui/material';
 import piximg from '../../assets/carrinho/piximg.jpg';
 import masterimg from '../../assets/carrinho/masterimg.jpg';
+import { Lanches } from './Cardapio'; // Importar a lista Lanches
+import { getLanches } from "../../Services/api"; // Importar API correta
 
 const style = {
     position: 'absolute',
@@ -29,24 +30,30 @@ const backdropStyle = {
 };
 
 function Carrinho() {
-    const [lanches, setLanches] = useState([]);
+    const [items, setItems] = useState([]);
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     const [checked1, setChecked1] = useState(false);
-    const [items, setItems] = useState(lanchesData);
 
     useEffect(() => {
-        setLanches(lanchesData);
+        const fetchLanches = async () => {
+            try {
+                const allLanches = await getLanches(); // Buscar todos os lanches do backend
+                const filteredLanches = allLanches.filter(lanche => Lanches.includes(lanche.id)); // Filtrar pelos IDs em Lanches
+                setItems(filteredLanches);
+            } catch (error) {
+                console.error("Erro ao buscar lanches:", error);
+            }
+        };
+        fetchLanches();
     }, []);
-
-    const listaid = [1, 2, 3];
 
     const preco = precoTotal();
 
     function precoTotal() {
         let total = 0;
-        items.filter(lanche => listaid.includes(lanche.ID)).forEach(lanche => {
-            total += lanche.Preco;
+        items.forEach(lanche => {
+            total += (Number(lanche.preco) || 0) * (lanche.quantidade || 1); // Garantir que preco seja um número
         });
         return total.toFixed(2);
     }
@@ -65,12 +72,19 @@ function Carrinho() {
     const handleClose = () => setOpen(false);
 
     const removerItem = (id) => {
-        setItems(items.filter(lanche => lanche.ID !== id));
+        // Remover o item da lista de itens exibidos
+        setItems(items.filter(lanche => lanche.id !== id));
+
+        // Remover o ID da lista Lanches exportada
+        const index = Lanches.indexOf(id);
+        if (index > -1) {
+            Lanches.splice(index, 1); // Remove o ID da lista
+        }
     };
 
     const adicionarItem = (id) => {
         const updatedItems = items.map((item) => {
-            if (item.ID === id) {
+            if (item.id === id) {
                 return { ...item, quantidade: (item.quantidade || 1) + 1 }; // Incrementa a quantidade
             }
             return item;
@@ -86,28 +100,28 @@ function Carrinho() {
             </div>
             <div className='carrinho_body'>
                 <div className='pedidos_container'>
-                    {items
-                        .filter(lanche => listaid.includes(lanche.ID))
-                        .map((lanche, index) => (
-                            <div key={lanche.ID} className='pedidos_lista'>
-                                <div className='corpo_pedido'>
-                                    <img src={lanche.Imagem} className="img_lanche" alt={`produto0${index + 1}`} />
-                                    <div className='food_text_carrinho'>
-                                        <h1 className='nome_lanche_carrinho'>{lanche.Nome}</h1>
-                                        <p className='descricao_lanche_carrinho'>{lanche.Descricao}</p>
-                                    </div>
+                    {items.map((lanche, index) => (
+                        <div key={lanche.id} className='pedidos_lista'>
+                            <div className='corpo_pedido'>
+                                <img src={lanche.imagem} className="img_lanche" alt={`produto0${index + 1}`} />
+                                <div className='food_text_carrinho'>
+                                    <h1 className='nome_lanche_carrinho'>{lanche.nome}</h1>
+                                    <p className='descricao_lanche_carrinho'>{lanche.descricao}</p>
                                 </div>
-                                <div className='jogar-pro-ladinho'>
-                                    <div className='preco-remover-carrinho'>
-                                        <div className='preco-total-carrinho'>R$: {lanche.Preco.toFixed(2)}</div>
-                                        <div className='botoes-acoes'>
-                                            <button className='button-add-pedido' onClick={() => adicionarItem(lanche.ID)}>+</button>
-                                            <button className='button-remover-pedido' onClick={() => removerItem(lanche.ID)}>x</button>
-                                        </div>
+                            </div>
+                            <div className='jogar-pro-ladinho'>
+                                <div className='preco-remover-carrinho'>
+                                    <div className='preco-total-carrinho'>
+                                        R$: {lanche.preco ? Number(lanche.preco).toFixed(2) : "0.00"} {/* Garantir que preco seja válido */}
+                                    </div>
+                                    <div className='botoes-acoes'>
+                                        <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
+                                        <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>x</button>
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        </div>
+                    ))}
                     <div className='total-compra'>
                         TOTAL: R${precoTotal()}
                     </div>
@@ -167,27 +181,6 @@ function Carrinho() {
                                                 R${preco}
                                             </p>
                                         </div>
-                                        <div className='todos-pedidos-modal'>
-                                            <div className='pedido1-modal'>
-                                                <h1 className='pedido1-descricao-modal'>
-
-                                                </h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='container-formas-pagamento'>
-                                        <div className='formas-pagamento-modal'>
-                                            <div className='forma-pix-modal'>
-                                                <button className='container-forma-master'>
-                                                    <img src={piximg} alt='pix' className='pix-img' />
-                                                </button>
-                                            </div>
-                                            <div className='forma-master-modal'>
-                                                <button className='container-forma-master'>
-                                                    <img src={masterimg} alt='master' className='master-img' />
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div className='finalizar-compra-modal'>
                                         <button className='button-finalizar-compra'>
@@ -198,24 +191,6 @@ function Carrinho() {
                             </div>
                         </Box>
                     </Modal>
-                    {/* <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                        BackdropProps={{
-                            style: backdropStyle,
-                        }}
-                    >
-                        <Box sx={style}>
-                            <div className='modal-pedido-finalizado'>
-                                <h1 className='texto-pedido-finalizado'>
-                                    Seu pedido já vai ser preparado!
-                                </h1>
-                                <img src={imgcozinheiro} className='img-cozinheiro' alt="imgcozinheiro" />
-                            </div>
-                        </Box>
-                    </Modal> */}
                 </div>
             </div>
         </div>
