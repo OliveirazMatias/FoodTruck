@@ -54,13 +54,13 @@ function Cardapio() {
   
     const handleClose = () => {
       setOpen(false);
-      setQuantity(1); // Resetar quantidade ao fechar o modal
+      setQuantity(1); 
     };
   
     useEffect(() => {
       const fetchLanches = async () => {
         try {
-          const data = await getLanches(); // Buscar lanches do backend
+          const data = await getLanches();
           setLanches(Array.isArray(data) ? data : []);
         } catch (error) {
           console.error("Erro ao buscar lanches:", error);
@@ -73,14 +73,14 @@ function Cardapio() {
       if (!selectedLanche) return;
   
       const itemPedido = {
-        id_pedido: 1, // Substituir pelo ID do pedido correto
+        id_pedido: 1,
         id_item_do_cardapio: selectedLanche.id,
         quantidade: quantity,
         observacao: obs,
       };
   
       try {
-        await postItemPedido(itemPedido); // Enviar item ao backend
+        await postItemPedido(itemPedido); 
         navigate("/Carrinho");
       } catch (error) {
         console.error("Erro ao adicionar ao carrinho:", error);
@@ -94,7 +94,7 @@ function Cardapio() {
         setActiveFilter(filterType);
     };
     
-    const lancamentosId = [2, 3, 10]
+    const lancamentosId = [10, 11, 9]
 
 
     return (

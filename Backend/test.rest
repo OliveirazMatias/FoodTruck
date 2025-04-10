@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "nome": "Mateus Silverio",
-  "email": "mateus123@gmail.com",
+  "email": "silverio123@gmail.com",
   "senha": "admin123"
 }
 
@@ -66,13 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Pastel-Fraqenco",
-  "descricao": "FODA",
-  "preco": 30.00,
+  "nome": "Quarteirão",
+  "descricao": "Dois hambúrgueres com cheddar, cebola, picles, ketchup e mostarda no pão com gergelim.",
+  "preco": 32.99,
   "disponibilidade": "disponível",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hot_dog_with_mustard.png",
-  "tipo": "pastel"
-  
+  "imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kNXwNgUf/200/200/original?country=br",
+  "tipo": "hamburguer"
 }
 
 ###
@@ -81,12 +80,12 @@ Content-Type: application/json
 
 {
   "nome_original": "xskibidi",
-  "nome": "xskibidi",
-  "descricao": "Skiiiii",
-  "preco": 69.00,
+  "nome": "Batata Individual",
+  "descricao": "Porção de batata frita crocante e sequinha, com sal.",
+  "preco": 100.00,
   "disponibilidade": "disponível",
-  "imagem": "url_da_imagem",
-  "tipo": "pastel"
+  "imagem": "https://static.vecteezy.com/system/resources/thumbnails/036/391/923/small/ai-generated-delicious-french-fries-on-isolated-background-crispy-golden-fast-food-snack-png.png",
+  "tipo": "porcao"
 }
 
 
@@ -95,7 +94,7 @@ DELETE http://localhost:3001/lanches/delete
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 5
 }
 
 

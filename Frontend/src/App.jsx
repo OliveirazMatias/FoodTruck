@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Cardapio from './pages/TelasClientes/Cardapio';
 import Carrinho from './pages/TelasClientes/Carrinho';
@@ -11,8 +12,6 @@ import imglogo from './assets/logo/logo.png';
 import imgPerfil from './assets/icons/iconperfil.png' 
 import Estoque from './pages/TelasColaboradores/Estoque';
 import HistoricoPedidos from './pages/TelasColaboradores/HistoricoPedidos';
-
-
 
 function App() {
   return (
