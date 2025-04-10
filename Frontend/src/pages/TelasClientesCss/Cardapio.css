@@ -22,7 +22,7 @@ button, input, textarea, select {
     margin-top: 0;
     font-family: 'Alata', sans-serif;
     padding: 5%;
-    padding-top: 10%;
+    padding-top: 7%;
 }
 
 .cardapio-container {
@@ -43,6 +43,27 @@ button, input, textarea, select {
 .confira-lancamentos .confira-img img {
     width: 50%;
     height: auto;
+    margin-top: 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.confira-lancamentos .confira-img {
+    position: relative;
+}
+
+.confira-lancamentos .confira-img::after {
+    content: '';
+    position: absolute;
+    bottom: -5%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%; 
+    height: 25%; 
+    background: radial-gradient(circle, #FFE4AA 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(1vw); 
 }
 
 .confira-texto {
