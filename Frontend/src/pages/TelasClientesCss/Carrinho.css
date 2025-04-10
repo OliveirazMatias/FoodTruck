@@ -84,6 +84,8 @@ body {
     color: #B42625;
     font-family: 'Belanosima', serif;
     font-weight: 600;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
     font-size: 1.8vw;
     margin-right: 3%;
 }
@@ -113,27 +115,10 @@ body {
     font-family: 'Belanosima', serif;
     font-weight: 600;
     font-size: 1.8vw;
-    border-bottom: 0.2vw solid #B42625;
-    text-align: left;
-    margin-bottom: 1rem;
+    border-bottom: #B42625 4px solid;
+    width: 19vw;
 }
 
-.finalizar-pedido {
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 1.5vw;
-    border: none;
-    border-radius: 0.5vw;
-    padding: 1vw 2vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.finalizar-pedido:hover {
-    background-color: #A31E1A;
-}
 
 .finalizar-pedido {
     display: flex;
@@ -150,6 +135,7 @@ body {
     font-size: 1.5vw;
     font-family: 'Belanosima', serif;
     font-weight: 600;
+    cursor: pointer;
     padding: 1% 5%;
 }
 
@@ -270,73 +256,5 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding: 2.5% 5%;
-}
-
-.modal-pedido-finalizado {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.texto-pedido-finalizado {
-    color: #ffffff;
-    text-shadow: 0vw 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
-    font-family: Belanosima;
-    font-size: 1.5vw;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.img-cozinheiro{
-    width: 15%;
-    height: auto;
-}
-
-.button-remover-pedido{
-    background-color: #B42625;
-    color: #FFBA21;
-    border: none;
-    padding: 2% 3%;
-    border-radius: 0.2vw;
-    text-shadow: 0vw 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
-    font-family: Alata;
-    font-size: 1vw;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    cursor: pointer;
-}
-
-.jogar-pro-ladinho{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    align-items: flex-end; 
-    height: 100%; 
-    width: 100%;
-}
-
-.preco-remover-carrinho{
-    display: flex;
-    width: 50%;
-}
-
-.botoes-acoes {
-    display: flex;
-    gap: 0.5vw;
-}
-
-.button-add-pedido, .button-remover-pedido {
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 1vw;
-    border: none;
-    border-radius: 0.5vw;
-    padding: 0.5vw 1vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 2.5% 5% ;
 }

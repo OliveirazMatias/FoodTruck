@@ -3,9 +3,9 @@ POST http://localhost:3001/cadastro
 Content-Type: application/json
 
 {
-  "nome": "",
-  "email": "",
-  "senha": ""
+  "nome": "Mateus Silverio",
+  "email": "mateus123@gmail.com",
+  "senha": "admin123"
 }
 
 
@@ -66,7 +66,7 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "hambuerguer",
+  "nome": "Pastel-Fraqenco",
   "descricao": "FODA",
   "preco": 30.00,
   "disponibilidade": "disponível",

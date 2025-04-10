@@ -1,34 +1,37 @@
 import '../TelasClientesCss/Cardapio.css';
-import imginconlanche from '../../assets/icons/iconperfil.png';
+import imginconlanche from '../../assets/confiralancamentos/iconlanche.jpg';
 import imginconbebidas from '../../assets/confiralancamentos/iconbebidas.jpg';
 import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanhamentos.jpg';
 import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
 import lanchesData from '../TelasClientes/lanches.json';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal'; 
+import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import NavBarCardapio from '../../components/NavBarCardapio/NavBarCardapio';
 import { getLanches, postItemPedido } from "../../Services/api"; // Importar API correta
+
+
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
+    transform: 'translate(-50%, -50%)', 
+    maxWidth: '30vw', 
+    height: 'auto', 
     bgcolor: '#FFBA21',
     border: '2px solid #000',
-    boxShadow: 0,
-    p: 4,
+    boxShadow: 24,
+    p: '1.5vw', 
     backdropFilter: 'blur(10px)',
-    borderRadius: '2rem',
+    borderRadius: '1.5vw', 
+    overflowY: 'auto',
 };
 
 const backdropStyle = {
     backdropFilter: 'blur(10px)',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
 };
 
 function Cardapio() {
@@ -93,6 +96,7 @@ function Cardapio() {
     
     const lancamentosId = [2, 3, 10]
 
+
     return (
         <div className='cardapio'>
             <div className="confira-lancamentos">
@@ -144,6 +148,7 @@ function Cardapio() {
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>
                 </h1>
+
                 <div className="opcoes">
                     <button 
                         className={`botaohamburguer ${activeFilter === "hamburguer" ? "active" : ""}`} 
@@ -187,22 +192,20 @@ function Cardapio() {
                     <div className='lanches'>
                         {lanches
                             .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
-                            .map((lanche, index) => (
-                                <div key={index} className='food_body'>
-                                    <button onClick={() => handleOpen(lanche)} className='food_button'>
-                                        <div className="image_div">
-                                            <img src={lanche.imagem} alt={lanche.nome} className="image" />
-                                        </div>
-                                        <div className="food_text">
-                                            <h2 className="nome_comida">{lanche.nome}</h2>
-                                            <p className="descricao">{lanche.descricao}</p>
-                                            <div className="preco">
-                                                R$ {Number(lanche.preco).toFixed(2)} {/* Garantir que lanche.preco seja um número */}
-                                            </div>
-                                        </div>
-                                    </button>
-                                </div>
-                            ))}
+                            .map((lanche) => (
+                            <div key={lanche.id} className='food_body'>
+                                <button onClick={() => handleOpen(lanche)} className='food_button'>
+                                    <div className="image_div">
+                                        <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
+                                    </div>
+                                    <div className="food_text">
+                                        <h2 className="nome_comida">{lanche.nome}</h2>
+                                        <p className="descricao">{lanche.descricao}</p>
+                                        <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
+                                    </div>
+                                </button>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -218,38 +221,38 @@ function Cardapio() {
                     }}
                 >
                     <Box sx={style}>
-                        <img src={selectedLanche.imagem} className="image" alt="" />
+                        <img src={selectedLanche.imagem} className="image-lanche-modal" alt="" />
                         <div className='modal_body'>
-                            <div className='title_modal'>
-                                {selectedLanche.nome}
+                        <div className='title_modal'>
+                            {selectedLanche.nome}
+                        </div>
+                        <div className='description_modal'>
+                            {selectedLanche.descricao}
+                        </div>
+                        <div className='quantity_modal'>
+                            <div className="increase_button">
+                                <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+                                <div className='quantity_number'>{quantity}</div>
+                                <button className='button_sub' onClick={() => setquantity(quantity +1)}>+</button>
                             </div>
-                            <div className='description_modal'>
-                                {selectedLanche.descricao}
-                            </div>
-                            <div className='quantity_modal'>
-                                <div className="increase_button">
-                                    <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                                    <div className='quantity_number'>{quantity}</div>
-                                    <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
+                            <div className='price_modal'>
+                                <div className='preco_modal'>
+                                    R$ {Number(selectedLanche.preco).toFixed(2)}
                                 </div>
-                                <div className='price_modal'>
-                                    <div className='preco_modal'>
-                                        R$ {Number(selectedLanche.preco).toFixed(2)} {/* Garantir que selectedLanche.preco seja um número */}
-                                    </div>
 
-                                    <div className='total_modal'>
-                                        Subtotal: R$ {Number(subtotal).toFixed(2)} {/* Garantir que subtotal seja um número */}
-                                    </div>
+                                <div className='total_modal'>
+                                    Subtotal: R$ {Number(subtotal).toFixed(2)}
                                 </div>
                             </div>
+                        </div>
 
-                            <div className='bottom_modal'>
-                                <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
-
-                                <button className='carrinho' onClick={handleAddToCart}>Adicionar ao carrinho
-                                    <img src={carrinho} alt="" />
-                                </button>
-                            </div>
+                        <div className='bottom_modal'>
+                            <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
+                            
+                            <button className='carrinho' onClick={handleAddToCart}>Adicionar ao carrinho
+                                <img className='carrinho-modal' src={carrinho} alt="" />
+                            </button>
+                        </div>
                         </div>
                     </Box>
                 </Modal>

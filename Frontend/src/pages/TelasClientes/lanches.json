@@ -18,8 +18,7 @@
     "Quantidade": 5,
     "data_entrada": "2024-02-18T15:30:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://bobs.com.br/media/filer_public_thumbnails/filer_public/1f/61/1f61237f-ecaa-4cca-a3ce-c770d5974560/new_v4-bobs-burger-celeb.png__800x400_subsampling-2.png",
-    "tipo": "Hambúrguer"
+    "Imagem": "https://bobs.com.br/media/filer_public_thumbnails/filer_public/1f/61/1f61237f-ecaa-4cca-a3ce-c770d5974560/new_v4-bobs-burger-celeb.png__800x400_subsampling-2.png"
   },
   {
     "ID": 3,
@@ -29,8 +28,7 @@
     "Quantidade": 8,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "temporariamente fora de estoque",
-    "Imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kfXCQCLy/200/200/original?country=br",
-    "tipo": "Hambúrguer"
+    "Imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kfXCQCLy/200/200/original?country=br"
   },
   {
     "ID": 4,
@@ -106,8 +104,7 @@
     "Quantidade": 10,
     "data_entrada": "2024-02-17T10:45:00Z",
     "Disponibilidade": "disponível",
-    "Imagem": "https://funburgers.com.br/painel/imagensLanches/dest_0b2eb213-71b1-40f7-8021-a9226906218a.png",
-    "tipo": "Hambúrguer"
+    "Imagem": "https://funburgers.com.br/painel/imagensLanches/dest_0b2eb213-71b1-40f7-8021-a9226906218a.png"
   },
   {
     "ID": 11,

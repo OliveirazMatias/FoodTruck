@@ -5,6 +5,11 @@ body {
     font-family: 'Alata', sans-serif;
     margin: 0;
     padding: 0;
+    user-select: none;
+}
+
+button, input, textarea, select {
+    user-select: auto;
 }
 
 .cardapio {
@@ -14,7 +19,6 @@ body {
     padding: 5%;
     padding-top: 7%;
 }
-
 
 .cardapio-container {
     text-align: center;
@@ -28,13 +32,33 @@ body {
     gap: 20px;
     color: #ffffff;
     padding-right: 5%;
-    margin-bottom: 100px;
+    margin-bottom: 10vw;
 }
 
 .confira-lancamentos .confira-img img {
     width: 50%;
     height: auto;
     margin-top: 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.confira-lancamentos .confira-img {
+    position: relative;
+}
+
+.confira-lancamentos .confira-img::after {
+    content: '';
+    position: absolute;
+    bottom: -5%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%; 
+    height: 25%; 
+    background: radial-gradient(circle, #FFE4AA 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+    filter: blur(1vw); 
 }
 
 .confira-texto {
@@ -43,7 +67,7 @@ body {
 }
 
 .confira-titulo {
-    font-size: 2.5vw;
+    font-size: 3vw;
     color: #ffffff;
     margin: 0;
     font-family: 'Belanosima', serif;
@@ -52,11 +76,10 @@ body {
 
 .confira-highlight {
     border-bottom: 0.3vw solid #FFBA21;
-
 }
 
 .confira-subtexto {
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     margin-top: 10px;
     text-align: left;
 }
@@ -94,18 +117,11 @@ body {
     font-weight: 600;
 }
 
-.lancamentos-highlight {
-    border-bottom: 0.3vw solid #B42625;
-    font-size: 2.5vw;
-
-}
-
 .cardapio-highlight {
     border-bottom: 0.3vw solid #B42625;
     font-size: 2.5vw;
 
 }
-
 .lancamento-produtos {
     display: flex;
     flex-direction: row;
@@ -121,9 +137,15 @@ body {
     font-weight: 600;
 }
 
-.produtos01,
-.produtos02,
-.produtos03 {
+.lancamento-produtos p {
+    font-size: 1.5vw;
+    margin-top: 1rem;
+    color: #FFBA21;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+}
+
+.produtos01, .produtos02, .produtos03 {
     border-radius: 30px;
     background-color: #000000;
     border: 0.3vw solid #FFBA21;
@@ -134,19 +156,14 @@ body {
     transform: scale(1);
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
-    background-color: #000000;
     transition: all 0.5s;
 }
 
-.produtos01 img,
-.produtos02 img,
-.produtos03 img {
+.produtos01 img, .produtos02 img, .produtos03 img {
     transition: all 0.5s;
 }
 
-.produtos01:hover,
-.produtos02:hover,
-.produtos03:hover {
+.produtos01:hover, .produtos02:hover, .produtos03:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1);
@@ -155,29 +172,24 @@ body {
     border: #FFBA21 0.8rem solid;
 }
 
-.produtos01 p,
-.produtos02 p,
-.produtos03 p {
+.produtos01 p, .produtos02 p, .produtos03 p {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px;
+    padding: 5px; 
     text-align: center;
     width: 100%;
 }
 
-.produtos01:hover p,
-.produtos02:hover p,
-.produtos03:hover p {
-    color: #B42625;
+.produtos01:hover p, .produtos02:hover p, .produtos03:hover p {
+    color: #B42625; 
 }
 
-.produtos01:hover img,
-.produtos02:hover img,
-.produtos03:hover img {
-    transform: scale(1.2);
+.produtos01:hover img, .produtos02:hover img, .produtos03:hover img {
+    transform: scale(1.2); 
 }
+
 
 .cardapio-titulo {
     font-size: 3.5vw;
@@ -191,7 +203,188 @@ body {
     border-bottom: 0.3vw solid #B42625;
 }
 
-.opcoes button{
+.lanches {
+    display: grid;
+    gap: 6vh 13vw;
+    grid-template-columns: repeat(3, 12vw);
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    justify-items: center;
+}
+
+.cardapio-pedidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lanc_button {
+    background-color: black;
+    outline: none;
+    border: none;
+}
+
+.nome_comida {
+    color: white;
+    font-family: "Belanosima", serif;
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-top: 6%;
+    text-align: start;
+}
+
+.food_text {
+    color: white;
+}
+
+.descricao {
+    color: white;
+    text-align: start;
+    font-size: 1vw;
+    margin-bottom: 1vw;
+}
+
+.preco {
+    text-align: start;
+    color: #FFBA21;
+    font-size: 1.3vw;
+}
+
+.preco:hover {
+    color: #ffcd61;
+}
+
+.image-lanches-cardapio {
+    border-radius: 10px;
+    width: 15vw;
+    height: 10vw;
+}
+
+.image-lanche-modal {
+    border-radius: 1vw;
+    width: 50%;
+    height: auto;
+}
+
+.image-lanches-cardapio:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s ease, background-color 0.4s ease;
+    background-color: #000000;
+    border: 0.3vw solid #FFBA21;
+    border-radius: 15%;
+}
+
+.image_div {
+    background-color: #FFBA21;
+    width: auto;
+    height: auto;
+    border-radius: 2vw;
+    display: flex;
+    justify-content: center;
+}
+
+.food_button {
+    background-color: #000000;
+    border: none;
+    cursor: pointer;
+    font-size: 0.6rem;
+}
+
+.modal_box {
+    width: 80%;
+    max-width: 20rem;
+    margin: 0 auto;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+
+.title_modal {
+    font-size: 2vw;
+    font-weight: 600;
+    font-family: "Belanosima", serif;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #000000;
+    text-align: center;
+}
+
+.description_modal {
+    font-size: 1vw;
+    margin-bottom: 1vw;
+    color: #000000;
+    text-align: center;
+}
+
+.increase_button {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    background-color: #FFE4AA;
+    border-radius: 0.8vw;
+    color: #000000;
+    border: 0.1vw solid #000000;
+    height: 2.5vw;
+    padding: 1.3vw;
+}
+
+.button_add, .button_sub {
+    background-color: #FFE4AA;
+    color: #000000;
+    margin: 0.5vw;
+    height: 2.5vw;
+    width: 2.5vw;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5vw;
+}
+
+.quantity_number {
+    font-size: 1vw;
+    font-weight: 600;
+    margin: 0 1vw;
+}
+
+.preco_modal {
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+    margin-top: 1vw;
+}
+
+.total_modal {
+    font-size: 0.8vw;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1vw;
+}
+
+.obs {
+    width: 90%;
+    margin-bottom: 2vw;
+    height: 3.5vw;
+    background-color: #FFE4AA;
+    border: 0.1vw solid #000000;
+    border-radius: 0.5vw;
+    display: flex;
+    padding-left: 1vw;
+    color: #000000;
+    font-size: 0.9vw;
+}
+
+.obs::placeholder {
+    font-size: 0.9vw;
+    color: #000000;
+    font-weight: 600;
+    font-family: 'Alata', sans-serif;
+}
+
+.opcoes button {
     background-color: #FFBA21;
     color: #141c1e;
     padding: 8px 12px;
@@ -212,206 +405,29 @@ body {
     color: #FFBA21;
 }
 
-.lanches {
-    display: grid;
-    gap: 3rem 13rem;
-    grid-template-columns: repeat(3, 12rem);
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    justify-items: center;
-}
-
-.cardapio-pedidos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.food_button:hover {
-    outline: none;
-    margin: none;
-    color: #000000;
-    cursor: pointer;
-    transform: translate(0, -10px);
-}
-
-.lanc_button {
-    background-color: black;
-    outline: none;
-    border: none;
-}
-
-.nome_comida {
-    color: white;
-    font-family: "Belanosima", serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-top: 10px;
-    text-align: start;
-}
-
-.food_text {
-    color: white;
-}
-
-.descricao {
-    color: white;
-    text-align: start;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-.preco {
-    text-align: start;
-    color: #FFBA21;
-    font-size: 1.3rem;
-}
-
-.preco:hover {
-    color: #ffcd61;
-}
-
-.image {
-    border-radius: 10px;
-    width: 15rem;
-}
-
-.image:hover {
-    transform: scale(1.1);
-    transition: transform 0.4s ease, background-color 0.4s ease;
-    background-color: #000000;
-    border: 0.3vw solid #FFBA21;
-    border-radius: 15%;
-}
-
-.image_div {
-    background-color: #FFBA21;
-    width: 15.3rem;
-    height: 15rem;
-    border-radius: 2rem;
-    display: flex;
-    justify-content: center;
-}
-
-.food_button {
-    background-color: #000000;
-    border: none;
-    transition-duration: 0.5s;
-}
-
-.modal_box {
-    width: 20px;
-}
-
-.title_modal {
-    font-size: 2rem;
-    font-weight: 600;
-    font-family: "Belanosima", serif;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    color: #000000;
-}
-
-.description_modal {
-    margin-bottom: 1rem;
-    color: #000000;
-}
-
-.increase_button {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    background-color: #FFE4AA;
-    border-radius: 0.8rem;
-    color: #000000;
-    border: 1px solid #000000;
-    height: 2.5rem;
-}
-
-.quantity_modal {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.button_add,
-.button_sub {
-    background-color: #ffffff;
-    background-color: #FFE4AA;
-    color: #000000;
-    margin: 10px;
-    height: 2.5rem;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-
-.quantity_number {
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.preco_modal {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.total_modal {
-    font-size: 0.8rem;
-    color: #000000;
-}
-
-.bottom_modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.obs {
-    width: 19rem;
-    margin-bottom: 2rem;
-    height: 3.5rem;
-    background-color: #FFE4AA;
-    border: 1px solid #000000;
-    border-radius: 0.5rem;
-    display: flex;
-    padding-left: 1rem;
-    color: #000000;
-}
-
-.obs::placeholder {
-    font-size: 0.9rem;
-    color: #000000;
-    font-weight: 600;
-    font-family: 'Alata', sans-serif;
-
-}
 
 .carrinho {
-    width: 20rem;
+    width: 90%;
     color: #000000;
-    margin-bottom: 2rem;
-    height: 3.5rem;
+    margin-bottom: 2vw;
+    height: 3.5vw;
     background-color: #FFE4AA;
-    border: 1px solid #000000;
-    border-radius: 0.5rem;
+    border: 0.1vw solid #000000;
+    border-radius: 0.5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
-    font-style: normal;
-    font-weight: 400;
+    font-size: 0.9vw;
+    font-style: bold;
+    font-weight: 600;
+    padding: 0.5vw 1vw;
+    padding: 1vw;
 }
 
 .carrinho:hover {
     background-color: #AA2322;
     color: #ffffff;
-    border: 2px solid #FFBA21;
+    border: 0.2vw solid #FFBA21;
     outline: #FFD984;
 }
 
@@ -421,11 +437,53 @@ body {
 
 .modal_body {
     background-color: #FFD984;
-    border-radius: 3rem;
-    padding: 1rem;
+    border-radius: 2vw;
+    padding: 1vh;
 }
 
 .lancamentoImg {
-    width: 20rem;
-    min-height: 20rem;
+    width: 20vw;
+    min-height: auto;
 }
+
+.bottom_modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+}
+
+.carrinho-modal {
+    width: 10%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .cardapio {
+        padding: 5%;
+        padding-top: 7%;
+    }
+
+    .confira-lancamentos {
+        font-size: 3vw;
+        margin-bottom: 10vw;
+    }
+
+    .confira-titulo {
+        font-size: 3vw;
+    }
+
+    .confira-subtexto {
+        font-size: 2vw;
+    }
+
+    .lancamento-titulo {
+        font-size: 4vw;
+    }
+
+    .cardapio-titulo {
+        font-size: 4vw;
+    }
+}
+

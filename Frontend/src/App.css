@@ -93,3 +93,9 @@ p {
   height: auto;
   left: 6%;
 }
+
+.perfil{
+  width: 2%;
+  height: auto;
+  cursor: pointer;
+}
