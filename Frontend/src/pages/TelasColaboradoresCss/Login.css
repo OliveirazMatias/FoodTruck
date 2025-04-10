@@ -64,3 +64,8 @@
 .botao-login:hover {
     background-color: #A31E1A; 
 }
+
+.error-message{
+    color: #FFF;
+    font-size: 1vw;
+}
