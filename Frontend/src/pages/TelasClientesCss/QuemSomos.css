@@ -2,21 +2,16 @@ body,
 html {
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; 
 }
 
 .quem_somos {
     position: relative;
-    height: 50vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--vermelho);
     z-index: 1;
-    padding: 0; 
-    margin: 0; 
 }
 
 .quem_somos_img {
@@ -39,15 +34,16 @@ html {
     text-align: left;
     width: 35%;
 }
-
-.quem_somos_text h1 {
+.banner_text h1 {
     font-size: 80px;
     text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.219);
     font-family: 'Belanosima';
 }
 
-.quem_somos_text p {
+.banner_text p {
     font-size: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .quem_somos_detalhes {
@@ -73,7 +69,7 @@ html {
 }
 
 .quem_somos_texto h2 {
-    font-size: 4vw;
+    font-size: 40px;
     color: #FFBA21;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -81,38 +77,47 @@ html {
 }
 
 .quem_somos_texto p {
-    font-size: 1.5vw;
+    font-size: 22px;
     line-height: 1.6;
     width: 60%;
 }
 
 .quem_somos_imagem {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.imagem-equipe {
-    width: 100%;
-    max-width: 450px;
-    border-radius: 8px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    border-radius: 15px;
 }
 
 .contato_localizacao {
     color: white;
     font-family: 'Belanosima', sans-serif;
+    background-color: #B42625;
+    border-top: 6px #FFBA21 solid;
 }
-
-.contato {
-    flex: 1;
-    text-align: center;
+.contato_localizacao .links{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 35px 0;
 }
-
+.contato, .localizacao, .horario {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    width: 20%;
+}
+.horario{
+    width: 15%;
+}
+.local, .dias{
+    width: 100%;
+    text-align: left;
+}
 .contato h2,
-.localizacao h2 {
-    font-size: 24px;
+.localizacao h2, .horario h2 {
+    font-size: 20px;
     font-weight: bold;
     color: #ffc107;
 }
@@ -123,40 +128,17 @@ html {
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .contato_item img {
-    width: 10%;
-    height: auto;
+    width: 30px;
+    height: 30px;
 }
 
-.linha_divisoria {
-    height: 10vw;
-    background-color: #ffc107;
-    margin: 0 40px;
-}
-
-.localizacao {
-    flex: 1;
-    text-align: center;
-}
-
-.mapa_container img {
-    width: 40%;
-    max-width: 300px;
-    border-radius: 20px;
-}
 
 @media (max-width: 768px) {
     .contato_localizacao {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 20px 5%;
-    }
-
-    .linha_divisoria {
-        display: none;
     }
 }
