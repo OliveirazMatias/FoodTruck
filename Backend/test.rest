@@ -66,12 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "pastel foda",
+  "nome": "hambuerguer",
   "descricao": "FODA",
   "preco": 30.00,
   "disponibilidade": "disponível",
   "imagem": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hot_dog_with_mustard.png",
-  "tipo": "pastel"
+  "tipo": "hamburguer"
   
 }
 

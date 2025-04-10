@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
-div {
-    flex: 1;
-    text-align: center;
-}
-
 body {
     background-color: #000000;
     font-family: 'Alata', sans-serif;
