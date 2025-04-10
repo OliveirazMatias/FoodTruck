@@ -66,11 +66,11 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Pastel-Fraqenco",
-  "descricao": "FODA",
-  "preco": 30.00,
+  "nome": "Cachorro Quente de Bacon",
+  "descricao": "Pão macio, bacon, salsicha suculenta, molho especial, milho, batata palha e ketchup.",
+  "preco": 20500,
   "disponibilidade": "disponível",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hot_dog_with_mustard.png",
+  "imagem": "https://www.rockstarhotdogs.com/wp-content/uploads/2020/01/Chili-Dog-370x300.png",
   "tipo": "hamburguer"
   
 }
@@ -85,7 +85,7 @@ Content-Type: application/json
   "descricao": "Skiiiii",
   "preco": 69.00,
   "disponibilidade": "disponível",
-  "imagem": "url_da_imagem",
+  "imagem": "https://i.pinimg.com/736x/e6/73/ca/e673ca8d2a4d99b6b1f1f2e0a6cea4e7.jpg",
   "tipo": "pastel"
 }
 
