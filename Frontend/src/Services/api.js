@@ -164,15 +164,6 @@ export const deleteLanches = async (id) => {
   }
 }
 
-export const postCadastro = async (funcionario) => {
-  try {
-    const response = await http.post("/cadastro", funcionario); // Endpoint correto
-    return response.data;
-  } catch (error) {
-    console.error("Erro ao cadastrar funcionário:", error.response?.data || error.message);
-    throw error;
-  }
-}
 
 export const deleteLogin = async (nome) => {
   try {
