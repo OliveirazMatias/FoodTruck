@@ -55,8 +55,7 @@ export const postItemPedido = async (itemPedido) => {
 
 
 // TELA DE COMANDAS
-
-export const getPedidosByCEP = async (cep) => {
+export const postCadastro = async (funcionario) => {
   try {
     const response = await http.post("/pedidos/cep", { CEP: cep }); // Endpoint correto
     return response.data;

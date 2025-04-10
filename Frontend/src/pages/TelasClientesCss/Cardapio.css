@@ -465,24 +465,30 @@ button, input, textarea, select {
 }
 
 @media (max-width: 768px) {
-
-    .bottom_modal {
-        margin-top: 3vw;
+    .cardapio {
+        padding: 5%;
+        padding-top: 7%;
     }
 
-    .carrinho-modal {
-        width: 10%;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .bottom_modal {
-        margin-top: 4vw;
+    .confira-lancamentos {
+        font-size: 3vw;
+        margin-bottom: 10vw;
     }
 
-    .carrinho-modal {
-        width: 12%;
+    .confira-titulo {
+        font-size: 3vw;
+    }
+
+    .confira-subtexto {
+        font-size: 2vw;
+    }
+
+    .lancamento-titulo {
+        font-size: 4vw;
+    }
+
+    .cardapio-titulo {
+        font-size: 4vw;
     }
 }
 
