@@ -4,36 +4,36 @@ import Pedidos from "../models/Pedidos.js";
 
 export const postItemPedido = async (req, res) => {
     try {
+        console.log("Requisição recebida no postItemPedido:", req.body); // Log dos dados recebidos
         const { id_pedido, id_item_do_cardapio, quantidade, observacao } = req.body;
 
+        // Verifique se todos os campos obrigatórios estão presentes
+        if (!id_pedido || !id_item_do_cardapio || !quantidade) {
+            console.error("Dados ausentes:", req.body);
+            return res.status(400).json({ error: "Todos os campos obrigatórios devem ser preenchidos." });
+        }
+
+        // Verifique se o item do cardápio existe
         const item = await ItemCardapio.findByPk(id_item_do_cardapio);
         if (!item) {
+            console.error("Item do cardápio não encontrado:", id_item_do_cardapio);
             return res.status(404).json({ error: "Item do cardápio não encontrado." });
         }
 
         const preco_unitario = item.preco;
         const subtotal = preco_unitario * quantidade;
 
+        // Crie o item do pedido
         const novoItemPedido = await ItemPedido.create({
             id_pedido,
             id_item_do_cardapio,
             quantidade,
             preco_unitario,
             subtotal,
-            observacao
+            observacao,
         });
 
-        const itensPedido = await ItemPedido.findAll({ where: { id_pedido } });
-        const total = itensPedido.reduce((sum, item) => sum + parseFloat(item.subtotal), 0);
-
-        const pedido = await Pedidos.findByPk(id_pedido);
-        if (!pedido) {
-            return res.status(404).json({ error: "Pedido não encontrado." });
-        }
-
-        pedido.Total = total;
-        await pedido.save();
-
+        console.log("Item do pedido criado com sucesso:", novoItemPedido);
         return res.status(201).json(novoItemPedido);
     } catch (error) {
         console.error("Erro ao adicionar item ao pedido:", error);

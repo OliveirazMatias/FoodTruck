@@ -85,7 +85,7 @@ Content-Type: application/json
   "preco": 100.00,
   "disponibilidade": "disponível",
   "imagem": "https://static.vecteezy.com/system/resources/thumbnails/036/391/923/small/ai-generated-delicious-french-fries-on-isolated-background-crispy-golden-fast-food-snack-png.png",
-  "tipo": "porcao"
+  "tipo": "porcoes"
 }
 
 

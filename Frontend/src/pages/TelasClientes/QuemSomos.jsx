@@ -1,7 +1,7 @@
 import '../TelasClientesCss/QuemSomos.css';
 import * as React from 'react';
-import equipeImg from '../../assets/quemsomos/equipe.png';
-import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
+// import equipeImg from '../../assets/quemsomos/equipe.png';
+// import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
 import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
@@ -60,7 +60,7 @@ function QuemSomos() {
                 <div className="localizacao">
                     <h2>LOCALIZAÇÃO</h2>
                     <div className="mapa_container">
-                        <img src={mapaImg} alt="Mapa da localização" />
+                        {/* <img src={mapaImg} alt="Mapa da localização" /> */}
                     </div>
                 </div>
             </section>

@@ -17,9 +17,9 @@ routes.post('/cadastro', postCadastro);
 routes.delete('/delete/usuario', deleteLogin);
 
 // ITENS PEDIDOS
-routes.get('/itempedido', getItemPedidoByPedido);
 routes.post('/itempedido', postItemPedido);
 routes.delete('/delete/itempedido', deleteItemPedido);
+routes.get('/itempedido', getItemPedidoByPedido);
 
 routes.post('/pedidos', postPedidos);
 routes.get('/pedidos', getPedidos);

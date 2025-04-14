@@ -350,3 +350,12 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.quantidade-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 1vw;
+    margin: 2%;
+}

@@ -9,9 +9,9 @@ import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import { getLanches, postItemPedido } from "../../Services/api"; // Importar API correta
+import { getLanches } from "../../Services/api"; // Importar API correta
 
-
+export const Lanches = []; // Exportar a lista Lanches
 
 const style = {
     position: 'absolute',
@@ -54,13 +54,13 @@ function Cardapio() {
   
     const handleClose = () => {
       setOpen(false);
-      setQuantity(1); 
+      setQuantity(1); // Resetar quantidade ao fechar o modal
     };
   
     useEffect(() => {
       const fetchLanches = async () => {
         try {
-          const data = await getLanches();
+          const data = await getLanches(); // Buscar lanches do backend
           setLanches(Array.isArray(data) ? data : []);
         } catch (error) {
           console.error("Erro ao buscar lanches:", error);
@@ -69,22 +69,15 @@ function Cardapio() {
       fetchLanches();
     }, []);
   
-    const handleAddToCart = async () => {
+    const handleAddToCart = () => {
       if (!selectedLanche) return;
   
-      const itemPedido = {
-        id_pedido: 1,
-        id_item_do_cardapio: selectedLanche.id,
-        quantidade: quantity,
-        observacao: obs,
-      };
-  
-      try {
-        await postItemPedido(itemPedido); 
-        navigate("/Carrinho");
-      } catch (error) {
-        console.error("Erro ao adicionar ao carrinho:", error);
+      // Adicionar o ID do selectedLanche à lista Lanches exportada
+      if (!Lanches.includes(selectedLanche.id)) {
+        Lanches.push(selectedLanche.id);
       }
+  
+      setOpen(false); // Fechar o modal após adicionar ao carrinho
     };
   
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
@@ -94,8 +87,7 @@ function Cardapio() {
         setActiveFilter(filterType);
     };
     
-    const lancamentosId = [10, 11, 9]
-
+    const lancamentosId = [2, 3, 10]
 
     return (
         <div className='cardapio'>
@@ -233,7 +225,7 @@ function Cardapio() {
                             <div className="increase_button">
                                 <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                                 <div className='quantity_number'>{quantity}</div>
-                                <button className='button_sub' onClick={() => setquantity(quantity +1)}>+</button>
+                                <button className='button_sub' onClick={() => setQuantity(quantity +1)}>+</button>
                             </div>
                             <div className='price_modal'>
                                 <div className='preco_modal'>
