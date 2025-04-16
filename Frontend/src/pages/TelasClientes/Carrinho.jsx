@@ -40,7 +40,7 @@ function Carrinho() {
             try {
                 const allLanches = await getLanches(); // Buscar todos os lanches do backend
                 const filteredLanches = allLanches.filter(lanche => Lanches.includes(lanche.id)); // Filtrar pelos IDs em Lanches
-                setItems(filteredLanches);
+                setItems(filteredLanches.map(lanche => ({ ...lanche, quantidade: 1 }))); // Inicializar com quantidade 1
             } catch (error) {
                 console.error("Erro ao buscar lanches:", error);
             }
@@ -48,15 +48,31 @@ function Carrinho() {
         fetchLanches();
     }, []);
 
-    const preco = precoTotal();
+    const precoTotal = () => {
+        return items.reduce((total, item) => total + item.preco * item.quantidade, 0).toFixed(2);
+    };
 
-    function precoTotal() {
-        let total = 0;
-        items.forEach(lanche => {
-            total += (Number(lanche.preco) || 0) * (lanche.quantidade || 1); // Garantir que preco seja um número
+    const adicionarItem = (id) => {
+        const updatedItems = items.map((item) => {
+            if (item.id === id) {
+                return { ...item, quantidade: item.quantidade + 1 }; // Incrementa a quantidade
+            }
+            return item;
         });
-        return total.toFixed(2);
-    }
+        setItems(updatedItems);
+    };
+
+    const removerItem = (id) => {
+        const updatedItems = items
+            .map((item) => {
+                if (item.id === id) {
+                    return { ...item, quantidade: item.quantidade - 1 }; // Decrementa a quantidade
+                }
+                return item;
+            })
+            .filter((item) => item.quantidade > 0); // Remove itens com quantidade 0
+        setItems(updatedItems);
+    };
 
     const handleChange = () => {
         setChecked((prev) => !prev);
@@ -70,27 +86,6 @@ function Carrinho() {
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-    const removerItem = (id) => {
-        // Remover o item da lista de itens exibidos
-        setItems(items.filter(lanche => lanche.id !== id));
-
-        // Remover o ID da lista Lanches exportada
-        const index = Lanches.indexOf(id);
-        if (index > -1) {
-            Lanches.splice(index, 1); // Remove o ID da lista
-        }
-    };
-
-    const adicionarItem = (id) => {
-        const updatedItems = items.map((item) => {
-            if (item.id === id) {
-                return { ...item, quantidade: (item.quantidade || 1) + 1 }; // Incrementa a quantidade
-            }
-            return item;
-        });
-        setItems(updatedItems);
-    };
 
     return (
         <div className="carrinho-container">
@@ -112,11 +107,12 @@ function Carrinho() {
                             <div className='jogar-pro-ladinho'>
                                 <div className='preco-remover-carrinho'>
                                     <div className='preco-total-carrinho'>
-                                        R$: {lanche.preco ? Number(lanche.preco).toFixed(2) : "0.00"} {/* Garantir que preco seja válido */}
+                                        R$: {lanche.preco ? Number(lanche.preco).toFixed(2) : "0.00"}
                                     </div>
                                     <div className='botoes-acoes'>
                                         <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
-                                        <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>x</button>
+                                        <span className='quantidade-item'>{lanche.quantidade}</span>
+                                        <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>-</button>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +174,7 @@ function Carrinho() {
                                                 PEDIDO:
                                             </p>
                                             <p className='descricao-texto-branco-modal'>
-                                                R${preco}
+                                                R${precoTotal()}
                                             </p>
                                         </div>
                                     </div>

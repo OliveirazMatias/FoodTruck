@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "nome": "Mateus Silverio",
-  "email": "mateus123@gmail.com",
+  "email": "silverio123@gmail.com",
   "senha": "admin123"
 }
 
@@ -66,13 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Cachorro Quente de Bacon",
-  "descricao": "Pão macio, bacon, salsicha suculenta, molho especial, milho, batata palha e ketchup.",
-  "preco": 20500,
+  "nome": "Quarteirão",
+  "descricao": "Dois hambúrgueres com cheddar, cebola, picles, ketchup e mostarda no pão com gergelim.",
+  "preco": 32.99,
   "disponibilidade": "disponível",
-  "imagem": "https://www.rockstarhotdogs.com/wp-content/uploads/2020/01/Chili-Dog-370x300.png",
+  "imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kNXwNgUf/200/200/original?country=br",
   "tipo": "hamburguer"
-  
 }
 
 ###
@@ -81,9 +80,9 @@ Content-Type: application/json
 
 {
   "nome_original": "xskibidi",
-  "nome": "xskibidi",
-  "descricao": "Skiiiii",
-  "preco": 69.00,
+  "nome": "Batata Individual",
+  "descricao": "Porção de batata frita crocante e sequinha, com sal.",
+  "preco": 100.00,
   "disponibilidade": "disponível",
   "imagem": "https://i.pinimg.com/736x/e6/73/ca/e673ca8d2a4d99b6b1f1f2e0a6cea4e7.jpg",
   "tipo": "pastel"
@@ -95,7 +94,7 @@ DELETE http://localhost:3001/lanches/delete
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 5
 }
 
 
