@@ -2,7 +2,7 @@ import express from 'express';
 import { postLanches, getLanches, getLanchesByDesc, updateLanches, deleteLanches } from '../controllers/ItemCardapio.js';
 import { postLogin, postCadastro, deleteLogin } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido, getItemPedidoByPedido } from '../controllers/ItemPedido.js';
-import { postPedidos, getPedidosByCEP, getPedidosByMesa, getPedidos } from '../controllers/Pedidos.js';
+import { postPedidos, getPedidosByCEP, getPedidosByMesa, getPedidos, getPedidosByDate } from '../controllers/Pedidos.js';
 
 const routes = express.Router();
 
@@ -24,5 +24,6 @@ routes.post('/pedidos', postPedidos);
 routes.get('/pedidos', getPedidos);
 routes.get('/pedidos/CEP', getPedidosByCEP); // Handles ?CEP= query
 routes.get('/pedidos/mesa', getPedidosByMesa); // Handles ?Mesa= query
+routes.get('/pedidos/data', getPedidosByDate); // Handles ?filtro= and ?data= query
 
 export default routes;

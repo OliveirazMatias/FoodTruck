@@ -29,7 +29,7 @@ Content-Type: application/json
 {
   "id_funcionario": 1,
   "tipo_pedido": "delivery",
-  "nome_cliente": "henrique",
+  "nome_cliente": "juan",
   "Mesa": null,
   "CEP": "12366940",
   "Status": "em preparação",
@@ -143,4 +143,12 @@ Content-Type: application/json
 
 {
   "descricao": "Hamburguer"
+}
+
+#####
+GET http://localhost:3001/pedidos/data
+Content-Type: application/json
+
+{
+  "filtro": "semana"
 }
