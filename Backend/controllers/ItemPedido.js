@@ -40,7 +40,6 @@ export const postItemPedido = async (req, res) => {
             observacao,
         });
 
-        // Atualize o total do pedido
         pedido.Total = parseFloat(pedido.Total) + subtotal;
         await pedido.save();
 

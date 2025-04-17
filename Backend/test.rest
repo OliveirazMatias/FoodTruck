@@ -29,11 +29,10 @@ Content-Type: application/json
 {
   "id_funcionario": 1,
   "tipo_pedido": "comer no local",
-  "nome_cliente": "mel",
-  "Mesa": 12,
+  "nome_cliente": "Donald Trump",
+  "Mesa": 1,
   "CEP": null,
   "Status": "em preparação",
-  "data_criacao": "2025-04-05T12:00:00Z",
   "tipo_pagamento": "PIX"
 }
 
@@ -42,10 +41,10 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 6,
-  "id_item_do_cardapio": 2,
-  "quantidade": 2,
-  "observacao": "sem bacon"
+  "id_pedido": 8,
+  "id_item_do_cardapio": 1,
+  "quantidade": 50,
+  "observacao": "sem salda e dois hamburgueres"
 }
 
 ### CONFIRMAR ITENS DO PEDIDO

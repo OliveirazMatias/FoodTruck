@@ -2,6 +2,7 @@ import database from "../config/database.js";
 import sequelize from "sequelize";
 import ListaFuncionarios from "./ListaFuncionarios.js";
 import moment from "moment-timezone"; // Importa moment-timezone
+import ItemPedido from "./ItemPedido.js"; // Importa ItemPedido
 
 const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo
 
@@ -64,6 +65,17 @@ const Pedidos = database.define(
 Pedidos.belongsTo(ListaFuncionarios, {
   foreignKey: "id_funcionario",
   onDelete: "SET NULL",
+});
+
+Pedidos.hasMany(ItemPedido, {
+  foreignKey: "id_pedido",
+  as: "itens", // Alias para acessar os itens do pedido
+  onDelete: "CASCADE",
+});
+
+ItemPedido.belongsTo(Pedidos, {
+  foreignKey: "id_pedido",
+  as: "pedido",
 });
 
 export default Pedidos;

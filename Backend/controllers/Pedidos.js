@@ -1,6 +1,7 @@
 import Pedidos from "../models/Pedidos.js";
 import moment from "moment-timezone"; // Importa moment-timezone
 import { Op } from "sequelize"; // Importa operadores do Sequelize
+import ItemPedido from "../models/ItemPedido.js"; // Importa o modelo ItemPedido
 
 const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo
 
@@ -108,7 +109,15 @@ export const getPedidosByDate = async (req, res) => {
             return res.status(400).json({ error: "Filtro inválido ou data não fornecida." });
         }
 
-        const pedidos = await Pedidos.findAll({ where: whereCondition });
+        const pedidos = await Pedidos.findAll({
+            where: whereCondition,
+            include: [
+                {
+                    model: ItemPedido,
+                    as: "itens", // Certifique-se de que o alias está correto
+                },
+            ],
+        });
         return res.status(200).json({ pedidos });
     } catch (error) {
         console.error("Erro ao buscar pedidos por data:", error);
