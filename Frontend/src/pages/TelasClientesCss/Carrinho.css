@@ -20,7 +20,7 @@ body {
     margin-bottom: 2%;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    width: 12%;
+    width: 7.5%;
     border-bottom: 0.2vw solid #B42625;
 }
 
@@ -43,7 +43,7 @@ body {
     width: 55vw; 
     height: auto;
     border-radius: 2vw;
-    border: 0.3vw solid #B42625;
+    border: 0.2vw solid #B42625;
     background: #141C1E;
     padding: 1.5%;
 }
@@ -92,11 +92,12 @@ body {
 .total-compra {
     display: flex;
     justify-content: flex-end;
-    font-size: 1.3vw; 
-    color: #ffffff;
+    font-size: 1vw;
+    color: #fff;
+    font-family: 'Alata', serif;
+    font-weight: 600;
     margin-top: 1.5rem;
     margin-right: 2vw;
-    margin-bottom: 0.8vw;
 }
 
 .opcoes-consumo {
@@ -121,11 +122,25 @@ body {
 
 .input_switch {
     width: 100%;
-    padding: 0.4rem;
+    padding: 0.8rem;
     margin-top: 0.5rem;
-    border: 1px solid #B42625;
+    border: 2px solid #B42625;
     border-radius: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 1vw;
+    font-family: 'Alata', sans-serif;
+    color: #ffffff;
+    background-color: #141C1E;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input_switch::placeholder {
+    color: #B42625;
+    font-style: italic;
+}
+
+.input_switch:focus {
+    background-color: #1E2A2C;
 }
 
 .finalizar-pedido {
@@ -358,4 +373,17 @@ body {
     color: #FFF;
     font-size: 1vw;
     margin: 2%;
+}
+
+.preco-quantidade {
+    font-size: 0.8vw;
+    color: #fff;
+    font-family: 'Alata', sans-serif;
+    margin-top: 0.2rem;
+}
+
+.mensagem-vazia{
+    color: #FFF;
+    font-size: 1vw;
+    margin: 2vw;
 }

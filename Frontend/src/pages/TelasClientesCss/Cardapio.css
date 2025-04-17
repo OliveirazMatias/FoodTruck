@@ -392,24 +392,29 @@ button, input, textarea, select {
 .opcoes button {
     background-color: #FFBA21;
     color: #141c1e;
-    padding: 8px 12px;
+    padding: 0.6vw 1vw;
     border: none;
-    border-radius: 15px;
-    font-size: 20px;
+    border-radius: 1.1vw;
+    font-size: 1.2vw;
     cursor: pointer;
     align-self: flex-end;
-    margin-right: 10px;
+    margin-right: 1vw;
     font-family: 'Alata';
-    border: 2px solid #FFBA21;
+    border: 0.2vw solid #FFBA21;
     transition-duration: 0.3s;
 }
 
 .opcoes button:hover {
-    transform: translate(0, -2.5px);
+    transform: translate(0, -0.25vw);
     background-color: transparent;
     color: #FFBA21;
 }
 
+.opcoes button.active {
+    transform: translate(0, -0.25vw);
+    background-color: transparent;
+    color: #FFBA21;
+}
 
 .carrinho {
     width: 90%;
@@ -491,4 +496,3 @@ button, input, textarea, select {
         font-size: 4vw;
     }
 }
-

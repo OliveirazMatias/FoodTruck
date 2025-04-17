@@ -70,14 +70,20 @@ function Cardapio() {
     }, []);
   
     const handleAddToCart = () => {
-      if (!selectedLanche) return;
-  
-      // Adicionar o ID do selectedLanche à lista Lanches exportada
-      if (!Lanches.includes(selectedLanche.id)) {
-        Lanches.push(selectedLanche.id);
-      }
-  
-      setOpen(false); // Fechar o modal após adicionar ao carrinho
+        if (!selectedLanche) return;
+    
+        // Verifica se o item já está no carrinho
+        const existingItemIndex = Lanches.findIndex((item) => item.id === selectedLanche.id);
+    
+        if (existingItemIndex !== -1) {
+            // Atualiza a quantidade do item existente
+            Lanches[existingItemIndex].quantidade += quantity;
+        } else {
+            // Adiciona o item com a quantidade selecionada
+            Lanches.push({ ...selectedLanche, quantidade: quantity });
+        }
+        setOpen(false); // Fecha o modal
+        setQuantity(1); // Reseta a quantidade no modal
     };
   
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
@@ -87,7 +93,7 @@ function Cardapio() {
         setActiveFilter(filterType);
     };
     
-    const lancamentosId = [2, 3, 10]
+    const lancamentosId = [10, 9, 11]
 
     return (
         <div className='cardapio'>
@@ -225,15 +231,14 @@ function Cardapio() {
                             <div className="increase_button">
                                 <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                                 <div className='quantity_number'>{quantity}</div>
-                                <button className='button_sub' onClick={() => setQuantity(quantity +1)}>+</button>
+                                <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
                             </div>
                             <div className='price_modal'>
                                 <div className='preco_modal'>
                                     R$ {Number(selectedLanche.preco).toFixed(2)}
                                 </div>
-
                                 <div className='total_modal'>
-                                    Subtotal: R$ {Number(subtotal).toFixed(2)}
+                                    Subtotal: R$ {(selectedLanche.preco * quantity).toFixed(2)}
                                 </div>
                             </div>
                         </div>
