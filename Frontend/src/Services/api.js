@@ -113,7 +113,7 @@ export const getPedidosByDate = async (filtro, data = null) => {
     if (data) {
       requestBody.data = data; // Inclui 'data' se fornecido
     }
-    const response = await http.post("/pedidos/data", requestBody); // Endpoint correto
+    const response = await http.post("/pedidos/data", requestBody); // Corrige para POST
     return response.data;
   } catch (error) {
     console.error(

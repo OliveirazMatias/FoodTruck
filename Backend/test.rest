@@ -28,11 +28,12 @@ Content-Type: application/json
 
 {
   "id_funcionario": 1,
-  "tipo_pedido": "delivery",
-  "nome_cliente": "juan",
-  "Mesa": null,
-  "CEP": "12366940",
+  "tipo_pedido": "comer no local",
+  "nome_cliente": "mel",
+  "Mesa": 12,
+  "CEP": null,
   "Status": "em preparação",
+  "data_criacao": "2025-04-05T12:00:00Z",
   "tipo_pagamento": "PIX"
 }
 
@@ -41,10 +42,10 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 2,
-  "id_item_do_cardapio": 1,
+  "id_pedido": 6,
+  "id_item_do_cardapio": 2,
   "quantidade": 2,
-  "observacao": "gelada"
+  "observacao": "sem bacon"
 }
 
 ### CONFIRMAR ITENS DO PEDIDO
@@ -52,7 +53,7 @@ GET http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 1
+  "id_pedido": 6
 }
 
 ### CONFIRMAR O PEDIDO
@@ -79,13 +80,11 @@ PUT http://localhost:3001/lanches/update
 Content-Type: application/json
 
 {
-  "nome_original": "xskibidi",
-  "nome": "Batata Individual",
-  "descricao": "Porção de batata frita crocante e sequinha, com sal.",
-  "preco": 100.00,
+  "nome_original": "Cachorro Quente de Bacon",
+  "nome": "Cachorro Quente de Bacon",
+  "preco": 25.00,
   "disponibilidade": "disponível",
-  "imagem": "https://i.pinimg.com/736x/e6/73/ca/e673ca8d2a4d99b6b1f1f2e0a6cea4e7.jpg",
-  "tipo": "pastel"
+  "tipo": "hotdog"
 }
 
 
@@ -145,9 +144,19 @@ Content-Type: application/json
 }
 
 #####
-GET http://localhost:3001/pedidos/data
+POST http://localhost:3001/pedidos/data
 Content-Type: application/json
 
 {
-  "filtro": "semana"
+  "filtro": "data_especifica",
+  "data": "2025-04-16"
+}
+
+#####
+DELETE http://localhost:3001/pedidos/delete
+Content-Type: application/json
+
+{
+  "id": 7
+  
 }

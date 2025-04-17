@@ -1,30 +1,47 @@
-
 import React, { useState } from "react";
 import '../TelasColaboradoresCss/HistoricoPedidos.css';
-import lanche1 from '../../assets/historico/lanche1.png'; 
+import { getPedidosByDate } from '../../Services/api';
 
 const HistoricoPedidos = () => {
   const [filtro, setFiltro] = useState("");
   const [mostrarPedidos, setMostrarPedidos] = useState(false);
   const [dataSelecionada, setDataSelecionada] = useState("");
+  const [pedidos, setPedidos] = useState([]);
+  const [numeroPedidos, setNumeroPedidos] = useState(0);
+  const [valorTotal, setValorTotal] = useState(0);
 
-  const pedidos = [
-    {
-      mesa: 2,
-      data: "05/03/2025 - 19:30",
-      valor: "R$ 50,00",
-      pagamento: "Dinheiro",
-      consumo: "Consumo no local",
-      itens: [
-        { nome: "3 X-Frango" },
-        { nome: "2 X-Burguer"},
-      ],
-    },
-  ];
-
-  const FiltroClick = (tipo) => {
+  const FiltroClick = async (tipo) => {
     setFiltro(tipo);
-    setMostrarPedidos(true);
+    setMostrarPedidos(false);
+
+    let filtroApi = "";
+    let dataApi = null;
+
+    if (tipo === "Hoje") {
+      filtroApi = "hoje";
+    } else if (tipo === "Últimos 7 dias") {
+      filtroApi = "semana";
+    } else if (tipo === "Mês atual") {
+      filtroApi = "mes";
+    } else if (tipo === "Data" && dataSelecionada) {
+      filtroApi = "data_especifica";
+      dataApi = dataSelecionada;
+    }
+
+    try {
+      const response = await getPedidosByDate(filtroApi, dataApi);
+      const pedidosFiltrados = response.pedidos || [];
+      setPedidos(pedidosFiltrados);
+
+      // Calcula o número de pedidos e o valor total
+      setNumeroPedidos(pedidosFiltrados.length);
+      const total = pedidosFiltrados.reduce((acc, pedido) => acc + parseFloat(pedido.Total || 0), 0);
+      setValorTotal(total);
+
+      setMostrarPedidos(true);
+    } catch (error) {
+      console.error("Erro ao buscar pedidos:", error);
+    }
   };
 
   return (
@@ -60,24 +77,23 @@ const HistoricoPedidos = () => {
       </div>
 
       {mostrarPedidos && (
-        
         <div className="pedido-container">
-          <p>NÚMERO DE PEDIDOS: 36</p>
-          <p>VALOR TOTAL: R$ 720,00</p>
+          <p>NÚMERO DE PEDIDOS: {numeroPedidos}</p>
+          <p>VALOR TOTAL: R$ {valorTotal.toFixed(2)}</p>
           {pedidos.map((pedido, index) => (
             <div key={index} className="pedido-card">
-              <h2>PEDIDO MESA {pedido.mesa}</h2>
+              <h2>PEDIDO MESA {pedido.Mesa || "N/A"}</h2>
               <div className="itens">
-                {pedido.itens.map((item, idx) => (
+                {pedido.itens?.map((item, idx) => (
                   <div key={idx} className="item">
                     <span>{item.nome}</span>
                   </div>
-                ))}
+                )) || <p>Sem itens registrados</p>}
               </div>
-              <p>DATA E HORA: {pedido.data}</p>
-              <p>VALOR TOTAL: {pedido.valor}</p>
-              <p>FORMA DE PAGAMENTO: {pedido.pagamento}</p>
-              <p className="consumo">{pedido.consumo}</p>
+              <p>DATA E HORA: {pedido.data_criacao}</p>
+              <p>VALOR TOTAL: R$ {parseFloat(pedido.Total || 0).toFixed(2)}</p>
+              <p>FORMA DE PAGAMENTO: {pedido.tipo_pagamento}</p>
+              <p className="consumo">{pedido.tipo_pedido}</p>
             </div>
           ))}
         </div>

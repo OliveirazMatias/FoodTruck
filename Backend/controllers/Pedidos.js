@@ -6,7 +6,7 @@ const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo
 
 export const postPedidos = async (req, res) => {
     try {
-        const { id_funcionario, tipo_pedido, nome_cliente, Mesa, CEP, Status, data_criacao, data_entrega, tipo_pagamento } = req.body;
+        const { id_funcionario, tipo_pedido, nome_cliente, Mesa, CEP, Status, tipo_pagamento } = req.body;
 
         const pedido = await Pedidos.create({
             id_funcionario,
@@ -75,6 +75,7 @@ export const getPedidos = async (req, res) => {
 export const getPedidosByDate = async (req, res) => {
     try {
         const { filtro, data } = req.body; // Recebe o filtro e a data do corpo da requisição
+        console.log("Filtro recebido:", filtro, "Data recebida:", data); // Log para depuração
         let whereCondition = {};
 
         const today = moment().tz(timeZone).startOf("day");
@@ -103,6 +104,7 @@ export const getPedidosByDate = async (req, res) => {
                 [Op.lt]: specificDate.clone().add(1, "day").toDate(),
             };
         } else {
+            console.error("Filtro inválido ou data não fornecida."); // Log de erro
             return res.status(400).json({ error: "Filtro inválido ou data não fornecida." });
         }
 
@@ -110,6 +112,22 @@ export const getPedidosByDate = async (req, res) => {
         return res.status(200).json({ pedidos });
     } catch (error) {
         console.error("Erro ao buscar pedidos por data:", error);
+        return res.status(500).json({ error: "Erro no servidor." });
+    }
+};
+
+
+export const deletePedidos = async (req, res) => {
+    try {
+        const { id } = req.body; // Use query parameters
+        const pedido = await Pedidos.destroy({ where: { id } });
+        if (pedido) {
+            return res.status(200).json({ message: "Pedido deletado com sucesso." });
+        } else {
+            return res.status(404).json({ error: "Pedido não encontrado." });
+        }
+    } catch (error) {
+        console.error("Erro ao deletar pedido:", error);
         return res.status(500).json({ error: "Erro no servidor." });
     }
 };
