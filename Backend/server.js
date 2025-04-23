@@ -12,10 +12,11 @@ app.use(express.json());
 app.use(routes);
 
 
+// Alterar a ordem de sincronização
 ItemCardapio.sync();
-ItemPedido.sync();
-Pedidos.sync();
 ListaFuncionarios.sync();
+Pedidos.sync();
+ItemPedido.sync(); // Sincronizar por último, pois depende de outros modelos
 
 
 app.get('/', (req, res) => {

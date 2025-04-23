@@ -7,9 +7,9 @@ export const postItemPedido = async (req, res) => {
         console.log("Requisição recebida no postItemPedido:", req.body); // Log dos dados recebidos
         const { id_pedido, id_item_do_cardapio, quantidade, observacao } = req.body;
 
-        // Verifique se todos os campos obrigatórios estão presentes
+        // Validação de campos obrigatórios
         if (!id_pedido || !id_item_do_cardapio || !quantidade) {
-            console.error("Dados ausentes:", req.body);
+            console.error("Dados ausentes ou inválidos:", req.body);
             return res.status(400).json({ error: "Todos os campos obrigatórios devem ser preenchidos." });
         }
 
@@ -23,6 +23,13 @@ export const postItemPedido = async (req, res) => {
         const preco_unitario = item.preco;
         const subtotal = preco_unitario * quantidade;
 
+        // Verifique se o pedido existe
+        const pedido = await Pedidos.findByPk(id_pedido);
+        if (!pedido) {
+            console.error("Pedido não encontrado:", id_pedido);
+            return res.status(404).json({ error: "Pedido não encontrado." });
+        }
+
         // Crie o item do pedido
         const novoItemPedido = await ItemPedido.create({
             id_pedido,
@@ -32,6 +39,9 @@ export const postItemPedido = async (req, res) => {
             subtotal,
             observacao,
         });
+
+        pedido.Total = parseFloat(pedido.Total) + subtotal;
+        await pedido.save();
 
         console.log("Item do pedido criado com sucesso:", novoItemPedido);
         return res.status(201).json(novoItemPedido);

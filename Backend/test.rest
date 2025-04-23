@@ -29,11 +29,11 @@ Content-Type: application/json
 {
   "id_funcionario": 1,
   "tipo_pedido": "delivery",
-  "nome_cliente": "henrique",
+  "nome_cliente": "Jar Bolsonaro",
   "Mesa": null,
-  "CEP": "12366940",
+  "CEP": 12345678,
   "Status": "em preparação",
-  "tipo_pagamento": "PIX"
+  "tipo_pagamento": "cartao"
 }
 
 ### ADICIONAR ITEM AO PEDIDO
@@ -41,10 +41,10 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 2,
+  "id_pedido": 1,
   "id_item_do_cardapio": 1,
-  "quantidade": 2,
-  "observacao": "gelada"
+  "quantidade": 50,
+  "observacao": "sem salda e dois hamburgueres"
 }
 
 ### CONFIRMAR ITENS DO PEDIDO
@@ -52,7 +52,7 @@ GET http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 1
+  "id_pedido": 6
 }
 
 ### CONFIRMAR O PEDIDO
@@ -79,13 +79,11 @@ PUT http://localhost:3001/lanches/update
 Content-Type: application/json
 
 {
-  "nome_original": "xskibidi",
-  "nome": "Batata Individual",
-  "descricao": "Porção de batata frita crocante e sequinha, com sal.",
-  "preco": 100.00,
+  "nome_original": "Cachorro Quente de Bacon",
+  "nome": "Cachorro Quente de Bacon",
+  "preco": 25.00,
   "disponibilidade": "disponível",
-  "imagem": "https://static.vecteezy.com/system/resources/thumbnails/036/391/923/small/ai-generated-delicious-french-fries-on-isolated-background-crispy-golden-fast-food-snack-png.png",
-  "tipo": "porcoes"
+  "tipo": "hotdog"
 }
 
 
@@ -142,4 +140,22 @@ Content-Type: application/json
 
 {
   "descricao": "Hamburguer"
+}
+
+#####
+POST http://localhost:3001/pedidos/data
+Content-Type: application/json
+
+{
+  "filtro": "data_especifica", 
+  "data": "2025-04-23"
+}
+
+#####
+DELETE http://localhost:3001/pedidos/delete
+Content-Type: application/json
+
+{
+  "id": 7
+  
 }
