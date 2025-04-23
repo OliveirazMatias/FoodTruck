@@ -23,6 +23,8 @@ const Pedidos = database.define(
     nome_cliente: { type: sequelize.STRING(50), allowNull: true },
     Mesa: { type: sequelize.INTEGER, allowNull: true },
     CEP: { type: sequelize.STRING(8), allowNull: true },
+    Numero: { type: sequelize.INTEGER(10), allowNull: true },
+    Complemento: { type: sequelize.STRING(50), allowNull: true },
     Status: {
       type: sequelize.ENUM(
         "em preparação",

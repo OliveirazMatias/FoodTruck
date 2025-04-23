@@ -28,12 +28,12 @@ Content-Type: application/json
 
 {
   "id_funcionario": 1,
-  "tipo_pedido": "comer no local",
-  "nome_cliente": "Donald Trump",
-  "Mesa": 1,
-  "CEP": null,
+  "tipo_pedido": "delivery",
+  "nome_cliente": "Jar Bolsonaro",
+  "Mesa": null,
+  "CEP": 12345678,
   "Status": "em preparação",
-  "tipo_pagamento": "PIX"
+  "tipo_pagamento": "cartao"
 }
 
 ### ADICIONAR ITEM AO PEDIDO
@@ -41,7 +41,7 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 8,
+  "id_pedido": 1,
   "id_item_do_cardapio": 1,
   "quantidade": 50,
   "observacao": "sem salda e dois hamburgueres"
@@ -147,8 +147,8 @@ POST http://localhost:3001/pedidos/data
 Content-Type: application/json
 
 {
-  "filtro": "data_especifica",
-  "data": "2025-04-16"
+  "filtro": "data_especifica", 
+  "data": "2025-04-23"
 }
 
 #####

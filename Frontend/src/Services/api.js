@@ -107,13 +107,14 @@ export const deleteItemPedido = async (id) => {
 
 // TELA DE HISTORICO
 export const getPedidosByDate = async (filtro, data = null) => {
-  // Adiciona parâmetro opcional 'data'
   try {
-    const requestBody = { filtro };
+    const requestBody = { filtro }; // Garante que o filtro seja enviado
     if (data) {
-      requestBody.data = data; // Inclui 'data' se fornecido
+      requestBody.data = data; // Inclui a data apenas se ela for fornecida
     }
-    const response = await http.post("/pedidos/data", requestBody); // Corrige para POST
+    console.log("Enviando para o backend:", requestBody); // Log para depuração
+    const response = await http.post("/pedidos/data", requestBody);
+    console.log("Resposta do backend:", response.data); // Log para depuração
     return response.data;
   } catch (error) {
     console.error(
