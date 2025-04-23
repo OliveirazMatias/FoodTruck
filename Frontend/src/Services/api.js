@@ -32,6 +32,16 @@ export const postItemPedido = async (itemPedido) => {
   }
 }
 
+export const deleteItemPedido = async (id) => {
+  try {
+    const response = await http.delete("/delete/itempedido", { data: { id } });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao deletar item do pedido:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // TELA DE LOGIN
  
 export const postCadastro = async (funcionario) => {

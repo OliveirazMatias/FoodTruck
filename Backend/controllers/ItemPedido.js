@@ -44,7 +44,7 @@ export const postItemPedido = async (req, res) => {
 
 export const deleteItemPedido = async (req, res) => {
     try {
-        const { id } = req.body; 
+        const { id } = req.body;
 
         const item = await ItemPedido.findByPk(id);
 
@@ -52,7 +52,7 @@ export const deleteItemPedido = async (req, res) => {
             return res.status(404).json({ error: "Item do Pedido não encontrado." });
         }
 
-        await item.destroy(); 
+        await item.destroy();
 
         return res.status(200).json({ message: "Item do Pedido deletado com sucesso!" });
     } catch (error) {
@@ -75,7 +75,7 @@ export const getItemPedidoByPedido = async (req, res) => {
         console.error("Erro ao buscar item do pedido:", error);
         res.status(500).json({ error: "Erro ao buscar item do pedido" });
     }
-}; // GET itempedido por id_pedido pra comanda
+}; 
 
 export const getPedidos = async (req, res) => {
     try {

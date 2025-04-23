@@ -2,6 +2,15 @@ import React from 'react';
 import '../TelasColaboradoresCss/Comandas.css';
 
 function Comandas() {
+    const mesas = [
+        { id: 1, status: 'livre' },
+        { id: 2, status: 'ocupada' },
+        { id: 3, status: 'livre' },
+        { id: 4, status: 'livre' },
+        { id: 5, status: 'ocupada' },
+        { id: 6, status: 'livre' },
+    ];
+
     return (
         <div className="comandas-container">
             <div className='comandas'>
@@ -10,30 +19,15 @@ function Comandas() {
                 </div>
                 <div className='mesas-container'>
                     <div className='mesas'>
-                        <div className='buttons'>
-                            <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 1</button>
+                        {mesas.map((mesa) => (
+                            <div key={mesa.id} className='div-buttao'>
+                                <button
+                                    className={`mesas-button ${mesa.status === 'ocupada' ? 'mesas-button-amarelo' : ''}`}
+                                >
+                                    Mesa {mesa.id}
+                                </button>
                             </div>
-                            <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 4</button>
-                            </div>
-                        </div>
-                        <div className='buttons'>
-                            <div className='div-buttao'>
-                                <button className='mesas-button-amarelo'>Mesa 2</button>
-                            </div>
-                            <div className='div-buttao'>
-                                <button className='mesas-button-amarelo'>Mesa 5</button>
-                            </div>
-                        </div>
-                        <div className='buttons'>
-                            <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 3</button>
-                            </div>
-                            <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 6</button>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>

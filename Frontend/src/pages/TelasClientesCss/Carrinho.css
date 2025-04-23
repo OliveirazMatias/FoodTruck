@@ -100,47 +100,30 @@ body {
     margin-right: 2vw;
 }
 
-.opcoes-consumo {
+.div-enderecos {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     gap: 1.5rem;
-    margin-top: 2rem;
-    margin-left: 22%;
+    margin-top: 2vw;
 }
 
-.titulo-opcoes {
+.div-endereco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+    margin-top: 2vw;
+}
+
+.titulo-endereco {
     color: #ffffff;
     font-family: 'Belanosima', serif;
     font-weight: 600;
     font-size: 1.8vw; 
     border-bottom: 0.2vw solid #B42625;
     margin-bottom: 0.8rem;
-}
-
-.input_switch {
-    width: 100%;
-    padding: 0.8rem;
-    margin-top: 0.5rem;
-    border: 2px solid #B42625;
-    border-radius: 0.5rem;
-    font-size: 1vw;
-    font-family: 'Alata', sans-serif;
-    color: #ffffff;
-    background-color: #141C1E;
-    outline: none;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.input_switch::placeholder {
-    color: #B42625;
-    font-style: italic;
-}
-
-.input_switch:focus {
-    background-color: #1E2A2C;
 }
 
 .finalizar-pedido {
@@ -287,7 +270,7 @@ body {
     margin-top: 10%;
 }
 
-.button-finalizar-compra {
+.finalizar-compra {
     background: #39CA54;
     border-radius: 1vw;
     font-family: 'Alata', serif;
@@ -296,7 +279,7 @@ body {
     font-size: 1vw;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    border: none;
     padding: 2.5% 5%;
 }
 
@@ -386,4 +369,45 @@ body {
     color: #FFF;
     font-size: 1vw;
     margin: 2vw;
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1vw; 
+    margin-top: 1vw;
+    width: 100%; 
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+}
+
+.linha-endereco {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+}
+
+.input_switch {
+    width: 50%; 
+    padding: 0.8rem;
+    border: 0.2vw solid #B42625;
+    border-radius: 0.5vw;
+    font-size: 0.8vw;
+    font-family: 'Alata', sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input_switch::placeholder {
+    color: #B42625;
+    font-style: italic;
 }

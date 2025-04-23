@@ -48,7 +48,6 @@
 }
 
 .mesas-container {
-    display: flex;
     justify-content: center;
 }
 
@@ -58,14 +57,12 @@
 }
 
 .buttons {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .div-buttao {
     margin: 0.5vw;
-    display: flex;
     justify-content: center;
     align-items: center;
 }

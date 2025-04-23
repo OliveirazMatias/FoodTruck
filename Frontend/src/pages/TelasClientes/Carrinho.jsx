@@ -6,8 +6,9 @@ import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { FormControlLabel, Switch, Grow } from '@mui/material';
 import piximg from '../../assets/carrinho/piximg.jpg';
 import masterimg from '../../assets/carrinho/masterimg.jpg';
-import { Lanches } from './Cardapio'; // Importar a lista Lanches
-import { getLanches } from "../../Services/api"; // Importar API correta
+import { Lanches } from './Cardapio';
+import { getLanches } from "../../Services/api";
+import axios from "axios";
 
 const style = {
     position: 'absolute',
@@ -34,15 +35,23 @@ function Carrinho() {
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     const [checked1, setChecked1] = useState(false);
+    const [endereco, setEndereco] = useState({
+        cep: "",
+        rua: "",
+        numero: "",
+        bairro: "",
+        cidade: "",
+        complemento: "",
+    });
 
     useEffect(() => {
         const fetchLanches = async () => {
             try {
-                const allLanches = await getLanches(); // Buscar todos os lanches do backend
+                const allLanches = await getLanches();
                 const filteredLanches = allLanches.filter(lanche => Lanches.some(item => item.id === lanche.id));
                 const updatedItems = filteredLanches.map(lanche => {
                     const itemInCart = Lanches.find(item => item.id === lanche.id);
-                    return { ...lanche, quantidade: itemInCart ? itemInCart.quantidade : 1 }; // Usa a quantidade do carrinho
+                    return { ...lanche, quantidade: itemInCart ? itemInCart.quantidade : 1 };
                 });
                 setItems(updatedItems);
             } catch (error) {
@@ -56,13 +65,13 @@ function Carrinho() {
         return items.reduce((total, item) => {
             const subtotal = item.preco * item.quantidade;
             return total + subtotal;
-        }, 0).toFixed(2); // Retorna o total formatado com duas casas decimais
+        }, 0).toFixed(2);
     };
 
     const adicionarItem = (id) => {
         const updatedItems = items.map((item) => {
             if (item.id === id) {
-                return { ...item, quantidade: item.quantidade + 1 }; // Incrementa a quantidade
+                return { ...item, quantidade: item.quantidade + 1 };
             }
             return item;
         });
@@ -73,11 +82,11 @@ function Carrinho() {
         const updatedItems = items
             .map((item) => {
                 if (item.id === id) {
-                    return { ...item, quantidade: item.quantidade - 1 }; // Decrementa a quantidade
+                    return { ...item, quantidade: item.quantidade - 1 };
                 }
                 return item;
             })
-            .filter((item) => item.quantidade > 0); // Remove itens com quantidade 0
+            .filter((item) => item.quantidade > 0);
         setItems(updatedItems);
     };
 
@@ -93,6 +102,44 @@ function Carrinho() {
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const buscarEndereco = async (cep) => {
+        if (cep.length === 8) {
+            try {
+                const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+                if (!response.data.erro) {
+                    setEndereco((prev) => ({
+                        ...prev,
+                        rua: response.data.logradouro,
+                        bairro: response.data.bairro,
+                        cidade: response.data.localidade,
+                    }));
+                } else {
+                    console.error("CEP inválido.");
+                }
+            } catch (error) {
+                console.error("Erro ao buscar o CEP:", error);
+            }
+        }
+    };
+
+    const handleEnderecoChange = (e) => {
+        const { name, value } = e.target;
+
+        // Validação para o campo 'numero' - impede números negativos
+        if (name === "numero") {
+            const apenasNumerosPositivos = /^\d*$/; // permite apenas inteiros positivos
+            if (!apenasNumerosPositivos.test(value)) {
+                return; // impede atualização se o valor for inválido
+            }
+        }
+
+        setEndereco((prev) => ({ ...prev, [name]: value }));
+
+        if (name === "cep") {
+            buscarEndereco(value.replace(/\D/g, ""));
+        }
+    };
 
     return (
         <div className="carrinho-container">
@@ -116,6 +163,7 @@ function Carrinho() {
                                         <div className='food_text_carrinho'>
                                             <h1 className='nome_lanche_carrinho'>{lanche.nome}</h1>
                                             <p className='descricao_lanche_carrinho'>{lanche.descricao}</p>
+
                                         </div>
                                     </div>
                                     <div className='jogar-pro-ladinho'>
@@ -125,7 +173,7 @@ function Carrinho() {
                                                 <div className='preco-quantidade'>
                                                     Total: R$ {(lanche.preco * lanche.quantidade).toFixed(2)}
                                                 </div>
-                                                
+
                                             </div>
                                             <div className='botoes-acoes'>
                                                 <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
@@ -142,30 +190,6 @@ function Carrinho() {
                         </>
                     )}
                 </div>
-            </div>
-            <div className='opcoes-consumo'>
-                <span className='titulo-opcoes'>Opções de Consumo</span>
-                <FormControlLabel
-                    control={<Switch checked={checked} onChange={handleChange} />}
-                    label="CONSUMIR NO LOCAL"
-                    className='switch'
-                />
-                <Box sx={{ display: 'flex' }}>
-                    <Grow in={checked}>
-                        <input type="text" className='input_switch' placeholder='Numero da Mesa' />
-                    </Grow>
-                </Box>
-
-                <FormControlLabel
-                    control={<Switch checked={checked1} onChange={handleChange1} />}
-                    label="ENTREGA"
-                    className='switch'
-                />
-                <Box sx={{ display: 'flex' }}>
-                    <Grow in={checked1}>
-                        <input type="text" className='input_switch' placeholder='Endereço de Entrega' />
-                    </Grow>
-                </Box>
             </div>
             <div>
                 <div className='finalizar-pedido'>
@@ -184,25 +208,72 @@ function Carrinho() {
                     <Box sx={style}>
                         <div className='modal-finalizar-pedido'>
                             <div className='container-tudo-modal'>
-                                <div className='titulo-modal-finalizar'>
-                                    <h1 className='titulo-texto-modal'>
-                                        FORMAS DE PAGAMENTO
-                                    </h1>
-                                </div>
-                                <div className='container-descricao-modal'>
-                                    <div className='descricao-modal-finalizar'>
-                                        <p className='descricao-texto-amarelo-modal'>
-                                            PEDIDO:
-                                        </p>
-                                        <p className='descricao-texto-branco-modal'>
-                                            R${precoTotal()}
-                                        </p>
+                                <div className='div-endereco'>
+                                    <span className='titulo-endereco'>Endereço da Entrega</span>
+                                    <div className='endereco'>
+                                        <div className='linha-endereco'>
+                                            <input
+                                                type="text"
+                                                className='input_switch input-switch-cep'
+                                                name="cep"
+                                                placeholder='CEP'
+                                                required
+                                                value={endereco.cep}
+                                                onChange={handleEnderecoChange}
+                                                maxLength={9}
+                                            />
+                                            <input
+                                                type="text"
+                                                className='input_switch input-switch-cidade'
+                                                name="cidade"
+                                                placeholder='Cidade'
+                                                required
+                                                value={endereco.cidade}
+                                                onChange={handleEnderecoChange}
+                                            />
+                                        </div>
+                                        <div className='linha-endereco'>
+                                            <input
+                                                type="text"
+                                                className='input_switch input-switch-rua'
+                                                name="rua"
+                                                placeholder='Rua'
+                                                required
+                                                value={endereco.rua}
+                                                onChange={handleEnderecoChange}
+                                            />
+                                            <input
+                                                type="number"
+                                                className='input_switch input-switch-numero'
+                                                name="numero"
+                                                placeholder='Número'
+                                                required
+                                                min={0}
+                                                value={endereco.numero}
+                                                onChange={handleEnderecoChange}
+                                            />
+                                        </div>
+                                        <div className='linha-endereco'>
+                                            <input
+                                                type="text"
+                                                className='input_switch input-switch-bairro'
+                                                name="bairro"
+                                                placeholder='Bairro'
+                                                required
+                                                value={endereco.bairro}
+                                                onChange={handleEnderecoChange}
+                                            />
+                                            <input
+                                                type="text"
+                                                className='input_switch input-switch-complemento'
+                                                name="complemento"
+                                                placeholder='Complemento (Opcional)'
+                                                value={endereco.complemento}
+                                                onChange={handleEnderecoChange}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className='finalizar-compra-modal'>
-                                    <button className='button-finalizar-compra'>
-                                        Finalizar Compra
-                                    </button>
+                                    <button className='finalizar-compra'>Próxima Etapa</button>
                                 </div>
                             </div>
                         </div>
