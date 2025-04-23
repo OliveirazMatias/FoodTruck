@@ -6,7 +6,7 @@ function Comandas() {
         <div className="comandas-container">
             <div className='comandas'>
                 <div className='titulo-comandas'>
-                    <h1 className='titulo'>Comandas</h1>
+                    <h1 className='titulo'>COMANDAS</h1>
                 </div>
                 <div className='mesas-container'>
                     <div className='mesas'>
@@ -15,7 +15,7 @@ function Comandas() {
                                 <button className='mesas-button'>Mesa 1</button>
                             </div>
                             <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 4</button>
+                                <button className='mesas-button-amarelo'>Mesa 4</button>
                             </div>
                         </div>
                         <div className='buttons'>
@@ -23,7 +23,7 @@ function Comandas() {
                                 <button className='mesas-button-amarelo'>Mesa 2</button>
                             </div>
                             <div className='div-buttao'>
-                                <button className='mesas-button-amarelo'>Mesa 5</button>
+                                <button className='mesas-button'>Mesa 5</button>
                             </div>
                         </div>
                         <div className='buttons'>
@@ -31,7 +31,7 @@ function Comandas() {
                                 <button className='mesas-button'>Mesa 3</button>
                             </div>
                             <div className='div-buttao'>
-                                <button className='mesas-button'>Mesa 6</button>
+                                <button className='mesas-button-amarelo'>Mesa 6</button>
                             </div>
                         </div>
                     </div>

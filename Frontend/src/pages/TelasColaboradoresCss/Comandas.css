@@ -44,7 +44,7 @@
     border: 0.2vw solid #FFBA21;
 }
 
-.mesas-button-amarelo {
+.mesas-button-amarelo, .mesas4 {
     background: #FFBA21;
     color: #AA2322;
 }
@@ -67,4 +67,4 @@
 
 .div-buttao {
     margin: 0.5vw;
-}
+}                                                                                                   
