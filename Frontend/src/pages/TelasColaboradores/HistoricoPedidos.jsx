@@ -28,6 +28,17 @@ const HistoricoPedidos = () => {
     fetchLanches();
   }, []);
 
+  const formatarDataHora = (dataHora) => {
+    const options = {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+    return new Intl.DateTimeFormat("pt-BR", options).format(new Date(dataHora));
+  };
+
   const FiltroClick = async (tipo, data = null) => {
     setFiltro(tipo);
     setMostrarPedidos(false);
@@ -112,7 +123,7 @@ const HistoricoPedidos = () => {
                 )}
               </div>
               <p>CLIENTE: {pedido.nome_cliente?.toUpperCase() || "N/A"}</p>
-              <p>DATA E HORA: {pedido.data_criacao}</p>
+              <p>DATA E HORA: {formatarDataHora(pedido.data_criacao)}</p>
               <p>VALOR TOTAL: R$ {parseFloat(pedido.Total || 0).toFixed(2)}</p>
               <p>FORMA DE PAGAMENTO: {pedido.tipo_pagamento}</p>
               <p className="consumo">{pedido.tipo_pedido === "delivery" ? "DELIVERY" : "NO LOCAL"}</p>

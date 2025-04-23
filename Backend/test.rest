@@ -28,12 +28,12 @@ Content-Type: application/json
 
 {
   "id_funcionario": 1,
-  "tipo_pedido": "comer no local",
-  "nome_cliente": "Donald Trump",
-  "Mesa": 1,
-  "CEP": null,
+  "tipo_pedido": "delivery",
+  "nome_cliente": "Jar Bolsonaro",
+  "Mesa": null,
+  "CEP": 12345678,
   "Status": "em preparação",
-  "tipo_pagamento": "PIX"
+  "tipo_pagamento": "cartao"
 }
 
 ### ADICIONAR ITEM AO PEDIDO
