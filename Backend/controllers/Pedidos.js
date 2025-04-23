@@ -7,7 +7,7 @@ const timeZone = "America/Sao_Paulo"; // Fuso horário de São Paulo
 
 export const postPedidos = async (req, res) => {
     try {
-        const { id_funcionario, tipo_pedido, nome_cliente, Mesa, CEP, Status, tipo_pagamento } = req.body;
+        const { id_funcionario, tipo_pedido, nome_cliente, Mesa, CEP, Numero, Complemento, Status, tipo_pagamento } = req.body;
 
         const pedido = await Pedidos.create({
             id_funcionario,
@@ -15,6 +15,8 @@ export const postPedidos = async (req, res) => {
             nome_cliente,
             Mesa,
             CEP,
+            Numero,
+            Complemento,
             Status,
             tipo_pagamento,
             Total: 0, // Initialize Total as 0

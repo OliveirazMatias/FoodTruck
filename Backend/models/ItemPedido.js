@@ -23,7 +23,7 @@ const ItemPedido = database.define(
       type: sequelize.INTEGER,
       allowNull: false,
       references: {
-        model: "ItemCardapio", // Certifique-se de que o nome do modelo está correto
+        model: "item_cardapio", // Corrigir para o nome correto da tabela
         key: "id",
       },
       onDelete: "CASCADE",

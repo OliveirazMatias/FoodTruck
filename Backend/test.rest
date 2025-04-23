@@ -41,7 +41,7 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 8,
+  "id_pedido": 1,
   "id_item_do_cardapio": 1,
   "quantidade": 50,
   "observacao": "sem salda e dois hamburgueres"
@@ -147,8 +147,8 @@ POST http://localhost:3001/pedidos/data
 Content-Type: application/json
 
 {
-  "filtro": "data_especifica",
-  "data": "2025-04-16"
+  "filtro": "data_especifica", 
+  "data": "2025-04-23"
 }
 
 #####

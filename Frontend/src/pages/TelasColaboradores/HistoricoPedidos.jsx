@@ -9,7 +9,7 @@ const HistoricoPedidos = () => {
   const [pedidos, setPedidos] = useState([]);
   const [numeroPedidos, setNumeroPedidos] = useState(0);
   const [valorTotal, setValorTotal] = useState(0);
-  const [lanches, setLanches] = useState({}); // Estado para armazenar os lanches
+  const [lanches, setLanches] = useState({});
 
   useEffect(() => {
     const fetchLanches = async () => {
@@ -17,7 +17,7 @@ const HistoricoPedidos = () => {
         const response = await getLanches();
         const lanchesMap = {};
         response.forEach((lanche) => {
-          lanchesMap[lanche.id] = lanche.nome; // Mapeia o ID do lanche para o nome
+          lanchesMap[lanche.id] = lanche.nome;
         });
         setLanches(lanchesMap);
       } catch (error) {
@@ -32,16 +32,14 @@ const HistoricoPedidos = () => {
     setFiltro(tipo);
     setMostrarPedidos(false);
 
-    let filtroApi = tipo.toLowerCase();
+    let filtroApi = tipo.toLowerCase().replace(" ", "_"); // Converte o filtro para o formato esperado pelo backend
     let dataApi = data;
 
     try {
-      console.log("Filtro enviado:", filtroApi, "Data enviada:", dataApi); // Log para depuração
       const response = await getPedidosByDate(filtroApi, dataApi);
-      const pedidosFiltrados = response.pedidos || [];
-      setPedidos(pedidosFiltrados);
+      const pedidosFiltrados = response.pedidos || []; // Confia nos dados filtrados pelo backend
 
-      // Calcula o número de pedidos e o valor total
+      setPedidos(pedidosFiltrados);
       setNumeroPedidos(pedidosFiltrados.length);
       const total = pedidosFiltrados.reduce((acc, pedido) => acc + parseFloat(pedido.Total || 0), 0);
       setValorTotal(total);
@@ -54,7 +52,6 @@ const HistoricoPedidos = () => {
 
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-    console.log("Data selecionada:", selectedDate); // Log para verificar o valor capturado
     if (selectedDate) {
       setDataSelecionada(selectedDate);
       FiltroClick("data_especifica", selectedDate);
@@ -63,30 +60,31 @@ const HistoricoPedidos = () => {
 
   return (
     <div className="historico-container">
-      <h1 className="titulo">HISTÓRICO DE PEDIDOS</h1>  
+      <h1 className="titulo">HISTÓRICO DE PEDIDOS</h1>
       <div className="filtro-container">
         <button 
           className={filtro === "Hoje" ? "ativo" : ""} 
-          onClick={() => FiltroClick("hoje")}
+          onClick={() => FiltroClick("Hoje")}
         >
           Hoje
         </button>
         <button 
-          className={filtro === "Últimos 7 dias" ? "ativo" : ""} 
+          className={filtro === "semana" ? "ativo" : ""} 
           onClick={() => FiltroClick("semana")}
         >
           Últimos 7 dias
         </button>
         <button 
-          className={filtro === "Mês atual" ? "ativo" : ""} 
+          className={filtro === "mes" ? "ativo" : ""} 
           onClick={() => FiltroClick("mes")}
         >
           Mês atual
         </button>
         <input
           type="date"
-          className={filtro === "Data" ? "ativo" : ""}
-          onChange={handleDateChange} // Usa a função handleDateChange
+          className={filtro === "data_especifica" || filtro === "data_especifica" ? "ativo" : ""}
+          value={dataSelecionada}
+          onChange={handleDateChange}
         />
       </div>
 
@@ -97,22 +95,27 @@ const HistoricoPedidos = () => {
           {pedidos.map((pedido, index) => (
             <div key={index} className="pedido-card">
               <h2>
-                {pedido.tipo_pedido === "delivery" ? "PEDIDO CEP:" : "PEDIDO MESA:"} {pedido.tipo_pedido === "delivery" ? pedido.CEP : pedido.Mesa || "N/A"}
+                {pedido.tipo_pedido === "delivery" ? "PEDIDO CEP:" : "PEDIDO MESA:"}{" "}
+                {pedido.tipo_pedido === "delivery" ? pedido.CEP : pedido.Mesa || "N/A"}
               </h2>
               <div className="itens">
-                {pedido.itens?.map((item, idx) => (
-                  <div key={idx} className="item">
-                    <span>
-                      {lanches[item.id_item_do_cardapio] || `Item ${item.id_item_do_cardapio}`} {item.quantidade}x
-                    </span>
-                  </div>
-                )) || <p>Sem itens registrados</p>}
+                {pedido.itens?.length > 0 ? (
+                  pedido.itens.map((item, idx) => (
+                    <div key={idx} className="item">
+                      <span>
+                        {lanches[item.id_item_do_cardapio] || `Item ${item.id_item_do_cardapio}`} {item.quantidade}x
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <p>Sem itens registrados</p>
+                )}
               </div>
-              <p>CLIENTE: {pedido.nome_cliente?.toUpperCase()}</p>
+              <p>CLIENTE: {pedido.nome_cliente?.toUpperCase() || "N/A"}</p>
               <p>DATA E HORA: {pedido.data_criacao}</p>
               <p>VALOR TOTAL: R$ {parseFloat(pedido.Total || 0).toFixed(2)}</p>
               <p>FORMA DE PAGAMENTO: {pedido.tipo_pagamento}</p>
-              <p className="consumo">{pedido.tipo_pedido === "delivery" ? "DELIVERY" : "NO LOCAL" }</p>
+              <p className="consumo">{pedido.tipo_pedido === "delivery" ? "DELIVERY" : "NO LOCAL"}</p>
             </div>
           ))}
         </div>
