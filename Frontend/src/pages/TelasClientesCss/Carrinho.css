@@ -8,33 +8,30 @@ body {
 }
 
 .carrinho-container {
-    padding: 5%;
-    padding-top: 10%;
-}
-
-.carrinho-titulo {
-    display: flex;
-    padding-left: 10%;
+    padding: 3%;
+    padding-top: 7%;
 }
 
 .titulo-carrinho {
-    font-size: 3vw;
+    display: flex;
+    font-size: 1.8vw; 
     color: #ffffff;
-    margin: 0;
-    margin-left: 1%;
+    margin-left: 22%;
+    margin-bottom: 2%;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    border-bottom: 0.3vw solid #B42625;
+    width: 7.5%;
+    border-bottom: 0.2vw solid #B42625;
 }
 
 .icon-carrinho {
-    width: 5%;
+    width: 3.5%; 
     height: auto;
 }
 
 .carrinho_body {
     display: flex;
-    padding-top: 1vw;
+    padding-top: 0.5vw;
     flex-direction: column;
 }
 
@@ -43,32 +40,36 @@ body {
     flex-direction: column;
     justify-content: center;
     align-self: center;
-    width: 70vw;
+    width: 55vw; 
     height: auto;
-    border-radius: 3vw;
-    border: 0.4vw solid #B42625;
+    border-radius: 2vw;
+    border: 0.2vw solid #B42625;
     background: #141C1E;
-    padding: 2%;
+    padding: 1.5%;
 }
 
 .pedidos_lista {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1vw;
+    align-items: center; 
+    margin-bottom: 0.8vw;
 }
 
 .img_lanche {
-    width: 50%;
+    width: 35%; 
     height: auto;
-    margin-right: 1vw;
+    margin-right: 1vw; 
 }
 
 .food_text_carrinho {
     text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
 }
 
 .nome_lanche_carrinho {
-    font-size: 1.7vw;
+    font-size: 1.2vw; 
     color: #ffffff;
     font-family: 'Belanosima', serif;
     font-weight: 600;
@@ -76,7 +77,7 @@ body {
 
 .descricao_lanche_carrinho {
     color: #ffffff;
-    font-size: 1.1vw;
+    font-size: 0.8vw; 
     font-family: 'Alata', sans-serif;
 }
 
@@ -84,41 +85,58 @@ body {
     color: #B42625;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 1.8vw;
-    margin-right: 3%;
+    font-size: 1.3vw; 
+    margin-right: 2%;
 }
 
 .total-compra {
     display: flex;
     justify-content: flex-end;
-    font-size: 2vw;
-    color: #ffffff;
-    margin-top: 2rem;
-    margin-right: 3vw;
-    margin-bottom: 1vw;
+    font-size: 1vw;
+    color: #fff;
+    font-family: 'Alata', serif;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-right: 2vw;
 }
 
-.opcoes-consumo {
+.div-enderecos {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 2vw;
 }
 
-.titulo-opcoes {
+.div-endereco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+    margin-top: 2vw;
+}
+
+.titulo-endereco {
     color: #ffffff;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    font-size: 1.8vw;
-    border-bottom: #B42625 4px solid;
-    width: 19vw;
+    font-size: 1.8vw; 
+    border-bottom: 0.2vw solid #B42625;
+    margin-bottom: 0.8rem;
 }
 
+.finalizar-pedido {
+    background-color: #B42625;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 1.5vw;
+    border: none;
+    border-radius: 0.5vw;
+    padding: 1vw 2vw;
+    transition: background-color 0.3s ease;
+}
 
 .finalizar-pedido {
     display: flex;
@@ -129,14 +147,20 @@ body {
 }
 
 .pedido-finalizado {
-    border-radius: 20px;
-    background: #B42625;
+    background-color: #B42625;
     color: #ffffff;
-    font-size: 1.5vw;
     font-family: 'Belanosima', serif;
     font-weight: 600;
+    font-size: 1vw; 
+    border: none;
+    border-radius: 0.5vw;
+    padding: 0.6vw 1.2vw; 
     cursor: pointer;
-    padding: 1% 5%;
+    transition: background-color 0.3s ease;
+}
+
+.pedido-finalizado:hover {
+    background-color: #8e1d1d;
 }
 
 .corpo_pedido {
@@ -246,7 +270,7 @@ body {
     margin-top: 10%;
 }
 
-.button-finalizar-compra {
+.finalizar-compra {
     background: #39CA54;
     border-radius: 1vw;
     font-family: 'Alata', serif;
@@ -255,6 +279,135 @@ body {
     font-size: 1vw;
     font-style: normal;
     font-weight: 400;
+    border: none;
+    padding: 2.5% 5%;
+}
+
+.modal-pedido-finalizado {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.texto-pedido-finalizado {
+    color: #ffffff;
+    text-shadow: 0vw 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+    font-family: Belanosima;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 600;
     line-height: normal;
-    padding: 2.5% 5% ;
+}
+
+.img-cozinheiro{
+    width: 15%;
+    height: auto;
+}
+
+.button-remover-pedido{
+    background-color: #B42625;
+    color: #FFBA21;
+    border: none;
+    padding: 2% 3%;
+    border-radius: 0.2vw;
+    text-shadow: 0vw 0.4vw 0.4vw rgba(0, 0, 0, 0.25);
+    font-family: Alata;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.jogar-pro-ladinho{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: flex-end; 
+    height: 100%; 
+    width: 100%;
+}
+
+.preco-remover-carrinho{
+    display: flex;
+    width: 60%;
+}
+
+.botoes-acoes {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.button-add-pedido, .button-remover-pedido {
+    background-color: #B42625;
+    color: #ffffff;
+    font-size: 0.8vw;
+    border: none;
+    border-radius: 0.5vw;
+    padding: 0.3vw 0.7vw; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantidade-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 1vw;
+    margin: 2%;
+}
+
+.preco-quantidade {
+    font-size: 0.8vw;
+    color: #fff;
+    font-family: 'Alata', sans-serif;
+    margin-top: 0.2rem;
+}
+
+.mensagem-vazia{
+    color: #FFF;
+    font-size: 1vw;
+    margin: 2vw;
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1vw; 
+    margin-top: 1vw;
+    width: 100%; 
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    width: 100%;
+}
+
+.linha-endereco {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+}
+
+.input_switch {
+    width: 50%; 
+    padding: 0.8rem;
+    border: 0.2vw solid #B42625;
+    border-radius: 0.5vw;
+    font-size: 0.8vw;
+    font-family: 'Alata', sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input_switch::placeholder {
+    color: #B42625;
+    font-style: italic;
 }

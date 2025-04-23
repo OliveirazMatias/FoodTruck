@@ -9,9 +9,9 @@ import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import { getLanches, postItemPedido } from "../../Services/api"; // Importar API correta
+import { getLanches } from "../../Services/api"; 
 
-
+export const Lanches = []; 
 
 const style = {
     position: 'absolute',
@@ -35,13 +35,13 @@ const backdropStyle = {
 };
 
 function Cardapio() {
-    const [activeFilter, setActiveFilter] = useState("all"); // New state for filtering
+    const [activeFilter, setActiveFilter] = useState("all"); 
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
     const navigate = useNavigate();
     const [obs, setObs] = useState("");
-    const [quantity, setQuantity] = useState(1); // Estado inicial ajustado
+    const [quantity, setQuantity] = useState(1); 
   
     const handleObs = (event) => {
       setObs(event.target.value);
@@ -54,13 +54,13 @@ function Cardapio() {
   
     const handleClose = () => {
       setOpen(false);
-      setQuantity(1); // Resetar quantidade ao fechar o modal
+      setQuantity(1);
     };
   
     useEffect(() => {
       const fetchLanches = async () => {
         try {
-          const data = await getLanches(); // Buscar lanches do backend
+          const data = await getLanches(); 
           setLanches(Array.isArray(data) ? data : []);
         } catch (error) {
           console.error("Erro ao buscar lanches:", error);
@@ -69,33 +69,26 @@ function Cardapio() {
       fetchLanches();
     }, []);
   
-    const handleAddToCart = async () => {
-      if (!selectedLanche) return;
-  
-      const itemPedido = {
-        id_pedido: 1, // Substituir pelo ID do pedido correto
-        id_item_do_cardapio: selectedLanche.id,
-        quantidade: quantity,
-        observacao: obs,
-      };
-  
-      try {
-        await postItemPedido(itemPedido); // Enviar item ao backend
-        navigate("/Carrinho");
-      } catch (error) {
-        console.error("Erro ao adicionar ao carrinho:", error);
-      }
+    const handleAddToCart = () => {
+        if (!selectedLanche) return;
+        const existingItemIndex = Lanches.findIndex((item) => item.id === selectedLanche.id);
+    
+        if (existingItemIndex !== -1) {
+            Lanches[existingItemIndex].quantidade += quantity;
+        } else {
+            Lanches.push({ ...selectedLanche, quantidade: quantity });
+        }
+        setOpen(false); 
+        setQuantity(1); 
     };
   
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
   
-    // Filter handler function
     const handleFilterClick = (filterType) => {
         setActiveFilter(filterType);
     };
     
-    const lancamentosId = [2, 3, 10]
-
+    const lancamentosId = [10, 9, 11]
 
     return (
         <div className='cardapio'>
@@ -233,15 +226,14 @@ function Cardapio() {
                             <div className="increase_button">
                                 <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                                 <div className='quantity_number'>{quantity}</div>
-                                <button className='button_sub' onClick={() => setquantity(quantity +1)}>+</button>
+                                <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
                             </div>
                             <div className='price_modal'>
                                 <div className='preco_modal'>
                                     R$ {Number(selectedLanche.preco).toFixed(2)}
                                 </div>
-
                                 <div className='total_modal'>
-                                    Subtotal: R$ {Number(subtotal).toFixed(2)}
+                                    Subtotal: R$ {(selectedLanche.preco * quantity).toFixed(2)}
                                 </div>
                             </div>
                         </div>

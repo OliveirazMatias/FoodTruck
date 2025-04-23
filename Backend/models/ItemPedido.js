@@ -1,7 +1,5 @@
 import database from "../config/database.js";
 import sequelize from "sequelize";
-import Pedidos from "./Pedidos.js";
-import ItemCardapio from "./ItemCardapio.js";
 
 const ItemPedido = database.define(
   "ItemPedido",
@@ -10,29 +8,47 @@ const ItemPedido = database.define(
       type: sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+      allowNull: false,
     },
     id_pedido: {
       type: sequelize.INTEGER,
-      allowNull: true,
-      references: { model: Pedidos, key: "ID" },
+      allowNull: false,
+      references: {
+        model: "Pedidos", // Certifique-se de que o nome do modelo está correto
+        key: "id",
+      },
+      onDelete: "CASCADE",
     },
     id_item_do_cardapio: {
       type: sequelize.INTEGER,
-      allowNull: true,
-      references: { model: ItemCardapio, key: "ID" },
+      allowNull: false,
+      references: {
+        model: "item_cardapio", // Corrigir para o nome correto da tabela
+        key: "id",
+      },
+      onDelete: "CASCADE",
     },
-    quantidade: { type: sequelize.INTEGER, allowNull: false },
-    preco_unitario: { type: sequelize.DECIMAL(10, 2), allowNull: false },
-    subtotal: { type: sequelize.DECIMAL(10, 2), allowNull: false },
-    observacao: { type: sequelize.STRING, allowNull: true },
+    quantidade: {
+      type: sequelize.INTEGER,
+      allowNull: false,
+    },
+    preco_unitario: {
+      type: sequelize.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    subtotal: {
+      type: sequelize.DECIMAL(10, 2),
+      allowNull: false,
+    },
+    observacao: {
+      type: sequelize.STRING(255),
+      allowNull: true,
+    },
   },
   {
     tableName: "item_pedido",
     timestamps: false,
   }
 );
-
-ItemPedido.belongsTo(Pedidos, { foreignKey: "id_pedido" });
-ItemPedido.belongsTo(ItemCardapio, { foreignKey: "id_item_do_cardapio" });
 
 export default ItemPedido;

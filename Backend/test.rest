@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "nome": "Mateus Silverio",
-  "email": "mateus123@gmail.com",
+  "email": "silverio123@gmail.com",
   "senha": "admin123"
 }
 
@@ -29,11 +29,11 @@ Content-Type: application/json
 {
   "id_funcionario": 1,
   "tipo_pedido": "delivery",
-  "nome_cliente": "henrique",
+  "nome_cliente": "Jar Bolsonaro",
   "Mesa": null,
-  "CEP": "12366940",
+  "CEP": 12345678,
   "Status": "em preparação",
-  "tipo_pagamento": "PIX"
+  "tipo_pagamento": "cartao"
 }
 
 ### ADICIONAR ITEM AO PEDIDO
@@ -41,10 +41,10 @@ POST http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 2,
+  "id_pedido": 1,
   "id_item_do_cardapio": 1,
-  "quantidade": 2,
-  "observacao": "gelada"
+  "quantidade": 50,
+  "observacao": "sem salda e dois hamburgueres"
 }
 
 ### CONFIRMAR ITENS DO PEDIDO
@@ -52,7 +52,7 @@ GET http://localhost:3001/itempedido
 Content-Type: application/json
 
 {
-  "id_pedido": 1
+  "id_pedido": 6
 }
 
 ### CONFIRMAR O PEDIDO
@@ -66,13 +66,12 @@ POST http://localhost:3001/lanches
 Content-Type: application/json
 
 {
-  "nome": "Pastel-Fraqenco",
-  "descricao": "FODA",
-  "preco": 30.00,
+  "nome": "Quarteirão",
+  "descricao": "Dois hambúrgueres com cheddar, cebola, picles, ketchup e mostarda no pão com gergelim.",
+  "preco": 32.99,
   "disponibilidade": "disponível",
-  "imagem": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Hot_dog_with_mustard.png",
+  "imagem": "https://cache-mcd-middleware.mcdonaldscupones.com/media/image/product$kNXwNgUf/200/200/original?country=br",
   "tipo": "hamburguer"
-  
 }
 
 ###
@@ -80,13 +79,11 @@ PUT http://localhost:3001/lanches/update
 Content-Type: application/json
 
 {
-  "nome_original": "xskibidi",
-  "nome": "xskibidi",
-  "descricao": "Skiiiii",
-  "preco": 69.00,
+  "nome_original": "Cachorro Quente de Bacon",
+  "nome": "Cachorro Quente de Bacon",
+  "preco": 25.00,
   "disponibilidade": "disponível",
-  "imagem": "url_da_imagem",
-  "tipo": "pastel"
+  "tipo": "hotdog"
 }
 
 
@@ -95,7 +92,7 @@ DELETE http://localhost:3001/lanches/delete
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 5
 }
 
 
@@ -143,4 +140,22 @@ Content-Type: application/json
 
 {
   "descricao": "Hamburguer"
+}
+
+#####
+POST http://localhost:3001/pedidos/data
+Content-Type: application/json
+
+{
+  "filtro": "data_especifica", 
+  "data": "2025-04-23"
+}
+
+#####
+DELETE http://localhost:3001/pedidos/delete
+Content-Type: application/json
+
+{
+  "id": 7
+  
 }
