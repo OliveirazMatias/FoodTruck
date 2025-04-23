@@ -39,8 +39,12 @@ function Carrinho() {
         const fetchLanches = async () => {
             try {
                 const allLanches = await getLanches(); // Buscar todos os lanches do backend
-                const filteredLanches = allLanches.filter(lanche => Lanches.includes(lanche.id)); // Filtrar pelos IDs em Lanches
-                setItems(filteredLanches.map(lanche => ({ ...lanche, quantidade: 1 }))); // Inicializar com quantidade 1
+                const filteredLanches = allLanches.filter(lanche => Lanches.some(item => item.id === lanche.id));
+                const updatedItems = filteredLanches.map(lanche => {
+                    const itemInCart = Lanches.find(item => item.id === lanche.id);
+                    return { ...lanche, quantidade: itemInCart ? itemInCart.quantidade : 1 }; // Usa a quantidade do carrinho
+                });
+                setItems(updatedItems);
             } catch (error) {
                 console.error("Erro ao buscar lanches:", error);
             }
@@ -49,7 +53,10 @@ function Carrinho() {
     }, []);
 
     const precoTotal = () => {
-        return items.reduce((total, item) => total + item.preco * item.quantidade, 0).toFixed(2);
+        return items.reduce((total, item) => {
+            const subtotal = item.preco * item.quantidade;
+            return total + subtotal;
+        }, 0).toFixed(2); // Retorna o total formatado com duas casas decimais
     };
 
     const adicionarItem = (id) => {
@@ -95,99 +102,112 @@ function Carrinho() {
             </div>
             <div className='carrinho_body'>
                 <div className='pedidos_container'>
-                    {items.map((lanche, index) => (
-                        <div key={lanche.id} className='pedidos_lista'>
-                            <div className='corpo_pedido'>
-                                <img src={lanche.imagem} className="img_lanche" alt={`produto0${index + 1}`} />
-                                <div className='food_text_carrinho'>
-                                    <h1 className='nome_lanche_carrinho'>{lanche.nome}</h1>
-                                    <p className='descricao_lanche_carrinho'>{lanche.descricao}</p>
+                    {items.length === 0 ? (
+                        <div className='mensagem-vazia'>
+                            <h2>Seu carrinho está vazio!</h2>
+                            <p>Adicione itens deliciosos ao seu pedido e aproveite!</p>
+                        </div>
+                    ) : (
+                        <>
+                            {items.map((lanche, index) => (
+                                <div key={lanche.id} className='pedidos_lista'>
+                                    <div className='corpo_pedido'>
+                                        <img src={lanche.imagem} className="img_lanche" alt={`produto0${index + 1}`} />
+                                        <div className='food_text_carrinho'>
+                                            <h1 className='nome_lanche_carrinho'>{lanche.nome}</h1>
+                                            <p className='descricao_lanche_carrinho'>{lanche.descricao}</p>
+                                        </div>
+                                    </div>
+                                    <div className='jogar-pro-ladinho'>
+                                        <div className='preco-remover-carrinho'>
+                                            <div className='preco-total-carrinho'>
+                                                R$: {lanche.preco ? Number(lanche.preco).toFixed(2) : "0.00"}
+                                                <div className='preco-quantidade'>
+                                                    Total: R$ {(lanche.preco * lanche.quantidade).toFixed(2)}
+                                                </div>
+                                                
+                                            </div>
+                                            <div className='botoes-acoes'>
+                                                <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
+                                                <span className='quantidade-item'>{lanche.quantidade}</span>
+                                                <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>-</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                            ))}
+                            <div className='total-compra'>
+                                <h2>Total: R$ {precoTotal()}</h2>
                             </div>
-                            <div className='jogar-pro-ladinho'>
-                                <div className='preco-remover-carrinho'>
-                                    <div className='preco-total-carrinho'>
-                                        R$: {lanche.preco ? Number(lanche.preco).toFixed(2) : "0.00"}
+                        </>
+                    )}
+                </div>
+            </div>
+            <div className='opcoes-consumo'>
+                <span className='titulo-opcoes'>Opções de Consumo</span>
+                <FormControlLabel
+                    control={<Switch checked={checked} onChange={handleChange} />}
+                    label="CONSUMIR NO LOCAL"
+                    className='switch'
+                />
+                <Box sx={{ display: 'flex' }}>
+                    <Grow in={checked}>
+                        <input type="text" className='input_switch' placeholder='Numero da Mesa' />
+                    </Grow>
+                </Box>
+
+                <FormControlLabel
+                    control={<Switch checked={checked1} onChange={handleChange1} />}
+                    label="ENTREGA"
+                    className='switch'
+                />
+                <Box sx={{ display: 'flex' }}>
+                    <Grow in={checked1}>
+                        <input type="text" className='input_switch' placeholder='Endereço de Entrega' />
+                    </Grow>
+                </Box>
+            </div>
+            <div>
+                <div className='finalizar-pedido'>
+                    <button className='pedido-finalizado' onClick={handleOpen}>Finalizar Pedido</button>
+                </div>
+
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    BackdropProps={{
+                        style: backdropStyle,
+                    }}
+                >
+                    <Box sx={style}>
+                        <div className='modal-finalizar-pedido'>
+                            <div className='container-tudo-modal'>
+                                <div className='titulo-modal-finalizar'>
+                                    <h1 className='titulo-texto-modal'>
+                                        FORMAS DE PAGAMENTO
+                                    </h1>
+                                </div>
+                                <div className='container-descricao-modal'>
+                                    <div className='descricao-modal-finalizar'>
+                                        <p className='descricao-texto-amarelo-modal'>
+                                            PEDIDO:
+                                        </p>
+                                        <p className='descricao-texto-branco-modal'>
+                                            R${precoTotal()}
+                                        </p>
                                     </div>
-                                    <div className='botoes-acoes'>
-                                        <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
-                                        <span className='quantidade-item'>{lanche.quantidade}</span>
-                                        <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>-</button>
-                                    </div>
+                                </div>
+                                <div className='finalizar-compra-modal'>
+                                    <button className='button-finalizar-compra'>
+                                        Finalizar Compra
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    ))}
-                    <div className='total-compra'>
-                        TOTAL: R${precoTotal()}
-                    </div>
-                </div>
-                <div className='opcoes-consumo'>
-                    <span className='titulo-opcoes'>OPÇÕES DE CONSUMO</span>
-                    <FormControlLabel
-                        control={<Switch checked={checked} onChange={handleChange} />}
-                        label="CONSUMIR NO LOCAL"
-                        className='switch'
-                    />
-                    <Box sx={{ display: 'flex' }}>
-                        <Grow in={checked}>
-                            <input type="text" className='input_switch' placeholder='Numero da Mesa' />
-                        </Grow>
                     </Box>
-
-                    <FormControlLabel
-                        control={<Switch checked={checked1} onChange={handleChange1} />}
-                        label="ENTREGA"
-                        className='switch'
-                    />
-                    <Box sx={{ display: 'flex' }}>
-                        <Grow in={checked1}>
-                            <input type="text" className='input_switch' placeholder='Endereço de Entrega' />
-                        </Grow>
-                    </Box>
-                </div>
-                <div>
-                    <div className='finalizar-pedido'>
-                        <button className='pedido-finalizado' onClick={handleOpen}>Finalizar Pedido</button>
-                    </div>
-
-                    <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                        BackdropProps={{
-                            style: backdropStyle,
-                        }}
-                    >
-                        <Box sx={style}>
-                            <div className='modal-finalizar-pedido'>
-                                <div className='container-tudo-modal'>
-                                    <div className='titulo-modal-finalizar'>
-                                        <h1 className='titulo-texto-modal'>
-                                            FORMAS DE PAGAMENTO
-                                        </h1>
-                                    </div>
-                                    <div className='container-descricao-modal'>
-                                        <div className='descricao-modal-finalizar'>
-                                            <p className='descricao-texto-amarelo-modal'>
-                                                PEDIDO:
-                                            </p>
-                                            <p className='descricao-texto-branco-modal'>
-                                                R${precoTotal()}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className='finalizar-compra-modal'>
-                                        <button className='button-finalizar-compra'>
-                                            Finalizar Compra
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Box>
-                    </Modal>
-                </div>
+                </Modal>
             </div>
         </div>
     );
