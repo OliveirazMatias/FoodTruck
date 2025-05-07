@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { getLanches } from "../../Services/api"; // Importar API correta
 import Navbar from '../../components/NavBar/navbar'; // Importar o componente Navbar
 
-export const Lanches = []; // Exportar a lista Lanches
+export const Lanches = []; 
 
 const style = {
     position: 'absolute',
@@ -36,13 +36,13 @@ const backdropStyle = {
 };
 
 function Cardapio() {
-    const [activeFilter, setActiveFilter] = useState("all"); // New state for filtering
+    const [activeFilter, setActiveFilter] = useState("all"); 
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
     const navigate = useNavigate();
     const [obs, setObs] = useState("");
-    const [quantity, setQuantity] = useState(1); // Estado inicial ajustado
+    const [quantity, setQuantity] = useState(1); 
   
     const handleObs = (event) => {
       setObs(event.target.value);
@@ -55,13 +55,13 @@ function Cardapio() {
   
     const handleClose = () => {
       setOpen(false);
-      setQuantity(1); // Resetar quantidade ao fechar o modal
+      setQuantity(1);
     };
   
     useEffect(() => {
       const fetchLanches = async () => {
         try {
-          const data = await getLanches(); // Buscar lanches do backend
+          const data = await getLanches(); 
           setLanches(Array.isArray(data) ? data : []);
         } catch (error) {
           console.error("Erro ao buscar lanches:", error);
@@ -72,24 +72,19 @@ function Cardapio() {
   
     const handleAddToCart = () => {
         if (!selectedLanche) return;
-    
-        // Verifica se o item já está no carrinho
         const existingItemIndex = Lanches.findIndex((item) => item.id === selectedLanche.id);
     
         if (existingItemIndex !== -1) {
-            // Atualiza a quantidade do item existente
             Lanches[existingItemIndex].quantidade += quantity;
         } else {
-            // Adiciona o item com a quantidade selecionada
             Lanches.push({ ...selectedLanche, quantidade: quantity });
         }
-        setOpen(false); // Fecha o modal
-        setQuantity(1); // Reseta a quantidade no modal
+        setOpen(false); 
+        setQuantity(1); 
     };
   
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
   
-    // Filter handler function
     const handleFilterClick = (filterType) => {
         setActiveFilter(filterType);
     };

@@ -42,13 +42,12 @@
     border: 0.2vw solid #FFBA21;
 }
 
-.mesas-button-amarelo {
+.mesas-button-amarelo, .mesas4 {
     background: #FFBA21;
     color: #AA2322;
 }
 
 .mesas-container {
-    display: flex;
     justify-content: center;
 }
 
@@ -58,30 +57,10 @@
 }
 
 .buttons {
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .div-buttao {
     margin: 0.5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .comandas-container{
-        margin-top: 5%
-    }
-
-    .div-buttao {
-        margin: 1vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .div-buttao {
-        margin: 1vw;
-    }
-}
+}                                                                                                   

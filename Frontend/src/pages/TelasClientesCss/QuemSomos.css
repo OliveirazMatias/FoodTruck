@@ -46,10 +46,15 @@ html {
 .quem_somos_text h1 {
     font-size: 4vw;
     text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.219);
+    font-family: 'Belanosima';
+    margin-left: 28%;
 }
 
-.quem_somos_text p {
-    font-size: 1vw;
+.banner_text p {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
 }
 
 .quem_somos_detalhes {
