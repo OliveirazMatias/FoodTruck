@@ -3,6 +3,7 @@ import { postLanches, getLanches, getLanchesByDesc, updateLanches, deleteLanches
 import { postLogin, postCadastro, deleteLogin } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido, getItemPedidoByPedido } from '../controllers/ItemPedido.js';
 import { postPedidos, getPedidosByCEP, getPedidosByMesa, getPedidos, getPedidosByDate, deletePedidos } from '../controllers/Pedidos.js';
+import { pagamentoCartao, pagamentoPix } from '../controllers/Pagamento.js';
 
 const routes = express.Router();
 
@@ -27,6 +28,9 @@ routes.get('/pedidos/CEP', getPedidosByCEP); // Handles ?CEP= query
 routes.get('/pedidos/mesa', getPedidosByMesa); // Handles ?Mesa= query
 routes.post('/pedidos/data', getPedidosByDate); // Handles ?filtro= and ?data= query
 routes.delete('/pedidos/delete', deletePedidos); // Handles ?id= query
+
+routes.post("/pagar-pix", pagamentoPix)
+routes.post("/pagar-cartao", pagamentoCartao)
 
 
 export default routes;

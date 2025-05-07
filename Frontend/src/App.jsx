@@ -16,7 +16,7 @@ import HistoricoPedidos from './pages/TelasColaboradores/HistoricoPedidos';
 function App() {
   return (
     <Router>
-        <header className="header">
+        {/* <header className="header">
           <p></p>
           <nav>
             <img className="logo" src={imglogo} alt="logo" />
@@ -25,7 +25,7 @@ function App() {
             <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
           </nav>
           <img src={imgPerfil} alt="" className='perfil' />
-        </header>
+        </header> */}
 
         <Routes>
           <Route path="/" element={<Cardapio />} />
