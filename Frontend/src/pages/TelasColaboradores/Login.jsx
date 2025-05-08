@@ -13,7 +13,7 @@ function Login() {
             const response = await postLogin({ email, senha }); 
             console.log('Login Bem-Sucedido: ', response);
             localStorage.setItem('token', response.token);
-            window.location.href = '/';
+            window.location.href = '/colaboradoresinicial';
         } catch (error) {
             console.error('Erro no login: ', error);
             setError('Login ou senha inválidos');

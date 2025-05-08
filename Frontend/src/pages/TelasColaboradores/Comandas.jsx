@@ -1,5 +1,7 @@
 import React from 'react';
 import '../TelasColaboradoresCss/Comandas.css';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+
 
 function Comandas() {
     const mesas = [
@@ -13,6 +15,7 @@ function Comandas() {
 
     return (
         <div className="comandas-container">
+            <Navbar />
             <div className='comandas'>
                 <div className='titulo-comandas'>
                     <h1 className='titulo'>COMANDAS</h1>

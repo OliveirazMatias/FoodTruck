@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import '../TelasColaboradoresCss/HistoricoPedidos.css';
 import { getPedidosByDate, getLanches } from '../../Services/api';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+
 
 const HistoricoPedidos = () => {
   const [filtro, setFiltro] = useState("");
@@ -71,6 +73,7 @@ const HistoricoPedidos = () => {
 
   return (
     <div className="historico-container">
+      <Navbar />
       <h1 className="titulo">HISTÓRICO DE PEDIDOS</h1>
       <div className="filtro-container">
         <button 
