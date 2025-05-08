@@ -1,16 +1,17 @@
 import '../TelasClientesCss/QuemSomos.css';
 import * as React from 'react';
-// import equipeImg from '../../assets/quemsomos/equipe.png';
+import equipeImg from '../../assets/quemsomos/foodtruck.jpeg';
 // import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
 import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
-
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 
 function QuemSomos() {
     return (
         <main>
+            <Navbar />
             {/* Seção Principal */}
             <div className="quem_somos">
                 <div className="quem_somos_img">

@@ -11,7 +11,7 @@ function Navbar() {
       </nav>
       <div className="nav-links">
             <Link to="/" className="nav-link-header">CARDÁPIO</Link>
-            <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
+            <Link to="/comandas" className="nav-link-header">QUEM SOMOS</Link>
             <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
         </div>
       <Link to="/login">

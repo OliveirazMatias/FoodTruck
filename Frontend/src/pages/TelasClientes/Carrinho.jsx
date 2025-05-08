@@ -9,6 +9,7 @@ import masterimg from '../../assets/carrinho/masterimg.jpg';
 import { Lanches } from './Cardapio';
 import { getLanches } from "../../Services/api";
 import axios from "axios";
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 const style = {
     position: 'absolute',
@@ -143,6 +144,7 @@ function Carrinho() {
 
     return (
         <div className="carrinho-container">
+            <Navbar/>
             <div className='carrinho-titulo'>
                 <img className='icon-carrinho' src={carrinho} alt="icon-carrinho" />
                 <span className='titulo-carrinho'>Carrinho</span>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../TelasColaboradoresCss/Login.css';
 import { postLogin } from '../../Services/api.js';
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -21,6 +22,7 @@ function Login() {
 
     return (
         <div className="forms-container">
+            <Navbar />
             <div className='forms-conteudo'>
                 <h1 className='titulo-login'>LOGIN ADM</h1>
                 <div className='preencher-forms'>
