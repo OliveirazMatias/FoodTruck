@@ -1,14 +1,12 @@
-import '../TelasClientesCss/QuemSomos.css';
+import '../TelasColaboradoresCss/InicialColaboradores.css';
 import * as React from 'react';
-import equipeImg from '../../assets/quemsomos/foodtruck.jpeg';
-// import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
-import instagramIcon from '../../assets/quemsomos/instagram.png';
-import whatsappIcon from '../../assets/quemsomos/wpp.png';
-import clockIcon from '../../assets/quemsomos/hora.png';
-import Navbar from '../../components/NavBar/navbar.jsx';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import equipe from '../../assets/inicialcolaboradores/equipe.jpg';
 
+function InicialColaboradores(){
 
-function QuemSomos() {
+    let nome = "henrique"
+
     return (
         <main>
             <Navbar />
@@ -18,8 +16,8 @@ function QuemSomos() {
                     <div className="img_overlay"></div>
                 </div>
                 <div className="quem_somos_text">
-                    <h1>Sanctus Panis</h1>
-                    <p>Encontre e peça seus pratos favoritos com facilidade.</p>
+                    <h1>Bem Vindo, {nome}</h1>
+                    <p>Espero que Tenha um otimo dia de trabalho na <strong>Sanctus Panis</strong></p>
                 </div>
             </div>
 
@@ -34,7 +32,7 @@ function QuemSomos() {
                     </p>
                 </div>
                 <div className="quem_somos_imagem">
-                    <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" />
+                    {/* <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" /> */}
                 </div>
             </section>
 
@@ -43,15 +41,15 @@ function QuemSomos() {
                 <div className="contato">
                     <h2>CONTATO</h2>
                     <div className="contato_item">
-                        <img src={instagramIcon} alt="Instagram" />
+                        {/* <img src={instagramIcon} alt="Instagram" /> */}
                         <span>@sanctus.panis</span>
                     </div>
                     <div className="contato_item">
-                        <img src={whatsappIcon} alt="WhatsApp" />
+                        {/* <img src={whatsappIcon} alt="WhatsApp" /> */}
                         <span>(47) 9 8833-6030</span>
                     </div>
                     <div className="contato_item">
-                        <img src={clockIcon} alt="Relógio" />
+                        {/* <img src={clockIcon} alt="Relógio" /> */}
                         <span>De terça-feira a domingo</span>
                     </div>
                 </div>
@@ -69,4 +67,5 @@ function QuemSomos() {
     );
 }
 
-export default QuemSomos;
+
+export default InicialColaboradores;

@@ -16,7 +16,7 @@ export const getLanches = async () => {
 
 export const postLogin = async (login) => {
   try {
-    const response = await http.post("/login", login); // Endpoint correto
+    const response = await http.post("/login", login); 
     return response.data;
   } catch (error) {
     console.error(

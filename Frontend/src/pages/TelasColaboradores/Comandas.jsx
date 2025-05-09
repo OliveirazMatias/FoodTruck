@@ -1,10 +1,10 @@
 import '../TelasColaboradoresCss/Comandas.css';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
 import { useState, useEffect } from "react";
 import { getLanches } from "../../Services/api";
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
 const styleModal = {
     position: 'absolute',
     top: '50%',
@@ -110,13 +110,24 @@ function Comandas() {
 
     return (
         <div className="comandas-container">
-            <h1 className="titulo-comanda">Selecionar Mesa</h1>
-            <div className="botoes-mesas">
-                {[1, 2, 3, 4, 5, 6].map(mesa => (
-                    <button key={mesa} className="botao-mesa" onClick={() => abrirComanda(mesa)}>
-                        Mesa {mesa}
-                    </button>
-                ))}
+      <Navbar />
+            <div className='comandas'>
+                <div className='titulo-comandas'>
+                    <h1 className='titulo'>COMANDAS</h1>
+                </div>
+                <div className='mesas-container'>
+                    <div className='mesas'>
+                        {mesas.map((mesa) => (
+                            <div key={mesa.id} className='div-buttao'>
+                                <button
+                                    className={`mesas-button ${mesa.status === 'ocupada' ? 'mesas-button-amarelo' : ''}`}
+                                >
+                                    Mesa {mesa.id}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
 
             <Modal className='modal-comanda' open={modalAberto} onClose={fecharComanda}>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../TelasColaboradoresCss/Login.css';
 import { postLogin } from '../../Services/api.js';
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -12,7 +13,7 @@ function Login() {
             const response = await postLogin({ email, senha }); 
             console.log('Login Bem-Sucedido: ', response);
             localStorage.setItem('token', response.token);
-            window.location.href = '/';
+            window.location.href = '/colaboradoresinicial';
         } catch (error) {
             console.error('Erro no login: ', error);
             setError('Login ou senha inválidos');
@@ -21,6 +22,7 @@ function Login() {
 
     return (
         <div className="forms-container">
+            <Navbar />
             <div className='forms-conteudo'>
                 <h1 className='titulo-login'>LOGIN ADM</h1>
                 <div className='preencher-forms'>

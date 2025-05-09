@@ -4,6 +4,7 @@ import mysql from "mysql2";
 import Sequelize from "sequelize";
 
 
+
 const database = new Sequelize(
   process.env.MYSQL_DATABASE,
   process.env.MYSQL_USER,
@@ -14,6 +15,7 @@ const database = new Sequelize(
     port: process.env.MYSQL_PORT,
     timezone: "-03:00",
   }
+  
 );
 
 

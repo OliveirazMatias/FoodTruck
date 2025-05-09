@@ -9,7 +9,8 @@ import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import { getLanches } from "../../Services/api"; 
+import { getLanches } from "../../Services/api"; // Importar API correta
+import Navbar from '../../components/NavBar/navbar'; // Importar o componente Navbar
 
 export const Lanches = []; 
 
@@ -94,6 +95,7 @@ function Cardapio() {
 
     return (
         <div className='cardapio'>
+            <Navbar /> {}
             <div className="confira-lancamentos">
                 <div className="confira-img">
                     <img src={imgconfira} alt="lanche ilustrativo" />

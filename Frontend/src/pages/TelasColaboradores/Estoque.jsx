@@ -1,5 +1,7 @@
 import React, { useState } from "react"; 
 import '../TelasColaboradoresCss/Estoque.css';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+
 
 const Estoque = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,6 +29,7 @@ const Estoque = () => {
 
   return (
     <div className="estoque-container">
+      <Navbar/>
       <h1 className="estoque-titulo">
         GERENCIAMENTO DE <span>ESTOQUE</span>
       </h1>
