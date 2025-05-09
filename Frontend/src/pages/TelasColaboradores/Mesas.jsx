@@ -1,14 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // import do hook de navegação
+import { useNavigate } from 'react-router-dom'; 
 import '../TelasColaboradoresCss/Mesas.css';
 import imgentregador from '../../assets/mesas/imgentregador.jpg';
 import pedido from '../../assets/mesas/pedido.png';
 
 function Mesas() {
-    const navigate = useNavigate(); // hook para redirecionar
+    const navigate = useNavigate(); 
 
     const handleExcluir = () => {
-        navigate('/comandas'); // redireciona para a tela de comandas
+        navigate('/comandas'); 
     };
 
     return (

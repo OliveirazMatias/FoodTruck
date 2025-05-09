@@ -7,7 +7,7 @@ import { FormControlLabel, Switch, Grow } from '@mui/material';
 import piximg from '../../assets/carrinho/piximg.jpg';
 import masterimg from '../../assets/carrinho/masterimg.jpg';
 import { Lanches } from './Cardapio';
-import { getLanches } from "../../Services/api";
+import { getLanches, deleteItemPedido } from "../../Services/api";
 import axios from "axios";
 
 const style = {
@@ -78,16 +78,16 @@ function Carrinho() {
         setItems(updatedItems);
     };
 
-    const removerItem = (id) => {
-        const updatedItems = items
-            .map((item) => {
-                if (item.id === id) {
-                    return { ...item, quantidade: item.quantidade - 1 };
-                }
-                return item;
-            })
-            .filter((item) => item.quantidade > 0);
-        setItems(updatedItems);
+    const removerItem = async (id) => {
+        try {
+            console.log("Removendo item com ID:", id); // Log para depuração
+            await deleteItemPedido(id);
+            const updatedItems = items.filter((item) => item.id !== id);
+            setItems(updatedItems);
+        } catch (error) {
+            console.error("Erro ao remover item do carrinho:", error);
+            alert("Erro ao remover item. Verifique sua conexão ou tente novamente mais tarde.");
+        }
     };
 
     const handleChange = () => {
@@ -243,14 +243,15 @@ function Carrinho() {
                                                 onChange={handleEnderecoChange}
                                             />
                                             <input
-                                                type="number"
+                                                type="text"
                                                 className='input_switch input-switch-numero'
                                                 name="numero"
                                                 placeholder='Número'
                                                 required
-                                                min={0}
                                                 value={endereco.numero}
                                                 onChange={handleEnderecoChange}
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
                                             />
                                         </div>
                                         <div className='linha-endereco'>
