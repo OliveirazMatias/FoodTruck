@@ -56,6 +56,10 @@ export const deleteItemPedido = async (req, res) => {
     try {
         const { id } = req.body;
 
+        if (!id) {
+            return res.status(400).json({ error: "ID do item é obrigatório." });
+        }
+
         const item = await ItemPedido.findByPk(id);
 
         if (!item) {

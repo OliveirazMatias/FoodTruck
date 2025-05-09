@@ -94,13 +94,10 @@ export const getPedidos = async () => {
 
 export const deleteItemPedido = async (id) => {
   try {
-    const response = await http.delete("/delete/itempedido", { data: { id } }); // Endpoint correto
+    const response = await http.delete("/delete/itempedido", { data: { id } });
     return response.data;
   } catch (error) {
-    console.error(
-      "Erro ao deletar item do pedido:",
-      error.response?.data || error.message
-    );
+    console.error("Erro ao deletar item do pedido:", error.response?.data || error.message);
     throw error;
   }
 };

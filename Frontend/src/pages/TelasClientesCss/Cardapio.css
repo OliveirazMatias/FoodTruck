@@ -322,23 +322,23 @@ button, input, textarea, select {
 }
 
 .increase_button {
-    flex-direction: row;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     background-color: #FFE4AA;
     border-radius: 0.8vw;
     color: #000000;
     border: 0.1vw solid #000000;
-    height: 2.5vw;
-    padding: 1.3vw;
+    width: 90%;
 }
 
 .button_add, .button_sub {
     background-color: #FFE4AA;
     color: #000000;
+    font-size: 1.5vw;
     margin: 0.5vw;
-    height: 2.5vw;
-    width: 2.5vw;
+    height: 2vw;
+    width: 2vw;
     text-align: center;
     justify-content: center;
     display: flex;
@@ -346,6 +346,16 @@ button, input, textarea, select {
     cursor: pointer;
     border: none;
     border-radius: 0.5vw;
+}
+
+.quantity_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 
 .quantity_number {
@@ -375,7 +385,7 @@ button, input, textarea, select {
     height: 3.5vw;
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
-    border-radius: 0.5vw;
+    border-radius: 0.8vw;
     display: flex;
     padding-left: 1vw;
     color: #000000;
@@ -383,9 +393,8 @@ button, input, textarea, select {
 }
 
 .obs::placeholder {
-    font-size: 0.9vw;
     color: #000000;
-    font-weight: 600;
+    font-weight: normal;
     font-family: 'Alata', sans-serif;
 }
 
@@ -428,17 +437,25 @@ button, input, textarea, select {
     justify-content: space-between;
     align-items: center;
     font-size: 0.9vw;
-    font-style: bold;
-    font-weight: 600;
-    padding: 0.5vw 1vw;
     padding: 1vw;
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
 }
 
 .carrinho:hover {
-    background-color: #AA2322;
     color: #ffffff;
-    border: 0.2vw solid #FFBA21;
-    outline: #FFD984;
+    background-color: #AA2322;
+}
+
+.button-add-pedido, .button-remover-pedido {
+    font-size: 1.2vw;
+    padding: 0.8vw 1.5vw;
+    border-radius: 0.5vw;
+    transition: transform 0.3s ease;
+}
+
+.button-add-pedido:hover, .button-remover-pedido:hover {
+    transform: scale(1.1);
 }
 
 .carrinho:hover img {

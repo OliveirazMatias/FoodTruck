@@ -7,7 +7,7 @@ import { FormControlLabel, Switch, Grow } from '@mui/material';
 import piximg from '../../assets/carrinho/piximg.jpg';
 import masterimg from '../../assets/carrinho/masterimg.jpg';
 import { Lanches } from './Cardapio';
-import { getLanches } from "../../Services/api";
+import { getLanches, deleteItemPedido } from "../../Services/api";
 import axios from "axios";
 import Navbar from '../../components/NavBar/navbar.jsx';
 
@@ -82,12 +82,15 @@ function Carrinho() {
     const removerItem = (id) => {
         const updatedItems = items
             .map((item) => {
-                if (item.id === id) {
-                    return { ...item, quantidade: item.quantidade - 1 };
+                if (item.ID === id) {
+                    if (item.quantidade > 1) {
+                        return { ...item, quantidade: item.quantidade - 1 };
+                    }
+                    return null; 
                 }
                 return item;
             })
-            .filter((item) => item.quantidade > 0);
+            .filter((item) => item !== null); 
         setItems(updatedItems);
     };
 
@@ -127,11 +130,10 @@ function Carrinho() {
     const handleEnderecoChange = (e) => {
         const { name, value } = e.target;
 
-        // Validação para o campo 'numero' - impede números negativos
         if (name === "numero") {
-            const apenasNumerosPositivos = /^\d*$/; // permite apenas inteiros positivos
+            const apenasNumerosPositivos = /^\d*$/;
             if (!apenasNumerosPositivos.test(value)) {
-                return; // impede atualização se o valor for inválido
+                return; 
             }
         }
 
@@ -180,7 +182,12 @@ function Carrinho() {
                                             <div className='botoes-acoes'>
                                                 <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
                                                 <span className='quantidade-item'>{lanche.quantidade}</span>
-                                                <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>-</button>
+                                                <button
+                                                    className='button-remover-pedido'
+                                                    onClick={() => removerItem(lanche.ID)}
+                                                >
+                                                    -
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -245,14 +252,15 @@ function Carrinho() {
                                                 onChange={handleEnderecoChange}
                                             />
                                             <input
-                                                type="number"
+                                                type="text"
                                                 className='input_switch input-switch-numero'
                                                 name="numero"
                                                 placeholder='Número'
                                                 required
-                                                min={0}
                                                 value={endereco.numero}
                                                 onChange={handleEnderecoChange}
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
                                             />
                                         </div>
                                         <div className='linha-endereco'>
