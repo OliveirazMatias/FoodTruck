@@ -78,6 +78,8 @@ function Cardapio() {
         } else {
             Lanches.push({ ...selectedLanche, quantidade: quantity });
         }
+        alert(`Adicionado ${quantity} ${selectedLanche.nome}(s) ao carrinho!`);
+        navigate("/carrinho");
         setOpen(false); 
         setQuantity(1); 
     };

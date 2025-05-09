@@ -78,16 +78,19 @@ function Carrinho() {
         setItems(updatedItems);
     };
 
-    const removerItem = async (id) => {
-        try {
-            console.log("Removendo item com ID:", id); // Log para depuração
-            await deleteItemPedido(id);
-            const updatedItems = items.filter((item) => item.id !== id);
-            setItems(updatedItems);
-        } catch (error) {
-            console.error("Erro ao remover item do carrinho:", error);
-            alert("Erro ao remover item. Verifique sua conexão ou tente novamente mais tarde.");
-        }
+    const removerItem = (id) => {
+        const updatedItems = items
+            .map((item) => {
+                if (item.ID === id) {
+                    if (item.quantidade > 1) {
+                        return { ...item, quantidade: item.quantidade - 1 };
+                    }
+                    return null; 
+                }
+                return item;
+            })
+            .filter((item) => item !== null); 
+        setItems(updatedItems);
     };
 
     const handleChange = () => {
@@ -126,11 +129,10 @@ function Carrinho() {
     const handleEnderecoChange = (e) => {
         const { name, value } = e.target;
 
-        // Validação para o campo 'numero' - impede números negativos
         if (name === "numero") {
-            const apenasNumerosPositivos = /^\d*$/; // permite apenas inteiros positivos
+            const apenasNumerosPositivos = /^\d*$/;
             if (!apenasNumerosPositivos.test(value)) {
-                return; // impede atualização se o valor for inválido
+                return; 
             }
         }
 
@@ -178,7 +180,12 @@ function Carrinho() {
                                             <div className='botoes-acoes'>
                                                 <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
                                                 <span className='quantidade-item'>{lanche.quantidade}</span>
-                                                <button className='button-remover-pedido' onClick={() => removerItem(lanche.id)}>-</button>
+                                                <button
+                                                    className='button-remover-pedido'
+                                                    onClick={() => removerItem(lanche.ID)}
+                                                >
+                                                    -
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

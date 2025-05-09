@@ -12,7 +12,7 @@ body {
     padding-top: 7%;
 }
 
-.titulo-comanda {
+.titulo-comanda{
     display: flex;
     font-size: 1.8vw;
     color: #ffffff;
@@ -153,6 +153,8 @@ body {
 .botoes-acoes {
     display: flex;
     gap: 0.5vw;
+    align-items: center;
+    font-size: 1vw;
 }
 
 .botoes-acoes button {
@@ -216,7 +218,12 @@ body {
 }
 
 .acoes-lanche{
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: flex-end; 
+    height: 100%; 
+    width: 100%;
 }
 
 .acoes-comanda{
@@ -235,7 +242,20 @@ body {
     font-size: 0.8vw;
     padding: 0.5vw 1vw;
     border: none;
-    border-radius: 1vw;
+    border-radius: 0.6vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-add-comandas{
+    background-color: #B42625;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 0.8vw;
+    padding: 0.5vw 1vw;
+    border: none;
+    border-radius: 0.6vw;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

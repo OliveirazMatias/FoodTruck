@@ -194,7 +194,7 @@ function Comandas() {
                                                     <div className='preco-total-comanda'>
                                                         R$: {item.preco.toFixed(2)}
                                                     </div>
-                                                    <button onClick={() => adicionarItem(item.id)}>Adicionar</button>
+                                                    <button className='botao-add-comandas' onClick={() => adicionarItem(item.id)}>Adicionar</button>
                                                 </div>
                                             </div>
                                         </div>
