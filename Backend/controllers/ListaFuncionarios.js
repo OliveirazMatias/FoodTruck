@@ -4,8 +4,7 @@ import Pedidos from "../models/Pedidos.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-// Chave secreta para o JWT (deve estar em variáveis de ambiente)
-const JWT_SECRET = process.env.JWT_SECRET || "sua_chave_secreta";
+const JWT_SECRET = process.env.JWT_SECRET ||"pneumoultramicroscopicossilicovulcanoconiótico";
 
 export const postLogin = async (req, res) => {
   try {
@@ -16,20 +15,17 @@ export const postLogin = async (req, res) => {
     if (!funcionario) {
       return res.status(401).json({ error: "Credenciais inválidas." });
     }
-
     const senhaCorreta = await bcrypt.compare(senha, funcionario.senha);
-
     if (!senhaCorreta) {
       return res.status(401).json({ error: "Credenciais inválidas." });
     }
-
     // Gerando token JWT
     const token = jwt.sign(
       { id: funcionario.id, email: funcionario.email },
       JWT_SECRET,
       { expiresIn: "1h" }
     );
-
+    console.log("Token gerado:", token);
     res.status(200).json({ message: "Login bem-sucedido", token });
   } catch (error) {
     console.error("Erro no login:", error);
@@ -51,7 +47,6 @@ export const postCadastro = async (req, res) => {
         .json({ error: "O e-mail já está cadastrado no sistema." });
     }
 
-    // Criptografando a senha antes de salvar
     const saltRounds = 10; // Número de rounds para gerar o hash
     const senhaHash = await bcrypt.hash(senha, saltRounds);
 
