@@ -4,6 +4,7 @@ import { getLanches } from "../../Services/api";
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
 
 const styleModal = {
     position: 'absolute',
@@ -110,6 +111,7 @@ function Comandas() {
 
     return (
         <div className="comandas-container">
+            <Navbar/>
             <h1 className="titulo-comanda">Selecionar Mesa</h1>
             <div className="botoes-mesas">
                 {[1, 2, 3, 4, 5, 6].map(mesa => (

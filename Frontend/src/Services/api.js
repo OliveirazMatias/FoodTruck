@@ -204,3 +204,29 @@ export const deleteLogin = async (nome) => {
     throw error;
   }
 };
+
+export const getUsuario = async (nome) => {
+  try {
+    const response = await http.get("/usuarios", { data: { nome } }); // Endpoint correto
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao achar os funcionário:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const updateUsuario = async (usuario) => {
+  try {
+    const response = await http.put("/usuarios/update", usuario); // Endpoint correto
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao atualizar funcionário:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};

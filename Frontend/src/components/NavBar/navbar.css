@@ -68,12 +68,6 @@ p {
   left: 5vw;
 }
 
-.perfil{
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
 .navbar {
   background-color: #333;
   overflow: hidden;
@@ -174,7 +168,6 @@ p {
 }
 
 .perfil {
-  width: 100%; /* Ajuste o tamanho conforme necessário */
   height: auto;
   cursor: pointer;
   display: block; /* Garante que a imagem seja exibida como um bloco */

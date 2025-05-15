@@ -8,6 +8,12 @@ const ListaFuncionarios = database.define(
     nome: { type: sequelize.STRING(50), allowNull: false },
     email: { type: sequelize.STRING(100), allowNull: false, unique: true },
     senha: { type: sequelize.STRING(65), allowNull: false },
+    tipo_funcionario: {
+      type: sequelize.ENUM(
+        "Funcionario",
+        "Administrador"
+      ),
+    },
   },
   {
     tableName: "lista_funcionarios",
