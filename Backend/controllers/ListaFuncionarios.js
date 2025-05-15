@@ -158,3 +158,19 @@ export const updateUsuario = async (req, res) => {
     res.status(500).json({ error: "Erro ao atualizar Funcionário" });
   }
 };
+
+export const autentificar = async (req, res) => {
+}
+
+export const listarTodosFuncionarios = async (req, res) => {
+  try {
+    const funcionarios = await ListaFuncionarios.findAll({
+      attributes: ['id', 'nome', 'email', 'tipo_funcionario'], // Retorna apenas os campos necessários
+    });
+
+    res.status(200).json(funcionarios);
+  } catch (error) {
+    console.error("Erro ao listar funcionários:", error);
+    res.status(500).json({ error: "Erro ao listar funcionários." });
+  }
+};

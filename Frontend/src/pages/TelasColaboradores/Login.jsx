@@ -16,17 +16,20 @@ function Login() {
             const response = await postLogin({ email, senha });
             console.log('Login Bem-Sucedido: ', response);
             localStorage.setItem('token', response.token);
+            localStorage.setItem('tipo_funcionario', response.tipo_funcionario); // Armazena o tipo de funcionário
 
             const { tipo_funcionario } = response; // Obtém tipo_funcionario do response
 
-            // Redireciona com base no tipo_funcionario
-            if (tipo_funcionario === 'Administrador') {
-                window.location.href = '/addlanche'; 
-            } else if (tipo_funcionario === 'Funcionario') {
-                window.location.href = '/colaboradoresinicial'; 
-            } else {
-                setError('Tipo de usuário inválido');
-            }
+            if (response.token){
+                // Redireciona com base no tipo_funcionario
+                if (tipo_funcionario === 'Administrador') {
+                    window.location.href = '/addlanche'; 
+                } else if (tipo_funcionario === 'Funcionario') {
+                    window.location.href = '/colaboradoresinicial'; 
+                } else {
+                    setError('Tipo de usuário inválido');
+                }
+        }
         } catch (error) {
             console.error('Erro no login: ', error);
             setError('Login ou senha inválidos');

@@ -1,11 +1,15 @@
-const jwt = require('jsonwebtoken');
-const Funcionario = require('../models/funcionario');
+import jwt from 'jsonwebtoken';
+import Funcionario from '../models/ListaFuncionarios.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'pneumoultramicroscopicossilicovulcanoconiótico'; // Use uma chave forte em produção
 
-const verificarToken = async (req, res, next) => {
+export const verificarToken = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token && req.cookies.token) {
+    token = req.cookies.token;
+}
 
   if (!token) {
     return res.status(401).json({ error: 'Acesso negado. Nenhum token fornecido.' });
@@ -13,6 +17,7 @@ const verificarToken = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
+    
     const funcionario = await Funcionario.findByPk(decoded.id);
 
     if (!funcionario) {
@@ -27,4 +32,18 @@ const verificarToken = async (req, res, next) => {
   }
 };
 
-module.exports = verificarToken;
+
+export const verificarPapelUsuario = (papeisPermitidos) => {
+  return (req, res, next) => {
+      if (!req.funcionario) {
+          return res.status(401).send('Não autenticado');
+      }
+
+      if (!papeisPermitidos.includes(req.funcionario.tipoUsuario)) {
+          console.log(req.funcionario.tipoUsuario)
+          return res.status(403).send('Acesso negado');
+      }
+
+      next();
+  };
+};
