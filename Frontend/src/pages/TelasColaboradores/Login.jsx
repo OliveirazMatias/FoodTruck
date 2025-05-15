@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import '../TelasColaboradoresCss/Login.css';
 import { postLogin } from '../../Services/api.js';
 import Navbar from '../../components/NavBar/navbar.jsx';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async () => {
         try {
@@ -30,6 +33,10 @@ function Login() {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(prevState => !prevState);
+    };
+
     return (
         <div className="forms-container">
             <Navbar />
@@ -41,15 +48,25 @@ function Login() {
                         placeholder="Email"
                         className="input-login"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)} 
+                        onChange={(e) => setEmail(e.target.value)}
                     />
-                    <input
-                        type="password"
-                        placeholder="Senha"
-                        className="input-senha"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                    />
+                    <div className="senha-container">
+                        <input
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder="Senha"
+                            className="input-senha"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                        />
+                        <button
+                            type="button"
+                            className="botao-visualizar-senha"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                        </button>
+                    </div>
+
                     <button className='botao-login' onClick={handleLogin}>Entrar</button>
                     {error && <p className="error-message">{error}</p>}
                 </div>

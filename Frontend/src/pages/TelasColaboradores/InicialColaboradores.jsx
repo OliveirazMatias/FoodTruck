@@ -3,62 +3,63 @@ import * as React from 'react';
 import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
 import equipe from '../../assets/inicialcolaboradores/equipe.jpg';
 
-function InicialColaboradores(){
-
-    let nome = "henrique"
+function BoasVindasColaborador() {
+    let nome = "Henrique"; // Futuramente pode vir via contexto ou login
 
     return (
         <main>
             <Navbar />
-            {/* Seção Principal */}
-            <div className="quem_somos">
-                <div className="quem_somos_img">
+
+            {/* Seção de Boas-Vindas */}
+            <div className="boas_vindas">
+                <div className="boas_vindas_img">
                     <div className="img_overlay"></div>
                 </div>
-                <div className="quem_somos_text">
-                    <h1>Bem Vindo, {nome}</h1>
-                    <p>Espero que Tenha um otimo dia de trabalho na <strong>Sanctus Panis</strong></p>
+                <div className="boas_vindas_texto">
+                    <h1>Bem-vindo(a), {nome}!</h1>
+                    <p>Que bom ter você com a gente na <strong>Sanctus Panis</strong>.</p>
+                    <p>Desejamos um dia de trabalho produtivo, cheio de sabor e sucesso!</p>
                 </div>
             </div>
 
-            {/* Seção Quem Somos */}
-            <section className="quem_somos_detalhes">
-                <div className="quem_somos_texto">
-                    <h2>QUEM SOMOS?</h2>
+            {/* Seção sobre a empresa */}
+            <section className="sobre_empresa">
+                <div className="texto_empresa">
+                    <h2>SOBRE NÓS</h2>
                     <p>
-                        O Sanctus Panis é um food truck de Guaramirim, especializado em hambúrgueres e hot dogs prensados,
-                        feitos com muito carinho e ingredientes de qualidade. Estamos localizados no Bairro Vila Amizade
-                        e prontos para oferecer uma experiência saborosa para você.
+                        Aqui na <strong>Sanctus Panis</strong>, somos mais do que um food truck — somos uma família unida pelo amor à comida e ao atendimento com excelência.
+                        Nossos hambúrgueres e hot dogs são preparados com dedicação, ingredientes de qualidade e aquele toque especial.
+                    </p>
+                    <p>
+                        Cada colaborador é peça fundamental no nosso sucesso. Contamos com você pra continuar fazendo história com a gente!
                     </p>
                 </div>
-                <div className="quem_somos_imagem">
-                    {/* <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" /> */}
+                <div className="imagem_equipe">
+                    <img src={equipe} alt="Equipe do Food Truck" className="imagem-equipe" />
                 </div>
             </section>
 
-            {/* Seção Contato e Localização */}
-            <section className="contato_localizacao">
-                <div className="contato">
-                    <h2>CONTATO</h2>
+            {/* Seção com informações úteis */}
+            <section className="informacoes_gerais">
+                <div className="contatos_uteis">
+                    <h2>CONTATOS ÚTEIS</h2>
                     <div className="contato_item">
-                        {/* <img src={instagramIcon} alt="Instagram" /> */}
-                        <span>@sanctus.panis</span>
+                        <span>Instagram: @sanctus.panis</span>
                     </div>
                     <div className="contato_item">
-                        {/* <img src={whatsappIcon} alt="WhatsApp" /> */}
-                        <span>(47) 9 8833-6030</span>
+                        <span>WhatsApp da Equipe: (47) 9 8833-6030</span>
                     </div>
                     <div className="contato_item">
-                        {/* <img src={clockIcon} alt="Relógio" /> */}
-                        <span>De terça-feira a domingo</span>
+                        <span>Funcionamento: Terça a Domingo</span>
                     </div>
                 </div>
 
                 <div className="linha_divisoria"></div>
 
                 <div className="localizacao">
-                    <h2>LOCALIZAÇÃO</h2>
+                    <h2>ONDE ESTAMOS</h2>
                     <div className="mapa_container">
+                        <p>Rua Exemplo, Bairro Vila Amizade - Guaramirim, SC</p>
                         {/* <img src={mapaImg} alt="Mapa da localização" /> */}
                     </div>
                 </div>
@@ -67,5 +68,4 @@ function InicialColaboradores(){
     );
 }
 
-
-export default InicialColaboradores;
+export default BoasVindasColaborador;

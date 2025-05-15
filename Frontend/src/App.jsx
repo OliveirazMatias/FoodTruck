@@ -6,7 +6,10 @@ import Quemsomos from'./pages/TelasClientes/QuemSomos';
 import Login from './pages/TelasColaboradores/Login';
 import Comandas from './pages/TelasColaboradores/Comandas';
 import Mesas from './pages/TelasColaboradores/Mesas';
+
 import './App.css';
+import imglogo from './assets/logo/logo.png';
+import imgPerfil from './assets/icons/iconperfil.png' 
 import Estoque from './pages/TelasColaboradores/Estoque';
 import HistoricoPedidos from './pages/TelasColaboradores/HistoricoPedidos';
 import InicialColaboradores from './pages/TelasColaboradores/InicialColaboradores';
@@ -16,6 +19,17 @@ import AddFuncionario from './pages/TelasSuperAdm/AddFuncionario';
 function App() {
   return (
     <Router>
+        <header className="header">
+          <p></p>
+          <nav>
+            <img className="logo" src={imglogo} alt="logo" />
+            <Link to="/" className="nav-link-header">CARDÁPIO</Link>
+            <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
+            <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
+          </nav>
+          <img src={imgPerfil} alt="" className='perfil' />
+        </header>
+
         <Routes>
           <Route path="/" element={<Cardapio />} />
           <Route path="/quemsomos" element={<Quemsomos />} />

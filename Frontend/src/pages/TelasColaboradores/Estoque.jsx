@@ -37,7 +37,6 @@ const Estoque = () => {
       <p className="textobusque">BUSQUE INGREDIENTES :</p>
 
       <div className="pesquisa">
-        <span className="pesquisa-icon"></span>
         <input
           type="text"
           placeholder="Digite um ingrediente:" 
@@ -67,16 +66,16 @@ const Estoque = () => {
       {modalOpen && (
         <div className="modal-overlay">
           <div className="modal-container">
-            <h2>{isAdding ? "Adicionar Novo Ingrediente" : `Editar ${selectedIngredient?.toUpperCase()}`}</h2>
-            <label>Nome:</label>
-            <input type="text" defaultValue={isAdding ? "" : selectedIngredient} disabled={!isAdding} />
-            <label>Quantidade:</label>
-            <input type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.quantidade} />
-            <label>Validade:</label>
-            <input type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.validade} />
+            <h2 className="titulo-add-ingrediente">{isAdding ? "Adicionar Novo Ingrediente" : `Editar ${selectedIngredient?.toUpperCase()}`}</h2>
+            <label className="label-nome" >Nome:</label>
+            <input className="input-add-ingredientes" type="text" defaultValue={isAdding ? "" : selectedIngredient} disabled={!isAdding} />
+            <label className="label-quantidade" >Quantidade:</label>
+            <input className="input-add-ingredientes" type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.quantidade} />
+            <label className="label-validade" >Validade:</label>
+            <input className="input-add-ingredientes" type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.validade} />
             <div className="modal-buttons">
-              <button onClick={closeModal}>Salvar</button>
-              <button onClick={closeModal}>Cancelar</button>
+              <button className="button-salvar" onClick={closeModal}>Salvar</button>
+              <button className="button-cancelar" onClick={closeModal}>Cancelar</button>
             </div>
           </div>
         </div>

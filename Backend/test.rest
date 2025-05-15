@@ -3,10 +3,9 @@ POST http://localhost:3001/cadastro
 Content-Type: application/json
 
 {
-  "nome": "a1",
-  "email": "a1",
-  "senha": "a1",
-  "tipo_funcionario": "funcionario"
+  "nome": "Mateus Silverio",
+  "email": "silverio123@gmail.com",
+  "senha": "admin123"
 }
 
 
