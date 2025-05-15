@@ -1,6 +1,6 @@
 import express from 'express';
 import { postLanches, getLanches, getLanchesByDesc, updateLanches, deleteLanches } from '../controllers/ItemCardapio.js';
-import { postLogin, postCadastro, deleteLogin } from '../controllers/ListaFuncionarios.js';
+import { postLogin, postCadastro, deleteLogin, getUsuario, updateUsuario } from '../controllers/ListaFuncionarios.js';
 import { postItemPedido, deleteItemPedido, getItemPedidoByPedido } from '../controllers/ItemPedido.js';
 import { postPedidos, getPedidosByCEP, getPedidosByMesa, getPedidos, getPedidosByDate, deletePedidos } from '../controllers/Pedidos.js';
 import { pagamentoCartao, pagamentoPix } from '../controllers/Pagamento.js';
@@ -14,8 +14,10 @@ routes.put('/lanches/update', updateLanches);
 routes.delete('/lanches/delete', deleteLanches); 
 
 routes.post('/login', postLogin);
-routes.post('/cadastro', postCadastro);
+routes.post('/cadastro', postCadastro); // Já suporta tipo_funcionario
 routes.delete('/delete/usuario', deleteLogin);
+routes.get('/usuarios', getUsuario); // Já retorna tipo_funcionario
+routes.put('/usuarios/update', updateUsuario); // Rota para atualizar funcionário
 
 // ITENS PEDIDOS
 routes.post('/itempedido', postItemPedido);

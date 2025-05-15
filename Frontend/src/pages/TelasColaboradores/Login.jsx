@@ -10,10 +10,20 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await postLogin({ email, senha }); 
+            const response = await postLogin({ email, senha });
             console.log('Login Bem-Sucedido: ', response);
             localStorage.setItem('token', response.token);
-            window.location.href = '/colaboradoresinicial';
+
+            const { tipo_funcionario } = response; // Obtém tipo_funcionario do response
+
+            // Redireciona com base no tipo_funcionario
+            if (tipo_funcionario === 'Administrador') {
+                window.location.href = '/addlanche'; 
+            } else if (tipo_funcionario === 'Funcionario') {
+                window.location.href = '/colaboradoresinicial'; 
+            } else {
+                setError('Tipo de usuário inválido');
+            }
         } catch (error) {
             console.error('Erro no login: ', error);
             setError('Login ou senha inválidos');

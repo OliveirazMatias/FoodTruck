@@ -11,7 +11,7 @@ function Navbar() {
       </nav>
       <div className="nav-links">
             <Link to="/addlanche" className="nav-link-header">GERENCIAMENTO DE LANCHES</Link>
-            <Link to="/historicopedidos" className="nav-link-header">GERENCIAMENTO DE FUNCIONARIOS</Link>
+            <Link to="/addfuncionario" className="nav-link-header">GERENCIAMENTO DE FUNCIONARIOS</Link>
         </div>
       <Link to="/login">
         <img src={imgPerfil} alt="Perfil" className="perfil" />

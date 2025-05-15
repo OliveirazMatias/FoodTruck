@@ -11,6 +11,7 @@ import Estoque from './pages/TelasColaboradores/Estoque';
 import HistoricoPedidos from './pages/TelasColaboradores/HistoricoPedidos';
 import InicialColaboradores from './pages/TelasColaboradores/InicialColaboradores';
 import AddLanche from './pages/TelasSuperAdm/AddLanche';
+import AddFuncionario from './pages/TelasSuperAdm/AddFuncionario';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/mesas" element={<Mesas />}/>
           <Route path="/colaboradoresinicial" element={<InicialColaboradores />}/>
           <Route path="/addlanche" element={<AddLanche />}/>
+          <Route path="/addfuncionario" element={<AddFuncionario />}/>
         </Routes>
     </Router>
   );

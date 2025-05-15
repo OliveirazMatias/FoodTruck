@@ -15,6 +15,7 @@ const Pedidos = database.define(
       allowNull: true,
       defaultValue: 0,
       references: { model: ListaFuncionarios, key: "ID" },
+      onDelete: "SET NULL",
     },
     tipo_pedido: {
       type: sequelize.ENUM("delivery", "comer no local"),

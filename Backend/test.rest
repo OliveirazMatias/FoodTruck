@@ -3,9 +3,10 @@ POST http://localhost:3001/cadastro
 Content-Type: application/json
 
 {
-  "nome": "admin",
-  "email": "admin",
-  "senha": "admin"
+  "nome": "a1",
+  "email": "a1",
+  "senha": "a1",
+  "tipo_funcionario": "funcionario"
 }
 
 
@@ -158,4 +159,26 @@ Content-Type: application/json
 {
   "id": 7
   
+}
+
+####
+GET http://localhost:3001/usuarios
+Content-Type: application/json
+
+####
+DELETE http://localhost:3001/delete/usuario
+Content-Type: application/json
+
+{
+  "nome": "Henrique"
+}
+
+
+PUT http://localhost:3001/usuarios/update
+Content-Type: application/json
+
+{
+  "nome_original": "Henrique",
+  "nome": "Henrique",
+  "senha": 
 }
