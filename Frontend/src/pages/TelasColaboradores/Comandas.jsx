@@ -4,7 +4,6 @@ import { getLanches } from "../../Services/api";
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import NavBar from '../../components/NavBarColaboradores/navbar.jsx';
 
 const styleModal = {
     position: 'absolute',
@@ -111,7 +110,6 @@ function Comandas() {
 
     return (
         <div className="comandas-container">
-            <NavBar/>
             <h1 className="titulo-comanda">Selecionar Mesa</h1>
             <div className="botoes-mesas">
                 {[1, 2, 3, 4, 5, 6].map(mesa => (
@@ -126,7 +124,7 @@ function Comandas() {
                     {mesaSelecionada && (
                         <>
                             <div className='comanda-titulo'>
-                                <span className='titulo-comanda'>Comanda da Mesa {mesaSelecionada}</span>
+                                <span className='titulo-comanda-mesa'>Comanda da Mesa {mesaSelecionada}</span>
                             </div>
 
                             <div className='comanda-body'>
@@ -180,7 +178,7 @@ function Comandas() {
                             </div>
 
                             <div className='comanda-body'>
-                                <h2 className='titulo-comanda'>Adicionar Lanches</h2>
+                                <h2 className='titulo-comanda-add'>Adicionar Lanches</h2>
                                 <div className='itens-comanda'>
                                     {comandas[mesaSelecionada]?.map(item => (
                                         <div key={item.id} className='item-comanda'>
@@ -196,7 +194,7 @@ function Comandas() {
                                                     <div className='preco-total-comanda'>
                                                         R$: {item.preco.toFixed(2)}
                                                     </div>
-                                                    <button className='botao-add-comandas' onClick={() => adicionarItem(item.id)}>Adicionar</button>
+                                                    <button className="button-add-comanda" onClick={() => adicionarItem(item.id)}>Adicionar</button>
                                                 </div>
                                             </div>
                                         </div>

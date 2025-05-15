@@ -71,3 +71,28 @@
     color: #FFF;
     font-size: 1vw;
 }
+
+.senha-container {
+    position: relative;
+    width: 100%;
+}
+
+.senha-container .input-senha {
+    width: 100%;
+    padding-right: 2.5vw; /* espaço para o ícone */
+}
+
+.botao-visualizar-senha {
+    position: absolute;
+    top: 50%;
+    right: 0.8vw;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

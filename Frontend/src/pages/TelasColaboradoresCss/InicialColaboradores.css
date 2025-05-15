@@ -4,9 +4,11 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
-.quem_somos {
+
+/* Seção de Boas-Vindas */
+.boas_vindas {
     position: relative;
     height: 50vw;
     display: flex;
@@ -14,11 +16,11 @@ html {
     justify-content: space-between;
     background-color: var(--vermelho);
     z-index: 1;
-    padding: 0; 
-    margin: 0; 
+    padding: 0;
+    margin: 0;
 }
 
-.quem_somos_img {
+.boas_vindas_img {
     width: 55%;
     height: 100%;
     background-image: url('../../assets/inicialcolaboradores/equipe.jpg');
@@ -29,35 +31,36 @@ html {
     justify-content: end;
 }
 
-.quem_somos_img .img_overlay {
+.boas_vindas_img .img_overlay {
     height: 100%;
     width: 50%;
     background: linear-gradient(to right, transparent, var(--vermelho));
 }
 
-.quem_somos_text {
+.boas_vindas_texto {
     width: 40%;
     text-align: center;
     color: white;
     font-family: 'Belanosima';
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 
-.quem_somos_text h1 {
+.boas_vindas_texto h1 {
     font-size: 4vw;
     text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.219);
     font-family: 'Belanosima';
     margin-left: 28%;
 }
 
-.banner_text p {
+.boas_vindas_texto p {
     font-size: 20px;
     display: flex;
     justify-content: center;
     margin-left: 10%;
 }
 
-.quem_somos_detalhes {
+/* Seção Sobre a Empresa */
+.sobre_empresa {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +69,7 @@ html {
     width: 100%;
 }
 
-.quem_somos_texto {
+.texto_empresa {
     flex: 1;
     color: white;
     font-family: 'Belanosima';
@@ -74,19 +77,19 @@ html {
     padding-right: 40px;
 }
 
-.quem_somos_texto h2 {
+.texto_empresa h2 {
     font-size: 4vw;
     color: #FFBA21;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.quem_somos_texto p {
+.texto_empresa p {
     font-size: 1.5vw;
     line-height: 1.6;
 }
 
-.quem_somos_imagem {
+.imagem_equipe {
     flex: 1;
     position: relative;
     display: flex;
@@ -99,8 +102,8 @@ html {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-
-.contato_localizacao {
+/* Seção Informações Gerais */
+.informacoes_gerais {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,12 +115,12 @@ html {
     gap: 1rem;
 }
 
-.contato {
+.contatos_uteis {
     flex: 1;
     text-align: center;
 }
 
-.contato h2,
+.contatos_uteis h2,
 .localizacao h2 {
     font-size: 2vw;
     font-weight: bold;
@@ -150,13 +153,14 @@ html {
 }
 
 .mapa_container img {
-    width: 15vw; 
+    width: 15vw;
     max-width: 30vw;
     border-radius: 20px;
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
-    .contato_localizacao {
+    .informacoes_gerais {
         flex-direction: column;
         align-items: center;
         text-align: center;

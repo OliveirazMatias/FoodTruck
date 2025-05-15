@@ -173,19 +173,6 @@
     font-weight: bold;
   }
 
-  .perfil {
-    width: 100%; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-    cursor: pointer;
-    display: block; /* Garante que a imagem seja exibida como um bloco */
-  }
-
-  a img.perfil {
-    width: 100%; /* Garante que a largura da imagem seja consistente */
-    height: auto;
-    display: block; /* Garante que a imagem seja exibida corretamente */
-  }
-
 nav-links{
     display: flex;
     justify-content: center;

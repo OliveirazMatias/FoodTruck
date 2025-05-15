@@ -9,8 +9,8 @@ import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal'; 
 import Box from '@mui/material/Box'; 
 import { useNavigate } from 'react-router-dom';
-import { getLanches } from "../../Services/api"; // Importar API correta
-import Navbar from '../../components/NavBar/navbar'; // Importar o componente Navbar
+import { getLanches } from "../../Services/api";
+import Navbar from '../../components/NavBar/navbar';
 
 export const Lanches = []; 
 
@@ -43,33 +43,33 @@ function Cardapio() {
     const navigate = useNavigate();
     const [obs, setObs] = useState("");
     const [quantity, setQuantity] = useState(1); 
-  
+
     const handleObs = (event) => {
-      setObs(event.target.value);
+        setObs(event.target.value);
     };
-  
+
     const handleOpen = (lanche) => {
-      setSelectedLanche(lanche);
-      setOpen(true);
+        setSelectedLanche(lanche);
+        setOpen(true);
     };
-  
+
     const handleClose = () => {
-      setOpen(false);
-      setQuantity(1);
+        setOpen(false);
+        setQuantity(1);
     };
-  
+
     useEffect(() => {
-      const fetchLanches = async () => {
-        try {
-          const data = await getLanches(); 
-          setLanches(Array.isArray(data) ? data : []);
-        } catch (error) {
-          console.error("Erro ao buscar lanches:", error);
-        }
-      };
-      fetchLanches();
+        const fetchLanches = async () => {
+            try {
+                const data = await getLanches(); 
+                setLanches(Array.isArray(data) ? data : []);
+            } catch (error) {
+                console.error("Erro ao buscar lanches:", error);
+            }
+        };
+        fetchLanches();
     }, []);
-  
+
     const handleAddToCart = () => {
         if (!selectedLanche) return;
         const existingItemIndex = Lanches.findIndex((item) => item.id === selectedLanche.id);
@@ -79,23 +79,26 @@ function Cardapio() {
         } else {
             Lanches.push({ ...selectedLanche, quantidade: quantity });
         }
+
+        localStorage.setItem('carrinho', JSON.stringify(Lanches));
+
         alert(`Adicionado ${quantity} ${selectedLanche.nome}(s) ao carrinho!`);
         navigate("/carrinho");
         setOpen(false); 
         setQuantity(1); 
     };
-  
+
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
-  
+
     const handleFilterClick = (filterType) => {
         setActiveFilter(filterType);
     };
-    
+
     const lancamentosId = [10, 9, 11]
 
     return (
         <div className='cardapio'>
-            <Navbar /> {}
+            <Navbar />
             <div className="confira-lancamentos">
                 <div className="confira-img">
                     <img src={imgconfira} alt="lanche ilustrativo" />
@@ -110,7 +113,7 @@ function Cardapio() {
                     <div className="incos">
                         <div className='incons-lanche'>
                             <img src={imginconlanche} alt="icone-lanche" />
-                            <p>Lanche</p>
+                            <p>Lanches</p>
                         </div>
                         <div className='incons-lanche'>
                             <img src={imginconbebidas} alt="icone-bebidas" />
@@ -147,42 +150,15 @@ function Cardapio() {
                 </h1>
 
                 <div className="opcoes">
-                    <button 
-                        className={`botaohamburguer ${activeFilter === "hamburguer" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("hamburguer")}
-                    >
-                        Hambúrguer
-                    </button>
-                    <button 
-                        className={`botaohotdog ${activeFilter === "hotdog" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("hotdog")}
-                    >
-                        Hot-Dog
-                    </button>
-                    <button 
-                        className={`botaopastel ${activeFilter === "pastel" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("pastel")}
-                    >
-                        Pastel
-                    </button>
-                    <button 
-                        className={`botaoporcoes ${activeFilter === "porcao" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("porcao")}
-                    >
-                        Porções
-                    </button>
-                    <button 
-                        className={`botaobebidas ${activeFilter === "bebida" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("bebida")}
-                    >
-                        Bebidas
-                    </button>
-                    <button 
-                        className={`botaotodos ${activeFilter === "all" ? "active" : ""}`} 
-                        onClick={() => handleFilterClick("all")}
-                    >
-                        Todos
-                    </button>
+                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'tudo'].map((tipo) => (
+                        <button
+                            key={tipo}
+                            className={`botao${tipo} ${activeFilter === tipo ? 'active' : ''}`}
+                            onClick={() => handleFilterClick(tipo)}
+                        >
+                            {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+                        </button>
+                    ))}
                 </div>
 
                 <div className='cardapio-opcoes'>
@@ -218,37 +194,52 @@ function Cardapio() {
                     }}
                 >
                     <Box sx={style}>
-                        <img src={selectedLanche.imagem} className="image-lanche-modal" alt="" />
-                        <div className='modal_body'>
-                        <div className='title_modal'>
-                            {selectedLanche.nome}
-                        </div>
-                        <div className='description_modal'>
-                            {selectedLanche.descricao}
-                        </div>
-                        <div className='quantity_modal'>
-                            <div className="increase_button">
-                                <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                                <div className='quantity_number'>{quantity}</div>
-                                <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
-                            </div>
-                            <div className='price_modal'>
-                                <div className='preco_modal'>
-                                    R$ {Number(selectedLanche.preco).toFixed(2)}
-                                </div>
-                                <div className='total_modal'>
-                                    Subtotal: R$ {(selectedLanche.preco * quantity).toFixed(2)}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='bottom_modal'>
-                            <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
-                            
-                            <button className='carrinho' onClick={handleAddToCart}>Adicionar ao carrinho
-                                <img className='carrinho-modal' src={carrinho} alt="" />
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <button
+                                onClick={handleClose}
+                                style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    fontSize: '1.8rem',
+                                    cursor: 'pointer',
+                                    color: '#000',
+                                    fontWeight: 'bold',
+                                    marginBottom: '0.5rem'
+                                }}
+                            >
+                                ×
                             </button>
                         </div>
+                        <img src={selectedLanche.imagem} className="image-lanche-modal" alt="" />
+                        <div className='modal_body'>
+                            <div className='title_modal'>
+                                {selectedLanche.nome}
+                            </div>
+                            <div className='description_modal'>
+                                {selectedLanche.descricao}
+                            </div>
+                            <div className='quantity_modal'>
+                                <div className="increase_button">
+                                    <button className='button_add' onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+                                    <div className='quantity_number'>{quantity}</div>
+                                    <button className='button_sub' onClick={() => setQuantity(quantity + 1)}>+</button>
+                                </div>
+                                <div className='price_modal'>
+                                    <div className='preco_modal'>
+                                        R$ {Number(selectedLanche.preco).toFixed(2)}
+                                    </div>
+                                    <div className='total_modal'>
+                                        Subtotal: R$ {(selectedLanche.preco * quantity).toFixed(2)}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='bottom_modal'>
+                                <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
+                                <button className='carrinho' onClick={handleAddToCart}>
+                                    Adicionar ao carrinho
+                                    <img className='carrinho-modal' src={carrinho} alt="" />
+                                </button>
+                            </div>
                         </div>
                     </Box>
                 </Modal>
