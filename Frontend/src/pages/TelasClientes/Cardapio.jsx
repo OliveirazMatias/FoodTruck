@@ -6,43 +6,45 @@ import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
 import lanchesData from '../TelasClientes/lanches.json';
-import Modal from '@mui/material/Modal'; 
-import Box from '@mui/material/Box'; 
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
 import { getLanches } from "../../Services/api";
 import Navbar from '../../components/NavBar/navbar';
+import { useRef } from "react";
 
-export const Lanches = []; 
+export const Lanches = [];
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)', 
-    maxWidth: '30vw', 
-    height: 'auto', 
+    transform: 'translate(-50%, -50%)',
+    maxWidth: '30vw',
+    height: 'auto',
     bgcolor: '#FFBA21',
     border: '2px solid #000',
     boxShadow: 24,
-    p: '1.5vw', 
+    p: '1.5vw',
     backdropFilter: 'blur(10px)',
-    borderRadius: '1.5vw', 
+    borderRadius: '1.5vw',
     overflowY: 'auto',
 };
 
 const backdropStyle = {
     backdropFilter: 'blur(10px)',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
 };
 
 function Cardapio() {
-    const [activeFilter, setActiveFilter] = useState("all"); 
+    const [activeFilter, setActiveFilter] = useState("all");
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
     const navigate = useNavigate();
     const [obs, setObs] = useState("");
-    const [quantity, setQuantity] = useState(1); 
+    const [quantity, setQuantity] = useState(1);
+    const cardapioRef = useRef(null);
 
     const handleObs = (event) => {
         setObs(event.target.value);
@@ -61,7 +63,7 @@ function Cardapio() {
     useEffect(() => {
         const fetchLanches = async () => {
             try {
-                const data = await getLanches(); 
+                const data = await getLanches();
                 setLanches(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error("Erro ao buscar lanches:", error);
@@ -73,7 +75,7 @@ function Cardapio() {
     const handleAddToCart = () => {
         if (!selectedLanche) return;
         const existingItemIndex = Lanches.findIndex((item) => item.id === selectedLanche.id);
-    
+
         if (existingItemIndex !== -1) {
             Lanches[existingItemIndex].quantidade += quantity;
         } else {
@@ -84,8 +86,8 @@ function Cardapio() {
 
         alert(`Adicionado ${quantity} ${selectedLanche.nome}(s) ao carrinho!`);
         navigate("/carrinho");
-        setOpen(false); 
-        setQuantity(1); 
+        setOpen(false);
+        setQuantity(1);
     };
 
     const subtotal = selectedLanche ? selectedLanche.preco * quantity : 0;
@@ -95,6 +97,14 @@ function Cardapio() {
     };
 
     const lancamentosId = [10, 9, 11]
+
+    const handleScrollAndFilter = (filterType) => {
+        setActiveFilter(filterType);
+    
+        setTimeout(() => {
+            cardapioRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    };
 
     return (
         <div className='cardapio'>
@@ -111,17 +121,17 @@ function Cardapio() {
                         Experimente nossos novos lançamentos e descubra sabores incríveis.
                     </div>
                     <div className="incos">
-                        <div className='incons-lanche'>
+                        <div className='incons-lanche' onClick={() => handleScrollAndFilter('hamburguer')}>
                             <img src={imginconlanche} alt="icone-lanche" />
                             <p>Lanches</p>
                         </div>
-                        <div className='incons-lanche'>
+                        <div className='incons-lanche' onClick={() => handleScrollAndFilter('bebida')}>
                             <img src={imginconbebidas} alt="icone-bebidas" />
                             <p>Bebidas</p>
                         </div>
-                        <div className='incons-lanche'>
+                        <div className='incons-lanche' onClick={() => handleScrollAndFilter('porcao')}>
                             <img src={imginconacompanhamento} alt="icone-acompanhamentos" />
-                            <p>Acompanhamentos</p>
+                            <p>Porções</p>
                         </div>
                     </div>
                 </div>
@@ -144,13 +154,13 @@ function Cardapio() {
                         ))}
                 </div>
             </div>
-            <div className='cardapio-pedidos'>
+            <div className='cardapio-pedidos' ref={cardapioRef} >
                 <h1 className='cardapio-titulo'>
                     <span className="cardapio-highlight">Cardápio</span>
                 </h1>
 
                 <div className="opcoes">
-                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'tudo'].map((tipo) => (
+                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'all'].map((tipo) => (
                         <button
                             key={tipo}
                             className={`botao${tipo} ${activeFilter === tipo ? 'active' : ''}`}
@@ -166,19 +176,19 @@ function Cardapio() {
                         {lanches
                             .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
                             .map((lanche) => (
-                            <div key={lanche.id} className='food_body'>
-                                <button onClick={() => handleOpen(lanche)} className='food_button'>
-                                    <div className="image_div">
-                                        <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
-                                    </div>
-                                    <div className="food_text">
-                                        <h2 className="nome_comida">{lanche.nome}</h2>
-                                        <p className="descricao">{lanche.descricao}</p>
-                                        <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
-                                    </div>
-                                </button>
-                            </div>
-                        ))}
+                                <div key={lanche.id} className='food_body'>
+                                    <button onClick={() => handleOpen(lanche)} className='food_button'>
+                                        <div className="image_div">
+                                            <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
+                                        </div>
+                                        <div className="food_text">
+                                            <h2 className="nome_comida">{lanche.nome}</h2>
+                                            <p className="descricao">{lanche.descricao}</p>
+                                            <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
+                                        </div>
+                                    </button>
+                                </div>
+                            ))}
                     </div>
                 </div>
             </div>

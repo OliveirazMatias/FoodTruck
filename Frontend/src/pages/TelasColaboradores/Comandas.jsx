@@ -4,6 +4,7 @@ import { getLanches } from "../../Services/api";
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
 
 const styleModal = {
     position: 'absolute',
@@ -20,11 +21,36 @@ const styleModal = {
 };
 
 function Comandas() {
+    // 1. Estado comandas inicializa do localStorage (se tiver), senão vazio
+    const [comandas, setComandas] = useState(() => {
+        const saved = localStorage.getItem('comandas');
+        if (saved) {
+            try {
+                return JSON.parse(saved);
+            } catch {
+                return {};
+            }
+        }
+        return {};
+    });
+
     const [lanches, setLanches] = useState([]);
-    const [comandas, setComandas] = useState({});
     const [mesaSelecionada, setMesaSelecionada] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
 
+    // 2. Sempre que comandas mudar, salvar no localStorage só itens com quantidade > 0
+    useEffect(() => {
+        const comandasFiltradas = {};
+
+        Object.keys(comandas).forEach(mesa => {
+            comandasFiltradas[mesa] = comandas[mesa].filter(item => item.quantidade > 0);
+        });
+
+        console.log('Salvando comandas no localStorage:', comandasFiltradas);
+        localStorage.setItem('comandas', JSON.stringify(comandasFiltradas));
+    }, [comandas]);
+
+    // 3. Buscar lanches e montar comandas com quantidade certa
     useEffect(() => {
         const fetchLanches = async () => {
             try {
@@ -35,20 +61,33 @@ function Comandas() {
                     quantidade: 0
                 }));
 
-                setLanches(lanchesPreparados);
+                console.log('Carregando comandas do localStorage:', comandas);
 
-                const inicial = {};
+                // Aqui a gente garante que comandas tem mesa de 1 a 6,
+                // e mescla com o que já tem salvo (comandas vindo do estado inicial)
+                const comandasCompletas = {};
                 for (let i = 1; i <= 6; i++) {
-                    inicial[i] = lanchesPreparados.map(item => ({ ...item }));
+                    if (comandas[i]) {
+                        // Mescla lanches com os pedidos salvos
+                        comandasCompletas[i] = lanchesPreparados.map(lanche => {
+                            const pedido = comandas[i].find(p => p.id === lanche.id);
+                            return pedido ? { ...lanche, quantidade: pedido.quantidade } : { ...lanche };
+                        });
+                    } else {
+                        // Se não tem pedido salvo, inicializa zerado
+                        comandasCompletas[i] = lanchesPreparados.map(item => ({ ...item }));
+                    }
                 }
-                setComandas(inicial);
+
+                setComandas(comandasCompletas);
+                setLanches(lanchesPreparados);
             } catch (error) {
                 console.error("Erro ao buscar lanches:", error);
             }
         };
 
         fetchLanches();
-    }, []);
+    }, []); // Só roda uma vez
 
     const abrirComanda = (mesa) => {
         setMesaSelecionada(mesa);
@@ -110,6 +149,7 @@ function Comandas() {
 
     return (
         <div className="comandas-container">
+            <Navbar />
             <h1 className="titulo-comanda">Selecionar Mesa</h1>
             <div className="botoes-mesas">
                 {[1, 2, 3, 4, 5, 6].map(mesa => (
@@ -121,6 +161,22 @@ function Comandas() {
 
             <Modal className='modal-comanda' open={modalAberto} onClose={fecharComanda}>
                 <Box sx={styleModal}>
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                        <button
+                            onClick={fecharComanda}
+                            style={{
+                                background: 'transparent',
+                                border: 'none',
+                                fontSize: '1.8rem',
+                                cursor: 'pointer',
+                                color: '#fff',
+                                fontWeight: 'bold',
+                                marginBottom: '0.5rem'
+                            }}
+                        >
+                            ×
+                        </button>
+                    </div>
                     {mesaSelecionada && (
                         <>
                             <div className='comanda-titulo'>
