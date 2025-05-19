@@ -34,9 +34,14 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 ESSE SITE UTILIZA .env
 `
 MYSQL_HOST= *localhost, padrão=127.0.0.1*
+
 MYSQL_PORT= *porta do mysql padrão=3306*
+
 MYSQL_USER= *usuario do mysql*
+
 MYSQL_PASSWORD= *senha do mysql*
+
 MYSQL_DATABASE= *nome da database padrão=foodtruck*
+
 JWT_SECRET= *Sua Chave Secreta para Criptografar*
 `
