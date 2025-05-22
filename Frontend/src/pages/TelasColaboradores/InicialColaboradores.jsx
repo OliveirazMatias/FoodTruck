@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../TelasColaboradoresCss/InicialColaboradores.css';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import Navbar from '../../components/NavBar/navbar.jsx';
 import equipe from '../../assets/inicialcolaboradores/equipe.jpg';
 
 function BoasVindasColaborador() {

@@ -5,7 +5,6 @@ import Carrinho from "./pages/TelasClientes/Carrinho";
 import Quemsomos from "./pages/TelasClientes/QuemSomos";
 import Login from "./pages/TelasColaboradores/Login";
 import Comandas from "./pages/TelasColaboradores/Comandas";
-import Mesas from "./pages/TelasColaboradores/Mesas";
 import Estoque from "./pages/TelasColaboradores/Estoque";
 import HistoricoPedidos from "./pages/TelasColaboradores/HistoricoPedidos";
 import InicialColaboradores from "./pages/TelasColaboradores/InicialColaboradores";
@@ -48,14 +47,6 @@ const App = () => {
           element={
             <ProtectedRoute allowedRoles={["Administrador", "Funcionario"]}>
               <Comandas />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/mesas"
-          element={
-            <ProtectedRoute allowedRoles={["Administrador", "Funcionario"]}>
-              <Mesas />
             </ProtectedRoute>
           }
         />

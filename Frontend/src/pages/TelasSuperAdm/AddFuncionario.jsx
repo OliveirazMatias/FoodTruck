@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { postCadastro, getUsuario, deleteLogin, updateUsuario } from "../../Services/api.js";
 import "../TelasSuperAdmCss/AddFuncionario.css";
-import Navbar from "../../components/NavBarSuperAdm/navbar.jsx";
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 function AddFuncionario() {
   const [formData, setFormData] = useState({
