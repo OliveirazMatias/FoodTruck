@@ -24,7 +24,7 @@ export const postLogin = async (req, res) => {
     const token = jwt.sign(
       { id: funcionario.id, email: funcionario.email, tipo_funcionario: funcionario.tipo_funcionario },
       JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     console.log("Token gerado:", token);
 

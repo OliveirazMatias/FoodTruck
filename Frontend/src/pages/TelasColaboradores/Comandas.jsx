@@ -4,7 +4,7 @@ import { getLanches } from "../../Services/api";
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 const styleModal = {
     position: 'absolute',

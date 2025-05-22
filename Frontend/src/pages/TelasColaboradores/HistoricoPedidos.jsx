@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../TelasColaboradoresCss/HistoricoPedidos.css';
 import { getPedidosByDate, getLanches } from '../../Services/api';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 
 const HistoricoPedidos = () => {

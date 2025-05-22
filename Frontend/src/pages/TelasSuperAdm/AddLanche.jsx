@@ -6,7 +6,7 @@ import {
   deleteLanches,
 } from "../../Services/api.js";
 import "../TelasSuperAdmCss/AddLanche.css";
-import Navbar from "../../components/NavBarSuperAdm/navbar.jsx";
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 function AddLanche() {
   const [formData, setFormData] = useState({
