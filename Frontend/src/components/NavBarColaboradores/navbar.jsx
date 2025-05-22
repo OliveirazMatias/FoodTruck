@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import './navbar.css';
+import '../NavBar/navbar.css';
 import imglogo from '../../assets/logo/logo.png';
 import imgPerfil from '../../assets/icons/iconperfil.png';
 

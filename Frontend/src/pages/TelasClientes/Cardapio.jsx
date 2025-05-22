@@ -96,7 +96,7 @@ function Cardapio() {
         setActiveFilter(filterType);
     };
 
-    const lancamentosId = [10, 9, 11]
+    const lancamentosId = [6, 7, 8]
 
     const handleScrollAndFilter = (filterType) => {
         setActiveFilter(filterType);

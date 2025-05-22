@@ -44,6 +44,12 @@ function AddLanche() {
         .replace(/[^0-9,]/g, "")
         .replace(/(,.*?),/g, "$1");
       setFormData({ ...formData, [id]: formattedValue });
+    } else if (id === "nome" && value.length <= 50) {
+      setFormData({ ...formData, [id]: value }); // Limite de 50 caracteres para nome
+    } else if (id === "descricao" && value.length <= 100) {
+      setFormData({ ...formData, [id]: value }); // Limite de 100 caracteres para descrição
+    } else if (id === "imagem" && value.length <= 255) {
+      setFormData({ ...formData, [id]: value }); // Limite de 255 caracteres para URL da imagem
     } else {
       setFormData({ ...formData, [id]: value });
     }
@@ -224,6 +230,7 @@ function AddLanche() {
               value={formData.nome}
               onChange={handleChange}
               required
+              maxLength={50}
             />
           </div>
           <div className="form-group">
@@ -237,6 +244,7 @@ function AddLanche() {
               value={formData.descricao}
               onChange={handleChange}
               required
+              maxLength={100}
             />
           </div>
           <div className="form-group">
@@ -251,6 +259,7 @@ function AddLanche() {
               onChange={handleChange}
               onBlur={handleBlur}
               required
+              maxLength={10} 
             />
           </div>
           <div className="form-group">
@@ -282,6 +291,7 @@ function AddLanche() {
               value={formData.imagem}
               onChange={handleChange}
               required
+              maxLength={255}
             />
           </div>
           <div className="form-group">

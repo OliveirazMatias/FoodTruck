@@ -14,25 +14,38 @@ function Login() {
     const handleLogin = async () => {
         try {
             const response = await postLogin({ email, senha });
-            console.log('Login Bem-Sucedido: ', response);
+
+            console.log('Login Bem-Sucedido:', response);
+
             localStorage.setItem('token', response.token);
-            window.location.href = '/colaboradoresinicial';
+            localStorage.setItem('tipo_funcionario', response.tipo_funcionario);
+            localStorage.setItem('nome', response.nome);
+
+            if (response.token) {
+                if (response.tipo_funcionario === 'Administrador') {
+                    window.location.href = '/addlanche';
+                } else if (response.tipo_funcionario === 'Funcionario') {
+                    window.location.href = '/colaboradoresinicial';
+                } else {
+                    setError('Tipo de usuário inválido');
+                }
+            }
         } catch (error) {
-            console.error('Erro no login: ', error);
+            console.error('Erro no login:', error);
             setError('Login ou senha inválidos');
         }
     };
 
     const togglePasswordVisibility = () => {
-        setShowPassword(prevState => !prevState);
+        setShowPassword(prev => !prev);
     };
 
     return (
         <div className="forms-container">
-            <Navbar />
-            <div className='forms-conteudo'>
-                <h1 className='titulo-login'>LOGIN ADM</h1>
-                <div className='preencher-forms'>
+            <Navbar /> {/* Tá aqui, no topo, firme e forte */}
+            <div className="forms-conteudo">
+                <h1 className="titulo-login">LOGIN ADM</h1>
+                <div className="preencher-forms">
                     <input
                         type="text"
                         placeholder="Email"
@@ -57,7 +70,9 @@ function Login() {
                         </button>
                     </div>
 
-                    <button className='botao-login' onClick={handleLogin}>Entrar</button>
+                    <button className="botao-login" onClick={handleLogin}>
+                        Entrar
+                    </button>
                     {error && <p className="error-message">{error}</p>}
                 </div>
             </div>
