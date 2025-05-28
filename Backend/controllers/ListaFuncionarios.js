@@ -22,7 +22,7 @@ export const postLogin = async (req, res) => {
 
     // Gerando token JWT
     const token = jwt.sign(
-      { id: funcionario.id, email: funcionario.email, tipo_funcionario: funcionario.tipo_funcionario },
+      { id: funcionario.id, email: funcionario.email, tipo_funcionario: funcionario.tipo_funcionario, nome: funcionario.nome },
       JWT_SECRET,
       { expiresIn: "1h" }
     );
@@ -32,6 +32,7 @@ export const postLogin = async (req, res) => {
       message: "Login bem-sucedido",
       token,
       tipo_funcionario: funcionario.tipo_funcionario, // Inclui tipo_funcionario na resposta
+      nome: funcionario.nome // Inclui nome na resposta
     });
   } catch (error) {
     console.error("Erro no login:", error);

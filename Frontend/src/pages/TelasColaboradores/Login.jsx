@@ -42,7 +42,7 @@ function Login() {
 
     return (
         <div className="forms-container">
-            <Navbar /> {/* Tá aqui, no topo, firme e forte */}
+            <Navbar /> 
             <div className="forms-conteudo">
                 <h1 className="titulo-login">LOGIN ADM</h1>
                 <div className="preencher-forms">
