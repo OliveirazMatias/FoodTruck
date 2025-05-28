@@ -487,6 +487,7 @@ select {
     background-color: #FFD984;
     border-radius: 2vw;
     padding: 1vh;
+    min-width: 25vw;
 }
 
 .lancamentoImg {

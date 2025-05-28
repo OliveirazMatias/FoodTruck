@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import '../TelasColaboradoresCss/Estoque.css';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 const Estoque = () => {
   const [searchTerm, setSearchTerm] = useState("");
