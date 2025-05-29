@@ -37,7 +37,7 @@ const backdropStyle = {
 };
 
 function Cardapio() {
-    const [activeFilter, setActiveFilter] = useState("all");
+    const [activeFilter, setActiveFilter] = useState("tudo");
     const [lanches, setLanches] = useState([]);
     const [open, setOpen] = useState(false);
     const [selectedLanche, setSelectedLanche] = useState(null);
@@ -160,7 +160,7 @@ function Cardapio() {
                 </h1>
 
                 <div className="opcoes">
-                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'all'].map((tipo) => (
+                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'tudo'].map((tipo) => (
                         <button
                             key={tipo}
                             className={`botao${tipo} ${activeFilter === tipo ? 'active' : ''}`}
@@ -174,7 +174,7 @@ function Cardapio() {
                 <div className='cardapio-opcoes'>
                     <div className='lanches'>
                         {lanches
-                            .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
+                            .filter(lanche => activeFilter === "tudo" || lanche.tipo === activeFilter)
                             .map((lanche) => {
                                 const isIndisponivel = lanche.disponibilidade === "indisponível";
                                 return (

@@ -21,7 +21,6 @@ const styleModal = {
 };
 
 function Comandas() {
-    // 1. Estado comandas inicializa do localStorage (se tiver), senão vazio
     const [comandas, setComandas] = useState(() => {
         const saved = localStorage.getItem('comandas');
         if (saved) {
@@ -37,20 +36,16 @@ function Comandas() {
     const [lanches, setLanches] = useState([]);
     const [mesaSelecionada, setMesaSelecionada] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
+    const [activeFilter, setActiveFilter] = useState('tudo'); // NOVO
 
-    // 2. Sempre que comandas mudar, salvar no localStorage só itens com quantidade > 0
     useEffect(() => {
         const comandasFiltradas = {};
-
         Object.keys(comandas).forEach(mesa => {
             comandasFiltradas[mesa] = comandas[mesa].filter(item => item.quantidade > 0);
         });
-
-        console.log('Salvando comandas no localStorage:', comandasFiltradas);
         localStorage.setItem('comandas', JSON.stringify(comandasFiltradas));
     }, [comandas]);
 
-    // 3. Buscar lanches e montar comandas com quantidade certa
     useEffect(() => {
         const fetchLanches = async () => {
             try {
@@ -61,20 +56,14 @@ function Comandas() {
                     quantidade: 0
                 }));
 
-                console.log('Carregando comandas do localStorage:', comandas);
-
-                // Aqui a gente garante que comandas tem mesa de 1 a 6,
-                // e mescla com o que já tem salvo (comandas vindo do estado inicial)
                 const comandasCompletas = {};
                 for (let i = 1; i <= 6; i++) {
                     if (comandas[i]) {
-                        // Mescla lanches com os pedidos salvos
                         comandasCompletas[i] = lanchesPreparados.map(lanche => {
                             const pedido = comandas[i].find(p => p.id === lanche.id);
                             return pedido ? { ...lanche, quantidade: pedido.quantidade } : { ...lanche };
                         });
                     } else {
-                        // Se não tem pedido salvo, inicializa zerado
                         comandasCompletas[i] = lanchesPreparados.map(item => ({ ...item }));
                     }
                 }
@@ -87,16 +76,21 @@ function Comandas() {
         };
 
         fetchLanches();
-    }, []); // Só roda uma vez
+    }, []);
 
     const abrirComanda = (mesa) => {
         setMesaSelecionada(mesa);
+        setActiveFilter('tudo'); // Reseta filtro ao abrir
         setModalAberto(true);
     };
 
     const fecharComanda = () => {
         setMesaSelecionada(null);
         setModalAberto(false);
+    };
+
+    const handleFilterClick = (tipo) => {
+        setActiveFilter(tipo);
     };
 
     const adicionarItem = (id) => {
@@ -123,11 +117,7 @@ function Comandas() {
         const confirmar = window.confirm(`Tem certeza que deseja marcar a comanda da Mesa ${mesaSelecionada} como concluída?`);
         if (!confirmar) return;
 
-        const zerada = comandas[mesaSelecionada].map(item => ({
-            ...item,
-            quantidade: 0
-        }));
-
+        const zerada = comandas[mesaSelecionada].map(item => ({ ...item, quantidade: 0 }));
         setComandas(prev => ({ ...prev, [mesaSelecionada]: zerada }));
         alert(`Comanda da Mesa ${mesaSelecionada} marcada como concluída!`);
         fecharComanda();
@@ -137,11 +127,7 @@ function Comandas() {
         const confirmar = window.confirm(`Tem certeza que deseja remover a comanda da Mesa ${mesaSelecionada}?`);
         if (!confirmar) return;
 
-        const zerada = comandas[mesaSelecionada].map(item => ({
-            ...item,
-            quantidade: 0
-        }));
-
+        const zerada = comandas[mesaSelecionada].map(item => ({ ...item, quantidade: 0 }));
         setComandas(prev => ({ ...prev, [mesaSelecionada]: zerada }));
         alert(`Comanda da Mesa ${mesaSelecionada} removida!`);
         fecharComanda();
@@ -235,26 +221,49 @@ function Comandas() {
 
                             <div className='comanda-body'>
                                 <h2 className='titulo-comanda-add'>Adicionar Lanches</h2>
-                                <div className='itens-comanda'>
-                                    {comandas[mesaSelecionada]?.map(item => (
-                                        <div key={item.id} className='item-comanda'>
-                                            <div className='corpo-pedido'>
-                                                <img src={item.imagem} className="img-lanche" alt={item.nome} />
-                                                <div className='food-text-comanda'>
-                                                    <h1 className='nome-lanche-comanda'>{item.nome}</h1>
-                                                    <p className='descricao-lanche-comanda'>{item.descricao}</p>
-                                                </div>
-                                            </div>
-                                            <div className='acoes-lanche'>
-                                                <div className='preco-remover-comanda'>
-                                                    <div className='preco-total-comanda'>
-                                                        R$: {item.preco.toFixed(2)}
-                                                    </div>
-                                                    <button className="button-add-comanda" onClick={() => adicionarItem(item.id)}>Adicionar</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div className="opcoes-comandas">
+                                    {['hamburguer', 'hotdog', 'pastel', 'porcao', 'bebida', 'tudo'].map((tipo) => (
+                                        <button
+                                            key={tipo}
+                                            className={`botao${tipo} ${activeFilter === tipo ? 'active' : ''}`}
+                                            onClick={() => handleFilterClick(tipo)}
+                                        >
+                                            {tipo.charAt(0).toUpperCase() + tipo.slice(1)}
+                                        </button>
                                     ))}
+                                </div>
+
+                                <div className='itens-comanda'>
+                                    {comandas[mesaSelecionada]
+                                        ?.filter(item => activeFilter === "tudo" || item.tipo === activeFilter)
+                                        .map(item => {
+                                            const isIndisponivel = item.disponibilidade === "indisponível";
+                                            return (
+                                                <div key={item.id} className={`item-comanda ${isIndisponivel ? "indisponivel" : ""}`}>
+                                                    <div className='corpo-pedido'>
+                                                        <img src={item.imagem} className="img-lanche" alt={item.nome} />
+                                                        <div className='food-text-comanda'>
+                                                            <h1 className='nome-lanche-comanda'>{item.nome}</h1>
+                                                            <p className='descricao-lanche-comanda'>{item.descricao}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className='acoes-lanche'>
+                                                        <div className='preco-remover-comanda'>
+                                                            <div className='preco-total-comanda'>
+                                                                R$: {item.preco.toFixed(2)}
+                                                            </div>
+                                                            <button
+                                                                className={`button-add-comanda ${isIndisponivel ? 'indisponivel-btn' : ''}`}
+                                                                onClick={() => !isIndisponivel && adicionarItem(item.id)}
+                                                                disabled={isIndisponivel}
+                                                            >
+                                                                {isIndisponivel ? 'Indisponível' : 'Adicionar'}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
                                 </div>
                             </div>
                         </>
