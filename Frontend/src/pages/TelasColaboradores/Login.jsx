@@ -14,22 +14,13 @@ function Login() {
     const handleLogin = async () => {
         try {
             const response = await postLogin({ email, senha });
-
-            console.log('Login Bem-Sucedido:', response);
+            console.log('Login Bem-Sucedido: ', response);
 
             localStorage.setItem('token', response.token);
-            localStorage.setItem('tipo_funcionario', response.tipo_funcionario);
-            localStorage.setItem('nome', response.nome);
 
-            if (response.token) {
-                if (response.tipo_funcionario === 'Administrador') {
-                    window.location.href = '/addlanche';
-                } else if (response.tipo_funcionario === 'Funcionario') {
-                    window.location.href = '/colaboradoresinicial';
-                } else {
-                    setError('Tipo de usuário inválido');
-                }
-            }
+            localStorage.setItem('userRole', response.role); 
+
+            window.location.href = '/colaboradoresinicial';
         } catch (error) {
             console.error('Erro no login:', error);
             setError('Login ou senha inválidos');
@@ -41,39 +32,29 @@ function Login() {
     };
 
     return (
-        <div className="forms-container">
-            <Navbar /> 
-            <div className="forms-conteudo">
-                <h1 className="titulo-login">LOGIN ADM</h1>
-                <div className="preencher-forms">
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        className="input-login"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <div className="senha-container">
+        <div className="loginPage">
+            <div className="forms-container">
+                <Navbar />
+                <div className='forms-conteudo'>
+                    <h1 className='titulo-login'>LOGIN ADM</h1>
+                    <div className='preencher-forms'>
                         <input
-                            type={showPassword ? 'text' : 'password'}
+                            type="text"
+                            placeholder="Email"
+                            className="input-login"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <input
+                            type="password"
                             placeholder="Senha"
                             className="input-senha"
                             value={senha}
                             onChange={(e) => setSenha(e.target.value)}
                         />
-                        <button
-                            type="button"
-                            className="botao-visualizar-senha"
-                            onClick={togglePasswordVisibility}
-                        >
-                            {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                        </button>
+                        <button className='botao-login' onClick={handleLogin}>Entrar</button>
+                        {error && <p className="error-message">{error}</p>}
                     </div>
-
-                    <button className="botao-login" onClick={handleLogin}>
-                        Entrar
-                    </button>
-                    {error && <p className="error-message">{error}</p>}
                 </div>
             </div>
         </div>

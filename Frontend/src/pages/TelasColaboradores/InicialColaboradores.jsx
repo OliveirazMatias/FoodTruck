@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../TelasColaboradoresCss/InicialColaboradores.css';
-import Navbar from '../../components/NavBar/navbar.jsx';
-import equipe from '../../assets/inicialcolaboradores/equipe.jpg';
+import * as React from 'react';
+import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import equipeImg from '../../assets/quemsomos/foodtruck.jpeg';
+import instagramIcon from '../../assets/quemsomos/instagram.png';
+import whatsappIcon from '../../assets/quemsomos/wpp.png';
+import clockIcon from '../../assets/quemsomos/hora.png';
+
 
 function BoasVindasColaborador() {
   const [nome, setNome] = useState('Colaborador');
@@ -13,66 +18,67 @@ function BoasVindasColaborador() {
     }
   }, []);
 
-  return (
-    <main>
-      <Navbar />
+    return (
+        <main>
+            <Navbar />
+           
+            <div className="quem_somos">
+                <div className="quem_somos_img">
+                    <div className="img_overlay"></div>
+                </div>
+                <div className="quem_somos_text">
+                    <h1>Bem Vindo, {nome}</h1>
+                    <p>Espero que Tenha um otimo dia de trabalho na <strong>Sanctus Panis</strong></p>
+                </div>
+            </div>
 
-      {/* Seção de Boas-Vindas */}
-      <div className="boas_vindas">
-        <div className="boas_vindas_img">
-          <div className="img_overlay"></div>
-        </div>
-        <div className="boas_vindas_texto">
-          <h1>Bem-vindo(a), {nome}!</h1>
-          <p>Que bom ter você com a gente na <strong>Sanctus Panis</strong>.</p>
-          <p>Desejamos um dia de trabalho produtivo, cheio de sabor e sucesso!</p>
-        </div>
-      </div>
+            <section className="quem_somos_detalhes">
+                <div className="quem_somos_texto">
+                    <h2>QUEM SOMOS?</h2>
+                    <p>
+                        O Sanctus Panis é um food truck de Guaramirim, especializado em hambúrgueres e hot dogs prensados,
+                        feitos com muito carinho e ingredientes de qualidade. Estamos localizados no Bairro Vila Amizade
+                        e prontos para oferecer uma experiência saborosa para você.
+                    </p>
+                </div>
+                <div className="quem_somos_imagem">
+                    <img src={equipeImg} alt="Equipe do Food Truck" className="imagem-equipe" />
+                </div>
+            </section>
 
-      {/* Seção sobre a empresa */}
-      <section className="sobre_empresa">
-        <div className="texto_empresa">
-          <h2>SOBRE NÓS</h2>
-          <p>
-            Aqui na <strong>Sanctus Panis</strong>, somos mais do que um food truck — somos uma família unida pelo amor à comida e ao atendimento com excelência.
-            Nossos hambúrgueres e hot dogs são preparados com dedicação, ingredientes de qualidade e aquele toque especial.
-          </p>
-          <p>
-            Cada colaborador é peça fundamental no nosso sucesso. Contamos com você pra continuar fazendo história com a gente!
-          </p>
-        </div>
-        <div className="imagem_equipe">
-          <img src={equipe} alt="Equipe do Food Truck" className="imagem-equipe" />
-        </div>
-      </section>
+            <div className='segundofotter'>
+                <section className="appbar">
+                <div className="contato">
+                    <h2>CONTATO</h2>
+                    <div className="contato_item">
+                        <img src={instagramIcon} alt="Instagram" />
+                        <span>@sanctus.panis</span>
+                    </div>
+                    <div className="contato_item">
+                        <img src={whatsappIcon} alt="WhatsApp" />
+                        <span>(47) 9 8833-6030</span>
+                    </div>
 
-      {/* Seção com informações úteis */}
-      <section className="informacoes_gerais">
-        <div className="contatos_uteis">
-          <h2>CONTATOS ÚTEIS</h2>
-          <div className="contato_item">
-            <span>Instagram: @sanctus.panis</span>
-          </div>
-          <div className="contato_item">
-            <span>WhatsApp da Equipe: (47) 9 8833-6030</span>
-          </div>
-          <div className="contato_item">
-            <span>Funcionamento: Terça a Domingo</span>
-          </div>
-        </div>
+                    <div className="localizacao">
+                    <h2>LOCALIZAÇÃO</h2>
+                    <div className="mapa_container">
+                    <span>Bairro Vila Amizade R. Guaramirim - Santa Catarina</span>
+                    </div>
+                </div>
 
-        <div className="linha_divisoria"></div>
+                    <div className="horario">
+                    <h2>HORÁRIO</h2>
+                    <span>De terça-feira a domingo das 18h30 as 00h</span>
+                    </div>
+                </div>
 
-        <div className="localizacao">
-          <h2>ONDE ESTAMOS</h2>
-          <div className="mapa_container">
-            <p>Rua Exemplo, Bairro Vila Amizade - Guaramirim, SC</p>
-            {/* <img src={mapaImg} alt="Mapa da localização" /> */}
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+                
+            </section> 
+            </div>
+
+        
+        </main>
+    );
 }
 
 export default BoasVindasColaborador;

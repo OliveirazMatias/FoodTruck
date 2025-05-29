@@ -1,329 +1,642 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
 body {
-    background-color: #000000;
-    font-family: 'Alata', sans-serif;
-    margin: 0;
-    padding: 0;
+  background-color: #000000;
+  font-family: 'Alata', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .comandas-container {
-    padding: 3%;
-    padding-top: 7%;
-}
-
-.titulo-comanda{
-    display: flex;
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    width: 25%;
-    border-bottom: 0.2vw solid #B42625;
-}
-
-.titulo-comanda-numero{
-    display: flex;
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    width: 21.5%;
-    border-bottom: 0.2vw solid #B42625;
-}
-
-.titulo-comanda-adicionar{
-    display: flex;
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    width: 19.5%;
-    border-bottom: 0.2vw solid #B42625;
-}
-
-.botoes-mesas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2vw;
-    gap: 1.5vw;
-}
-
-.botao-mesa {
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 1.2vw;
-    padding: 1vw 2vw;
-    border: none;
-    border-radius: 1vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.botao-mesa:hover {
-    background-color: #8e1d1d;
-}
-
-.modal-comanda {
-    background-color: rgba(0, 0, 0, 0.5);
+  padding: 3%;
+  padding-top: 7%;
 }
 
 .titulo-comanda {
-    display: flex;
-    justify-content: center;
-    font-size: 2vw;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    margin-bottom: 2%;
-    width: 15%;
+  display: flex;
+  font-size: 1.8vw;
+  color: #ffffff;
+  margin-left: 11%;
+  margin-bottom: 2%;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  width: 14%;
+  border-bottom: 0.2vw solid #B42625;
+}
+
+.botoes-mesas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  margin: 4vw 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao-mesa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1vw 3vw;
+  border-radius: 1vw;
+  font-size: 1.3vw;
+  min-width: 120px;
+  min-height: 48px;
+  width: auto;
+  height: auto;
+  margin: 0.5vw;
+  box-sizing: border-box;
+  white-space: nowrap;
+  background-color: #B42625;
+  color: #fff;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-mesa:hover {
+  background-color: #8e1d1d;
+}
+
+.modal-comanda {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .comanda-body {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
 }
 
 .itens-comanda {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    width: 55vw;
-    height: auto;
-    border-radius: 2vw;
-    border: 0.2vw solid #B42625;
-    background: #141C1E;
-    padding: 1.5%;
-    gap: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 55vw;
+  height: auto;
+  border-radius: 2vw;
+  border: 0.2vw solid #B42625;
+  background: #141C1E;
+  padding: 1.5%;
+  gap: 1.5vw;
 }
 
 .item-comanda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
 }
 
 .corpo-pedido {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .img-lanche {
-    width: 35%;
-    height: auto;
-    margin-right: 1vw;
+  width: 35%;
+  height: auto;
+  margin-right: 1vw;
 }
 
 .food-text-comanda {
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .nome-lanche-comanda {
-    font-size: 1.2vw;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
+  font-size: 1.2vw;
+  color: #ffffff;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  width: fit-content;
 }
 
 .descricao-lanche-comanda {
-    color: #ffffff;
-    font-size: 0.8vw;
-    font-family: 'Alata', sans-serif;
+  color: #ffffff;
+  font-size: 0.8vw;
+  font-family: 'Alata', sans-serif;
 }
 
 .preco-total-comanda {
-    color: #B42625;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 1.3vw;
-    margin-right: 2%;
+  color: #B42625;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  font-size: 1.3vw;
+  margin-right: 2%;
 }
 
 .total-compra-comanda {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 1vw;
-    color: #fff;
-    font-family: 'Alata', serif;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-right: 2vw;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1vw;
+  color: #fff;
+  font-family: 'Alata', serif;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-right: 2vw;
 }
 
-.mensagem-vazia {
-    color: #FFF;
-    font-size: 1.3vw;
-    margin: 2vw;
-    font-family: 'Belanosima', serif;
-    font-weight: 400;
-    text-align: center;
+.mensagem-vazia-comandas {
+  color: #FFF;
+  font-size: 1.3vw;
+  margin: 2vw;
+  font-family: 'Belanosima', serif;
+  font-weight: 400;
+  text-align: center;
 }
 
 .botoes-acoes {
-    display: flex;
-    gap: 0.5vw;
-    align-items: center;
-    font-size: 1vw;
+  display: flex;
+  gap: 0.5vw;
+  align-items: center;
+  font-size: 1vw;
 }
 
 .botoes-acoes button {
-    background-color: #B42625;
-    color: #ffffff;
-    font-size: 0.8vw;
-    border: none;
-    border-radius: 0.5vw;
-    padding: 0.3vw 0.7vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #B42625;
+  color: #ffffff;
+  font-size: 0.8vw;
+  border: none;
+  border-radius: 0.5vw;
+  padding: 0.3vw 0.7vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .botoes-acoes button:hover {
-    background-color: #8e1d1d;
+  background-color: #8e1d1d;
 }
 
 .quantidade-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFF;
-    font-size: 1vw;
-    margin: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 1vw;
+  margin: 2%;
 }
 
 .preco-quantidade-comanda {
-    font-size: 0.8vw;
-    color: #fff;
-    font-family: 'Alata', sans-serif;
-    margin-top: 0.2rem;
+  font-size: 0.8vw;
+  color: #fff;
+  font-family: 'Alata', sans-serif;
+  margin-top: 0.2rem;
 }
 
 .titulo-comanda-mesa {
-    display: flex;
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    width: 25%;
-    border-bottom: 0.2vw solid #B42625;
+  display: flex;
+  font-size: 1.8vw;
+  color: #ffffff;
+  margin-left: 22%;
+  margin-bottom: 2%;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  width: 25%;
+  border-bottom: 0.2vw solid #B42625;
 }
 
 .titulo-comanda-add {
-    display: flex;
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    width: 100%;
-    border-bottom: 0.2vw solid #B42625;
+  display: flex;
+  font-size: 1.8vw;
+  color: #ffffff;
+  margin-left: 22%;
+  margin-bottom: 2%;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  width: 100%;
+  border-bottom: 0.2vw solid #B42625;
 }
 
-.preco-remover-comanda{
-    display: flex;
-    width: 60%;
+.preco-remover-comanda {
+  display: flex;
+  width: 60%;
 }
 
-.acoes-lanche{
+.acoes-lanche {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  width: fit-content;
+}
+
+.acoes-comanda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  margin: 1vw;
+}
+
+.botao-concluir,
+.botao-remover {
+  background-color: #B42625;
+  color: #ffffff;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  font-size: 0.8vw;
+  padding: 0.5vw 1vw;
+  border: none;
+  border-radius: 0.6vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-add-comandas {
+  background-color: #B42625;
+  color: #ffffff;
+  font-family: 'Belanosima', serif;
+  font-weight: 600;
+  font-size: 0.8vw;
+  padding: 0.5vw 1vw;
+  border: none;
+  border-radius: 0.6vw;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 1440px) {
+  .modal-comanda .MuiBox-root {
+    width: 90vw !important;
+    max-width: 900px !important;
+    padding: 2vw !important;
+    font-size: 1.1vw;
+  }
+
+  .corpo-pedido {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .comandas-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    align-items: flex-end; 
-    height: 100%; 
-    width: 100%;
-}
+    align-items: center;
+    justify-content: center;
+    padding: 2% 1%;
+    padding-top: 16vw;
+  }
 
-.acoes-comanda{
-    display: flex;
+  .titulo-comanda,
+  .titulo-comanda-mesa,
+  .titulo-comanda-add {
+    font-size: 30px;
+    width: 90%;
+    margin-left: 70px;
+    text-align: center;
+    border-bottom-width: 2px;
+    text-align: center;
+  }
+
+  .botoes-mesas {
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin: 4vw 0;
     justify-content: center;
     align-items: center;
+  }
+
+  .botao-mesa {
+    padding: 3vw 6vw;
+    border-radius: 2vw;
+    width: 10px;
+    height: 10px;
+    font-size: 25px;
+  }
+
+  .itens-comanda {
+    width: 98vw;
+    padding: 3vw 2vw;
+    gap: 3vw;
+    border-radius: 3vw;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-comanda {
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vw;
+    width: 100%;
+    text-align: center;
+  }
+
+  .corpo-pedido {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2vw;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .img-lanche {
+    width: 28vw;
+    max-width: 120px;
+    margin-right: 2vw;
+    margin: 0 auto 2vw auto;
+    display: block;
+  }
+
+  .food-text-comanda {
+    font-size: 3.5vw;
+  }
+
+  .nome-lanche-comanda {
+    font-size: 4vw;
+    width: fit-content;
+
+  }
+
+  .descricao-lanche-comanda {
+    font-size: 2.8vw;
+  }
+
+  .preco-total-comanda,
+  .preco-quantidade-comanda {
+    font-size: 3vw;
+    margin-right: 0;
+  }
+
+  .total-compra-comanda {
+    font-size: 3.5vw;
+    margin-right: 0;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin: 4vw 0;
+  }
+
+  .mensagem-vazia {
+    font-size: 3vw;
+    margin: 4vw 0;
+    text-align: center;
+    width: 100%;
+    margin: 4vw 0;
+  }
+
+  .botoes-acoes,
+  .acoes-comanda {
+    gap: 2vw;
+    font-size: 3vw;
+  }
+
+  .botoes-acoes button,
+  .botao-concluir,
+  .botao-remover,
+  .botao-add-comandas {
+    font-size: 3vw;
+    padding: 1vw 4vw;
+    border-radius: 2vw;
+  }
+
+  .quantidade-item {
+    font-size: 3vw;
+    margin: 2vw 0;
+  }
+
+  .modal-comanda .MuiBox-root {
+    width: 98vw !important;
+    max-width: 600px !important;
+    min-width: 0 !important;
+    padding: 2vw 2vw !important;
+    font-size: 1.1vw !important;
+    box-sizing: border-box;
+    border-radius: 1.2rem !important;
+    overflow-x: hidden;
+  }
+
+  .comanda-titulo,
+  .titulo-comanda {
+    font-size: 1.1rem !important;
+    text-align: center;
+    margin: 0 auto 1vw auto;
+    width: 100%;
+  }
+
+  .comanda-body,
+  .itens-comanda {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-comanda {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 1rem;
+    width: max-content;
+    max-width: 100% !important;
+    margin-bottom: 2vw;
+    box-sizing: border-box;
+  }
+
+  .corpo-pedido {
+    flex-direction: column;
+    align-items: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .img-lanche {
+    width: 28vw !important;
+    max-width: 100px !important;
+    margin: 0 auto 1vw auto !important;
+    display: block;
+  }
+
+  .food-text-comanda,
+  .nome-lanche-comanda,
+  .descricao-lanche-comanda {
+    font-size: 1rem !important;
+    text-align: center;
+    width: 100%;
+    margin: 0.5vw 0;
+    width: fit-content;
+  }
+
+  .preco-total-comanda,
+  .preco-quantidade-comanda,
+  .total-compra-comanda {
+    font-size: 1rem !important;
+    text-align: center;
+    width: 100%;
+    margin: 0.5vw 0;
+  }
+
+  .botoes-acoes,
+  .acoes-comanda {
+    gap: 2vw;
+    font-size: 1rem !important;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .botoes-acoes button,
+  .botao-concluir,
+  .botao-remover,
+  .botao-add-comandas {
+    font-size: 1rem !important;
+    padding: 1vw 3vw !important;
+    border-radius: 2vw !important;
+    margin: 0.5vw !important;
+  }
+
+  .quantidade-item {
+    font-size: 1rem !important;
+    margin: 1vw 0 !important;
+  }
+
+  .mensagem-vazia-comandas {
+    font-size: 1rem !important;
+    margin: 2vw 0 !important;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .titulo-comanda,
+  .titulo-comanda-mesa,
+  .titulo-comanda-add {
+    font-size: 25px;
+    width: 105%;
+    margin-left: 70px;
+    text-align: center;
+    border-bottom-width: 2px;
+    text-align: center;
+  }
+
+  .corpo-pedido {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2vw;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .titulo-comanda,
+  .titulo-comanda-mesa,
+  .titulo-comanda-add {
+    font-size: 25px;
+    width: 85%;
+    margin-left: 70px;
+    text-align: center;
+    border-bottom-width: 2px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1440px),
+(max-width: 1024px) {
+  .itens-comanda {
+    width: 98vw !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box;
+  }
+
+  .item-comanda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-bottom: 2vw;
+  }
+
+  .corpo-pedido {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    max-width: 70%;
+    min-width: 0;
+    box-sizing: border-box;
     gap: 1vw;
-    margin: 1vw;
-}
+  }
 
-.botao-concluir, .botao-remover{
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 0.8vw;
-    padding: 0.5vw 1vw;
-    border: none;
-    border-radius: 0.6vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+  .img-lanche {
+    width: 80px !important;
+    max-width: 80px !important;
+    min-width: 60px !important;
+    height: auto;
+    margin-right: 1vw;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
 
-.botao-add-comandas{
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 0.8vw;
-    padding: 0.5vw 1vw;
-    border: none;
-    border-radius: 0.6vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+  .food-text-comanda {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 
-.add-pedido{
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 0.8vw;
-    padding: 0.5vw 1vw;
-    border: none;
-    border-radius: 0.6vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+  .acoes-lanche,
+  .preco-remover-comanda {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    max-width: 28%;
+    min-width: 120px;
+    box-sizing: border-box;
+  }
 
-.button-add-comanda{
-    background-color: #B42625;
-    color: #ffffff;
-    font-family: 'Belanosima', serif;
-    font-weight: 600;
-    font-size: 0.8vw;
-    padding: 0.5vw 1vw;
-    border: none;
-    border-radius: 0.6vw;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+  .botoes-acoes {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 
-.titulo-comanda-add{
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    width: 19.5%;
-    border-bottom: 0.2vw solid #B42625;
-}
-
-.titulo-comanda-mesa{
-    font-size: 1.8vw;
-    color: #ffffff;
-    margin-left: 22%;
-    margin-bottom: 2%;
-    width: 22%;
-    border-bottom: 0.2vw solid #B42625;
+  .botoes-acoes button,
+  .botao-concluir,
+  .botao-remover,
+  .botao-add-comandas {
+    min-width: 60px;
+    max-width: none;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    padding: 0.5vw 1.5vw;
+    font-size: 1vw;
+  }
 }

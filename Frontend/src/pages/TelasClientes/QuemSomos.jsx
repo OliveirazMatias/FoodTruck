@@ -1,7 +1,6 @@
 import '../TelasClientesCss/QuemSomos.css';
 import * as React from 'react';
 import equipeImg from '../../assets/quemsomos/foodtruck.jpeg';
-// import mapaImg from '../../assets/quemsomos/mapa.png'; // Certifique-se que a imagem do mapa está no local correto
 import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
@@ -12,7 +11,6 @@ function QuemSomos() {
     return (
         <main>
             <Navbar />
-            {/* Seção Principal */}
             <div className="quem_somos">
                 <div className="quem_somos_img">
                     <div className="img_overlay"></div>
@@ -23,7 +21,6 @@ function QuemSomos() {
                 </div>
             </div>
 
-            {/* Seção Quem Somos */}
             <section className="quem_somos_detalhes">
                 <div className="quem_somos_texto">
                     <h2>QUEM SOMOS?</h2>
@@ -38,33 +35,35 @@ function QuemSomos() {
                 </div>
             </section>
 
-            {/* Seção Contato e Localização */}
-            <section className="contato_localizacao">
-                <div className="contato">
-                    <h2>CONTATO</h2>
-                    <div className="contato_item">
-                        <img src={instagramIcon} alt="Instagram" />
-                        <span>@sanctus.panis</span>
+            <div className='fotter'>
+                <section className="contato_localizacao">
+                    <div className="contato">
+                        <h2>CONTATO</h2>
+                        <div className="contato_item">
+                            <img src={instagramIcon} alt="Instagram" />
+                            <span>@sanctus.panis</span>
+                        </div>
+                        <div className="contato_item">
+                            <img src={whatsappIcon} alt="WhatsApp" />
+                            <span>(47) 9 8833-6030</span>
+                        </div>
                     </div>
-                    <div className="contato_item">
-                        <img src={whatsappIcon} alt="WhatsApp" />
-                        <span>(47) 9 8833-6030</span>
+                    
+                    <div className="localizacao">
+                        <h2>LOCALIZAÇÃO</h2>
+                        <div className="mapa_container" > 
+                        <span>Bairro Vila Amizade R. Guaramirim - Santa Catarina</span>
+                        </div>
                     </div>
-                    <div className="contato_item">
-                        <img src={clockIcon} alt="Relógio" />
-                        <span>De terça-feira a domingo</span>
-                    </div>
+
+                    <div className="horario">
+                         <h2>HORÁRIO</h2>
+                            <span>De terça-feira a domingo das 18h30 as 00h</span>
+                        </div>
+                        
+                </section>
                 </div>
 
-                <div className="linha_divisoria"></div>
-
-                <div className="localizacao">
-                    <h2>LOCALIZAÇÃO</h2>
-                    <div className="mapa_container">
-                        {/* <img src={mapaImg} alt="Mapa da localização" /> */}
-                    </div>
-                </div>
-            </section>
         </main>
     );
 }

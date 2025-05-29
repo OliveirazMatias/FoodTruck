@@ -5,10 +5,10 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-x: hidden;
 }
 
-/* Seção de Boas-Vindas */
-.boas_vindas {
+.quem_somos {
     position: relative;
     height: 50vw;
     display: flex;
@@ -18,12 +18,14 @@ html {
     z-index: 1;
     padding: 0;
     margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .boas_vindas_img {
     width: 55%;
     height: 100%;
-    background-image: url('../../assets/inicialcolaboradores/equipe.jpg');
+    background-image: url('../../assets/quemsomos/foodtruck.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -42,6 +44,7 @@ html {
     text-align: center;
     color: white;
     font-family: 'Belanosima';
+    overflow-wrap: break-word;
     overflow-wrap: break-word;
 }
 
@@ -77,8 +80,8 @@ html {
     padding-right: 40px;
 }
 
-.texto_empresa h2 {
-    font-size: 4vw;
+.quem_somos_texto h2 {
+    font-size: 2.5vw;
     color: #FFBA21;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -86,7 +89,7 @@ html {
 
 .texto_empresa p {
     font-size: 1.5vw;
-    line-height: 1.6;
+    line-height: 1.3;
 }
 
 .imagem_equipe {
@@ -102,14 +105,22 @@ html {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Seção Informações Gerais */
-.informacoes_gerais {
+.segundofotter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  
+}
+
+.appbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    align-items: start;
     background-color: var(--vermelho);
-    color: white;
     padding: 40px 10%;
+    width: 100%;
+    height: 10vw;
     font-family: 'Belanosima', sans-serif;
     flex-wrap: wrap;
     gap: 1rem;
@@ -117,12 +128,13 @@ html {
 
 .contatos_uteis {
     flex: 1;
-    text-align: center;
 }
 
-.contatos_uteis h2,
-.localizacao h2 {
-    font-size: 2vw;
+.contato h2,
+.localizacao h2, 
+.horario h2 {
+    text-align: center;
+    font-size: 1.2vw;
     font-weight: bold;
     color: #ffc107;
 }
@@ -132,21 +144,14 @@ html {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 10px;
     font-size: 1vw;
 }
 
 .contato_item img {
-    width: 10%;
+    width: 5%;
     height: auto;
 }
-
-.linha_divisoria {
-    height: 1vh;
-    background-color: #ffc107;
-    margin: 0 40px;
-}
-
+ 
 .localizacao {
     flex: 1;
     text-align: center;
@@ -154,21 +159,18 @@ html {
 
 .mapa_container img {
     width: 15vw;
+    width: 15vw;
     max-width: 30vw;
     border-radius: 20px;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .informacoes_gerais {
+    .appbar {
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 20px 5%;
-    }
-
-    .linha_divisoria {
-        display: none;
     }
 
     .imagem-equipe {
