@@ -6,21 +6,28 @@
 .header {
     display: flex;
     background-color: white;
-    padding: 1.5% 1%;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    align-items: flex-start;
+    padding: 8px 2vw;
+    align-items: center;
     justify-content: space-between;
-    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     z-index: 1000;
+    min-height: 48px;
+    height: 70px;
   }
-  
-  nav {
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex: 0 0 auto;
+  }
+
+  .nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,47 +38,36 @@
   .nav-link-header {
     color: black;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.1vw;
-  }
+    font-size: 1rem;
+    margin: 0 4px;
+    transition: color 0.2s;
+    white-space: nowrap;
+  } 
   
   .nav-link-header:hover {
-    color: black;
+    color: #FFBA21;
   }
-  
-  /* div {
-    flex: 1;
-    text-align: center;
-  } */
-  
-  /* h1 {
-    color: #333;
-    font-family: 'Alata', sans-serif;
-  }
-  
-  p {
-    color: #666;
-  } */
-  
-  .content {
-    padding-top: 60px;
-  }
-  
   
   .logo {
-    display: flex;
-    position: absolute;
-    margin-right: 30vw;
-    margin-top: -1.2%;
-    width: 6%;
+    width: 90px;
     height: auto;
-    left: 5vw;
+    margin: 0;
+    position: static;
+    min-width: 40px;
+    max-width: 120px;
+    flex-shrink: 0;
+    margin-top: 50px;
   }
+
   
   .perfil{
-    width: 2%;
-    height: auto;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
+    display: block;
+    object-fit: contain;
+    margin-left: 8px;
+    flex: 0 0 auto;
   }
 
 .navbar {
@@ -122,73 +118,55 @@
   .content {
     padding: 20px;
   }
-  
-  .hamburguer-content {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3%;
-  }
-  
-  .lanchefuncionapf{
-    width: 100%;
-    height: auto;
-  }
-  
-  .imagem-lanche {
-    background-color: #FFBA21;
-    border-radius: 30px;
-    margin: 1% 25%;
-    padding: 6% 0.1%;
-  }
-  
-  .lanche-descricao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    margin: 1% 22%;
-  }
-  
-  .nome-lanche {
-    color: #FFF;
-    font-family: Belanosima;
-    font-size: 2em;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-  
-  .descricao-lanche {
-    color: #FFF;
-    font-family: Alata;
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .preco-lanche {
-    font-size: 1.2em;
-    color: #FFBA21;
-    font-weight: bold;
-  }
 
   .perfil {
-    width: 100%; /* Ajuste o tamanho conforme necessário */
+    width: 100%; 
     height: auto;
     cursor: pointer;
-    display: block; /* Garante que a imagem seja exibida como um bloco */
+    display: block; 
   }
 
   a img.perfil {
-    width: 100%; /* Garante que a largura da imagem seja consistente */
-    height: auto;
-    display: block; /* Garante que a imagem seja exibida corretamente */
+    width: 60%; 
+    display: block; 
+    margin-top: 10px;
   }
 
-nav-links{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1%;
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 16px;
+  margin-top: 1%;
+  text-align: center;
+}
+
+@media (max-width: 748px) {
+  .header {
+    padding: 4px 2vw;
+    min-height: 40px;
+    height: 44px;
+  }
+
+  .logo {
+    width: 56px;
+    min-width: 32px;
+    max-width: 64px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-link-header {
+    font-size: 0.8rem;
+    margin: 0 1px;
+  }
+
+  .perfil {
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
+  }
 }

@@ -115,7 +115,7 @@ function Comandas() {
             <h1 className="titulo-comanda">Selecionar Mesa</h1>
             <div className="botoes-mesas">
                 {[1, 2, 3, 4, 5, 6].map(mesa => (
-                    <button key={mesa} className="botao-mesa" onClick={() => abrirComanda(mesa)}>
+                    <button id="botao-mesa" key={mesa} className="botao-mesa" onClick={() => abrirComanda(mesa)}>
                         Mesa {mesa}
                     </button>
                 ))}
@@ -132,7 +132,7 @@ function Comandas() {
                             <div className='comanda-body'>
                                 <div className='itens-comanda'>
                                     {comandas[mesaSelecionada]?.filter(item => item.quantidade > 0).length === 0 ? (
-                                        <div className='mensagem-vazia'>
+                                        <div className='mensagem-vazia-comandas'>
                                             <h2>Nenhum pedido ainda!</h2>
                                             <p>Adicione algo à comanda!</p>
                                         </div>

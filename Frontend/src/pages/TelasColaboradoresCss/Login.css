@@ -1,73 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
-  
+
+.loginPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
 
 .forms-container {
-    border-radius: 2vw; 
-    border: 0.2vw solid #B42625; 
-    background: #141C1E; 
-    margin: 15% auto; 
-    padding: 2vw; 
-    max-width: 20vw; 
+    border-radius: 1rem;
+    border: 2px solid #B42625;
+    background: #141C1E;
+    margin: 5vh auto;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 }
 
 .forms-conteudo {
-    width: 100%; 
-    text-align: center; 
+    width: 100%;
+    text-align: center;
 }
 
 .titulo-login {
-    color: #FFF; 
-    font-size: 2vw; 
-    font-family: 'Belanosima', serif; 
-    font-weight: 600; 
-    margin-bottom: 10%; 
+    color: #FFF;
+    font-size: 1.8rem;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    margin-bottom: 2rem;
 }
 
 .preencher-forms {
     display: flex;
     flex-direction: column;
-    gap: 1vw; 
+    gap: 1rem;
     width: 100%;
 }
 
-.input-login, .input-senha {
-    padding: 0.75vw; 
-    font-size: 1vw; 
-    border: none; 
-    border-radius: 2.5vw; 
+.input-login,
+.input-senha {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2rem;
     background-color: #1E282A;
-    color: #FFF; 
+    color: #FFF;
     outline: none;
 }
 
-.input-login::placeholder, .input-senha::placeholder {
-    color: #888; 
+.input-login::placeholder,
+.input-senha::placeholder {
+    color: #888;
 }
 
 .botao-login {
-    padding: 0.75vw; 
-    font-size: 1vw; 
-    color: #FFF; 
-    background-color: #B42625; 
-    border: none; 
-    border-radius: 2.5vw; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
-    width: 100%; 
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #FFF;
+    background-color: #B42625;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
     font-family: 'Belanosima', serif;
     font-weight: 600;
 }
 
 .botao-login:hover {
-    background-color: #A31E1A; 
+    background-color: #A31E1A;
 }
 
-.error-message{
+.error-message {
     color: #FFF;
-    font-size: 1vw;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .forms-container {
+        max-width: 90%;        
+        padding: 1rem;
+        border-radius: 0.8rem;
+        margin-top: 1.5rem;
+    }
+
+    .titulo-login {
+        font-size: 1.3rem;
+    }
+
+    .input-login,
+    .input-senha,
+    .botao-login {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+
+    .botao-login {
+        border-radius: 2rem;
+    }
+
+    .error-message {
+        font-size: 0.75rem;
+    }
 }

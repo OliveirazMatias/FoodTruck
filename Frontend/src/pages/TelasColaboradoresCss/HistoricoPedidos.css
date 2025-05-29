@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Belanosima:wght@400;600;700&display=swap');
 
 body {
@@ -16,8 +15,8 @@ body {
     font-size: 2vw;
     font-family: 'Belanosima', serif;
     font-weight: 600;
-    margin-top: 150px; 
-    border-bottom: 4px solid #B42625; 
+    margin-top: 150px;
+    border-bottom: 4px solid #B42625;
     display: inline-block;
 }
 
@@ -34,14 +33,14 @@ body {
     margin: 5px;
     cursor: pointer;
     border-radius: 10px;
-    width: 150px; 
+    width: 150px;
     font-family: 'Alata';
     font-size: 15px;
     transition: background-color 0.3s ease, border 0.3s ease;
 }
 
 .filtro-container .ativo {
-    background-color: rgb(104, 12, 12); 
+    background-color: rgb(104, 12, 12);
     border: 2px solid white;
 }
 
@@ -95,4 +94,10 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+@media(max-width: 605px) {
+    .titulo{
+        font-size: 25px;
+    }
 }
