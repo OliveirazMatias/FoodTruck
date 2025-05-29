@@ -57,11 +57,16 @@ function QuemSomos() {
                 </div>
 
                 <div className="linha_divisoria"></div>
-
                 <div className="localizacao">
                     <h2>LOCALIZAÇÃO</h2>
                     <div className="mapa_container">
-                        {/* <img src={mapaImg} alt="Mapa da localização" /> */}
+                        <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.397085571266!2d-50.20017432382862!3d-22.110830909911872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94959cda59fb90a7%3A0xac4e61b3ec869988!2sSENAI%20Pomp%C3%A9ia!5e0!3m2!1spt-BR!2sbr!4v1748519475475!5m2!1spt-BR!2sbr" 
+                        width="80%" 
+                        height="250" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </section>
