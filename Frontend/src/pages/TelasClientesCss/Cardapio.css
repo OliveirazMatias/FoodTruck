@@ -383,14 +383,14 @@ button, input, textarea, select {
 .obs {
     width: 90%;
     margin-bottom: 2vw;
-    height: 3.5vw;
+    height: 3.5vw; /* Ajusta a altura para destacar o textarea */
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
     border-radius: 0.8vw;
-    display: flex;
-    padding-left: 1vw;
+    padding: 1vw; /* Adiciona espaçamento interno */
     color: #000000;
-    font-size: 0.9vw;
+    font-size: 1vw; /* Ajusta o tamanho da fonte */
+    font-family: 'Alata', sans-serif;
 }
 
 .obs::placeholder {

@@ -7,6 +7,7 @@ import imgPerfil from '../../assets/icons/iconperfil.png';
 function Navbar() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para verificar se o usuário está logado
+  const [showDropdown, setShowDropdown] = useState(false); // Estado para controlar o dropdown
   const tipoFuncionario = localStorage.getItem('tipo_funcionario'); // Obtém o tipo de funcionário
   const navigate = useNavigate();
 
@@ -32,11 +33,39 @@ function Navbar() {
     }
   };
 
+  const toggleDropdown = () => {
+    if (tipoFuncionario === 'Administrador' || tipoFuncionario === 'Funcionario') {
+      setShowDropdown((prev) => !prev); // Alterna o estado do dropdown
+    }
+  };
+
   return (
     <header className="header">
-      <Link to="/">
+      <button className="logo-button" onClick={toggleDropdown}>
         <img className="logo" src={imglogo} alt="logo" />
-      </Link>
+      </button>
+      {showDropdown && (
+        <div className="dropdown-menu dropdown-below">
+          {tipoFuncionario === 'Administrador' && (
+            <>
+              <Link to="/colaboradoresInicial" className="dropdown-link">TELA INICIAL</Link>
+              <Link to="/" className="dropdown-link">CARDÁPIO</Link>
+              <Link to="/carrinho" className="dropdown-link">CARRINHO</Link>
+              <Link to="/comandas" className="dropdown-link">COMANDAS</Link>
+              <Link to="/historicopedidos" className="dropdown-link">HISTÓRICO DE PEDIDOS</Link>
+              <Link to="/estoque" className="dropdown-link">ESTOQUE</Link>
+            </>
+          )}
+          {tipoFuncionario === 'Funcionario' && (
+            <>
+              <Link to="/colaboradoresInicial" className="dropdown-link">TELA INICIAL</Link>
+              <Link to="/" className="dropdown-link">CARDÁPIO</Link>
+              <Link to="/carrinho" className="dropdown-link">CARRINHO</Link>
+            </>
+          )}
+        </div>
+      )}
+
       <div className="nav-links">
         {tipoFuncionario === 'Administrador' && (
           <>
