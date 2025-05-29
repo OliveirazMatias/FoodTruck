@@ -252,7 +252,12 @@ function Cardapio() {
                                 </div>
                             </div>
                             <div className='bottom_modal'>
-                                <input type="text" className='obs' placeholder='Alguma Observação:' value={obs} onChange={handleObs} />
+                                <textarea
+                                    className='obs'
+                                    placeholder='Alguma Observação:'
+                                    value={obs}
+                                    onChange={handleObs}
+                                />
                                 <button className='carrinho' onClick={handleAddToCart}>
                                     Adicionar ao carrinho
                                     <img className='carrinho-modal' src={carrinho} alt="" />

@@ -230,3 +230,29 @@ export const updateUsuario = async (usuario) => {
     throw error;
   }
 };
+
+export const pagamentoPix = async (dadosPagamento) => {
+  try {
+    const response = await http.post("/pagamento/pix", dadosPagamento);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao processar pagamento PIX:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const pagamentoCartao = async (dadosPagamento) => {
+  try {
+    const response = await http.post("/pagamento/cartao", dadosPagamento);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao processar pagamento com cartão:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
