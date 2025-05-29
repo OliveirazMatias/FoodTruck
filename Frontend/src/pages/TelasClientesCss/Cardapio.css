@@ -17,10 +17,6 @@ button,
 input,
 textarea,
 select {
-button,
-input,
-textarea,
-select {
     user-select: auto;
 }
 
@@ -168,9 +164,6 @@ select {
 .produtos01,
 .produtos02,
 .produtos03 {
-.produtos01,
-.produtos02,
-.produtos03 {
     border-radius: 30px;
     background-color: #000000;
     border: 0.3vw solid #FFBA21;
@@ -187,15 +180,9 @@ select {
 .produtos01 img,
 .produtos02 img,
 .produtos03 img {
-.produtos01 img,
-.produtos02 img,
-.produtos03 img {
     transition: all 0.5s;
 }
 
-.produtos01:hover,
-.produtos02:hover,
-.produtos03:hover {
 .produtos01:hover,
 .produtos02:hover,
 .produtos03:hover {
@@ -207,9 +194,6 @@ select {
     border: #FFBA21 0.8rem solid;
 }
 
-.produtos01 p,
-.produtos02 p,
-.produtos03 p {
 .produtos01 p,
 .produtos02 p,
 .produtos03 p {
@@ -227,16 +211,8 @@ select {
 .produtos02:hover p,
 .produtos03:hover p {
     color: #B42625;
-.produtos01:hover p,
-.produtos02:hover p,
-.produtos03:hover p {
-    color: #B42625;
 }
 
-.produtos01:hover img,
-.produtos02:hover img,
-.produtos03:hover img {
-    transform: scale(1.2);
 .produtos01:hover img,
 .produtos02:hover img,
 .produtos03:hover img {
@@ -384,8 +360,6 @@ select {
 
 .button_add,
 .button_sub {
-.button_add,
-.button_sub {
     background-color: #FFE4AA;
     color: #000000;
     font-size: 1.5vw;
@@ -435,12 +409,12 @@ select {
 .obs {
     width: 90%;
     margin-bottom: 2vw;
-    height: 3.5vw;
+    height: 10vw !important;
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
-    border-radius: 0.8vw;
+    border-radius: 2vw !important;
     display: flex;
-    padding-left: 1vw;
+    padding-left: 2vw !important;
     color: #000000;
     font-size: 0.9vw;
 }
@@ -482,17 +456,18 @@ select {
     width: 90%;
     color: #000000;
     margin-bottom: 2vw;
-    height: 3.5vw;
+    font-size: 4vw !important;
+    height: 10vw !important;
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
-    border-radius: 0.5vw;
+    border-radius: 2vw !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9vw;
-    padding: 1vw;
+    padding: 2vw !important;
     font-family: 'Alata', sans-serif;
     font-weight: 400;
+    margin-top: 2vw !important;
 }
 
 .carrinho:hover {
@@ -500,9 +475,9 @@ select {
     background-color: #AA2322;
 }
 
-.button-add-pedido,
-.button-remover-pedido {
-.button-add-pedido,
+.button-add-pedido, 
+.button-remover-pedido, 
+.button-add-pedido, 
 .button-remover-pedido {
     font-size: 1.2vw;
     padding: 0.8vw 1.5vw;
@@ -510,8 +485,6 @@ select {
     transition: transform 0.3s ease;
 }
 
-.button-add-pedido:hover,
-.button-remover-pedido:hover {
 .button-add-pedido:hover,
 .button-remover-pedido:hover {
     transform: scale(1.1);
@@ -542,8 +515,9 @@ select {
 }
 
 .carrinho-modal {
-    width: 10%;
-    height: auto;
+    width: 8vw !important;
+    height: auto !important;
+    margin-left: 2vw !important;
 }
 
 .food_body.indisponivel {
@@ -730,21 +704,25 @@ select {
     }
 
     .obs {
-        font-size: 4vw;
-        height: 8vw;
-        border-radius: 2vw;
-        padding-left: 2vw;
+        font-size: 4vw !important;
+        height: 10vw !important;
+        border-radius: 2vw !important;
+        padding-left: 2vw !important;
+        margin-bottom: 2vw !important;
     }
 
     .carrinho {
-        font-size: 4vw;
-        height: 8vw;
-        border-radius: 2vw;
-        padding: 2vw;
+        font-size: 4vw !important;
+        height: 10vw !important;
+        border-radius: 2vw !important;
+        padding: 2vw !important;
+        margin-top: 2vw !important;
     }
 
     .carrinho-modal {
-        width: 8vw;
+        width: 8vw !important;
+        height: auto !important;
+        margin-left: 2vw !important;
     }
 
     .lanches {

@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "nome": "Mateus Silverio",
-  "email": "silverio123@gmail.com",
+  "email": "admin123",
   "senha": "admin123"
 }
 
@@ -14,8 +14,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "email": "",
-  "senha": ""
+  "email": "admin123",
+  "senha": "admin123"
 }
 
 

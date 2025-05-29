@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../TelasColaboradoresCss/InicialColaboradores.css';
-import * as React from 'react';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
+import Navbar from '../../components/NavBar/navbar.jsx';
 import equipeImg from '../../assets/quemsomos/foodtruck.jpeg';
 import instagramIcon from '../../assets/quemsomos/instagram.png';
 import whatsappIcon from '../../assets/quemsomos/wpp.png';

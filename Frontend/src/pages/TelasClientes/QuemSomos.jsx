@@ -48,29 +48,28 @@ function QuemSomos() {
                             <span>(47) 9 8833-6030</span>
                         </div>
                     </div>
-                </div>
 
-                <div className="linha_divisoria"></div>
-                <div className="localizacao">
-                    <h2>LOCALIZAÇÃO</h2>
-                    <div className="mapa_container">
-                        <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.397085571266!2d-50.20017432382862!3d-22.110830909911872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94959cda59fb90a7%3A0xac4e61b3ec869988!2sSENAI%20Pomp%C3%A9ia!5e0!3m2!1spt-BR!2sbr!4v1748519475475!5m2!1spt-BR!2sbr" 
-                        width="80%" 
-                        height="250" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
+                    <div className="linha_divisoria"></div>
 
-                    <div className="horario">
-                         <h2>HORÁRIO</h2>
-                            <span>De terça-feira a domingo das 18h30 as 00h</span>
+                    <div className="localizacao">
+                        <h2>LOCALIZAÇÃO</h2>
+                        <div className="mapa_container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.397085571266!2d-50.20017432382862!3d-22.110830909911872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94959cda59fb90a7%3A0xac4e61b3ec869988!2sSENAI%20Pomp%C3%A9ia!5e0!3m2!1spt-BR!2sbr!4v1748519475475!5m2!1spt-BR!2sbr"
+                                width="80%"
+                                height="250"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
-                        
-                </section>
-                </div>
 
+                        <div className="horario">
+                            <h2>HORÁRIO</h2>
+                            <span>De terça-feira a domingo das 18h30 às 00h</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </main>
     );
 }
