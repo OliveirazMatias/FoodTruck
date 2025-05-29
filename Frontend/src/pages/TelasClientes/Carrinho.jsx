@@ -159,14 +159,16 @@ function Carrinho() {
     };
 
     return (
+        <div className="centralizar">
         <div className="carrinho-container">
-            <Navbar />
+            <Navbar/>
+            
             <div className='carrinho-titulo'>
                 <img className='icon-carrinho' src={carrinho} alt="icon-carrinho" />
                 <span className='titulo-carrinho'>Carrinho</span>
             </div>
             <div className='carrinho_body'>
-                <div className='pedidos_container'>
+                <div className='pedidos_container18'>
                     {items.length === 0 ? (
                         <div className='mensagem-vazia'>
                             <h2>Seu carrinho está vazio!</h2>
@@ -317,6 +319,7 @@ function Carrinho() {
                         </div>
                     </Box>
                 </Modal>
+            </div>
             </div>
         </div>
     );

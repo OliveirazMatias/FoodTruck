@@ -34,54 +34,17 @@ function Navbar() {
 
   return (
     <header className="header">
-      <Link to="/">
+      <div className="logo-container">
         <img className="logo" src={imglogo} alt="logo" />
-      </Link>
-      <div className="nav-links">
-        {tipoFuncionario === 'Administrador' && (
-          <>
-            <Link to="/addlanche" className="nav-link-header">GERENCIAMENTO DE LANCHES</Link>
-            <Link to="/addfuncionario" className="nav-link-header">GERENCIAMENTO DE FUNCIONÁRIOS</Link>
-          </>
-        )}
-        {tipoFuncionario === 'Funcionario' && (
-          <>
-            <Link to="/colaboradoresInicial" className="nav-link-header">TELA INICIAL</Link>
-            <Link to="/comandas" className="nav-link-header">COMANDAS</Link>
-            <Link to="/historicopedidos" className="nav-link-header">HISTÓRICO DE PEDIDOS</Link>
-            <Link to="/estoque" className="nav-link-header">ESTOQUE</Link>
-          </>
-        )}
-        {!tipoFuncionario && (
-          <>
-            <Link to="/" className="nav-link-header">CARDÁPIO</Link>
-            <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
-            <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
-          </>
-        )}
       </div>
-      <img
-        src={imgPerfil}
-        alt="Perfil"
-        className="perfil"
-        onClick={handleProfileClick} // Verifica se exibe o modal ou redireciona
-      />
-      {showLogoutModal && (
-        <div className="logout-modal">
-          <div className="logout-modal-content">
-            <h2>Deseja sair?</h2>
-            <button className="btn-confirm-logout" onClick={handleLogout}>
-              Sim
-            </button>
-            <button
-              className="btn-cancel-logout"
-              onClick={() => setShowLogoutModal(false)}
-            >
-              Não
-            </button>
-          </div>
-        </div>
-      )}
+      <div className="nav-links">
+        <Link to="/" className="nav-link-header">CARDÁPIO</Link>
+        <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
+        <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
+      </div>
+      <Link to="/login">
+        <img src={imgPerfil} alt="Perfil" className="perfil" />
+      </Link>
     </header>
   );
 }

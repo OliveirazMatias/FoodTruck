@@ -17,6 +17,10 @@ button,
 input,
 textarea,
 select {
+button,
+input,
+textarea,
+select {
     user-select: auto;
 }
 
@@ -59,13 +63,17 @@ select {
     content: '';
     position: absolute;
     bottom: -5%;
+    bottom: -5%;
     left: 50%;
     transform: translateX(-50%);
+    width: 65%;
+    height: 25%;
     width: 65%;
     height: 25%;
     background: radial-gradient(circle, #FFE4AA 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
     z-index: 0;
+    filter: blur(1vw);
     filter: blur(1vw);
 }
 
@@ -119,24 +127,26 @@ select {
 }
 
 .lancamento-titulo {
-    font-size: 3.5vw;
+    font-size: 30px;
     color: #ffffff;
     margin: 5%;
     font-family: 'Belanosima', serif;
     font-weight: 600;
 }
+.lancamentos-highlight{
+    border-bottom: 0.3vw solid #B42625;
+}
 
-.cardapio-highlight {
+/* .cardapio-highlight {
     border-bottom: 0.3vw solid #B42625;
     font-size: 2.5vw;
 
-}
-
+} */
 .lancamento-produtos {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 16px;
+    gap: 8px;
 }
 
 .lancamento-produtos p {
@@ -158,6 +168,9 @@ select {
 .produtos01,
 .produtos02,
 .produtos03 {
+.produtos01,
+.produtos02,
+.produtos03 {
     border-radius: 30px;
     background-color: #000000;
     border: 0.3vw solid #FFBA21;
@@ -174,9 +187,15 @@ select {
 .produtos01 img,
 .produtos02 img,
 .produtos03 img {
+.produtos01 img,
+.produtos02 img,
+.produtos03 img {
     transition: all 0.5s;
 }
 
+.produtos01:hover,
+.produtos02:hover,
+.produtos03:hover {
 .produtos01:hover,
 .produtos02:hover,
 .produtos03:hover {
@@ -191,10 +210,14 @@ select {
 .produtos01 p,
 .produtos02 p,
 .produtos03 p {
+.produtos01 p,
+.produtos02 p,
+.produtos03 p {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    padding: 5px;
     padding: 5px;
     text-align: center;
     width: 100%;
@@ -204,8 +227,16 @@ select {
 .produtos02:hover p,
 .produtos03:hover p {
     color: #B42625;
+.produtos01:hover p,
+.produtos02:hover p,
+.produtos03:hover p {
+    color: #B42625;
 }
 
+.produtos01:hover img,
+.produtos02:hover img,
+.produtos03:hover img {
+    transform: scale(1.2);
 .produtos01:hover img,
 .produtos02:hover img,
 .produtos03:hover img {
@@ -222,6 +253,7 @@ select {
 }
 
 .cardapio-highlight {
+    font-size: 30px;
     border-bottom: 0.3vw solid #B42625;
 }
 
@@ -352,6 +384,8 @@ select {
 
 .button_add,
 .button_sub {
+.button_add,
+.button_sub {
     background-color: #FFE4AA;
     color: #000000;
     font-size: 1.5vw;
@@ -468,12 +502,16 @@ select {
 
 .button-add-pedido,
 .button-remover-pedido {
+.button-add-pedido,
+.button-remover-pedido {
     font-size: 1.2vw;
     padding: 0.8vw 1.5vw;
     border-radius: 0.5vw;
     transition: transform 0.3s ease;
 }
 
+.button-add-pedido:hover,
+.button-remover-pedido:hover {
 .button-add-pedido:hover,
 .button-remover-pedido:hover {
     transform: scale(1.1);
@@ -565,5 +603,236 @@ select {
 
     .cardapio-titulo {
         font-size: 4vw;
+    }
+}
+
+@media (max-width: 425px) {
+    .confira-lancamentos{
+        margin-top: 50px;
+    }
+    .confira-img {
+        width: 150px;    
+    }
+    .confira-lancamentos .confira-img img{
+        width: 100%;
+    }
+    .incos{
+        flex-direction: column;
+        align-items: start;
+    }
+    .incons-lanche{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+    .incons-lanche img{
+        width: 20px;
+        height: auto;
+    }
+    .confira-titulo,
+    .lancamento-titulo,
+    .cardapio-titulo {
+        font-size: 5vw;
+    }
+
+    .lancamento-titulo {
+        font-size: 6vw;
+    }
+
+    .confira-subtexto,
+    .incos p,
+    .lancamento-produtos p,
+    .nome_comida,
+    .descricao,
+    .preco {
+        font-size: 4vw;
+    }
+
+    .confira-lancamentos .confira-img::after{
+        width: 120%;
+    } 
+
+    .lancamentoImg {
+        width: 30vw !important;
+        height: 18vw !important;
+        min-width: 0 !important;
+        max-width: 30vw !important;
+        max-height: 18vw !important;
+        margin: 0 auto !important;
+        object-fit: cover !important;
+        border-radius: 10px !important;
+    }
+
+    .image-lanches-cardapio {
+        width: 40vw !important;
+        height: 25vw !important;
+        min-width: 0 !important;
+        max-width: 40vw !important;
+        max-height: 25vw !important;
+        margin: 0 auto !important;
+        object-fit: cover !important;
+        border-radius: 10px !important;
+    }
+
+    .nome_comida,
+    .descricao,
+    .preco,
+    .lancamento-produtos p {
+        font-size: 2.5vw !important;
+        line-height: 1.2 !important;
+        margin: 0.5vw 0 !important;
+        text-align: center !important;
+        font-weight: 500 !important;
+    }
+
+    .produtos01,
+    .produtos02,
+    .produtos03 {
+        width: 90vw;
+        padding: 8vw 0;
+    }
+
+    .lanches {
+        grid-template-columns: 1fr;
+        gap: 8vw 0;
+    }
+
+    .food_button {
+        font-size: 1.2rem;
+    }
+
+    .image_div {
+        border-radius: 4vw;
+    }
+
+    .title_modal {
+        font-size: 6vw;
+    }
+
+    .description_modal,
+    .preco_modal,
+    .total_modal,
+    .quantity_number {
+        font-size: 4vw;
+    }
+
+    .button_add,
+    .button_sub {
+        font-size: 5vw;
+        height: 8vw;
+        width: 8vw;
+        border-radius: 2vw;
+    }
+
+    .opcoes button {
+        font-size: 2.5vw;
+
+    }
+
+    .obs {
+        font-size: 4vw;
+        height: 8vw;
+        border-radius: 2vw;
+        padding-left: 2vw;
+    }
+
+    .carrinho {
+        font-size: 4vw;
+        height: 8vw;
+        border-radius: 2vw;
+        padding: 2vw;
+    }
+
+    .carrinho-modal {
+        width: 8vw;
+    }
+
+    .lanches {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4vw 2vw;
+        width: 100%;
+    }
+
+    .produtos01,
+    .produtos02,
+    .produtos03 {
+        width: 100%;
+        padding: 4vw 0;
+    }
+
+    .image-lanches-cardapio,
+    .lancamentoImg {
+        width: 90%;
+        max-width: 160px;
+        margin: 0 auto;
+    }
+
+    .MuiBox-root {
+        max-width: 80vw !important;
+        width: 80vw !important;
+        min-width: 0 !important;
+        height: 50vh !important;
+        padding: 4vw 2vw !important;
+        border-radius: 4vw !important;
+        box-sizing: border-box;
+    }
+
+    .image-lanche-modal {
+        width: 90vw !important;
+        max-width: 300px !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto 2vw auto !important;
+        border-radius: 4vw !important;
+    }
+    .title_modal {
+        font-size: 6vw !important;
+        margin-bottom: 2vw;
+    }
+    .description_modal {
+        font-size: 4vw !important;
+        margin-bottom: 2vw;
+    }
+    .increase_button {
+        width: 100% !important;
+        font-size: 5vw !important;
+        border-radius: 2vw !important;
+        padding: 2vw 0 !important;
+    }
+    .button_add,
+    .button_sub {
+        font-size: 6vw !important;
+        height: 10vw !important;
+        width: 10vw !important;
+        border-radius: 2vw !important;
+    }
+    .quantity_number {
+        font-size: 5vw !important;
+        margin: 0 2vw !important;
+    }
+    .preco_modal,
+    .total_modal {
+        font-size: 4vw !important;
+        margin: 2vw 0 !important;
+    }
+    .obs {
+        font-size: 4vw !important;
+        height: 10vw !important;
+        border-radius: 2vw !important;
+        padding-left: 2vw !important;
+        margin-bottom: 2vw !important;
+    }
+    .carrinho {
+        font-size: 4vw !important;
+        height: 10vw !important;
+        border-radius: 2vw !important;
+        padding: 2vw !important;
+        margin-top: 2vw !important;
+    }
+    .carrinho-modal {
+        width: 8vw !important;
+        height: auto !important;
+        margin-left: 2vw !important;
     }
 }
