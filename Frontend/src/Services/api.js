@@ -16,7 +16,7 @@ export const getLanches = async () => {
 
 export const postLogin = async (login) => {
   try {
-    const response = await http.post("/login", login); 
+    const response = await http.post("/login", login); // Endpoint correto
     return response.data;
   } catch (error) {
     console.error(
@@ -199,6 +199,32 @@ export const deleteLogin = async (nome) => {
   } catch (error) {
     console.error(
       "Erro ao deletar funcionário:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const getUsuario = async (nome) => {
+  try {
+    const response = await http.get("/usuarios", { data: { nome } }); // Endpoint correto
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao achar os funcionário:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const updateUsuario = async (usuario) => {
+  try {
+    const response = await http.put("/usuarios/update", usuario); // Endpoint correto
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao atualizar funcionário:",
       error.response?.data || error.message
     );
     throw error;

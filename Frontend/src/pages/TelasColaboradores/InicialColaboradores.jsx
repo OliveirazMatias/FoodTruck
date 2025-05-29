@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import '../TelasColaboradoresCss/InicialColaboradores.css';
 import * as React from 'react';
 import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
@@ -7,9 +8,15 @@ import whatsappIcon from '../../assets/quemsomos/wpp.png';
 import clockIcon from '../../assets/quemsomos/hora.png';
 
 
-function InicialColaboradores(){
+function BoasVindasColaborador() {
+  const [nome, setNome] = useState('Colaborador');
 
-    let nome = "henrique"
+  useEffect(() => {
+    const nomeSalvo = localStorage.getItem('nome');
+    if (nomeSalvo) {
+      setNome(nomeSalvo);
+    }
+  }, []);
 
     return (
         <main>
@@ -74,5 +81,4 @@ function InicialColaboradores(){
     );
 }
 
-
-export default InicialColaboradores;
+export default BoasVindasColaborador;

@@ -1,13 +1,13 @@
 import React, { useState } from "react"; 
 import '../TelasColaboradoresCss/Estoque.css';
-import Navbar from '../../components/NavBarColaboradores/navbar.jsx';
-
+import Navbar from '../../components/NavBar/navbar.jsx';
 
 const Estoque = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedIngredient, setSelectedIngredient] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
+  const [validade, setValidade] = useState("");
 
   const ingredientes = {
     tomate: { quantidade: "2 CAIXAS DISPONÍVEIS", validade: "12/04/25" },
@@ -18,6 +18,7 @@ const Estoque = () => {
   const openModal = (ingredient = null) => {
     setSelectedIngredient(ingredient);
     setIsAdding(ingredient === null);
+    setValidade(ingredient ? ingredientes[ingredient]?.validade : "");
     setModalOpen(true);
   };
 
@@ -27,9 +28,20 @@ const Estoque = () => {
     setIsAdding(false);
   };
 
+  const handleValidadeChange = (e) => {
+    let value = e.target.value.replace(/[^0-9]/g, "");
+    if (value.length > 8) value = value.slice(0, 8);
+    if (value.length >= 5) {
+      value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
+    } else if (value.length >= 3) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    setValidade(value);
+  };
+
   return (
     <div className="estoque-container">
-      <Navbar/>
+      <Navbar />
       <h1 className="estoque-titulo">
         GERENCIAMENTO DE <span>ESTOQUE</span>
       </h1>
@@ -37,7 +49,6 @@ const Estoque = () => {
       <p className="textobusque">BUSQUE INGREDIENTES :</p>
 
       <div className="pesquisa">
-        <span className="pesquisa-icon"></span>
         <input
           type="text"
           placeholder="Digite um ingrediente:" 
@@ -67,16 +78,32 @@ const Estoque = () => {
       {modalOpen && (
         <div className="modal-overlay">
           <div className="modal-container">
-            <h2>{isAdding ? "Adicionar Novo Ingrediente" : `Editar ${selectedIngredient?.toUpperCase()}`}</h2>
-            <label>Nome:</label>
-            <input type="text" defaultValue={isAdding ? "" : selectedIngredient} disabled={!isAdding} />
-            <label>Quantidade:</label>
-            <input type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.quantidade} />
-            <label>Validade:</label>
-            <input type="text" defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.validade} />
+            <h2 className="titulo-add-ingrediente">{isAdding ? "Adicionar Novo Ingrediente" : `Editar ${selectedIngredient?.toUpperCase()}`}</h2>
+            <label className="label-nome">Nome:</label>
+            <input
+              className="input-add-ingredientes"
+              type="text"
+              defaultValue={isAdding ? "" : selectedIngredient}
+              disabled={!isAdding}
+            />
+            <label className="label-quantidade">Quantidade:</label>
+            <input
+              className="input-add-ingredientes"
+              type="number"
+              step={1}
+              defaultValue={isAdding ? "" : ingredientes[selectedIngredient]?.quantidade}
+            />
+            <label className="label-validade">Validade:</label>
+            <input
+              className="input-add-ingredientes"
+              type="text"
+              value={validade}
+              onChange={handleValidadeChange}
+              maxLength={10}
+            />
             <div className="modal-buttons">
-              <button onClick={closeModal}>Salvar</button>
-              <button onClick={closeModal}>Cancelar</button>
+              <button className="button-salvar" onClick={closeModal}>Salvar</button>
+              <button className="button-cancelar" onClick={closeModal}>Cancelar</button>
             </div>
           </div>
         </div>
@@ -86,3 +113,4 @@ const Estoque = () => {
 };
 
 export default Estoque;
+

@@ -1,4 +1,4 @@
-.add-lanche-container {
+.add-funcionario-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
     margin-top: 2rem;
 }
 
-.lanches-list {
+.funcionarios-list {
     background-color: #141c1e;
     border: 2px solid #f2b705;
     border-radius: 12px;
@@ -22,41 +22,41 @@
     font-family: 'Belanosima', sans-serif;
 }
 
-.lanches-table {
+.funcionarios-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.lanches-table th,
-.lanches-table td {
+.funcionarios-table th,
+.funcionarios-table td {
     border: 1px solid #f2b705;
     padding: 0.8rem;
     text-align: left;
 }
 
-.lanches-table th {
+.funcionarios-table th {
     background-color: #f2b705;
     color: #141c1e;
 }
 
-.lanches-table td {
+.funcionarios-table td {
     background-color: #1f1f1f;
     color: white;
 }
 
-.lanches-table th:nth-child(3),
-.lanches-table td:nth-child(3) {
-    min-width: 6vw; /* Define uma largura mínima maior para a coluna "Preço" */
+.funcionarios-table th:nth-child(4),
+.funcionarios-table td:nth-child(4) {
+    text-align: center; /* Centraliza o conteúdo da coluna de ações */
 }
 
-.lanches-table th:nth-child(6),
-.lanches-table td:nth-child(6) {
-    height: 100%;
-    width: 10vw; /* Faz a coluna 6 ocupar todo o espaço disponível */
-    text-align: center; /* Centraliza o conteúdo */
+.funcionarios-table td:nth-child(4) {
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    align-items: center; /* Centraliza os botões verticalmente */
+    gap: 0.5rem; /* Espaçamento entre os botões */
 }
 
-.add-lanche-form {
+.add-funcionario-form {
     background-color: #141c1e;
     border: 2px solid #f2b705;
     border-radius: 12px;
@@ -66,10 +66,10 @@
     gap: 1.5rem;
     color: white;
     font-family: 'Belanosima', sans-serif;
-    width: 25vw; 
-    height: 42vw; /* Define uma altura fixa */
-    overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder o tamanho */
-    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    width: 25vw;
+    height: 33vw;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .form-group {
@@ -91,7 +91,7 @@
     font-size: 1rem;
 }
 
-.btn-add-lanche {
+.btn-add-funcionario {
     background-color: #f2b705;
     color: #141c1e;
     border: none;
@@ -103,8 +103,35 @@
     transition: transform 0.3s ease;
 }
 
-.btn-add-lanche:hover {
+.btn-add-funcionario:hover {
     transform: translateY(-3px);
+}
+
+.btn-edit-funcionario,
+.btn-delete-funcionario {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: 'Alata', sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #f2b705;
+    background-color: transparent; /* Fundo transparente para discrição */
+    color: #f2b705; /* Cor do texto em amarelo */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-edit-funcionario {
+    margin-right: 5px;
+}
+
+.btn-edit-funcionario:hover {
+    background-color: #f2b705; /* Fundo amarelo no hover */
+    color: #141c1e; /* Texto escuro no hover */
+}
+
+.btn-delete-funcionario:hover {
+    background-color: #f2b705; /* Fundo amarelo no hover */
+    color: #141c1e; /* Texto escuro no hover */
 }
 
 .popup-modal {
@@ -136,8 +163,7 @@
 }
 
 .btn-confirm-delete,
-.btn-cancel-delete,
-.btn-update-lanche {
+.btn-cancel-delete {
     background-color: #f2b705;
     color: #141c1e;
     border: none;
@@ -151,42 +177,19 @@
 }
 
 .btn-confirm-delete:hover,
-.btn-cancel-delete:hover,
-.btn-update-lanche:hover {
+.btn-cancel-delete:hover {
     transform: translateY(-3px);
 }
 
-.btn-edit-lanche,
-.btn-delete-lanche {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-family: 'Alata', sans-serif;
-    border-radius: 6px;
-    cursor: pointer;
-    border: 1px solid #f2b705;
-    background-color: transparent; /* Fundo transparente para discrição */
-    color: #f2b705; /* Cor do texto em amarelo */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-edit-lanche{
-margin-right: 5px;
-}
-
-.btn-edit-lanche:hover {
-    background-color: #f2b705; /* Fundo amarelo no hover */
-    color: #141c1e; /* Texto escuro no hover */
-}
-
-.btn-delete-lanche:hover {
-    background-color: #f2b705; /* Fundo amarelo no hover */
-    color: #141c1e; /* Texto escuro no hover */
-}
-
-.lanches-titulo{
+.funcionarios-titulo {
     margin-bottom: 2vw;
 }
 
-.add-lanche-titulo{
+.add-funcionario-titulo {
     margin-top: 1vw;
+}
+
+.lanches-table th:nth-child(3),
+.lanches-table td:nth-child(3) {
+    text-align: center; /* Centraliza o conteúdo */
 }

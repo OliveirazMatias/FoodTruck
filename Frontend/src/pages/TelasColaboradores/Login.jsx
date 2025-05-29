@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import '../TelasColaboradoresCss/Login.css';
 import { postLogin } from '../../Services/api.js';
 import Navbar from '../../components/NavBar/navbar.jsx';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async () => {
         try {
@@ -19,9 +22,13 @@ function Login() {
 
             window.location.href = '/colaboradoresinicial';
         } catch (error) {
-            console.error('Erro no login: ', error);
+            console.error('Erro no login:', error);
             setError('Login ou senha inválidos');
         }
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(prev => !prev);
     };
 
     return (

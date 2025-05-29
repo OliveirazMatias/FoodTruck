@@ -32,7 +32,11 @@ const backdropStyle = {
 };
 
 function Carrinho() {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(() => {
+        const carrinhoLocal = localStorage.getItem("carrinho");
+        return carrinhoLocal ? JSON.parse(carrinhoLocal) : [];
+    });
+
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     const [checked1, setChecked1] = useState(false);
@@ -49,10 +53,12 @@ function Carrinho() {
         const fetchLanches = async () => {
             try {
                 const allLanches = await getLanches();
-                const filteredLanches = allLanches.filter(lanche => Lanches.some(item => item.id === lanche.id));
-                const updatedItems = filteredLanches.map(lanche => {
-                    const itemInCart = Lanches.find(item => item.id === lanche.id);
-                    return { ...lanche, quantidade: itemInCart ? itemInCart.quantidade : 1 };
+                const updatedItems = items.map(item => {
+                    const lancheDetalhado = allLanches.find(l => l.id === item.id);
+                    if (lancheDetalhado) {
+                        return { ...lancheDetalhado, quantidade: item.quantidade };
+                    }
+                    return item;
                 });
                 setItems(updatedItems);
             } catch (error) {
@@ -61,6 +67,10 @@ function Carrinho() {
         };
         fetchLanches();
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("carrinho", JSON.stringify(items));
+    }, [items]);
 
     const precoTotal = () => {
         return items.reduce((total, item) => {
@@ -77,21 +87,25 @@ function Carrinho() {
             return item;
         });
         setItems(updatedItems);
+        Lanches.length = 0;
+        Lanches.push(...updatedItems);
     };
 
     const removerItem = (id) => {
         const updatedItems = items
             .map((item) => {
-                if (item.ID === id) {
+                if (item.id === id) {
                     if (item.quantidade > 1) {
                         return { ...item, quantidade: item.quantidade - 1 };
                     }
-                    return null; 
+                    return null;
                 }
                 return item;
             })
-            .filter((item) => item !== null); 
+            .filter((item) => item !== null);
         setItems(updatedItems);
+        Lanches.length = 0;
+        Lanches.push(...updatedItems);
     };
 
     const handleChange = () => {
@@ -133,7 +147,7 @@ function Carrinho() {
         if (name === "numero") {
             const apenasNumerosPositivos = /^\d*$/;
             if (!apenasNumerosPositivos.test(value)) {
-                return; 
+                return;
             }
         }
 
@@ -169,7 +183,6 @@ function Carrinho() {
                                         <div className='food_text_carrinho'>
                                             <h1 className='nome_lanche_carrinho'>{lanche.nome}</h1>
                                             <p className='descricao_lanche_carrinho'>{lanche.descricao}</p>
-
                                         </div>
                                     </div>
                                     <div className='jogar-pro-ladinho'>
@@ -179,14 +192,13 @@ function Carrinho() {
                                                 <div className='preco-quantidade'>
                                                     Total: R$ {(lanche.preco * lanche.quantidade).toFixed(2)}
                                                 </div>
-
                                             </div>
                                             <div className='botoes-acoes'>
                                                 <button className='button-add-pedido' onClick={() => adicionarItem(lanche.id)}>+</button>
                                                 <span className='quantidade-item'>{lanche.quantidade}</span>
                                                 <button
                                                     className='button-remover-pedido'
-                                                    onClick={() => removerItem(lanche.ID)}
+                                                    onClick={() => removerItem(lanche.id)}
                                                 >
                                                     -
                                                 </button>
@@ -217,6 +229,22 @@ function Carrinho() {
                     }}
                 >
                     <Box sx={style}>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <button
+                                onClick={handleClose}
+                                style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    fontSize: '1.8rem',
+                                    cursor: 'pointer',
+                                    color: '#fff',
+                                    fontWeight: 'bold',
+                                    marginBottom: '0.5rem',
+                                }}
+                            >
+                                ×
+                            </button>
+                        </div>
                         <div className='modal-finalizar-pedido'>
                             <div className='container-tudo-modal'>
                                 <div className='div-endereco'>
