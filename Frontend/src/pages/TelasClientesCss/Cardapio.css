@@ -13,10 +13,7 @@ body {
     user-select: none;
 }
 
-button,
-input,
-textarea,
-select {
+button, input, textarea, select {
     user-select: auto;
 }
 
@@ -58,19 +55,15 @@ select {
 .confira-lancamentos .confira-img::after {
     content: '';
     position: absolute;
-    bottom: -5%;
-    bottom: -5%;
+    bottom: -5%; 
     left: 50%;
     transform: translateX(-50%);
-    width: 65%;
-    height: 25%;
-    width: 65%;
-    height: 25%;
+    width: 65%; 
+    height: 25%; 
     background: radial-gradient(circle, #FFE4AA 0%, rgba(0, 0, 0, 0) 70%);
     border-radius: 50%;
     z-index: 0;
-    filter: blur(1vw);
-    filter: blur(1vw);
+    filter: blur(1vw); 
 }
 
 .confira-texto {
@@ -123,26 +116,23 @@ select {
 }
 
 .lancamento-titulo {
-    font-size: 30px;
+    font-size: 3.5vw;
     color: #ffffff;
     margin: 5%;
     font-family: 'Belanosima', serif;
     font-weight: 600;
 }
-.lancamentos-highlight{
-    border-bottom: 0.3vw solid #B42625;
-}
 
-/* .cardapio-highlight {
+.cardapio-highlight {
     border-bottom: 0.3vw solid #B42625;
     font-size: 2.5vw;
 
-} */
+}
 .lancamento-produtos {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 8px;
+    gap: 16px;
 }
 
 .lancamento-produtos p {
@@ -161,9 +151,7 @@ select {
     font-weight: 600;
 }
 
-.produtos01,
-.produtos02,
-.produtos03 {
+.produtos01, .produtos02, .produtos03 {
     border-radius: 30px;
     background-color: #000000;
     border: 0.3vw solid #FFBA21;
@@ -177,15 +165,11 @@ select {
     transition: all 0.5s;
 }
 
-.produtos01 img,
-.produtos02 img,
-.produtos03 img {
+.produtos01 img, .produtos02 img, .produtos03 img {
     transition: all 0.5s;
 }
 
-.produtos01:hover,
-.produtos02:hover,
-.produtos03:hover {
+.produtos01:hover, .produtos02:hover, .produtos03:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1);
@@ -194,29 +178,22 @@ select {
     border: #FFBA21 0.8rem solid;
 }
 
-.produtos01 p,
-.produtos02 p,
-.produtos03 p {
+.produtos01 p, .produtos02 p, .produtos03 p {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px;
-    padding: 5px;
+    padding: 5px; 
     text-align: center;
     width: 100%;
 }
 
-.produtos01:hover p,
-.produtos02:hover p,
-.produtos03:hover p {
-    color: #B42625;
+.produtos01:hover p, .produtos02:hover p, .produtos03:hover p {
+    color: #B42625; 
 }
 
-.produtos01:hover img,
-.produtos02:hover img,
-.produtos03:hover img {
-    transform: scale(1.2);
+.produtos01:hover img, .produtos02:hover img, .produtos03:hover img {
+    transform: scale(1.2); 
 }
 
 
@@ -229,7 +206,6 @@ select {
 }
 
 .cardapio-highlight {
-    font-size: 30px;
     border-bottom: 0.3vw solid #B42625;
 }
 
@@ -313,7 +289,6 @@ select {
     border-radius: 2vw;
     display: flex;
     justify-content: center;
-    position: relative;
 }
 
 .food_button {
@@ -358,8 +333,7 @@ select {
     width: 90%;
 }
 
-.button_add,
-.button_sub {
+.button_add, .button_sub {
     background-color: #FFE4AA;
     color: #000000;
     font-size: 1.5vw;
@@ -409,12 +383,11 @@ select {
 .obs {
     width: 90%;
     margin-bottom: 2vw;
-    height: 10vw !important;
+    height: 3.5vw; /* Ajusta a altura para destacar o textarea */
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
-    border-radius: 2vw !important;
-    display: flex;
-    padding-left: 2vw !important;
+    border-radius: 0.8vw;
+    padding: 1vw; /* Adiciona espaçamento interno */
     color: #000000;
     font-size: 1vw; /* Ajusta o tamanho da fonte */
     font-family: 'Alata', sans-serif;
@@ -457,18 +430,17 @@ select {
     width: 90%;
     color: #000000;
     margin-bottom: 2vw;
-    font-size: 4vw !important;
-    height: 10vw !important;
+    height: 3.5vw;
     background-color: #FFE4AA;
     border: 0.1vw solid #000000;
-    border-radius: 2vw !important;
+    border-radius: 0.5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vw !important;
+    font-size: 0.9vw;
+    padding: 1vw;
     font-family: 'Alata', sans-serif;
     font-weight: 400;
-    margin-top: 2vw !important;
 }
 
 .carrinho:hover {
@@ -476,18 +448,14 @@ select {
     background-color: #AA2322;
 }
 
-.button-add-pedido, 
-.button-remover-pedido, 
-.button-add-pedido, 
-.button-remover-pedido {
+.button-add-pedido, .button-remover-pedido {
     font-size: 1.2vw;
     padding: 0.8vw 1.5vw;
     border-radius: 0.5vw;
     transition: transform 0.3s ease;
 }
 
-.button-add-pedido:hover,
-.button-remover-pedido:hover {
+.button-add-pedido:hover, .button-remover-pedido:hover {
     transform: scale(1.1);
 }
 
@@ -516,42 +484,9 @@ select {
 }
 
 .carrinho-modal {
-    width: 8vw !important;
-    height: auto !important;
-    margin-left: 2vw !important;
+    width: 10%;
+    height: auto;
 }
-
-.food_body.indisponivel {
-    opacity: 0.75;
-    pointer-events: none;
-}
-
-.food_button:disabled {
-    cursor: not-allowed;
-}
-
-.tag-indisponivel {
-    margin-top: 5px;
-    padding: 2px 6px;
-    background-color: #a00;
-    color: white;
-    font-size: 0.8rem;
-    border-radius: 4px;
-    display: inline-block;
-}
-  
-.overlay-indisponivel {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background-color: rgba(160, 0, 0, 0.8);
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    z-index: 2;
-}  
 
 @media (max-width: 768px) {
     .cardapio {
@@ -580,7 +515,6 @@ select {
         font-size: 4vw;
     }
 }
-
 @media (max-width: 425px) {
     .confira-lancamentos{
         margin-top: 50px;

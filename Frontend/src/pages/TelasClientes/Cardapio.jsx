@@ -5,7 +5,6 @@ import imginconacompanhamento from '../../assets/confiralancamentos/iconacompanh
 import imgconfira from '../../assets/confiralancamentos/confiralancamentos.jpg';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
 import { useState, useEffect } from "react";
-import lanchesData from '../TelasClientes/lanches.json';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
