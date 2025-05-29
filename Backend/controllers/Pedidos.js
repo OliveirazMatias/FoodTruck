@@ -9,8 +9,11 @@ export const postPedidos = async (req, res) => {
     try {
         const { id_funcionario, tipo_pedido, nome_cliente, Mesa, CEP, Numero, Complemento, Status, tipo_pagamento } = req.body;
 
+        // Verifica se id_funcionario é válido ou define como NULL
+        const funcionarioId = id_funcionario || null;
+
         const pedido = await Pedidos.create({
-            id_funcionario,
+            id_funcionario: funcionarioId, // Usa o valor ou NULL
             tipo_pedido,
             nome_cliente,
             Mesa,

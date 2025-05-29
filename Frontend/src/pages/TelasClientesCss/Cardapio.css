@@ -416,7 +416,8 @@ select {
     display: flex;
     padding-left: 2vw !important;
     color: #000000;
-    font-size: 0.9vw;
+    font-size: 1vw; /* Ajusta o tamanho da fonte */
+    font-family: 'Alata', sans-serif;
 }
 
 .obs::placeholder {

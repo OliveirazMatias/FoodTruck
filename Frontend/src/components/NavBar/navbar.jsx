@@ -7,6 +7,7 @@ import imgPerfil from '../../assets/icons/iconperfil.png';
 function Navbar() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para verificar se o usuário está logado
+  const [showDropdown, setShowDropdown] = useState(false); // Estado para controlar o dropdown
   const tipoFuncionario = localStorage.getItem('tipo_funcionario'); // Obtém o tipo de funcionário
   const navigate = useNavigate();
 
@@ -32,19 +33,84 @@ function Navbar() {
     }
   };
 
+  const toggleDropdown = () => {
+    if (tipoFuncionario === 'Administrador' || tipoFuncionario === 'Funcionario') {
+      setShowDropdown((prev) => !prev); // Alterna o estado do dropdown
+    }
+  };
+
   return (
     <header className="header">
-      <div className="logo-container">
+      <button className="logo-button" onClick={toggleDropdown}>
         <img className="logo" src={imglogo} alt="logo" />
-      </div>
+      </button>
+      {showDropdown && (
+        <div className="dropdown-menu dropdown-below">
+          {tipoFuncionario === 'Administrador' && (
+            <>
+              <Link to="/colaboradoresInicial" className="dropdown-link">TELA INICIAL</Link>
+              <Link to="/" className="dropdown-link">CARDÁPIO</Link>
+              <Link to="/carrinho" className="dropdown-link">CARRINHO</Link>
+              <Link to="/comandas" className="dropdown-link">COMANDAS</Link>
+              <Link to="/historicopedidos" className="dropdown-link">HISTÓRICO DE PEDIDOS</Link>
+              <Link to="/estoque" className="dropdown-link">ESTOQUE</Link>
+            </>
+          )}
+          {tipoFuncionario === 'Funcionario' && (
+            <>
+              <Link to="/colaboradoresInicial" className="dropdown-link">TELA INICIAL</Link>
+              <Link to="/" className="dropdown-link">CARDÁPIO</Link>
+              <Link to="/carrinho" className="dropdown-link">CARRINHO</Link>
+            </>
+          )}
+        </div>
+      )}
+
       <div className="nav-links">
-        <Link to="/" className="nav-link-header">CARDÁPIO</Link>
-        <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
-        <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
+        {tipoFuncionario === 'Administrador' && (
+          <>
+            <Link to="/addlanche" className="nav-link-header">GERENCIAMENTO DE LANCHES</Link>
+            <Link to="/addfuncionario" className="nav-link-header">GERENCIAMENTO DE FUNCIONÁRIOS</Link>
+          </>
+        )}
+        {tipoFuncionario === 'Funcionario' && (
+          <>
+            <Link to="/colaboradoresInicial" className="nav-link-header">TELA INICIAL</Link>
+            <Link to="/comandas" className="nav-link-header">COMANDAS</Link>
+            <Link to="/historicopedidos" className="nav-link-header">HISTÓRICO DE PEDIDOS</Link>
+            <Link to="/estoque" className="nav-link-header">ESTOQUE</Link>
+          </>
+        )}
+        {!tipoFuncionario && (
+          <>
+            <Link to="/" className="nav-link-header">CARDÁPIO</Link>
+            <Link to="/quemsomos" className="nav-link-header">QUEM SOMOS</Link>
+            <Link to="/carrinho" className="nav-link-header">CARRINHO</Link>
+          </>
+        )}
       </div>
-      <Link to="/login">
-        <img src={imgPerfil} alt="Perfil" className="perfil" />
-      </Link>
+      <img
+        src={imgPerfil}
+        alt="Perfil"
+        className="perfil"
+        onClick={handleProfileClick} // Verifica se exibe o modal ou redireciona
+      />
+      {showLogoutModal && (
+        <div className="logout-modal">
+          <div className="logout-modal-content">
+            <h2>Deseja sair?</h2>
+            <button className="btn-confirm-logout" onClick={handleLogout}>
+              Sim
+            </button>
+            <button
+              className="btn-cancel-logout"
+              onClick={() => setShowLogoutModal(false)}
+            >
+              Não
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

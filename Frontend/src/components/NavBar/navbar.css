@@ -70,6 +70,42 @@
     flex: 0 0 auto;
   }
 
+.logo-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1100; /* Garante que a imagem esteja acima de outros elementos */
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Bordas suaves */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px; /* Adiciona espaçamento interno */
+  top: calc(100% + 5px); /* Posiciona abaixo da imagem */
+  left: 6.5rem; /* Alinha horizontalmente com a imagem da logo */
+  width: 10%; /* Define um tamanho fixo */
+  margin-top: 10px; /* Adiciona uma margem branca na parte superior */
+}
+
+.dropdown-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  border-radius: 4px; /* Bordas suaves nos links */
+}
+
+.dropdown-link:hover {
+  background-color: #f0f0f0;
+}
+
 .navbar {
     background-color: #333;
     overflow: hidden;
