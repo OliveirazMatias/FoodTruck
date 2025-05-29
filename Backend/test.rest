@@ -4,8 +4,9 @@ Content-Type: application/json
 
 {
   "nome": "Mateus Silverio",
-  "email": "silverio123@gmail.com",
-  "senha": "admin123"
+  "email": "admin123",
+  "senha": "admin123",
+  "tipo_funcionario": "Funcionario"
 }
 
 
@@ -14,8 +15,8 @@ POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-  "email": "",
-  "senha": ""
+  "email": "admin123",
+  "senha": "admin123"
 }
 
 
@@ -158,26 +159,4 @@ Content-Type: application/json
 {
   "id": 7
   
-}
-
-####
-GET http://localhost:3001/usuarios
-Content-Type: application/json
-
-####
-DELETE http://localhost:3001/delete/usuario
-Content-Type: application/json
-
-{
-  "nome": "Henrique"
-}
-
-
-PUT http://localhost:3001/usuarios/update
-Content-Type: application/json
-
-{
-  "nome_original": "Henrique",
-  "nome": "Henrique",
-  "senha": 
 }

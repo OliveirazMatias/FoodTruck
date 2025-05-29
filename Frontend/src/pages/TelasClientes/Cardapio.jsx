@@ -100,7 +100,7 @@ function Cardapio() {
 
     const handleScrollAndFilter = (filterType) => {
         setActiveFilter(filterType);
-    
+
         setTimeout(() => {
             cardapioRef.current?.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -175,20 +175,28 @@ function Cardapio() {
                     <div className='lanches'>
                         {lanches
                             .filter(lanche => activeFilter === "all" || lanche.tipo === activeFilter)
-                            .map((lanche) => (
-                                <div key={lanche.id} className='food_body'>
-                                    <button onClick={() => handleOpen(lanche)} className='food_button'>
-                                        <div className="image_div">
-                                            <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
-                                        </div>
-                                        <div className="food_text">
-                                            <h2 className="nome_comida">{lanche.nome}</h2>
-                                            <p className="descricao">{lanche.descricao}</p>
-                                            <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
-                                        </div>
-                                    </button>
-                                </div>
-                            ))}
+                            .map((lanche) => {
+                                const isIndisponivel = lanche.disponibilidade === "indisponível";
+                                return (
+                                    <div key={lanche.id} className={`food_body ${isIndisponivel ? "indisponivel" : ""}`}>
+                                        <button
+                                            onClick={() => !isIndisponivel && handleOpen(lanche)}
+                                            className='food_button'
+                                            disabled={isIndisponivel}
+                                        >
+                                            <div className="image_div">
+                                                <img src={lanche.imagem} alt={lanche.nome} className="image-lanches-cardapio" />
+                                                {isIndisponivel && <div className="overlay-indisponivel">Indisponível</div>}
+                                            </div>
+                                            <div className="food_text">
+                                                <h2 className="nome_comida">{lanche.nome}</h2>
+                                                <p className="descricao">{lanche.descricao}</p>
+                                                <div className="preco">R$ {Number(lanche.preco).toFixed(2)}</div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                );
+                            })}
                     </div>
                 </div>
             </div>
