@@ -5,6 +5,7 @@ import Pedidos from './models/Pedidos.js';
 import ListaFuncionarios from './models/ListaFuncionarios.js';
 import routes from './routes/routes.js';
 import cors from 'cors';
+import Estoque from './models/Estoque.js';
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(routes);
 
 // Alterar a ordem de sincronização
 ItemCardapio.sync();
+Estoque.sync();
 ListaFuncionarios.sync();
 Pedidos.sync();
 ItemPedido.sync(); // Sincronizar por último, pois depende de outros modelos

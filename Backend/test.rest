@@ -159,3 +159,50 @@ Content-Type: application/json
   "id": 7
   
 }
+
+#####
+post http://localhost:3001/estoque
+Content-Type: application/json
+
+{
+"nome":, 
+"quantidade",
+ "data_entrada", 
+ "disponibilidade"
+
+}
+
+### CRIAR ITEM NO ESTOQUE
+POST http://localhost:3001/estoque
+Content-Type: application/json
+
+{
+  "nome": "Tomate",
+  "quantidade": 50,
+  "data_entrada": "2023-10-01",
+  "disponibilidade": "disponível"
+}
+
+### ATUALIZAR ITEM NO ESTOQUE
+PUT http://localhost:3001/estoque/update
+Content-Type: application/json
+
+{
+  "id": 2,
+  "nome": "Tomate Atualizado",
+  "quantidade": 100,
+  "data_entrada": "2023-10-05",
+  "disponibilidade": "disponível"
+}
+
+### DELETAR ITEM DO ESTOQUE
+DELETE http://localhost:3001/estoque/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### OBTER TODOS OS ITENS DO ESTOQUE
+GET http://localhost:3001/estoque
+
