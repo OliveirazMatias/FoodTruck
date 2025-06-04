@@ -12,6 +12,8 @@ import AddLanche from "./pages/TelasSuperAdm/AddLanche";
 import AddFuncionario from "./pages/TelasSuperAdm/AddFuncionario";
 import Unauthorized from "./pages/Unauthorized";
 import ProtectedRoute from "./components/ProtectedRoute";
+import CompraCerta from "./pages/compracerta";
+import CompraErrada from "./pages/compraerrada";
 
 import "./App.css";
 import imglogo from "./assets/logo/logo.png";
@@ -26,6 +28,8 @@ const App = () => {
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/login" element={<Login />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/compracerta" element={<CompraCerta />} /> 
+        <Route path="/compraerrada" element={<CompraErrada />} />
         <Route
           path="/estoque"
           element={
