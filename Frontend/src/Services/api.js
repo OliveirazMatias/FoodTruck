@@ -233,7 +233,7 @@ export const updateUsuario = async (usuario) => {
 
 export const pagamentoPix = async (dadosPagamento) => {
   try {
-    const response = await http.post("/pagamento/pix", dadosPagamento);
+    const response = await http.post("/pagamento/pix", dadosPagamento); // Chamada para pagamento via PIX
     return response.data;
   } catch (error) {
     console.error(
@@ -246,11 +246,24 @@ export const pagamentoPix = async (dadosPagamento) => {
 
 export const pagamentoCartao = async (dadosPagamento) => {
   try {
-    const response = await http.post("/pagamento/cartao", dadosPagamento);
+    const response = await http.post("/pagamento/cartao", dadosPagamento); // Chamada para pagamento via cartão
     return response.data;
   } catch (error) {
     console.error(
       "Erro ao processar pagamento com cartão:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+
+export const verificarStatusPagamento = async (paymentId) => {
+  try {
+    const response = await http.get(`/pagamento/status/${paymentId}`); // Verificar status do pagamento
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Erro ao verificar status do pagamento:",
       error.response?.data || error.message
     );
     throw error;
