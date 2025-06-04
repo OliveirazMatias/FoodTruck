@@ -1,4 +1,4 @@
-import database from "../config/database"
+import database from "../config/database.js"
 import sequelize from "sequelize";
 
 
