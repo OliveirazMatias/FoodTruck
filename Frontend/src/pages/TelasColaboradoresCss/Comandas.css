@@ -48,6 +48,18 @@ body {
     border-bottom: 0.2vw solid #B42625;
 }
 
+.titulo-pedidos-delivery {
+    display: flex;
+    font-size: 1.8vw;
+    color: #ffffff;
+    margin-left: 22%;
+    margin-bottom: 2%;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    width: 25%;
+    border-bottom: 0.2vw solid #B42625;
+}
+
 .botoes-mesas {
     display: flex;
     justify-content: center;
@@ -355,4 +367,29 @@ body {
     transform: translate(0, -0.25vw);
     background-color: transparent;
     color: #B42625;
+}
+
+.botoes-pedidos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw;
+    gap: 1.5vw;
+}
+
+.botao-pedido {
+    background-color: #B42625;
+    color: #ffffff;
+    font-family: 'Belanosima', serif;
+    font-weight: 600;
+    font-size: 1.2vw;
+    padding: 1vw 2vw;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-pedido:hover {
+    background-color: #8e1d1d;
 }

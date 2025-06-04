@@ -70,8 +70,16 @@ export const getPedidosByMesa = async (req, res) => {
 
 export const getPedidos = async (req, res) => {
     try {
-        const pedidos = await Pedidos.findAll();
-        return res.status(200).json({ pedidos });
+        const pedidos = await Pedidos.findAll({
+            include: [
+                {
+                    model: ItemPedido,
+                    as: "itens", // Certifique-se de que o alias está correto
+                },
+            ],
+        });
+        console.log("Pedidos encontrados no banco de dados:", JSON.stringify(pedidos, null, 2)); // Log detalhado
+        return res.status(200).json({ pedidos }); // Retorna um objeto com a propriedade 'pedidos'
     } catch (error) {
         console.error("Erro ao buscar pedidos:", error);
         return res.status(500).json({ error: "Erro no servidor." });
@@ -130,6 +138,25 @@ export const getPedidosByDate = async (req, res) => {
     }
 };
 
+export const getPedidosDelivery = async (req, res) => {
+    try {
+        console.log("Recebendo requisição para pedidos delivery"); // Log de entrada
+        const pedidos = await Pedidos.findAll({
+            where: { tipo_pedido: "delivery" },
+            include: [
+                {
+                    model: ItemPedido,
+                    as: "itens", // Ensure alias matches the model definition
+                },
+            ],
+        });
+        console.log("Pedidos delivery encontrados:", pedidos); // Log dos pedidos encontrados
+        return res.status(200).json({ pedidos });
+    } catch (error) {
+        console.error("Erro ao buscar pedidos delivery:", error);
+        return res.status(500).json({ error: "Erro no servidor." });
+    }
+};
 
 export const deletePedidos = async (req, res) => {
     try {

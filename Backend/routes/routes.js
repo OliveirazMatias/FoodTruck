@@ -23,6 +23,7 @@ import {
   getPedidos,
   getPedidosByDate,
   deletePedidos,
+  getPedidosDelivery, // Import the new controller
 } from "../controllers/Pedidos.js";
 import { pagamentoPix, pagamentoCartao } from "../controllers/Pagamento.js";
 import { MercadoPagoConfig, Payment } from "mercadopago";
@@ -50,6 +51,7 @@ routes.get("/pedidos/CEP", getPedidosByCEP); // Handles ?CEP= query
 routes.get("/pedidos/mesa", getPedidosByMesa); // Handles ?Mesa= query
 routes.post("/pedidos/data", getPedidosByDate); // Handles ?filtro= and ?data= query
 routes.delete("/pedidos/delete", deletePedidos); // Handles ?id= query
+routes.get("/pedidos/delivery", getPedidosDelivery); // Add the new route
 
 // Adicione essas rotas junto com as outras:
 routes.post("/pagamento/pix", pagamentoPix);

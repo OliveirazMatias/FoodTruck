@@ -269,3 +269,15 @@ export const verificarStatusPagamento = async (paymentId) => {
     throw error;
   }
 };
+
+export const getPedidosDelivery = async () => {
+  try {
+    console.log("Chamando API para pedidos delivery..."); // Log de início
+    const response = await http.get("/pedidos/delivery"); // Endpoint para pedidos delivery
+    console.log("Resposta da API para pedidos delivery:", response.data); // Log da resposta
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar pedidos delivery:", error.response?.data || error.message);
+    throw error;
+  }
+};
