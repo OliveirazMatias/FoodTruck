@@ -441,6 +441,8 @@ button, input, textarea, select {
     padding: 1vw;
     font-family: 'Alata', sans-serif;
     font-weight: 400;
+    cursor: pointer;
+
 }
 
 .carrinho:hover {

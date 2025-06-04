@@ -150,6 +150,46 @@ export const getLanchesByDesc = async (descricao) => {
   }
 };
 
+export const postEstoque = async (itemEstoque) => {
+  try {
+    const response = await http.post("/estoque", itemEstoque);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao adicionar item ao estoque:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const getEstoque = async () => {
+  try {
+    const response = await http.get("/estoque");
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar itens do estoque:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const updateEstoque = async (itemEstoque) => {
+  try {
+    const response = await http.put("/estoque/update", itemEstoque);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao atualizar item do estoque:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+export const deleteEstoque = async (id) => {
+  try {
+    const response = await http.delete("/estoque/delete", { data: { id } });
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao deletar item do estoque:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // MAIS CONTROLLERS DPS
 
 // OUTROS CRUD

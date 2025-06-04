@@ -27,6 +27,12 @@ import {
 } from "../controllers/Pedidos.js";
 import { pagamentoPix, pagamentoCartao } from "../controllers/Pagamento.js";
 import { MercadoPagoConfig, Payment } from "mercadopago";
+import {
+  postEstoque,
+  getEstoque,
+  updateEstoque,
+  deleteEstoque
+} from "../controllers/Estoque.js";
 
 const routes = express.Router();
 
@@ -56,5 +62,11 @@ routes.get("/pedidos/delivery", getPedidosDelivery); // Add the new route
 // Adicione essas rotas junto com as outras:
 routes.post("/pagamento/pix", pagamentoPix);
 routes.post("/pagamento/cartao", pagamentoCartao);
+
+// ROTAS PARA ESTOQUE
+routes.post("/estoque", postEstoque);
+routes.get("/estoque", getEstoque);
+routes.put("/estoque/update", updateEstoque);
+routes.delete("/estoque/delete", deleteEstoque);
 
 export default routes;
