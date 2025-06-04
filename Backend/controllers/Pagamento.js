@@ -61,9 +61,9 @@ export const pagamentoPix = async (req, res) => {
         }
       },
       back_urls: {
-        success: `${process.env.FRONTEND_URL}/compracerta`, // URL válida para sucesso
-        failure: `${process.env.FRONTEND_URL}/compraerrada`, // URL válida para falha
-        pending: `${process.env.FRONTEND_URL}/compraerrada`, // URL válida para pendente
+        success: `https://img.freepik.com/psd-premium/mao-de-ilustracao-3d-segurando-o-simbolo-correto_540965-84.jpg`, // URL válida para sucesso
+        failure: `https://static.vecteezy.com/ti/vetor-gratis/p1/6549696-icone-de-rabisco-desenhado-a-mao-errado-gratis-vetor.jpg`, // URL válida para falha
+        pending: `https://thumbs.dreamstime.com/b/homem-sem-no%C3%A7%C3%A3o-e-express%C3%A3o-confusa-com-bra%C3%A7os-m%C3%A3os-levantadas-maduro-caucasiano-ignorante-confuso-levantados-261282988.jpg`, // URL válida para pendente
       },
       auto_return: "approved", // Define auto_return como "approved"
       payment_methods: {
@@ -156,9 +156,9 @@ export const pagamentoCartao = async (req, res) => {
         }
       },
       back_urls: {
-        success: `${process.env.FRONTEND_URL}/compracerta`, // URL válida para sucesso
-        failure: `${process.env.FRONTEND_URL}/compraerrada`, // URL válida para falha
-        pending: `${process.env.FRONTEND_URL}/compraerrada`, // URL válida para pendente
+        success: `https://img.freepik.com/psd-premium/mao-de-ilustracao-3d-segurando-o-simbolo-correto_540965-84.jpg`, // URL válida para sucesso
+        failure: `https://static.vecteezy.com/ti/vetor-gratis/p1/6549696-icone-de-rabisco-desenhado-a-mao-errado-gratis-vetor.jpg`, // URL válida para falha
+        pending: `https://thumbs.dreamstime.com/b/homem-sem-no%C3%A7%C3%A3o-e-express%C3%A3o-confusa-com-bra%C3%A7os-m%C3%A3os-levantadas-maduro-caucasiano-ignorante-confuso-levantados-261282988.jpg`, // URL válida para pendente
       },
       auto_return: "approved", // Define auto_return como "approved"
       payment_methods: {

@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import carrinho from '../../assets/cardapio/shopping-cart.svg';
+import { FormControlLabel, Switch, Grow } from '@mui/material';
+import piximg from '../../assets/carrinho/piximg.jpg';
+import masterimg from '../../assets/carrinho/masterimg.jpg';
 import { Lanches } from './Cardapio';
-import { getLanches, deleteItemPedido, postPedidos, postItemPedido, pagamentoPix, pagamentoCartao } from "../../Services/api";
+import { getLanches, deleteItemPedido, postPedidos, postItemPedido } from "../../Services/api";
 import axios from "axios";
 import Navbar from '../../components/NavBar/navbar.jsx';
 
@@ -195,56 +198,6 @@ function Carrinho() {
         }
     };
 
-    const handleProcessarPagamento = async () => {
-        try {
-            if (!checked && !checked1) {
-                alert("Selecione uma forma de pagamento!");
-                return;
-            }
-
-            const dadosPagamento = {
-                items: items.map(item => ({
-                    id: item.id,
-                    quantidade: item.quantidade,
-                })),
-                total: parseFloat(precoTotal()),
-                dados_cliente: {
-                    nome: endereco.nome_cliente,
-                    email: endereco.email || "cliente@exemplo.com",
-                    telefone: endereco.telefone || "999999999",
-                    ddd: endereco.ddd || "11",
-                    cep: endereco.cep,
-                    rua: endereco.rua,
-                    numero: endereco.numero,
-                    bairro: endereco.bairro,
-                    cidade: endereco.cidade,
-                    complemento: endereco.complemento,
-                },
-            };
-
-            let response;
-            if (checked) {
-                // Pagamento via PIX
-                response = await pagamentoPix(dadosPagamento);
-                alert("Pagamento via PIX iniciado. Escaneie o QR Code.");
-                window.open(response.init_point || response.sandbox_init_point, "_blank");
-            } else if (checked1) {
-                // Pagamento via Cartão
-                response = await pagamentoCartao(dadosPagamento);
-                alert("Pagamento via Cartão iniciado. Redirecionando...");
-                window.open(response.init_point || response.sandbox_init_point, "_blank");
-            }
-
-            // Limpa o carrinho após o pagamento
-            localStorage.removeItem("carrinho");
-            setItems([]);
-            setOpen(false);
-        } catch (error) {
-            console.error("Erro ao processar pagamento:", error);
-            alert("Erro ao processar pagamento. Tente novamente.");
-        }
-    };
-
     return (
         <div className="carrinho-container">
             <Navbar />
@@ -405,32 +358,7 @@ function Carrinho() {
                                             />
                                         </div>
                                     </div>
-                                    <div>
-                                        <span className='titulo-endereco'>Forma de Pagamento</span>
-                                        <div>
-                                            <label>
-                                                <input
-                                                    type="radio"
-                                                    name="pagamento"
-                                                    checked={checked}
-                                                    onChange={handleChange}
-                                                />
-                                                PIX
-                                            </label>
-                                            <label>
-                                                <input
-                                                    type="radio"
-                                                    name="pagamento"
-                                                    checked={checked1}
-                                                    onChange={handleChange1}
-                                                />
-                                                Cartão
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <button className='finalizar-compra' onClick={handleProcessarPagamento}>
-                                        Confirmar Pagamento
-                                    </button>
+                                    <button className='finalizar-compra' onClick={handleFinalizarCompra}>Próxima Etapa</button>
                                 </div>
                             </div>
                         </div>
